@@ -6,6 +6,8 @@ This document defines how AI tools will be used to build the Nikhil Sharma Execu
 
 The goal is to prevent strategic drift, duplicated thinking, inconsistent execution, and fragmented decision-making.
 
+`MASTER_PLAYBOOK.md` is the canonical strategy document. It defines the thesis, positioning, narrative system, content pillars, quality gates, and long-term ambition. Every brief, prompt, and review here must stay consistent with it.
+
 ---
 
 ## Core Rule

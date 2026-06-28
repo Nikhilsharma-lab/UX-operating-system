@@ -24,6 +24,7 @@ Each entry: ID — Decision → Consequence. Add Date, Context, and Owner as dec
 - **006** — Warm Editorial Zine visual direction → cream canvas, high-contrast serif display, geometric mono UI/body, flat surfaces, hairline borders, single highlighter-yellow accent. Switch-Lit tokens remain reference only.
 - **007** — Added Evidence, Career Assets, Prompts, Audits, Governance, Emotional Journey, Knowledge Architecture, and Confidentiality systems → protects the project from strategic drift, unsupported claims, and memory loss.
 - **008** — Added root-level `DESIGN.md` as the read-first design contract for Claude Code → prevents visual drift and keeps UI implementation consistent across pages, components, motion, typography, and visual language.
+- **009** — Locked `MASTER_PLAYBOOK.md` as the canonical strategy document → establishes the core thesis, positioning, narrative system, content pillars, transformation story model, evidence rules, quality gates, and long-term ambition before homepage strategy begins.
 
 ---
 

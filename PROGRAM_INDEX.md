@@ -130,7 +130,7 @@ The Map is exhaustive. Nothing is forgotten, only sequenced.
 
 - [x] `P0` `README.md` — system overview.
 - [x] `P0` `PROGRAM_INDEX.md` — this master dashboard.
-- [x] `P0` `MASTER_PLAYBOOK.md` — canonical strategy and content.
+- [x] `P0` `MASTER_PLAYBOOK.md` — canonical strategy and content (locked v1, Decision 009).
 - [x] `P0` `AI_COLLABORATION_MODEL.md` — how AI tools collaborate.
 - [ ] `▶V1` `P0` `DESIGN.md` — root-level design contract for UI consistency.
 - [x] `P0` `DECISION_LOG.md` — running decisions.
@@ -247,6 +247,7 @@ The running record. Source of truth for current execution. Mirrored and expanded
 - **006** — Warm Editorial Zine visual direction → cream canvas, serif display, mono UI, single highlighter accent.
 - **007** — Added Evidence, Career Assets, Prompts, Audits, Governance, Emotional Journey, Knowledge Architecture, and Confidentiality systems → protects the project from strategic drift, unsupported claims, and memory loss.
 - **008** — Added root-level `DESIGN.md` as the read-first design contract for Claude Code → prevents visual drift and keeps UI implementation consistent across pages, components, motion, typography, and visual language.
+- **009** — Locked `MASTER_PLAYBOOK.md` as the canonical strategy document → establishes the core thesis, positioning, narrative system, content pillars, transformation story model, evidence rules, quality gates, and long-term ambition before homepage strategy begins.
 
 ---
 

@@ -74,6 +74,7 @@ Shared
 
 ## Related Files
 
+- MASTER_PLAYBOOK.md (canonical strategy document)
 - QUALITY/DEFINITION_OF_DONE.md
 - DESIGN.md
 - PROGRAM_INDEX.md
