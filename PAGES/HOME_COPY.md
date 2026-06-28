@@ -12,7 +12,7 @@ It should be reviewed and approved before UI implementation.
 
 ## Status
 
-Draft v1 — Evidence-gated
+Draft v2 — Evidence-gated
 
 ---
 
@@ -28,7 +28,7 @@ Draft v1 — Evidence-gated
 
 ---
 
-# Homepage Copy v1
+# Homepage Copy v2
 
 ## 1. Hero
 
@@ -38,18 +38,11 @@ AI-native Product Executive
 
 ### Primary Headline
 
-I build product organizations that turn ambiguity into measurable outcomes.
-
-### Alternate Headline Options
-
-1. I build AI-native product organizations that turn ambiguity into measurable outcomes.
-2. Building the operating system behind better products.
-3. Design creates systems that create products.
-4. I build the systems behind high-performing products.
+I build AI-native product organizations that turn ambiguity into measurable outcomes.
 
 ### Supporting Copy
 
-I lead product design across regulated fintech, AI-native workflows, design systems, customer trust, and behavioral growth — building the teams, rituals, infrastructure, and products that help organizations ship with clarity.
+I lead product design across regulated fintech, design systems, customer trust, behavioral growth, and AI-assisted product development — building the teams, rituals, infrastructure, and decision systems that help organizations ship with clarity.
 
 ### Primary CTA
 
@@ -63,6 +56,15 @@ Explore Operating Manual
 
 Contact
 
+### Alternate Hero Lines
+
+Use these only for exploration, not final implementation yet.
+
+1. Building the operating system behind better products.
+2. Design creates systems that create products.
+3. I build the systems behind high-performing product organizations.
+4. From ambiguity to operating systems. From operating systems to outcomes.
+
 ---
 
 ## 2. Executive Snapshot
@@ -73,22 +75,27 @@ Executive Snapshot
 
 ### Section Headline
 
-Design leadership, product systems, and business outcomes.
+Design leadership at the intersection of product, AI, trust, and business outcomes.
 
 ### Intro Copy
 
-My work sits at the intersection of product design leadership, AI-native product development, regulated fintech, customer trust, behavioral growth, and entrepreneurship.
+My work spans product design leadership, AI-native product development, regulated fintech, customer trust, behavioral growth, design systems, research, and entrepreneurship.
+
+This is not a collection of projects.
+
+It is a record of systems built, decisions made, and outcomes created.
 
 ### Snapshot Items
 
 #### Leadership
 
-Head of Product Design at Airtel Payments Bank [EVIDENCE-GATED]  
-Built and scaled product design capability across banking, merchant, and internal product ecosystems. [EVIDENCE-GATED]
+Head of Product Design at Airtel Payments Bank. [EVIDENCE-GATED]
+
+Built and scaled product design capability across consumer banking, merchant, and internal product ecosystems. [EVIDENCE-GATED]
 
 #### Organization
 
-Built design rituals, reviews, research practices, operating rhythms, hiring systems, and product collaboration models. [EVIDENCE-GATED]
+Built design rituals, critique systems, research practices, design reviews, operating rhythms, hiring systems, and cross-functional product collaboration models. [EVIDENCE-GATED]
 
 #### Scale
 
@@ -100,7 +107,8 @@ Contributed to measurable outcomes across growth, trust, onboarding, fraud preve
 
 #### Building
 
-Building LANE, an AI-native product operating system for product and design teams.  
+Building LANE, an AI-native product operating system for product and design teams. [EVIDENCE-GATED]
+
 Building Svenklas, a design-led travel accessories brand. [EVIDENCE-GATED]
 
 ---
@@ -117,9 +125,11 @@ Design creates systems that create products.
 
 ### Copy
 
-Most portfolios show the visible output: screens, flows, launches, metrics.
+Most portfolios show the visible layer: screens, flows, launches, and metrics.
 
-But the quality of a product is usually shaped much earlier — in the systems behind it.
+But products are shaped much earlier.
+
+They are shaped by how teams frame problems, how research changes decisions, how product and engineering collaborate, how quality is reviewed, how systems are maintained, and how leaders create conditions for repeatable execution.
 
 Hiring is a system.  
 Research is a system.  
@@ -141,31 +151,47 @@ Capabilities
 
 ### Headline
 
-The capabilities behind the work.
+Capabilities over projects.
 
 ### Intro Copy
 
-I do not organize my work as isolated projects. I organize it as capabilities that compound across teams, products, and organizations.
+Projects expire.
+
+Capabilities compound.
+
+I organize my work around the capabilities that help product organizations move from scattered execution to repeatable quality.
+
+---
 
 ### Capability 1 — Organizational Design
 
-Building design organizations, rituals, review systems, hiring practices, onboarding, and operating models that help teams move from service function to strategic product capability.
+Building design teams, rituals, reviews, hiring practices, onboarding systems, and operating models that move design from service function to strategic product capability.
+
+---
 
 ### Capability 2 — AI-native Product Development
 
-Using AI to reshape how product teams frame problems, validate direction, move from design to code, and reduce friction between design and engineering.
+Using AI to reshape how teams frame problems, validate direction, move from design to code, and reduce friction between product, design, and engineering.
+
+---
 
 ### Capability 3 — Behavioral Growth
 
-Designing around real customer behavior — not ideal user journeys — to improve activation, adoption, retention, and business outcomes.
+Designing around real customer behavior — not idealized user journeys — to improve activation, adoption, retention, and business outcomes.
+
+---
 
 ### Capability 4 — Customer Trust
 
 Building trust in regulated financial products through transparency, safety, recovery, education, and product architecture.
 
+---
+
 ### Capability 5 — Product Infrastructure
 
 Creating design systems, component models, product workflows, and governance systems that reduce rework and improve execution quality.
+
+---
 
 ### Capability 6 — Builder Energy
 
@@ -197,15 +223,15 @@ These stories document business problems, organizational constraints, research, 
 
 #### Card Headline
 
-Building the design organization.
+From scattered design execution to an operating model.
 
 #### Summary
 
-How a design function moved from scattered execution to a clearer operating model: teams, rituals, reviews, research, design systems, hiring, and cross-functional collaboration.
+How a product design function evolved into a clearer organizational system: teams, rituals, research, reviews, hiring, design systems, and cross-functional product collaboration.
 
-#### Proof Direction
+#### What It Proves
 
-Organization-building proof. [EVIDENCE-GATED]
+Nikhil can build the operating system of a product design organization, not just manage design output. [EVIDENCE-GATED]
 
 #### CTA
 
@@ -217,15 +243,15 @@ Read Transformation
 
 #### Card Headline
 
-Modernizing how products get built.
+Modernizing how product work moves from idea to implementation.
 
 #### Summary
 
-How AI-assisted workflows, design systems, and product operating tools began changing the relationship between design, validation, implementation, and engineering collaboration.
+How AI-assisted workflows, design systems, and product operating tools began changing the relationship between problem framing, validation, design, implementation, and engineering collaboration.
 
-#### Proof Direction
+#### What It Proves
 
-AI-native workflow proof. [EVIDENCE-GATED]
+Nikhil is applying AI to product operating models, not using it as a buzzword. [EVIDENCE-GATED]
 
 #### CTA
 
@@ -237,15 +263,15 @@ Read Transformation
 
 #### Card Headline
 
-Designing behavioral growth in Digital Gold.
+Designing growth around customer behavior.
 
 #### Summary
 
-How customer behavior, commitment anxiety, and product framing shaped a growth model that made Digital Gold easier to start and easier to sustain.
+How commitment anxiety, product framing, and behavioral insight shaped a model that made Digital Gold easier to start and easier to sustain.
 
-#### Proof Direction
+#### What It Proves
 
-28× growth in Digital Gold adoption. [EVIDENCE-GATED]
+Nikhil connects customer behavior, product decisions, and measurable business growth. 28× growth in Digital Gold adoption. [EVIDENCE-GATED]
 
 #### CTA
 
@@ -300,6 +326,10 @@ Essays, frameworks, and mental models for modern product organizations.
 
 The Thinking section expands the ideas behind the work: AI-native product teams, design systems as infrastructure, behavioral growth, trust in financial products, and why transformation stories are stronger than case studies.
 
+This is not a blog of opinions.
+
+It is where experience becomes reusable thinking.
+
 ### Possible Essay Seeds
 
 - Why case studies are too small for executive work
@@ -331,6 +361,14 @@ LANE is an AI-native product operating system for product and design teams — b
 ### Svenklas
 
 Svenklas is a design-led travel accessories brand that brings founder-level ownership into product, brand, manufacturing, distribution, and commercial execution.
+
+### Copy Note
+
+LANE and Svenklas should not be framed as side projects.
+
+They are builder proof.
+
+They show that the operating philosophy extends beyond advisory language into product and business creation.
 
 ### CTA
 
@@ -401,14 +439,37 @@ AI-native Product Executive building organizations, systems, and businesses.
 
 Every `[EVIDENCE-GATED]` item above must pass Evidence Review and be registered in `EVIDENCE/CLAIMS_REGISTER.md` before public launch.
 
+## Current Evidence-Gated Claims
+
 - Head of Product Design at Airtel Payments Bank → CLAIM-001
 - Built and scaled product design capability / organization → CLAIM-002, CLAIM-010
 - Banking, merchant, and internal product ecosystems → CLAIM-003
 - Built design rituals, reviews, research, hiring systems → CLAIM-002, CLAIM-010
-- Products serving millions of users → CLAIM (12M+ MAU, metric table)
+- Products serving millions of users → Needs exact claim mapping / metric confirmation
 - Outcomes across growth, trust, onboarding, fraud, implementation speed → CLAIM-004, CLAIM-006, CLAIM-011, metric table
 - Building LANE → CLAIM-007
 - Building Svenklas → CLAIM-008
 - 28× growth in Digital Gold adoption → CLAIM-012
 
-Do not present any of the above as a final public claim until verified.
+Do not present any of the above as final public claims until verified.
+
+---
+
+# Copy Review Notes
+
+## What this copy is trying to do
+
+- Establish executive identity quickly.
+- Avoid generic portfolio framing.
+- Show the belief system before showing work.
+- Move from identity to proof to usefulness.
+- Keep major claims evidence-gated.
+- Prepare the homepage for UI implementation without locking final public copy.
+
+## What still needs review
+
+- Whether the hero should use “AI-native” in the primary headline or reserve it for supporting copy.
+- Which metrics are approved for homepage use.
+- Whether “Head of Product Design at Airtel Payments Bank” can be publicly used as-is.
+- Whether LANE and Svenklas should appear on homepage V1 or only as preview links.
+- Whether Thinking should launch with seeded essays or remain as a preview.

@@ -276,6 +276,7 @@ The running record. Source of truth for current execution. Mirrored and expanded
 - **016** — Locked `PAGES/HOME.md` homepage strategy v1 → defines homepage purpose, audience journey, section architecture, featured transformations, evidence rules, visual requirements, CTA strategy, and knowledge-graph links before copywriting or UI implementation begins.
 - **017** — Fixed V1 release drift and prepared evidence-ready skeletons for the three V1 transformation stories → aligns `RELEASES/V1.md`, `PROGRAM_INDEX.md`, and story files around Building the Design Organization, AI-native Product Development, and Digital Gold Growth before story prose is written.
 - **018** — Created `PAGES/HOME_COPY.md` as the evidence-gated homepage copy draft → allows homepage narrative to be reviewed before UI implementation while keeping major role, scale, and outcome claims tied to Evidence Review.
+- **019** — Refined `PAGES/HOME_COPY.md` to Draft v2 → sharpens homepage language, strengthens executive positioning, reduces generic portfolio tone, clarifies transformation story cards, and preserves evidence-gated claims before UI implementation.
 
 ---
 
