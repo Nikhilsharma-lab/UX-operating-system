@@ -10,6 +10,12 @@ This file exists to maintain design-system consistency across the entire project
 
 The token values defined here are mirrored as machine-readable CSS in `styles/globals.css`. When the Next.js app is scaffolded, `styles/globals.css` becomes the wired source; this file remains the human-readable contract. Keep the two in sync.
 
+### Canonical Source
+
+The authoritative design system is the Claude Design project **"Warm Editorial Zine - Design System"** (imported to `design/Warm Editorial Zine - Design System.html`). This `DESIGN.md` is the operational contract derived from it.
+
+Reconciled on import (Decision 026): the canonical system confirms the current build — same palette (all 12 tokens), the three-voice typography (**Fraunces** serif / **Hanken Grotesk** sans / **IBM Plex Mono** mono), 3px / 8px radii, flat surfaces, hairline borders, and the evidence-ledger motif. The only adjustment was the Type Scale below (font assignments + uppercase-label tracking) to match the canonical conventions.
+
 ---
 
 ## Project Design Identity
@@ -228,68 +234,84 @@ If the section does not answer a question, do not build it.
 
 ## Type Scale
 
-Caption
+Reconciled to the three-voice system and the canonical "Warm Editorial Zine" conventions: **mono** uppercase labels track **positive** (+0.04–0.06em); **sans** body tracks near-zero (≈ −0.01em); **serif** headlines track **negative** (−0.02 to −0.03em).
 
-- Size: 12px
+Eyebrow / Label
+
+- Size: 11–12px
 - Line height: 17px
-- Letter spacing: -0.8px
+- Letter spacing: +0.06em
+- Transform: UPPERCASE
+- Font: mono
+
+Caption / Metadata
+
+- Size: 11–12px
+- Line height: 17px
+- Letter spacing: +0.04em (uppercase) / 0 (sentence case)
 - Font: mono
 
 Body Small
 
 - Size: 14px
-- Line height: 19px
-- Letter spacing: -0.94px
-- Font: mono
+- Line height: 22px
+- Letter spacing: −0.006em
+- Font: sans
 
 Body
 
 - Size: 16px
-- Line height: 24px
-- Letter spacing: -1.07px
-- Font: mono
+- Line height: 26px
+- Letter spacing: −0.011em
+- Font: sans
 
 Subheading
 
-- Size: 20px
+- Size: 18–20px
 - Line height: 30px
-- Letter spacing: -0.5px
-- Font: mono or serif depending on context
+- Letter spacing: −0.01em
+- Font: serif (editorial lines) or sans (UI) by context
 
 Heading Small
 
-- Size: 24px
-- Line height: 24px
-- Letter spacing: -1.2px
+- Size: 22–24px
+- Line height: 1.18
+- Letter spacing: −0.01em
 - Font: serif
 
 Heading
 
-- Size: 32px
-- Line height: 32px
-- Letter spacing: -1.6px
+- Size: 28–32px
+- Line height: 1.08
+- Letter spacing: −0.02em
 - Font: serif
 
 Heading Large
 
-- Size: 48px
-- Line height: 54px
-- Letter spacing: -2.4px
+- Size: 44–48px
+- Line height: 1.1
+- Letter spacing: −0.024em
 - Font: serif
 
 Display Small
 
 - Size: 64px
-- Line height: 64px
-- Letter spacing: -3.2px
+- Line height: 1.0
+- Letter spacing: −0.03em
 - Font: serif
 
-Display
+Display (Hero)
 
-- Size: 96px
-- Line height: 90px
-- Letter spacing: -4.8px
+- Size: clamp 2.1rem → 5.5rem (≈ 34–88px)
+- Line height: 1.04
+- Letter spacing: −0.03em
 - Font: serif
+
+Ledger Number
+
+- Size: 22px
+- Letter spacing: −0.01em
+- Font: serif, tabular-nums
 
 ---
 
