@@ -29,7 +29,7 @@ export function HeroSection() {
           </p>
 
           <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-            <CtaLink href="#transformations" variant="primary">
+            <CtaLink href="/transformations" variant="primary">
               Read Transformations
             </CtaLink>
             <CtaLink href="#operating-manual" variant="secondary">

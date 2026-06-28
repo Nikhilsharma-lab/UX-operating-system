@@ -1,9 +1,11 @@
+import Link from "next/link";
+
 const coreLinks = [
-  { label: "Capabilities", href: "#capabilities" },
-  { label: "Transformations", href: "#transformations" },
-  { label: "Operating Manual", href: "#operating-manual" },
-  { label: "Thinking", href: "#thinking" },
-  { label: "Building", href: "#building" },
+  { label: "Capabilities", href: "/#capabilities" },
+  { label: "Transformations", href: "/transformations" },
+  { label: "Operating Manual", href: "/#operating-manual" },
+  { label: "Thinking", href: "/#thinking" },
+  { label: "Building", href: "/#building" },
 ];
 
 const linkClass =
@@ -22,9 +24,9 @@ export function SiteFooter() {
             <ul className="flex flex-wrap gap-x-5 gap-y-2">
               {coreLinks.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className={linkClass}>
+                  <Link href={link.href} className={linkClass}>
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

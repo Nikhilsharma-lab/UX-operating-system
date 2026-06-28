@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { SectionShell } from "@/components/section-shell";
 import { EvidenceGateLabel } from "@/components/evidence-gate-label";
 import { evidenceMode } from "@/lib/evidence";
@@ -7,6 +8,7 @@ const metaLabel =
 
 type Story = {
   index: string;
+  slug: string;
   cardHeadline: string;
   summary: string;
   proves: string;
@@ -16,6 +18,7 @@ type Story = {
 const stories: Story[] = [
   {
     index: "01",
+    slug: "building-design-organization",
     cardHeadline: "From scattered design execution to an operating model.",
     summary:
       "How a product design function evolved into a clearer organizational system: teams, rituals, research, reviews, hiring, design systems, and cross-functional product collaboration.",
@@ -24,6 +27,7 @@ const stories: Story[] = [
   },
   {
     index: "02",
+    slug: "ai-native-product-development",
     cardHeadline: "Modernizing how product work moves from idea to implementation.",
     summary:
       "How AI-assisted workflows, design systems, and product operating tools began changing the relationship between problem framing, validation, design, implementation, and engineering collaboration.",
@@ -32,6 +36,7 @@ const stories: Story[] = [
   },
   {
     index: "03",
+    slug: "digital-gold-growth",
     cardHeadline: "Designing growth around customer behavior.",
     summary:
       "How commitment anxiety, product framing, and behavioral insight shaped a model that made Digital Gold easier to start and easier to sustain.",
@@ -101,15 +106,15 @@ export function FeaturedTransformations() {
             </div>
 
             <div className="border-t border-ash px-6 py-4">
-              <a
-                href="#transformations"
-                className="inline-flex items-center gap-2 font-geometric-mono text-[13px] font-medium tracking-[-0.01em] text-ink"
+              <Link
+                href={`/transformations/${story.slug}`}
+                className="inline-flex items-center gap-2 font-geometric-mono text-[13px] font-medium tracking-[-0.01em] text-ink transition-colors hover:text-lichen"
               >
                 Read transformation
                 <span aria-hidden="true" className="text-lichen">
                   →
                 </span>
-              </a>
+              </Link>
             </div>
           </li>
         ))}

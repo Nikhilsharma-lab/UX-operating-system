@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 
 type Variant = "primary" | "secondary" | "ghost";
 
@@ -35,8 +36,19 @@ export function CtaLink({
     );
   }
 
+  const className = `${base} ${variants[variant]}`;
+
+  // internal route → client navigation; hash/mailto/external → plain anchor
+  if (href.startsWith("/") && !href.startsWith("/#")) {
+    return (
+      <Link href={href} className={className}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
-    <a href={href} className={`${base} ${variants[variant]}`}>
+    <a href={href} className={className}>
       {children}
     </a>
   );
