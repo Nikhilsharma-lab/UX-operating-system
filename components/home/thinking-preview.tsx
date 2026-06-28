@@ -39,7 +39,7 @@ export function ThinkingPreview() {
             <span className="font-editorial-serif text-[18px] tracking-[-0.01em] text-ink">
               {seed}
             </span>
-            <span className="t-caption font-geometric-mono uppercase text-sage">
+            <span className="t-caption font-geometric-mono uppercase text-lichen">
               Seed
             </span>
           </li>

@@ -68,8 +68,13 @@ export function ExecutiveSnapshot() {
       }
     >
       <ul className="grid gap-px overflow-hidden rounded-lg border border-ash bg-ash sm:grid-cols-2 lg:grid-cols-3">
-        {items.map((item) => (
-          <li key={item.label} className="flex flex-col gap-3 bg-paper p-6">
+        {items.map((item, index) => (
+          <li
+            key={item.label}
+            className={`flex flex-col gap-3 bg-paper p-6 ${
+              index === 0 ? "sm:col-span-2 lg:col-span-2" : ""
+            }`}
+          >
             <div className="flex items-center justify-between gap-3">
               <span className="t-caption font-geometric-mono font-medium uppercase text-lichen">
                 {item.label}

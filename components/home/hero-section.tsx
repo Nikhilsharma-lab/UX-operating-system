@@ -35,7 +35,7 @@ export function HeroSection() {
 
         <aside className="md:pt-3">
           <div className="border-t border-ash pt-4 md:border-l md:border-t-0 md:pl-6 md:pt-1">
-            <p className="t-caption font-geometric-mono uppercase text-sage">
+            <p className="t-caption font-geometric-mono uppercase text-lichen">
               The belief
             </p>
             <p className="mt-3 font-editorial-serif text-[18px] font-light leading-[1.35] tracking-[-0.01em] text-carbon">

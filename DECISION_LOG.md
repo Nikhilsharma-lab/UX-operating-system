@@ -37,6 +37,7 @@ Each entry: ID — Decision → Consequence. Add Date, Context, and Owner as dec
 - **019** — Refined `PAGES/HOME_COPY.md` to Draft v2 → sharpens homepage language, strengthens executive positioning, reduces generic portfolio tone, clarifies transformation story cards, and preserves evidence-gated claims before UI implementation.
 - **020** — Created `WEBSITE/HOMEPAGE_IMPLEMENTATION_PLAN.md` before UI implementation → translates locked homepage strategy, homepage copy, and design direction into section architecture, component inventory, responsive rules, accessibility expectations, and evidence-gated implementation risks.
 - **021** — Implemented static homepage UI v1 → scaffolds the app (Next.js App Router + TypeScript + Tailwind v4, Fraunces + IBM Plex Mono via next/font), wires the Warm Editorial Zine design system, builds homepage sections from `PAGES/HOME_COPY.md` Draft v2, keeps evidence-gated claims visible, and creates the first reviewable homepage experience. Build and lint pass.
+- **022** — Completed homepage UI QA and polish pass v1 → reviewed the implemented homepage against locked strategy, copy, design contract, responsive behavior, accessibility, and evidence-gated claim handling before building additional pages. Fixed the Executive Snapshot empty-cell grid and raised label contrast to WCAG AA (sage → lichen). Report in `WEBSITE/HOMEPAGE_QA_REPORT.md`.
 
 ---
 

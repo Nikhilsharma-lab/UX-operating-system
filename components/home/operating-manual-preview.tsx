@@ -38,7 +38,7 @@ export function OperatingManualPreview() {
               href="#operating-manual"
               className="flex items-baseline gap-4 py-4 transition-colors hover:bg-bone/60"
             >
-              <span className="t-caption font-geometric-mono text-sage">
+              <span className="t-caption font-geometric-mono text-lichen">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <span className="font-editorial-serif text-[18px] tracking-[-0.01em] text-ink">

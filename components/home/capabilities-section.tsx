@@ -46,7 +46,7 @@ export function CapabilitiesSection() {
       <ul className="grid gap-px overflow-hidden rounded-lg border border-ash bg-ash md:grid-cols-2 lg:grid-cols-3">
         {capabilities.map((capability, index) => (
           <li key={capability.title} className="flex flex-col gap-4 bg-paper p-6">
-            <span className="t-caption font-geometric-mono text-sage">
+            <span className="t-caption font-geometric-mono text-lichen">
               {String(index + 1).padStart(2, "0")}
             </span>
             <h3 className="font-editorial-serif text-[20px] font-normal leading-[1.2] tracking-[-0.01em] text-ink">

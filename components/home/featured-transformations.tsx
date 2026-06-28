@@ -53,7 +53,7 @@ export function FeaturedTransformations() {
             key={story.index}
             className="flex flex-col gap-5 rounded-lg border border-ash bg-paper p-6"
           >
-            <span className="t-caption font-geometric-mono text-sage">
+            <span className="t-caption font-geometric-mono text-lichen">
               {story.index}
             </span>
             <h3 className="font-editorial-serif text-[22px] font-normal leading-[1.18] tracking-[-0.01em] text-ink">
@@ -62,7 +62,7 @@ export function FeaturedTransformations() {
             <p className="t-body-sm text-olive-char">{story.summary}</p>
 
             <div className="mt-auto space-y-3 border-t border-ash pt-4">
-              <p className="t-caption font-geometric-mono uppercase text-sage">
+              <p className="t-caption font-geometric-mono uppercase text-lichen">
                 What it proves
               </p>
               <p className="t-body-sm text-carbon">{story.proves}</p>
