@@ -69,7 +69,7 @@ Each claim should eventually capture:
 
 **Category:** Career / Title
 
-**Status:** Needs Verification
+**Status:** User-confirmed / Public-approved (Decision 027). On resume and LinkedIn. Not externally verified — artifact link still recommended.
 
 **Evidence Needed:**
 
@@ -81,7 +81,7 @@ Each claim should eventually capture:
 
 **Interview Defense Notes:** This is a factual role/title claim and should be consistent across resume, LinkedIn, website, and speaking bio.
 
-**Homepage Usage Note:** May be used in draft homepage strategy. Must remain evidence-gated until resume / LinkedIn / public profile alignment is confirmed before public launch.
+**Homepage Usage Note:** Approved for public homepage use (Decision 027). Evidence gate removed from this claim.
 
 **Related Files:**
 
@@ -97,7 +97,7 @@ Each claim should eventually capture:
 
 **Category:** Organizational Design
 
-**Status:** Needs Evidence
+**Status:** User-confirmed / Public-approved (Decision 027). 0→20 design capability; 20 designers hired directly; rituals, reviews, and research practices confirmed. Supporting artifacts recommended; not externally verified.
 
 **Evidence Needed:**
 
@@ -127,7 +127,7 @@ Each claim should eventually capture:
 
 **Category:** Product Scope
 
-**Status:** Needs Evidence
+**Status:** User-confirmed / Public-approved (Decision 027).
 
 **Evidence Needed:**
 
@@ -155,7 +155,7 @@ Each claim should eventually capture:
 
 **Category:** AI-native Product Development
 
-**Status:** Needs Evidence
+**Status:** User-confirmed / Public-approved (Decision 027). Figma MCP + Claude Code producing production-ready frontend code from Figma components; Vault included; LANE not part of this; 85% reduction in QA time over two years. Not externally verified.
 
 **Evidence Needed:**
 
@@ -213,7 +213,7 @@ Each claim should eventually capture:
 
 **Category:** Customer Trust / Regulated Fintech
 
-**Status:** Needs Evidence
+**Status:** Partially approved (Decision 027) — qualitative trust/fraud work is public-safe; the 62% fraud-reduction figure remains gated pending evidence.
 
 **Evidence Needed:**
 
@@ -242,7 +242,7 @@ Each claim should eventually capture:
 
 **Category:** Builder / Founder / AI Product
 
-**Status:** Needs Evidence
+**Status:** User-confirmed / Public-approved (Decision 027). Internal → beta → public; no traction claims.
 
 **Evidence Needed:**
 
@@ -271,7 +271,7 @@ Each claim should eventually capture:
 
 **Category:** Builder / Founder / Business
 
-**Status:** Needs Evidence
+**Status:** User-confirmed / Public-approved (Decision 027). Nikhil is co-founder; brand is public; ₹70L monthly revenue and 300K+ units sold are public-safe but must not be over-amplified on the homepage.
 
 **Evidence Needed:**
 
@@ -299,7 +299,7 @@ Each claim should eventually capture:
 
 **Category:** Career Scope
 
-**Status:** Needs Verification
+**Status:** User-confirmed / Public-approved (Decision 027). Spans Airtel Payments Bank (regulated fintech), PayU (payments), GE Healthcare (healthcare), LANE (AI-native workflows), Svenklas (entrepreneurship). No names need to be avoided.
 
 **Evidence Needed:**
 
@@ -312,7 +312,7 @@ Each claim should eventually capture:
 
 **Interview Defense Notes:** This is a broad positioning claim and must remain consistent across resume, LinkedIn, and website.
 
-**Homepage Usage Note:** May be used in draft homepage strategy. Must remain evidence-gated until resume / LinkedIn / public profile alignment is confirmed before public launch.
+**Homepage Usage Note:** Approved for public homepage use (Decision 027). Evidence gate removed from this broad career-scope statement.
 
 **Related Files:**
 
@@ -328,7 +328,7 @@ Each claim should eventually capture:
 
 **Category:** Organizational Design
 
-**Status:** Needs Evidence
+**Status:** User-confirmed / Public-approved (Decision 027). 0→20 design capability; 20 designers hired directly. Renders as a verified number on the homepage ledger. Supporting artifacts recommended; not externally verified.
 
 **Evidence Needed:**
 
@@ -353,7 +353,7 @@ Each claim should eventually capture:
 
 **Category:** AI-native Product Development
 
-**Status:** Needs Evidence / Needs Confidentiality Review
+**Status:** User-confirmed / Public-approved (Decision 027). 85% reduction in QA time over two years via the AI-assisted / Vault workflow. Renders as a verified number on the homepage ledger. Not externally verified; artifacts recommended.
 
 **Evidence Needed:**
 
@@ -378,7 +378,7 @@ Each claim should eventually capture:
 
 **Category:** Behavioral Growth / Business Outcome
 
-**Status:** Needs Evidence
+**Status:** Public-safe but evidence incomplete (Decision 027). KEEP GATED — the 28× figure stays hidden in public until baseline, final number, timeframe, exact metric type, and key product/design changes (attribution) are captured. ₹10/day SIP framing is accurate; the change was directly linked to product/design.
 
 **Evidence Needed:**
 
@@ -397,27 +397,42 @@ Each claim should eventually capture:
 
 ---
 
+## CLAIM-013 — Product Scale
+
+**Claim:** Worked across regulated financial products serving 12M+ monthly active users and 1B+ transactions since 2017.
+
+**Category:** Product Scale
+
+**Status:** User-confirmed / Public-approved (Decision 027). Public information; timeframe is since joining in 2017. Renders as verified numbers on the homepage ledger. Public/source artifact pending — recommended before final launch; not externally verified.
+
+**Related Files:**
+
+- FOUNDATION/03_POSITIONING.md
+- PAGES/HOME.md
+- lib/evidence-ledger.ts
+
+---
+
 # Metric Claims To Verify
 
-Each metric below is a claim with default status **Needs Evidence**. It must be expanded into the Per-Claim Schema and pass Claims Review before publication.
+Status reflects the homepage evidence intake (Decision 027). "Approved (public)" = user-confirmed and public-approved; artifacts still recommended and none are externally verified. Everything else stays gated.
 
 | Claim | Confidence | Status |
 |---|---|---|
-| 85% QA/UAT reduction | TBD | [ ] Needs Evidence |
-| 28× digital gold growth | TBD | [ ] Needs Evidence |
-| 7× onboarding growth | TBD | [ ] Needs Evidence |
+| 0→20 design organization | User-confirmed | [x] Approved (public) |
+| 20 designers hired directly | User-confirmed | [x] Approved (public) |
+| 12M+ monthly active users | User-confirmed | [x] Approved (public) |
+| 1B+ transactions | User-confirmed | [x] Approved (public) |
+| 85% QA time reduction | User-confirmed | [x] Approved (public) |
+| Svenklas ₹70L monthly revenue | User-confirmed | [x] Public-safe (not on homepage) |
+| 300K+ units sold | User-confirmed | [x] Public-safe (not on homepage) |
+| 28× digital gold growth | TBD | [ ] Gated — baseline/final/timeframe/metric-type/attribution pending |
 | 62% fraud reduction | TBD | [ ] Needs Evidence |
 | 39% fraud-related support handling | TBD | [ ] Needs Evidence |
 | 32% higher average balance | TBD | [ ] Needs Evidence |
-| 12M+ monthly active users | TBD | [ ] Needs Evidence |
-| 1B+ transactions | TBD | [ ] Needs Evidence |
+| 7× onboarding growth | TBD | [ ] Needs Evidence |
 | 500+ user interviews | TBD | [ ] Needs Evidence |
 | 50 field studies | TBD | [ ] Needs Evidence |
-| 0→12 design function | TBD | [ ] Needs Evidence |
-| 20+ design hires | TBD | [ ] Needs Evidence |
-| LANE built solo | TBD | [ ] Needs Evidence |
-| Svenklas ₹70L monthly revenue | TBD | [ ] Needs Evidence |
-| 300K+ units sold | TBD | [ ] Needs Evidence |
 | Awards and recognitions | TBD | [ ] Needs Evidence |
 
 ---

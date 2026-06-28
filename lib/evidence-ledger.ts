@@ -13,44 +13,46 @@ export type LedgerMetric = {
 /**
  * Executive Snapshot ledger.
  *
- * Every numeric value here is currently unverified, so in public mode the
- * ledger renders the `publicSafeFallback` (no numbers). Flip a metric to
- * `status: "verified"` once it passes Evidence Review in
- * EVIDENCE/CLAIMS_REGISTER.md and its number will render publicly.
+ * `verified` metrics (user-confirmed + public-approved during intake) render
+ * their numbers publicly. Everything still under review renders its
+ * `publicSafeFallback` (no numbers) in public mode. Flip a metric to
+ * `verified` once it is approved in EVIDENCE/CLAIMS_REGISTER.md.
  */
 export const executiveLedger: LedgerMetric[] = [
   {
-    value: "0→12",
+    value: "0→20",
     label: "Design organization built",
-    status: "needs_evidence",
+    status: "verified",
     source: "EVIDENCE/CLAIMS_REGISTER.md",
     publicSafeFallback: "Design organization built",
     claimId: "CLAIM-010",
   },
   {
     value: "12M+",
-    label: "Monthly active users served",
-    status: "needs_evidence",
+    label: "Monthly active users",
+    status: "verified",
     source: "EVIDENCE/CLAIMS_REGISTER.md",
     publicSafeFallback: "Consumer banking scale",
+    claimId: "CLAIM-SCALE",
+  },
+  {
+    value: "1B+",
+    label: "Transactions served",
+    status: "verified",
+    source: "EVIDENCE/CLAIMS_REGISTER.md",
+    publicSafeFallback: "Transaction scale",
+    claimId: "CLAIM-SCALE",
   },
   {
     value: "85%",
-    label: "QA/UAT reduction",
-    status: "needs_evidence",
+    label: "QA time reduction",
+    status: "verified",
     source: "EVIDENCE/CLAIMS_REGISTER.md",
     publicSafeFallback: "AI-native product development",
     claimId: "CLAIM-011",
   },
   {
-    value: "62%",
-    label: "Fraud reduction",
-    status: "needs_evidence",
-    source: "EVIDENCE/CLAIMS_REGISTER.md",
-    publicSafeFallback: "Customer trust systems",
-    claimId: "CLAIM-006",
-  },
-  {
+    // GATED — public-safe but evidence incomplete (baseline/final/timeframe/attribution pending)
     value: "28×",
     label: "Digital gold growth",
     status: "needs_evidence",
@@ -59,27 +61,21 @@ export const executiveLedger: LedgerMetric[] = [
     claimId: "CLAIM-012",
   },
   {
+    // not part of this intake — remains gated
+    value: "62%",
+    label: "Fraud reduction",
+    status: "needs_evidence",
+    source: "EVIDENCE/CLAIMS_REGISTER.md",
+    publicSafeFallback: "Customer trust systems",
+    claimId: "CLAIM-006",
+  },
+  {
+    // not part of this intake — remains gated
     value: "500+",
     label: "User interviews",
     status: "needs_evidence",
     source: "EVIDENCE/CLAIMS_REGISTER.md",
     publicSafeFallback: "Field research depth",
-  },
-  {
-    value: "50",
-    label: "Field studies",
-    status: "needs_evidence",
-    source: "EVIDENCE/CLAIMS_REGISTER.md",
-    // dedupes against "Field research depth" in public mode
-    publicSafeFallback: "Field research depth",
-  },
-  {
-    value: "20+",
-    label: "Design hires",
-    status: "needs_evidence",
-    source: "EVIDENCE/CLAIMS_REGISTER.md",
-    // dedupes against "Design organization built" in public mode
-    publicSafeFallback: "Design organization built",
   },
 ];
 

@@ -79,7 +79,7 @@ Design leadership at the intersection of product, AI, trust, and business outcom
 
 ### Intro Copy
 
-My work spans product design leadership, AI-native product development, regulated fintech, customer trust, behavioral growth, design systems, research, and entrepreneurship.
+My work spans product design leadership, AI-native product development, regulated fintech, customer trust, behavioral growth, design systems, research, healthcare, payments, and entrepreneurship.
 
 This is not a collection of projects.
 
@@ -89,27 +89,27 @@ It is a record of systems built, decisions made, and outcomes created.
 
 #### Leadership
 
-Head of Product Design at Airtel Payments Bank. [EVIDENCE-GATED]
+Head of Product Design at Airtel Payments Bank.
 
-Built and scaled product design capability across consumer banking, merchant, and internal product ecosystems. [EVIDENCE-GATED]
+Built and scaled product design capability from 0→20 across consumer banking, merchant, and internal product ecosystems.
 
 #### Organization
 
-Built design rituals, critique systems, research practices, design reviews, operating rhythms, hiring systems, and cross-functional product collaboration models. [EVIDENCE-GATED]
+Built design rituals, critique systems, research practices, design reviews, operating rhythms, hiring systems, and cross-functional product collaboration models.
 
 #### Scale
 
-Worked across products serving millions of users in regulated financial environments. [EVIDENCE-GATED]
+Worked across regulated financial products serving 12M+ monthly active users and 1B+ transactions since 2017.
 
 #### Outcomes
 
-Contributed to measurable outcomes across growth, trust, onboarding, fraud prevention, implementation speed, and design-system maturity. [EVIDENCE-GATED]
+Contributed to measurable outcomes across growth, trust, onboarding, fraud prevention, AI-assisted implementation speed, and design-system maturity.
 
 #### Building
 
-Building LANE, an AI-native product operating system for product and design teams. [EVIDENCE-GATED]
+Building LANE, an AI-native product operating system for product and design teams.
 
-Building Svenklas, a design-led travel accessories brand. [EVIDENCE-GATED]
+Co-founder of Svenklas, a design-led travel accessories brand.
 
 ---
 
@@ -231,7 +231,7 @@ How a product design function evolved into a clearer organizational system: team
 
 #### What It Proves
 
-Nikhil can build the operating system of a product design organization, not just manage design output. [EVIDENCE-GATED]
+Nikhil can build the operating system of a product design organization, not just manage design output.
 
 #### CTA
 
@@ -251,7 +251,7 @@ How AI-assisted workflows, design systems, and product operating tools began cha
 
 #### What It Proves
 
-Nikhil is applying AI to product operating models, not using it as a buzzword. [EVIDENCE-GATED]
+Nikhil is applying AI-assisted design-to-code workflows to reduce implementation friction and improve product delivery quality.
 
 #### CTA
 
@@ -435,23 +435,27 @@ AI-native Product Executive building organizations, systems, and businesses.
 
 ---
 
-# Evidence-Gated Claims Index
+# Evidence Status Index
 
-Every `[EVIDENCE-GATED]` item above must pass Evidence Review and be registered in `EVIDENCE/CLAIMS_REGISTER.md` before public launch.
+Updated after Nikhil's homepage evidence intake (Decision 027). "Approved for homepage use" means user-confirmed and public-approved; supporting external artifacts are still recommended before final launch, and nothing here is marked externally verified unless artifacts exist.
 
-## Current Evidence-Gated Claims
+## Claims Approved for Homepage Use
 
-- Head of Product Design at Airtel Payments Bank → CLAIM-001
-- Built and scaled product design capability / organization → CLAIM-002, CLAIM-010
-- Banking, merchant, and internal product ecosystems → CLAIM-003
-- Built design rituals, reviews, research, hiring systems → CLAIM-002, CLAIM-010
-- Products serving millions of users → Needs exact claim mapping / metric confirmation
-- Outcomes across growth, trust, onboarding, fraud, implementation speed → CLAIM-004, CLAIM-006, CLAIM-011, metric table
-- Building LANE → CLAIM-007
-- Building Svenklas → CLAIM-008
-- 28× growth in Digital Gold adoption → CLAIM-012
+- Head of Product Design at Airtel Payments Bank
+- Career scope across regulated fintech, payments, healthcare, AI-native workflows, and entrepreneurship
+- Built/scaled product design capability from 0→20
+- Hired 20 designers directly
+- Built design rituals, reviews, research practices, operating rhythms, hiring systems, and collaboration models
+- 12M+ monthly active users and 1B+ transactions since 2017
+- LANE as an AI-native product operating system for product and design teams
+- Svenklas as a public design-led travel accessories brand; Nikhil as co-founder
+- AI-assisted design-to-code workflows using Figma MCP and Claude Code
+- 85% reduction in QA time over two years through AI-assisted/Vault workflow
 
-Do not present any of the above as final public claims until verified.
+## Claims Still Gated
+
+- 28× growth in Digital Gold adoption — baseline, final number, timeframe, exact metric type, and attribution still pending.
+- 62% fraud reduction and 500+ user interviews — not part of this intake; remain gated until confirmed.
 
 ---
 

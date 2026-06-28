@@ -28,7 +28,7 @@ const stories: Story[] = [
     summary:
       "How AI-assisted workflows, design systems, and product operating tools began changing the relationship between problem framing, validation, design, implementation, and engineering collaboration.",
     proves:
-      "Nikhil is applying AI to product operating models, not using it as a buzzword.",
+      "Nikhil is applying AI-assisted design-to-code workflows to reduce implementation friction and improve product delivery quality.",
   },
   {
     index: "03",
@@ -87,7 +87,8 @@ export function FeaturedTransformations() {
                   <span className={`${metaLabel} text-lichen`}>
                     What it proves
                   </span>
-                  <EvidenceGateLabel />
+                  {/* gate kept only where a number is still under review (Digital Gold) */}
+                  {story.metric && <EvidenceGateLabel />}
                 </div>
                 <p className="t-body-sm text-carbon">
                   {story.proves}
