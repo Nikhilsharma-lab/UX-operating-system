@@ -5,6 +5,7 @@ export function ContactSection() {
   return (
     <SectionShell
       id="contact"
+      index="09"
       eyebrow="Contact"
       title="For serious product, design, AI, and operating-model conversations."
       intro={
@@ -15,15 +16,9 @@ export function ContactSection() {
         </p>
       }
     >
-      <div className="flex flex-wrap items-center gap-3">
+      <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
         <CtaLink href="mailto:hi.nikhilsharma@gmail.com" variant="primary">
           Contact
-        </CtaLink>
-        <CtaLink variant="secondary" pendingLabel="Add LinkedIn URL before launch">
-          LinkedIn
-        </CtaLink>
-        <CtaLink variant="secondary" pendingLabel="Add resume link before launch">
-          Resume
         </CtaLink>
       </div>
     </SectionShell>

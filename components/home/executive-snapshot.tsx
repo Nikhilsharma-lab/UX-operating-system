@@ -7,6 +7,19 @@ type SnapshotItem = {
   gated: boolean;
 };
 
+// Fast numeric proof. Every figure is evidence-gated (see EVIDENCE/CLAIMS_REGISTER.md)
+// and must pass Evidence Review before it is treated as a final public claim.
+const ledger: { value: string; label: string }[] = [
+  { value: "0→12", label: "Design organization built" },
+  { value: "12M+", label: "Monthly active users served" },
+  { value: "85%", label: "QA/UAT reduction" },
+  { value: "62%", label: "Fraud reduction" },
+  { value: "28×", label: "Digital gold growth" },
+  { value: "500+", label: "User interviews" },
+  { value: "50", label: "Field studies" },
+  { value: "20+", label: "Design hires" },
+];
+
 const items: SnapshotItem[] = [
   {
     label: "Leadership",
@@ -51,6 +64,7 @@ export function ExecutiveSnapshot() {
   return (
     <SectionShell
       id="executive-snapshot"
+      index="01"
       eyebrow="Executive Snapshot"
       title="Design leadership at the intersection of product, AI, trust, and business outcomes."
       intro={
@@ -67,6 +81,32 @@ export function ExecutiveSnapshot() {
         </>
       }
     >
+      {/* Proof ledger — restrained, evidence-gated */}
+      <div className="mb-14">
+        <p className="mb-4 t-caption font-geometric-mono uppercase tracking-[0.04em] text-lichen">
+          Selected outcomes
+        </p>
+        <div className="grid border-t border-ash sm:grid-cols-2 sm:gap-x-12">
+          {ledger.map((row) => (
+            <div
+              key={row.label}
+              className="flex items-baseline gap-5 border-b border-ash py-3.5"
+            >
+              <span className="w-20 shrink-0 font-editorial-serif text-[22px] leading-none tracking-[-0.01em] tabular-nums text-ink">
+                {row.value}
+              </span>
+              <span className="t-body-sm text-olive-char">{row.label}</span>
+            </div>
+          ))}
+        </div>
+        <div className="mt-4 flex items-center gap-3">
+          <EvidenceGateLabel />
+          <p className="t-caption font-geometric-mono text-sage">
+            Figures pending Evidence Review.
+          </p>
+        </div>
+      </div>
+
       <ul className="grid gap-px overflow-hidden rounded-lg border border-ash bg-ash sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item, index) => (
           <li
@@ -76,7 +116,7 @@ export function ExecutiveSnapshot() {
             }`}
           >
             <div className="flex items-center justify-between gap-3">
-              <span className="t-caption font-geometric-mono font-medium uppercase text-lichen">
+              <span className="t-caption font-geometric-mono font-medium uppercase tracking-[0.04em] text-lichen">
                 {item.label}
               </span>
               {item.gated && <EvidenceGateLabel />}

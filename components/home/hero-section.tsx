@@ -23,12 +23,12 @@ export function HeroSection() {
 
           <p className="mt-8 max-w-[620px] text-[15px] leading-[1.55] tracking-[-0.01em] text-olive-char md:t-body">
             I lead product design across regulated fintech, design systems,
-            customer trust, behavioral growth, and AI-assisted product
+            customer trust, behavioral growth, and AI-native product
             development — building the teams, rituals, infrastructure, and
             decision systems that help organizations ship with clarity.
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center gap-3">
+          <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
             <CtaLink href="#transformations" variant="primary">
               Read Transformations
             </CtaLink>
@@ -49,7 +49,7 @@ export function HeroSection() {
 
         <aside>
           <div className="border-t border-ash pt-6 md:border-l md:border-t-0 md:pl-6 md:pt-1">
-            <p className="t-caption font-geometric-mono uppercase text-lichen">
+            <p className="text-[12px] font-medium uppercase tracking-[0.06em] font-geometric-mono text-lichen">
               The belief
             </p>
             <p className="mt-3 font-editorial-serif text-[19px] font-light leading-[1.3] tracking-[-0.01em] text-carbon">
@@ -58,16 +58,21 @@ export function HeroSection() {
 
             <hr className="my-6 border-0 border-t border-ash" />
 
-            <p className="t-caption font-geometric-mono uppercase text-lichen">
+            <p className="text-[12px] font-medium uppercase tracking-[0.06em] font-geometric-mono text-lichen">
               This system maps
             </p>
             <ul className="mt-3 border-t border-ash">
-              {systemMaps.map((item) => (
+              {systemMaps.map((item, i) => (
                 <li
                   key={item}
-                  className="border-b border-ash py-2 font-geometric-mono text-[13px] tracking-[-0.02em] text-carbon"
+                  className="flex items-baseline gap-3 border-b border-ash py-2"
                 >
-                  {item}
+                  <span className="font-geometric-mono text-[11px] tabular-nums text-sage">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-geometric-mono text-[13px] tracking-[-0.02em] text-carbon">
+                    {item}
+                  </span>
                 </li>
               ))}
             </ul>

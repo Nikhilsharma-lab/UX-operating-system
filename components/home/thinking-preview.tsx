@@ -13,6 +13,7 @@ export function ThinkingPreview() {
   return (
     <SectionShell
       id="thinking"
+      index="06"
       eyebrow="Thinking"
       title="Essays, frameworks, and mental models for modern product organizations."
       intro={
@@ -36,7 +37,7 @@ export function ThinkingPreview() {
             key={seed}
             className="flex flex-col gap-2 border-b border-ash py-5 sm:flex-row sm:items-baseline sm:gap-6"
           >
-            <span className="t-caption font-geometric-mono uppercase text-lichen sm:w-24 sm:shrink-0">
+            <span className="t-caption font-geometric-mono uppercase tracking-[0.04em] text-lichen sm:w-24 sm:shrink-0">
               Note {String(index + 1).padStart(2, "0")}
             </span>
             <p className="max-w-[640px] font-editorial-serif text-[19px] font-light leading-[1.32] tracking-[-0.01em] text-ink">

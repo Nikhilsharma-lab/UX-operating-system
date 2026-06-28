@@ -42,7 +42,7 @@ I build AI-native product organizations that turn ambiguity into measurable outc
 
 ### Supporting Copy
 
-I lead product design across regulated fintech, design systems, customer trust, behavioral growth, and AI-assisted product development — building the teams, rituals, infrastructure, and decision systems that help organizations ship with clarity.
+I lead product design across regulated fintech, design systems, customer trust, behavioral growth, and AI-native product development — building the teams, rituals, infrastructure, and decision systems that help organizations ship with clarity.
 
 ### Primary CTA
 

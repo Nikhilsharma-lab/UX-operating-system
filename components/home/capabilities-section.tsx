@@ -31,6 +31,7 @@ export function CapabilitiesSection() {
   return (
     <SectionShell
       id="capabilities"
+      index="03"
       eyebrow="Capabilities"
       title="Capabilities over projects."
       intro={
@@ -45,11 +46,19 @@ export function CapabilitiesSection() {
     >
       <ul className="grid gap-px overflow-hidden rounded-lg border border-ash bg-ash md:grid-cols-2 lg:grid-cols-3">
         {capabilities.map((capability, index) => (
-          <li key={capability.title} className="flex flex-col gap-4 bg-paper p-6">
-            <span className="t-caption font-geometric-mono text-lichen">
-              {String(index + 1).padStart(2, "0")}
-            </span>
-            <h3 className="font-editorial-serif text-[20px] font-normal leading-[1.2] tracking-[-0.01em] text-ink">
+          <li
+            key={capability.title}
+            className="flex flex-col gap-4 bg-paper p-6 transition-colors hover:bg-bone/50"
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-geometric-mono text-[12px] font-medium tabular-nums text-lichen">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="font-geometric-mono text-[11px] uppercase tracking-[0.07em] text-sage">
+                Capability
+              </span>
+            </div>
+            <h3 className="font-editorial-serif text-[21px] font-normal leading-[1.18] tracking-[-0.01em] text-ink">
               {capability.title}
             </h3>
             <p className="t-body-sm text-olive-char">{capability.copy}</p>

@@ -152,3 +152,56 @@ No copy meaning changed, no section reordering, no evidence labels removed, no n
 ### Recommended Next Step
 
 Homepage is resolved and review-ready. Do not build transformation story pages yet. Next: confirm the polished direction from `10`–`13`, then either verify the gated claims or proceed (in a separate task) to the first transformation story page.
+
+---
+
+## Visual Excellence Pass (Decision 024)
+
+### Visual thesis
+
+A premium editorial operating system — Linear-restraint, Stripe-system-depth, Monocle-editorial-confidence — executed as a three-voice type system unified by an evidence-ledger / operating-system-grid motif.
+
+### Typography upgrade (biggest lever)
+
+- Introduced **Hanken Grotesk** (sans) as the body voice via `next/font`. Body copy, intros, and card summaries are now sans — the page reads premium and readable instead of like a terminal document.
+- **Fraunces** serif stays for hero/section headlines and belief lines.
+- **IBM Plex Mono** demoted to "system seasoning": labels, eyebrows, indices, metadata, evidence tags, ledger numbers, nav, button labels only. Body type tracking/leading retuned for sans.
+
+### Motif
+
+- Every section now carries a two-digit ledger index ("01"–"09") with a short coordinate rule before its eyebrow.
+- Proof is an evidence ledger (serif number + sans label + hairline), with the restrained "EVIDENCE-GATED · Figures pending Evidence Review" footnote.
+- Cards carry mono metadata bands ("CASE FILE 01 · TRANSFORMATION", "VENTURE 01 · …", "CAPABILITY").
+
+### Component upgrades
+
+- Transformation cards → **case-file dossiers**: header meta band → serif title → sans summary → "WHAT IT PROVES" + evidence tag → "Read transformation →" footer, with a subtle hover border shift (ash → olive-char).
+- Capability cards → operating-map cells with index + "CAPABILITY" tag and a hover background tone shift (→ bone/50).
+- Hero right rail → numbered system index (01–05) for "THIS SYSTEM MAPS".
+- Building → venture memos with category tags.
+
+### Interaction
+
+Restrained, expensive-feeling: 0.16s tone-shift transitions on links/cards (border/background/color), visible focus outlines. No bounce/parallax/gimmicks/scroll-hijack.
+
+### Mobile
+
+Stacked CTAs (two buttons + quiet Contact link), belief/system-index panel below the hero, single-column ledger and grids, breathing room on cards. No horizontal overflow.
+
+### DESIGN.md
+
+Updated: three-voice typography, Visual Motif, Card Modules, Interaction Rules, Mobile Rules.
+
+### Screenshots added
+
+`17-excellence-desktop-fullpage.png`, `18-excellence-desktop-hero.png`, `19-excellence-desktop-transformations.png`, `20-excellence-mobile-fullpage.png` (production capture). `14`–`16` are from the interim refinement step.
+
+### Remaining risks
+
+- Evidence gates remain on all metrics (ledger footnote + per-card chips); claims still unverified.
+- LinkedIn/Resume placeholders removed from public footer/contact (Contact mailto only) until real URLs exist.
+- Story CTAs still anchor to `#transformations` until story pages exist.
+
+### Recommended next step
+
+Confirm the upgraded direction from `17`–`20`. Do not build transformation story pages yet.

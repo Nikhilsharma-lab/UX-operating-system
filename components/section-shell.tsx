@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 export function SectionEyebrow({ children }: { children: ReactNode }) {
   return (
-    <p className="t-caption font-geometric-mono font-medium uppercase text-lichen">
+    <p className="text-[12px] font-medium uppercase leading-[17px] tracking-[0.06em] font-geometric-mono text-lichen">
       {children}
     </p>
   );
@@ -10,6 +10,7 @@ export function SectionEyebrow({ children }: { children: ReactNode }) {
 
 export function SectionShell({
   id,
+  index,
   eyebrow,
   title,
   intro,
@@ -17,6 +18,7 @@ export function SectionShell({
   bordered = true,
 }: {
   id?: string;
+  index?: string;
   eyebrow?: string;
   title?: string;
   intro?: ReactNode;
@@ -26,14 +28,26 @@ export function SectionShell({
   return (
     <section
       id={id}
-      className={`py-20 ${bordered ? "border-t border-ash" : ""}`}
+      className={`py-20 md:py-24 ${bordered ? "border-t border-ash" : ""}`}
     >
       <div className="page-shell">
         {(eyebrow || title || intro) && (
-          <header className="mb-12 max-w-[680px]">
-            {eyebrow && <SectionEyebrow>{eyebrow}</SectionEyebrow>}
+          <header className="mb-12 max-w-[700px]">
+            {eyebrow && (
+              <div className="mb-5 flex items-center gap-3">
+                {index && (
+                  <span className="font-geometric-mono text-[12px] font-medium tabular-nums text-ink">
+                    {index}
+                  </span>
+                )}
+                {index && (
+                  <span aria-hidden="true" className="h-px w-6 bg-olive-char" />
+                )}
+                <SectionEyebrow>{eyebrow}</SectionEyebrow>
+              </div>
+            )}
             {title && (
-              <h2 className="mt-4 font-editorial-serif font-light text-[clamp(1.7rem,3.4vw,2.25rem)] leading-[1.08] tracking-[-0.02em] text-ink">
+              <h2 className="font-editorial-serif font-light text-[clamp(1.7rem,3.4vw,2.25rem)] leading-[1.08] tracking-[-0.02em] text-ink">
                 {title}
               </h2>
             )}

@@ -80,22 +80,31 @@ Pure white is reserved for card surfaces only.
 
 ### Typography
 
-The system uses two voices:
+The system uses three voices (upgraded from two — see Decision 024). Mono is now "system seasoning," not the main reading voice.
 
-1. Editorial Serif
-   - Used for display and heading copy.
-   - High-contrast modern editorial serif.
-   - Should resemble Reckless Neue, GT Sectra, PP Editorial New, Fraunces, or Instrument Serif.
-   - Used at large sizes.
-   - Weight 300–400.
-   - Tight tracking.
-   - Creates authority through restraint.
-2. Geometric Mono
-   - Used for navigation, labels, buttons, captions, metadata, body copy, and operational text.
-   - Should resemble IBM Plex Mono or JetBrains Mono.
-   - Gives the site a marginalia / terminal / systems feel.
-   - Used mostly at 12–16px.
-   - Tight tracking.
+1. Editorial Serif — `Fraunces` (`--font-editorial-serif`)
+   - Used for display, hero headline, major section headlines, belief statements, and editorial pull lines.
+   - High-contrast modern editorial serif (resembles Reckless Neue, GT Sectra, PP Editorial New, Fraunces, Instrument Serif).
+   - Used at large sizes. Weight 300–400. Tight tracking. Authority through restraint.
+2. Sans (Body) — `Hanken Grotesk` (`--font-sans`)
+   - The default body voice: body copy, longer descriptions, card summaries, explanatory content.
+   - Warm, highly legible neo-grotesque. Used ~14–18px with near-zero tracking and generous line-height.
+   - Reason: heavy mono body read as a raw terminal document; sans makes the site premium and readable.
+3. Geometric Mono — `IBM Plex Mono` (`--font-geometric-mono`)
+   - Used ONLY for system seasoning: labels, eyebrows, section tags, numbering/indices, metadata, evidence tags, field-note IDs, ledger numbers, nav, and button labels.
+   - Used mostly at 11–13px. Uppercase labels use slightly positive tracking (≈ +0.06em) for legibility.
+   - Do not use mono for paragraph body text.
+
+### Visual Motif
+
+A recurring, restrained motif of **evidence ledger + operating-system grid** ties the page together:
+
+- Every major section carries a two-digit index ("01"–"09") with a short coordinate rule before its eyebrow.
+- Proof is expressed as a ledger (strong serif number + quiet sans label + hairline divider), never as SaaS metric cards.
+- Cards carry small mono metadata bands (e.g. "CASE FILE 01 · TRANSFORMATION", "VENTURE 01", "WHAT IT PROVES").
+- Numbered markers, fine rules, and small annotated labels recur throughout.
+
+No decorative icons, illustrations, gradients, or 3D. The motif must stay visible but quiet.
 
 ### Palette
 
@@ -685,6 +694,33 @@ Before shipping any visual change, ask:
 10. Would a VP of Design take this seriously?
 
 ---
+
+## Card Modules (upgraded)
+
+Cards are editorial modules, not generic boxes. Rules:
+
+- Give cards internal structure and asymmetry: a mono metadata band (label / index / category), a serif title, a sans summary, and — where relevant — an annotated outcome block with an evidence tag.
+- Transformation cards are **case files / dossiers**: header band ("CASE FILE NN · TRANSFORMATION") → serif title → sans summary → "WHAT IT PROVES" + evidence tag → action footer ("Read transformation →").
+- Capability cards are **operating-map cells**: index + "CAPABILITY" tag → serif title → sans copy, in a seamless hairline grid.
+- Titles dominate; descriptions are muted (olive-char); labels are mono lichen.
+- No icons, no heavy shadows, no SaaS-style cards, no equal-weight everything.
+
+## Interaction Rules
+
+Motion must feel expensive, not playful. Allowed:
+
+- Subtle hover tone shifts only: border `ash → olive-char`, background `→ bone/50`, link color `→ ink`. Transition ≈ 0.16s ease.
+- Refined, visible `:focus-visible` outlines (2px ink).
+
+Not allowed: bounce, parallax, cursor gimmicks, overanimated cards, scroll hijacking, flashy transitions, or any motion that reads like an agency portfolio.
+
+## Mobile Rules
+
+Mobile is its own art-direction pass, not a compressed desktop.
+
+- Hero: serif headline scales via clamp (floor ≈ 2.1rem); supporting copy is lighter sans; the two CTAs stack vertically with Contact as a quiet text link below; the belief/system-index rail moves below the CTAs as a clean panel.
+- Ledger and grids fall to single column with hairline-divided rows.
+- Section indices and labels remain legible; cards keep breathing room; no horizontal overflow.
 
 ## Final Rule
 

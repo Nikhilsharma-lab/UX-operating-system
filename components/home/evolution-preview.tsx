@@ -14,6 +14,7 @@ export function EvolutionPreview() {
   return (
     <SectionShell
       id="evolution"
+      index="08"
       eyebrow="Evolution"
       title="From architecture to healthcare, payments, banking, AI, and entrepreneurship."
     >

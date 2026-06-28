@@ -38,24 +38,6 @@ export function SiteFooter() {
                 Contact
               </a>
             </li>
-            <li>
-              <span
-                aria-disabled="true"
-                title="Add LinkedIn URL before launch"
-                className="cursor-not-allowed font-geometric-mono text-[13px] tracking-[-0.02em] text-moss opacity-60"
-              >
-                LinkedIn
-              </span>
-            </li>
-            <li>
-              <span
-                aria-disabled="true"
-                title="Add resume link before launch"
-                className="cursor-not-allowed font-geometric-mono text-[13px] tracking-[-0.02em] text-moss opacity-60"
-              >
-                Resume
-              </span>
-            </li>
           </ul>
           <p className="t-caption font-geometric-mono uppercase text-sage">
             Nikhil Sharma — Executive Knowledge System

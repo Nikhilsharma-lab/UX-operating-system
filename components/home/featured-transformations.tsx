@@ -1,6 +1,8 @@
 import { SectionShell } from "@/components/section-shell";
 import { EvidenceGateLabel } from "@/components/evidence-gate-label";
-import { CtaLink } from "@/components/cta-link";
+
+const metaLabel =
+  "font-geometric-mono text-[11px] font-medium uppercase tracking-[0.07em]";
 
 const stories = [
   {
@@ -33,6 +35,7 @@ export function FeaturedTransformations() {
   return (
     <SectionShell
       id="transformations"
+      index="04"
       eyebrow="Transformations"
       title="Transformation stories, not case studies."
       intro={
@@ -51,27 +54,43 @@ export function FeaturedTransformations() {
         {stories.map((story) => (
           <li
             key={story.index}
-            className="flex flex-col gap-5 rounded-lg border border-ash bg-paper p-6"
+            className="group flex flex-col rounded-lg border border-ash bg-paper transition-colors hover:border-olive-char"
           >
-            <span className="t-caption font-geometric-mono text-lichen">
-              {story.index}
-            </span>
-            <h3 className="font-editorial-serif text-[22px] font-normal leading-[1.18] tracking-[-0.01em] text-ink">
-              {story.cardHeadline}
-            </h3>
-            <p className="t-body-sm text-olive-char">{story.summary}</p>
-
-            <div className="mt-auto space-y-3 border-t border-ash pt-4">
-              <p className="t-caption font-geometric-mono uppercase text-lichen">
-                What it proves
-              </p>
-              <p className="t-body-sm text-carbon">{story.proves}</p>
-              <EvidenceGateLabel />
+            <div className="flex items-center justify-between border-b border-ash px-6 py-3">
+              <span className={`${metaLabel} text-lichen`}>
+                Case file {story.index}
+              </span>
+              <span className={`${metaLabel} text-sage`}>Transformation</span>
             </div>
 
-            <CtaLink href="#transformations" variant="secondary">
-              Read Transformation
-            </CtaLink>
+            <div className="flex flex-1 flex-col gap-5 p-6">
+              <h3 className="font-editorial-serif text-[22px] font-normal leading-[1.16] tracking-[-0.01em] text-ink">
+                {story.cardHeadline}
+              </h3>
+              <p className="t-body-sm text-olive-char">{story.summary}</p>
+
+              <div className="mt-auto space-y-3 border-t border-ash pt-4">
+                <div className="flex items-center justify-between gap-3">
+                  <span className={`${metaLabel} text-lichen`}>
+                    What it proves
+                  </span>
+                  <EvidenceGateLabel />
+                </div>
+                <p className="t-body-sm text-carbon">{story.proves}</p>
+              </div>
+            </div>
+
+            <div className="border-t border-ash px-6 py-4">
+              <a
+                href="#transformations"
+                className="inline-flex items-center gap-2 font-geometric-mono text-[13px] font-medium tracking-[-0.01em] text-ink"
+              >
+                Read transformation
+                <span aria-hidden="true" className="text-lichen">
+                  →
+                </span>
+              </a>
+            </div>
           </li>
         ))}
       </ul>

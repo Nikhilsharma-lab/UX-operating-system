@@ -12,7 +12,7 @@ const systems = [
 
 export function BeliefSection() {
   return (
-    <SectionShell id="belief" eyebrow="Belief">
+    <SectionShell id="belief" index="02" eyebrow="Belief">
       <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,340px)] lg:gap-16">
         <div className="max-w-[680px]">
           {/* editorial accent mark (2 of 2 on the page) */}

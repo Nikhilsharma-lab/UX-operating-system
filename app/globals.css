@@ -24,6 +24,7 @@
 
   /* Typography */
   --font-editorial-serif: var(--font-fraunces), "Fraunces", "Instrument Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: var(--font-hanken), "Hanken Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   --font-geometric-mono: var(--font-plex-mono), "IBM Plex Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   /* Border Radius */
@@ -44,7 +45,7 @@
   body {
     background: var(--color-vellum);
     color: var(--color-ink);
-    font-family: var(--font-geometric-mono);
+    font-family: var(--font-sans);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -58,6 +59,10 @@
   a {
     color: inherit;
     text-decoration: none;
+    transition:
+      color 0.16s ease,
+      background-color 0.16s ease,
+      border-color 0.16s ease;
   }
 
   :focus-visible {
@@ -82,16 +87,17 @@
     letter-spacing: -0.8px;
   }
 
+  /* Body voice is now sans (Hanken Grotesk); tracking/leading tuned for readability */
   .t-body-sm {
     font-size: 14px;
-    line-height: 19px;
-    letter-spacing: -0.94px;
+    line-height: 22px;
+    letter-spacing: -0.006em;
   }
 
   .t-body {
     font-size: 16px;
-    line-height: 24px;
-    letter-spacing: -1.07px;
+    line-height: 26px;
+    letter-spacing: -0.011em;
   }
 
   .t-subheading {
