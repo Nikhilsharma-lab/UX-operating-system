@@ -146,6 +146,8 @@ The Map is exhaustive. Nothing is forgotten, only sequenced.
 
 `03_POSITIONING.md` — locked v1 (Decision 011). Canonical positioning document; source for homepage, resume, LinkedIn, transformation stories, speaking bio, and recruiter narrative.
 
+`04_BRAND_THESIS.md` — locked v1 (Decision 013). Canonical brand thesis document; defines what the system stands for (belief, promise, enemy, voice, narrative, moat).
+
 ### WEBSITE/
 
 System specifications: overview, IA, journeys, navigation, design system, visual language, motion, components, SEO, performance, accessibility, analytics, CMS, knowledge architecture, internal linking, page templates, interaction principles, responsive strategy. `P0`/`P1`.
@@ -256,6 +258,8 @@ The running record. Source of truth for current execution. Mirrored and expanded
 - **009** — Locked `MASTER_PLAYBOOK.md` as the canonical strategy document → establishes the core thesis, positioning, narrative system, content pillars, transformation story model, evidence rules, quality gates, and long-term ambition before homepage strategy begins.
 - **010** — Reconciled transformation story framework from 12 parts to the canonical 16-part structure → aligns `TRANSFORMATION_STORIES/FRAMEWORK.md`, `QUALITY/DEFINITION_OF_DONE.md`, and `PROGRAM_INDEX.md` with locked `MASTER_PLAYBOOK.md`.
 - **011** — Locked `FOUNDATION/03_POSITIONING.md` as the canonical positioning document → defines Nikhil as an AI-native Product Executive who builds organizations, systems, and businesses, and aligns homepage, resume, LinkedIn, transformation stories, speaking bio, and recruiter narrative.
+- **012** — Registered initial positioning claims in `EVIDENCE/CLAIMS_REGISTER.md` → creates evidence shells for role, organizational design, AI-assisted workflows, product infrastructure, trust work, LANE, Svenklas, and career-scope claims before public copy is written.
+- **013** — Locked `FOUNDATION/04_BRAND_THESIS.md` as the canonical brand thesis document → defines the system’s belief, promise, enemy, voice, narrative, moat, and long-term brand behavior before audience and homepage strategy are written.
 
 ---
 

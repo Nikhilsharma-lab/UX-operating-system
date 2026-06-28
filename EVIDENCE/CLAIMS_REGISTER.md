@@ -1,10 +1,14 @@
-# CLAIMS_REGISTER.md
+# EVIDENCE/CLAIMS_REGISTER.md
 
 ## Purpose
 
-This file exists because the website will contain strong claims and metrics. Every public claim must survive interview scrutiny.
+This file tracks every major public claim used across the Nikhil Sharma Executive Knowledge System.
 
-**Evidence before exposure.** No major metric, award, or business claim goes public until it is captured here and passes Claims Review (`QUALITY/CLAIMS_REVIEW.md`).
+No major public claim should ship unless it is registered here and has passed Evidence Review.
+
+This file protects the project from unsupported claims, memory drift, confidentiality issues, and interview risk.
+
+It covers two kinds of claims: narrative claims (role, scope, products) tracked as claim shells below, and metric claims tracked in the Metric Claims table.
 
 ## Status
 
@@ -17,6 +21,17 @@ P0
 ## Owner
 
 Nikhil / Shared
+
+---
+
+## Status Language
+
+Use this status language for every claim:
+
+- **Needs Evidence** — the claim has no captured supporting evidence yet.
+- **Needs Verification** — a factual claim (e.g. title) awaiting confirmation against source documents.
+- **Public-Safe After Verification** — can go public once verified or evidence-framed.
+- **Private / Needs Sanitization** — must be sanitized or kept private until confidentiality review clears it.
 
 ---
 
@@ -37,28 +52,285 @@ Each claim should eventually capture:
 
 ---
 
-## Claims To Verify
+# Claim Register
 
-Each row below must be expanded into the full schema and pass Claims Review before publication.
+## CLAIM-001 — Current Role
+
+**Claim:** Nikhil Sharma is Head of Product Design at Airtel Payments Bank.
+
+**Category:** Career / Title
+
+**Status:** Needs Verification
+
+**Evidence Needed:**
+
+- Resume
+- LinkedIn
+- Public profile or internal title confirmation
+
+**Public Use:** Public-safe after verification.
+
+**Interview Defense Notes:** This is a factual role/title claim and should be consistent across resume, LinkedIn, website, and speaking bio.
+
+**Related Files:**
+
+- FOUNDATION/03_POSITIONING.md
+- CAREER_ASSETS/EXECUTIVE_RESUME.md
+- CAREER_ASSETS/LINKEDIN_PROFILE.md
+
+---
+
+## CLAIM-002 — Built and Scaled Design Function
+
+**Claim:** Nikhil built and scaled the product design function at Airtel Payments Bank.
+
+**Category:** Organizational Design
+
+**Status:** Needs Evidence
+
+**Evidence Needed:**
+
+- Starting team size
+- Current team size
+- Timeline
+- Hiring record
+- Org structure
+- Rituals / operating model introduced
+
+**Public Use:** Public-safe after evidence framing.
+
+**Interview Defense Notes:** Must explain what "built" and "scaled" mean specifically.
+
+**Related Files:**
+
+- FOUNDATION/03_POSITIONING.md
+- TRANSFORMATION_STORIES/BUILDING_DESIGN_ORGANIZATION.md
+- OPERATING_SYSTEM/ORGANIZATION_DESIGN.md
+- EVIDENCE/CASE_EVIDENCE.md
+
+---
+
+## CLAIM-003 — Consumer and Merchant Banking Ecosystems
+
+**Claim:** Nikhil led design across consumer and merchant banking ecosystems.
+
+**Category:** Product Scope
+
+**Status:** Needs Evidence
+
+**Evidence Needed:**
+
+- Product list
+- Ownership scope
+- Time period
+- Public-safe naming
+- Confidentiality review
+
+**Public Use:** Public-safe after sanitization.
+
+**Interview Defense Notes:** Should distinguish direct ownership, leadership oversight, and collaboration.
+
+**Related Files:**
+
+- FOUNDATION/03_POSITIONING.md
+- TRANSFORMATION_STORIES/MERCHANT_BANKING.md
+- EVIDENCE/CONFIDENTIALITY_RULES.md
+
+---
+
+## CLAIM-004 — AI-assisted Product Development Workflows
+
+**Claim:** Nikhil introduced AI-assisted workflows that changed how design and engineering collaborate.
+
+**Category:** AI-native Product Development
+
+**Status:** Needs Evidence
+
+**Evidence Needed:**
+
+- Workflow description
+- Tools used
+- Before/after state
+- Impact on implementation speed or quality
+- Public-safe boundaries
+
+**Public Use:** Public-safe after confidentiality review.
+
+**Interview Defense Notes:** Must avoid sounding like AI buzzword usage. Explain operating model, not just tools.
+
+**Related Files:**
+
+- FOUNDATION/03_POSITIONING.md
+- TRANSFORMATION_STORIES/AI_NATIVE_PRODUCT_DEVELOPMENT.md
+- OPERATING_SYSTEM/AI_WORKFLOW.md
+- BUILDING/LANE.md
+- EVIDENCE/CONFIDENTIALITY_RULES.md
+
+---
+
+## CLAIM-005 — Vault / Product Infrastructure
+
+**Claim:** Nikhil created or led product infrastructure such as Vault/design-system workflows that reduced product development friction.
+
+**Category:** Product Infrastructure / Design Systems
+
+**Status:** Needs Evidence
+
+**Evidence Needed:**
+
+- What Vault is
+- Public-safe description
+- Components / screens / workflow scope
+- Before/after implementation process
+- Measurable impact if used publicly
+
+**Public Use:** Needs sanitization before public use.
+
+**Interview Defense Notes:** Must frame as product infrastructure, not a component library showcase.
+
+**Related Files:**
+
+- TRANSFORMATION_STORIES/VAULT.md
+- OPERATING_SYSTEM/DESIGN_SYSTEMS.md
+- EVIDENCE/CASE_EVIDENCE.md
+
+---
+
+## CLAIM-006 — Trust and Fraud-prevention Work
+
+**Claim:** Nikhil shaped trust and fraud-prevention experiences in regulated banking products.
+
+**Category:** Customer Trust / Regulated Fintech
+
+**Status:** Needs Evidence
+
+**Evidence Needed:**
+
+- Public-safe product descriptions
+- Measurable outcomes
+- Confidentiality review
+- What can and cannot be disclosed
+
+**Public Use:** Public-safe only after confidentiality review.
+
+**Interview Defense Notes:** Avoid exposing fraud mechanics that could be misused.
+
+**Related Files:**
+
+- TRANSFORMATION_STORIES/CUSTOMER_TRUST.md
+- TRANSFORMATION_STORIES/FRAUD_PREVENTION.md
+- TRANSFORMATION_STORIES/SAFE_PAY.md
+- FRAMEWORKS/TRUST_STACK.md
+- EVIDENCE/CONFIDENTIALITY_RULES.md
+
+---
+
+## CLAIM-007 — LANE
+
+**Claim:** Nikhil is building LANE, an AI-native product operating system for design and product teams.
+
+**Category:** Builder / Founder / AI Product
+
+**Status:** Needs Evidence
+
+**Evidence Needed:**
+
+- Product description
+- URL if public
+- Current stage
+- Screenshots or demo if public-safe
+- What has been built
+- What is planned
+
+**Public Use:** Public-safe after product-stage framing.
+
+**Interview Defense Notes:** Must avoid overstating traction if pre-launch or early beta.
+
+**Related Files:**
+
+- BUILDING/LANE.md
+- TRANSFORMATION_STORIES/LANE.md
+- CAREER_ASSETS/INTERVIEW_NARRATIVE.md
+
+---
+
+## CLAIM-008 — Svenklas
+
+**Claim:** Nikhil is building Svenklas, a design-led travel accessories brand.
+
+**Category:** Builder / Founder / Business
+
+**Status:** Needs Evidence
+
+**Evidence Needed:**
+
+- Revenue claim evidence
+- Units sold evidence
+- Retail/distribution evidence
+- Public website
+- Founder role clarity
+
+**Public Use:** Public-safe after evidence review.
+
+**Interview Defense Notes:** Frame as founder/business-building credibility, not a distracting side project.
+
+**Related Files:**
+
+- BUILDING/SVENKLAS.md
+- TRANSFORMATION_STORIES/SVENKLAS.md
+- CAREER_ASSETS/INTERVIEW_NARRATIVE.md
+
+---
+
+## CLAIM-009 — Regulated Fintech, Payments, Healthcare, Entrepreneurship
+
+**Claim:** Nikhil’s career spans regulated fintech, payments, healthcare, AI-native workflows, and entrepreneurship.
+
+**Category:** Career Scope
+
+**Status:** Needs Verification
+
+**Evidence Needed:**
+
+- Resume
+- Role history
+- Company/project descriptions
+- Public-safe career timeline
+
+**Public Use:** Public-safe after resume alignment.
+
+**Interview Defense Notes:** This is a broad positioning claim and must remain consistent across resume, LinkedIn, and website.
+
+**Related Files:**
+
+- FOUNDATION/03_POSITIONING.md
+- CAREER_ASSETS/EXECUTIVE_RESUME.md
+- CAREER_ASSETS/INTERVIEW_NARRATIVE.md
+
+---
+
+# Metric Claims To Verify
+
+Each metric below is a claim with default status **Needs Evidence**. It must be expanded into the Per-Claim Schema and pass Claims Review before publication.
 
 | Claim | Confidence | Status |
 |---|---|---|
-| 85% QA/UAT reduction | TBD | [ ] Unverified |
-| 28× digital gold growth | TBD | [ ] Unverified |
-| 7× onboarding growth | TBD | [ ] Unverified |
-| 62% fraud reduction | TBD | [ ] Unverified |
-| 39% fraud-related support handling | TBD | [ ] Unverified |
-| 32% higher average balance | TBD | [ ] Unverified |
-| 12M+ monthly active users | TBD | [ ] Unverified |
-| 1B+ transactions | TBD | [ ] Unverified |
-| 500+ user interviews | TBD | [ ] Unverified |
-| 50 field studies | TBD | [ ] Unverified |
-| 0→12 design function | TBD | [ ] Unverified |
-| 20+ design hires | TBD | [ ] Unverified |
-| LANE built solo | TBD | [ ] Unverified |
-| Svenklas ₹70L monthly revenue | TBD | [ ] Unverified |
-| 300K+ units sold | TBD | [ ] Unverified |
-| Awards and recognitions | TBD | [ ] Unverified |
+| 85% QA/UAT reduction | TBD | [ ] Needs Evidence |
+| 28× digital gold growth | TBD | [ ] Needs Evidence |
+| 7× onboarding growth | TBD | [ ] Needs Evidence |
+| 62% fraud reduction | TBD | [ ] Needs Evidence |
+| 39% fraud-related support handling | TBD | [ ] Needs Evidence |
+| 32% higher average balance | TBD | [ ] Needs Evidence |
+| 12M+ monthly active users | TBD | [ ] Needs Evidence |
+| 1B+ transactions | TBD | [ ] Needs Evidence |
+| 500+ user interviews | TBD | [ ] Needs Evidence |
+| 50 field studies | TBD | [ ] Needs Evidence |
+| 0→12 design function | TBD | [ ] Needs Evidence |
+| 20+ design hires | TBD | [ ] Needs Evidence |
+| LANE built solo | TBD | [ ] Needs Evidence |
+| Svenklas ₹70L monthly revenue | TBD | [ ] Needs Evidence |
+| 300K+ units sold | TBD | [ ] Needs Evidence |
+| Awards and recognitions | TBD | [ ] Needs Evidence |
 
 ---
 
@@ -67,9 +339,11 @@ Each row below must be expanded into the full schema and pass Claims Review befo
 - QUALITY/CLAIMS_REVIEW.md
 - EVIDENCE/METRICS_REGISTER.md
 - EVIDENCE/AWARDS_VERIFICATION.md
+- EVIDENCE/CASE_EVIDENCE.md
 - EVIDENCE/INTERVIEW_DEFENSE.md
 - EVIDENCE/CONFIDENTIALITY_RULES.md
 - EVIDENCE/PUBLIC_PRIVATE_BOUNDARIES.md
+- FOUNDATION/03_POSITIONING.md
 
 ## Notes
 

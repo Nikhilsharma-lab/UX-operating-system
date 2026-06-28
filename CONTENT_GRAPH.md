@@ -8,6 +8,8 @@ It is not a sitemap.
 
 It documents how ideas connect, so the website behaves like a knowledge network rather than a collection of isolated pages.
 
+The canonical brand thesis document is `FOUNDATION/04_BRAND_THESIS.md`; the knowledge-network principle is a direct expression of that thesis (a useful body of work, no dead ends).
+
 Every new page should declare:
 
 1. Inbound links

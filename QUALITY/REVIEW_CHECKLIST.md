@@ -76,6 +76,7 @@ Shared
 
 - MASTER_PLAYBOOK.md (canonical strategy document)
 - FOUNDATION/03_POSITIONING.md (canonical positioning document)
+- FOUNDATION/04_BRAND_THESIS.md (canonical brand thesis document)
 - QUALITY/DEFINITION_OF_DONE.md
 - DESIGN.md
 - PROGRAM_INDEX.md

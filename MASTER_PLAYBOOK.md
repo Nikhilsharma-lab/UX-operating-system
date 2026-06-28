@@ -104,6 +104,8 @@ This is:
 
 # Fundamental Belief
 
+The canonical brand thesis document is `FOUNDATION/04_BRAND_THESIS.md`. The belief below stays consistent with it; that file is the source for what the system stands for.
+
 Design creates systems that create products.
 
 Products are outputs.

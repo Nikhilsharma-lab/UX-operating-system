@@ -6,6 +6,8 @@ This file defines the preferred language for the Nikhil Sharma Executive Knowled
 
 Consistent vocabulary creates a consistent brand.
 
+The canonical brand thesis document is `FOUNDATION/04_BRAND_THESIS.md`; the preferred language below expresses that brand.
+
 ---
 
 ## Preferred Terms
