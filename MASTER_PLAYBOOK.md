@@ -42,6 +42,8 @@ It is the invisible operating principle behind the entire system.
 
 # Positioning
 
+The canonical positioning document is `FOUNDATION/03_POSITIONING.md`. The summary below stays consistent with it; that file is the source for all positioning language.
+
 Nikhil Sharma is an AI-native Product Executive who builds organizations, systems, and businesses.
 
 He should not be primarily positioned as:

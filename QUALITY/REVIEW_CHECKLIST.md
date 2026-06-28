@@ -75,6 +75,7 @@ Shared
 ## Related Files
 
 - MASTER_PLAYBOOK.md (canonical strategy document)
+- FOUNDATION/03_POSITIONING.md (canonical positioning document)
 - QUALITY/DEFINITION_OF_DONE.md
 - DESIGN.md
 - PROGRAM_INDEX.md

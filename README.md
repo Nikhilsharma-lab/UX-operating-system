@@ -66,6 +66,7 @@ If it does not, it should not exist.
 - `MASTER_PLAYBOOK.md` — the canonical strategy and content document.
 - `AI_COLLABORATION_MODEL.md` — how AI tools are used to build the system.
 - `DESIGN.md` — the root-level design contract Claude Code must read before any UI change.
+- `FOUNDATION/03_POSITIONING.md` — the canonical positioning document; the source for homepage, resume, LinkedIn, transformation stories, speaking bio, and recruiter narrative.
 - `DECISION_LOG.md` — the running record of decisions.
 - `ANTI_GOALS.md` — what the system must never become.
 - `VOCABULARY.md` — the preferred language of the system.

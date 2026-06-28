@@ -144,6 +144,8 @@ The Map is exhaustive. Nothing is forgotten, only sequenced.
 
 01–10 strategy foundations + 11–15 experience design (Emotional Journey, Content Tiers, Unfair Advantage, Narrative Arc, Layered Experience). `P0`.
 
+`03_POSITIONING.md` — locked v1 (Decision 011). Canonical positioning document; source for homepage, resume, LinkedIn, transformation stories, speaking bio, and recruiter narrative.
+
 ### WEBSITE/
 
 System specifications: overview, IA, journeys, navigation, design system, visual language, motion, components, SEO, performance, accessibility, analytics, CMS, knowledge architecture, internal linking, page templates, interaction principles, responsive strategy. `P0`/`P1`.
@@ -253,6 +255,7 @@ The running record. Source of truth for current execution. Mirrored and expanded
 - **008** — Added root-level `DESIGN.md` as the read-first design contract for Claude Code → prevents visual drift and keeps UI implementation consistent across pages, components, motion, typography, and visual language.
 - **009** — Locked `MASTER_PLAYBOOK.md` as the canonical strategy document → establishes the core thesis, positioning, narrative system, content pillars, transformation story model, evidence rules, quality gates, and long-term ambition before homepage strategy begins.
 - **010** — Reconciled transformation story framework from 12 parts to the canonical 16-part structure → aligns `TRANSFORMATION_STORIES/FRAMEWORK.md`, `QUALITY/DEFINITION_OF_DONE.md`, and `PROGRAM_INDEX.md` with locked `MASTER_PLAYBOOK.md`.
+- **011** — Locked `FOUNDATION/03_POSITIONING.md` as the canonical positioning document → defines Nikhil as an AI-native Product Executive who builds organizations, systems, and businesses, and aligns homepage, resume, LinkedIn, transformation stories, speaking bio, and recruiter narrative.
 
 ---
 
