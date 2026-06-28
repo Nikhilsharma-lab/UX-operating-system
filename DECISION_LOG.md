@@ -30,10 +30,12 @@ Each entry: ID — Decision → Consequence. Add Date, Context, and Owner as dec
 - **012** — Registered initial positioning claims in `EVIDENCE/CLAIMS_REGISTER.md` → creates evidence shells for role, organizational design, AI-assisted workflows, product infrastructure, trust work, LANE, Svenklas, and career-scope claims before public copy is written.
 - **013** — Locked `FOUNDATION/04_BRAND_THESIS.md` as the canonical brand thesis document → defines the system’s belief, promise, enemy, voice, narrative, moat, and long-term brand behavior before audience and homepage strategy are written.
 - **014** — Locked `FOUNDATION/05_AUDIENCE.md` as the canonical audience strategy document → defines primary and secondary audiences, their proof needs, journeys, attention layers, conversion goals, audience risks, and homepage implications before homepage strategy begins.
+- **015** — Selected Digital Gold Growth as the third V1 transformation story → gives the homepage a cleaner public business-growth proof point and keeps Fraud Prevention as P1 until stronger confidentiality review is completed.
+- **016** — Locked `PAGES/HOME.md` homepage strategy v1 → defines homepage purpose, audience journey, section architecture, featured transformations, evidence rules, visual requirements, CTA strategy, and knowledge-graph links before copywriting or UI implementation begins.
 
 ---
 
 ## Open Decisions
 
-- [?] Which third transformation story ships in V1 (Digital Gold Growth vs Fraud Prevention) — decide on evidence strength.
+- [x] Which third transformation story ships in V1 — resolved by Decision 015: Digital Gold Growth (Fraud Prevention moved to P1 pending confidentiality review).
 - [?] Tech stack for the website implementation (deferred until after foundations are locked).

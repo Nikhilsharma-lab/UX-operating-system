@@ -34,6 +34,8 @@ Shared
 
 ## Homepage
 
+The homepage strategy contract is `PAGES/HOME.md` (locked strategy v1). A homepage build must satisfy that strategy plus the criteria below.
+
 - [ ] Passes the 30-second recruiter test
 - [ ] Lands identity in 10 seconds (Layer 1)
 - [ ] Surfaces proof without deep reading (Layer 2)

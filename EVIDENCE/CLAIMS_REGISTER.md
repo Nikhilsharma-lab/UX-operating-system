@@ -72,6 +72,8 @@ Each claim should eventually capture:
 
 **Interview Defense Notes:** This is a factual role/title claim and should be consistent across resume, LinkedIn, website, and speaking bio.
 
+**Homepage Usage Note:** May be used in draft homepage strategy. Must remain evidence-gated until resume / LinkedIn / public profile alignment is confirmed before public launch.
+
 **Related Files:**
 
 - FOUNDATION/03_POSITIONING.md
@@ -300,6 +302,8 @@ Each claim should eventually capture:
 **Public Use:** Public-safe after resume alignment.
 
 **Interview Defense Notes:** This is a broad positioning claim and must remain consistent across resume, LinkedIn, and website.
+
+**Homepage Usage Note:** May be used in draft homepage strategy. Must remain evidence-gated until resume / LinkedIn / public profile alignment is confirmed before public launch.
 
 **Related Files:**
 

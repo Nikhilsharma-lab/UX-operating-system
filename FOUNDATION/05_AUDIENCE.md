@@ -985,6 +985,8 @@ Primary CTA:
 
 # Homepage Audience Requirements
 
+The locked homepage strategy that operationalizes these requirements is `PAGES/HOME.md` (homepage strategy v1, Decision 016).
+
 The homepage must serve several audiences without becoming generic.
 
 ## Above the Fold

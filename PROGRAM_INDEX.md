@@ -112,7 +112,7 @@ See `RELEASES/V1.md` for the full V1 definition.
 - [ ] `▶V1` `P0` Lock `FOUNDATION/03_POSITIONING.md`
 - [ ] `▶V1` `P0` Lock `FOUNDATION/04_BRAND_THESIS.md`
 - [ ] `▶V1` `P0` Lock `FOUNDATION/05_AUDIENCE.md`
-- [ ] `▶V1` `P0` Homepage strategy → `PAGES/HOME.md`
+- [x] `▶V1` `P0` Homepage strategy → `PAGES/HOME.md` (locked strategy v1, Decision 016)
 - [ ] `▶V1` `P0` Capabilities page → `PAGES/CAPABILITIES.md`
 - [ ] `▶V1` `P0` Transformations index → `PAGES/TRANSFORMATIONS.md`
 - [ ] `▶V1` `P0` Three transformation stories (see `RELEASES/V1.md`)
@@ -157,6 +157,8 @@ System specifications: overview, IA, journeys, navigation, design system, visual
 ### PAGES/
 
 Home, Capabilities, Transformations, Thinking, Operating Manual, Building, Evolution, Speaking, Contact, Search, 404, Footer, Decisions, RSS. `P0`.
+
+`HOME.md` — locked strategy v1 (Decision 016). Defines homepage purpose, audience journey, 12-section architecture, featured V1 transformations, evidence rules, visual requirements, CTA strategy, and knowledge-graph links.
 
 ### TRANSFORMATION_STORIES/
 
@@ -263,6 +265,8 @@ The running record. Source of truth for current execution. Mirrored and expanded
 - **012** — Registered initial positioning claims in `EVIDENCE/CLAIMS_REGISTER.md` → creates evidence shells for role, organizational design, AI-assisted workflows, product infrastructure, trust work, LANE, Svenklas, and career-scope claims before public copy is written.
 - **013** — Locked `FOUNDATION/04_BRAND_THESIS.md` as the canonical brand thesis document → defines the system’s belief, promise, enemy, voice, narrative, moat, and long-term brand behavior before audience and homepage strategy are written.
 - **014** — Locked `FOUNDATION/05_AUDIENCE.md` as the canonical audience strategy document → defines primary and secondary audiences, their proof needs, journeys, attention layers, conversion goals, audience risks, and homepage implications before homepage strategy begins.
+- **015** — Selected Digital Gold Growth as the third V1 transformation story → gives the homepage a cleaner public business-growth proof point and keeps Fraud Prevention as P1 until stronger confidentiality review is completed.
+- **016** — Locked `PAGES/HOME.md` homepage strategy v1 → defines homepage purpose, audience journey, section architecture, featured transformations, evidence rules, visual requirements, CTA strategy, and knowledge-graph links before copywriting or UI implementation begins.
 
 ---
 

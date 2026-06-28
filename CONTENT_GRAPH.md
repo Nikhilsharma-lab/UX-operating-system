@@ -96,3 +96,5 @@ Links to:
 No public page should be a dead end.
 
 Every page should naturally lead to the next useful idea.
+
+The homepage is the primary hub. Its outbound and inbound edges are defined in the Homepage Knowledge Graph section of `PAGES/HOME.md` (Capabilities, Building the Design Organization, AI-native Product Development, Digital Gold Growth, Operating Manual, Thinking, Building, Contact).

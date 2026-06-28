@@ -683,6 +683,8 @@ V1 priority stories:
 
 Pick the third V1 story based on evidence strength.
 
+> Resolved (Decision 015): the third V1 story is Digital Gold Growth; Fraud Prevention moves to P1 pending confidentiality review. See the locked homepage strategy in `PAGES/HOME.md`.
+
 ---
 
 # Transformation Story Structure
