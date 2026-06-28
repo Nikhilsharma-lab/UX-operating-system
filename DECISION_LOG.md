@@ -25,6 +25,7 @@ Each entry: ID — Decision → Consequence. Add Date, Context, and Owner as dec
 - **007** — Added Evidence, Career Assets, Prompts, Audits, Governance, Emotional Journey, Knowledge Architecture, and Confidentiality systems → protects the project from strategic drift, unsupported claims, and memory loss.
 - **008** — Added root-level `DESIGN.md` as the read-first design contract for Claude Code → prevents visual drift and keeps UI implementation consistent across pages, components, motion, typography, and visual language.
 - **009** — Locked `MASTER_PLAYBOOK.md` as the canonical strategy document → establishes the core thesis, positioning, narrative system, content pillars, transformation story model, evidence rules, quality gates, and long-term ambition before homepage strategy begins.
+- **010** — Reconciled transformation story framework from 12 parts to the canonical 16-part structure → aligns `TRANSFORMATION_STORIES/FRAMEWORK.md`, `QUALITY/DEFINITION_OF_DONE.md`, and `PROGRAM_INDEX.md` with locked `MASTER_PLAYBOOK.md`.
 
 ---
 

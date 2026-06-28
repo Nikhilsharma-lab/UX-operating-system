@@ -45,12 +45,34 @@ Shared
 - [ ] Backed by evidence and decisions
 - [ ] Links to relevant transformation stories and frameworks
 
-## Transformation Story
+## Transformation Story Definition of Done
 
-- [ ] Follows the 12-part structure in `TRANSFORMATION_STORIES/FRAMEWORK.md`
-- [ ] Communicates transformation, not process
-- [ ] Metrics pass Claims Review
-- [ ] States Nikhil's specific contribution
+A transformation story is done when:
+
+- [ ] It follows the canonical 16-part structure from `MASTER_PLAYBOOK.md`.
+- [ ] It opens with a business or organizational problem, not a screen or deliverable.
+- [ ] It clearly explains the business problem.
+- [ ] It clearly explains the organizational challenge.
+- [ ] It documents constraints.
+- [ ] It includes research or evidence.
+- [ ] It shows key decisions.
+- [ ] It explains tradeoffs.
+- [ ] It explains execution.
+- [ ] It includes outcomes.
+- [ ] Any metric used is listed in `EVIDENCE/CLAIMS_REGISTER.md` or marked as needing evidence.
+- [ ] It includes lessons learned.
+- [ ] It includes “What I’d Do Differently.”
+- [ ] It identifies any frameworks created.
+- [ ] It links to related essays.
+- [ ] It links to related Operating Manual pages.
+- [ ] It links to related evidence.
+- [ ] It identifies future formats.
+- [ ] It passes Executive Review.
+- [ ] It passes Story Review.
+- [ ] It passes Craft Review.
+- [ ] It passes Evidence Review.
+- [ ] It passes Evergreen Review.
+- [ ] It passes Compounding Review.
 
 ## Essay
 
