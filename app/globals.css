@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+/*
+ * Warm Editorial Zine design system — wired into the app.
+ * Mirrors styles/globals.css; DESIGN.md is the human-readable source of truth.
+ * Font variables (--font-fraunces / --font-plex-mono) are provided by
+ * next/font in app/layout.tsx and referenced by the font tokens below.
+ */
+
+@theme {
+  /* Colors */
+  --color-vellum: #f6f6f4;
+  --color-paper: #ffffff;
+  --color-ink: #000000;
+  --color-carbon: #2c2c26;
+  --color-ash: #d0d0c8;
+  --color-olive-char: #57584b;
+  --color-lichen: #6d6e5e;
+  --color-sage: #979886;
+  --color-moss: #aaab9c;
+  --color-bone: #e8e7d9;
+  --color-highlighter-yellow: #fff347;
+  --color-khaki-olive: #aaa674;
+
+  /* Typography */
+  --font-editorial-serif: var(--font-fraunces), "Fraunces", "Instrument Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-geometric-mono: var(--font-plex-mono), "IBM Plex Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Border Radius */
+  --radius-sm: 3px;
+  --radius-lg: 8px;
+
+  /* Layout */
+  --spacing-page-max: 1200px;
+}
+
+@layer base {
+  html {
+    background: var(--color-vellum);
+    color: var(--color-ink);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-vellum);
+    color: var(--color-ink);
+    font-family: var(--font-geometric-mono);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: var(--color-highlighter-yellow);
+    color: var(--color-ink);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .font-editorial-serif {
+    font-family: var(--font-editorial-serif);
+  }
+
+  .font-geometric-mono {
+    font-family: var(--font-geometric-mono);
+  }
+
+  /* Type scale — exact values from DESIGN.md */
+  .t-caption {
+    font-size: 12px;
+    line-height: 17px;
+    letter-spacing: -0.8px;
+  }
+
+  .t-body-sm {
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: -0.94px;
+  }
+
+  .t-body {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -1.07px;
+  }
+
+  .t-subheading {
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: -0.5px;
+  }
+
+  .t-heading-sm {
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: -1.2px;
+  }
+
+  .t-heading {
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: -1.6px;
+  }
+
+  .t-heading-lg {
+    font-size: 48px;
+    line-height: 54px;
+    letter-spacing: -2.4px;
+  }
+
+  .t-display-sm {
+    font-size: 64px;
+    line-height: 64px;
+    letter-spacing: -3.2px;
+  }
+
+  .t-display {
+    font-size: 96px;
+    line-height: 90px;
+    letter-spacing: -4.8px;
+  }
+
+  .page-shell {
+    max-width: var(--spacing-page-max);
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  .hairline {
+    border: 1px solid var(--color-ash);
+  }
+
+  .accent-mark {
+    background: var(--color-highlighter-yellow);
+  }
+}

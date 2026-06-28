@@ -8,10 +8,13 @@
 *~
 Thumbs.db
 
-# Node (for when the app is scaffolded)
+# Node / Next.js
 node_modules/
 .next/
+out/
 dist/
 build/
 .vercel/
 .env*.local
+next-env.d.ts
+*.tsbuildinfo
