@@ -31,23 +31,32 @@ export function OperatingManualPreview() {
         </>
       }
     >
-      <ul className="divide-y divide-ash border-t border-b border-ash">
-        {topics.map((topic, index) => (
-          <li key={topic}>
+      <div className="border-t border-ash">
+        <div className="grid grid-cols-1 sm:grid-cols-2">
+          {topics.map((topic, index) => (
             <a
+              key={topic}
               href="#operating-manual"
-              className="flex items-baseline gap-4 py-4 transition-colors hover:bg-bone/60"
+              className={`group flex items-baseline gap-4 border-b border-ash px-1 py-4 transition-colors hover:bg-bone/50 ${
+                index % 2 === 0 ? "sm:border-r" : ""
+              }`}
             >
-              <span className="t-caption font-geometric-mono text-lichen">
+              <span className="t-caption font-geometric-mono tabular-nums text-lichen">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <span className="font-editorial-serif text-[18px] tracking-[-0.01em] text-ink">
+              <span className="font-editorial-serif text-[17px] tracking-[-0.01em] text-ink">
                 {topic}
               </span>
+              <span
+                aria-hidden="true"
+                className="ml-auto font-geometric-mono text-[13px] text-sage"
+              >
+                →
+              </span>
             </a>
-          </li>
-        ))}
-      </ul>
+          ))}
+        </div>
+      </div>
 
       <div className="mt-10">
         <CtaLink href="#operating-manual" variant="secondary">

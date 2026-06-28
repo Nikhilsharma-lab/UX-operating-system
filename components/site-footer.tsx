@@ -1,34 +1,66 @@
-const footerLinks = [
+const coreLinks = [
   { label: "Capabilities", href: "#capabilities" },
   { label: "Transformations", href: "#transformations" },
   { label: "Operating Manual", href: "#operating-manual" },
   { label: "Thinking", href: "#thinking" },
   { label: "Building", href: "#building" },
-  { label: "Contact", href: "#contact" },
 ];
+
+const linkClass =
+  "font-geometric-mono text-[13px] tracking-[-0.02em] text-moss transition-colors hover:text-paper";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-ash py-16">
-      <div className="page-shell flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-        <p className="max-w-[460px] font-editorial-serif text-[clamp(1.25rem,2.4vw,1.6rem)] font-light leading-[1.2] tracking-[-0.01em] text-ink">
-          AI-native Product Executive building organizations, systems, and
-          businesses.
-        </p>
-        <nav aria-label="Footer">
-          <ul className="flex flex-wrap gap-x-5 gap-y-2">
-            {footerLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="font-geometric-mono text-[13px] tracking-[-0.02em] text-lichen transition-colors hover:text-ink"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+    <footer className="bg-carbon py-16 text-paper">
+      <div className="page-shell">
+        <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
+          <p className="max-w-[460px] font-editorial-serif text-[clamp(1.25rem,2.4vw,1.6rem)] font-light leading-[1.2] tracking-[-0.01em] text-paper">
+            AI-native Product Executive building organizations, systems, and
+            businesses.
+          </p>
+          <nav aria-label="Footer">
+            <ul className="flex flex-wrap gap-x-5 gap-y-2">
+              {coreLinks.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className={linkClass}>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+
+        <div className="mt-12 flex flex-col gap-4 border-t border-olive-char pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <li>
+              <a href="mailto:hi.nikhilsharma@gmail.com" className={linkClass}>
+                Contact
+              </a>
+            </li>
+            <li>
+              <span
+                aria-disabled="true"
+                title="Add LinkedIn URL before launch"
+                className="cursor-not-allowed font-geometric-mono text-[13px] tracking-[-0.02em] text-moss opacity-60"
+              >
+                LinkedIn
+              </span>
+            </li>
+            <li>
+              <span
+                aria-disabled="true"
+                title="Add resume link before launch"
+                className="cursor-not-allowed font-geometric-mono text-[13px] tracking-[-0.02em] text-moss opacity-60"
+              >
+                Resume
+              </span>
+            </li>
           </ul>
-        </nav>
+          <p className="t-caption font-geometric-mono uppercase text-sage">
+            Nikhil Sharma — Executive Knowledge System
+          </p>
+        </div>
       </div>
     </footer>
   );

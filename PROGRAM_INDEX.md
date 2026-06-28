@@ -280,6 +280,7 @@ The running record. Source of truth for current execution. Mirrored and expanded
 - **020** — Created `WEBSITE/HOMEPAGE_IMPLEMENTATION_PLAN.md` before UI implementation → translates locked homepage strategy, homepage copy, and design direction into section architecture, component inventory, responsive rules, accessibility expectations, and evidence-gated implementation risks.
 - **021** — Implemented static homepage UI v1 → scaffolds the app (Next.js App Router + TypeScript + Tailwind v4, Fraunces + IBM Plex Mono via next/font), wires the Warm Editorial Zine design system, builds homepage sections from `PAGES/HOME_COPY.md` Draft v2, keeps evidence-gated claims visible, and creates the first reviewable homepage experience. Build and lint pass.
 - **022** — Completed homepage UI QA and polish pass v1 → reviewed the implemented homepage against locked strategy, copy, design contract, responsive behavior, accessibility, and evidence-gated claim handling before building additional pages. Fixed the Executive Snapshot empty-cell grid and raised label contrast to WCAG AA (sage → lichen). Report in `WEBSITE/HOMEPAGE_QA_REPORT.md`.
+- **023** — Completed final homepage taste polish pass using frontend design review → strengthened hero marginalia, added restrained editorial accent marks, improved mobile hero scale, converted footer into a carbon editorial close, and refined lower-section rhythm before moving to transformation story pages.
 
 ---
 

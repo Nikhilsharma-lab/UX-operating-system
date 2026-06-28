@@ -30,18 +30,18 @@ export function ThinkingPreview() {
         </>
       }
     >
-      <ul className="space-y-px overflow-hidden rounded-lg border border-ash bg-ash">
-        {essaySeeds.map((seed) => (
+      <ul className="border-t border-ash">
+        {essaySeeds.map((seed, index) => (
           <li
             key={seed}
-            className="flex items-center justify-between gap-4 bg-paper px-5 py-4"
+            className="flex flex-col gap-2 border-b border-ash py-5 sm:flex-row sm:items-baseline sm:gap-6"
           >
-            <span className="font-editorial-serif text-[18px] tracking-[-0.01em] text-ink">
+            <span className="t-caption font-geometric-mono uppercase text-lichen sm:w-24 sm:shrink-0">
+              Note {String(index + 1).padStart(2, "0")}
+            </span>
+            <p className="max-w-[640px] font-editorial-serif text-[19px] font-light leading-[1.32] tracking-[-0.01em] text-ink">
               {seed}
-            </span>
-            <span className="t-caption font-geometric-mono uppercase text-lichen">
-              Seed
-            </span>
+            </p>
           </li>
         ))}
       </ul>

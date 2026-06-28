@@ -17,13 +17,16 @@ export function EvolutionPreview() {
       eyebrow="Evolution"
       title="From architecture to healthcare, payments, banking, AI, and entrepreneurship."
     >
-      <ol className="divide-y divide-ash border-t border-b border-ash">
-        {arc.map((step) => (
+      <ol className="border-t border-ash">
+        {arc.map((step, index) => (
           <li
             key={step.era}
-            className="flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:gap-4"
+            className="flex items-baseline gap-4 border-b border-ash py-3"
           >
-            <span className="min-w-[200px] font-editorial-serif text-[18px] tracking-[-0.01em] text-ink">
+            <span className="t-caption font-geometric-mono tabular-nums text-lichen">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <span className="min-w-[150px] font-editorial-serif text-[17px] tracking-[-0.01em] text-ink sm:min-w-[200px]">
               {step.era}
             </span>
             <span className="t-body-sm text-olive-char">{step.lesson}</span>

@@ -15,6 +15,11 @@ export function BeliefSection() {
     <SectionShell id="belief" eyebrow="Belief">
       <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,340px)] lg:gap-16">
         <div className="max-w-[680px]">
+          {/* editorial accent mark (2 of 2 on the page) */}
+          <span
+            aria-hidden="true"
+            className="mb-6 block h-[4px] w-12 bg-highlighter-yellow"
+          />
           <h2 className="font-editorial-serif font-light text-[clamp(2rem,4.4vw,3rem)] leading-[1.06] tracking-[-0.02em] text-ink">
             Design creates systems that create products.
           </h2>

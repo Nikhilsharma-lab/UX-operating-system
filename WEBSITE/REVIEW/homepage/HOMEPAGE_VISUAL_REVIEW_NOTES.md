@@ -115,3 +115,40 @@ Notes:
 ## Recommended Next Step
 
 Review the nine screenshots (especially `01`, `02`, `04`, `07`, `09`) for executive feel, hero strength, and mobile intentionality. Do not build new pages until these are reviewed and the hero/visual direction is confirmed. After sign-off, the two unblockers are: (1) verify the gated claims, and (2) build the first transformation story page (Building the Design Organization), which turns the story CTAs into real links.
+
+---
+
+## Final Taste Polish Pass
+
+### Frontend Design Skill Review
+
+Reviewed the homepage against the target "executive field manual meets editorial zine." It was already on-direction (Fraunces display + IBM Plex Mono labels, cream canvas, hairline rules, flat surfaces — a knowledge system, not a portfolio). Five craft gaps kept it from feeling *resolved*: an underweight hero right rail leaving an empty column; a tonally flat all-monochrome palette with no editorial annotation; a quiet cream footer that let the page trail off; a slightly oversized/heavy mobile hero; and lower sections (Operating Manual / Thinking / Building / Evolution) sharing the same list-and-card energy. These mapped exactly to the A–E polish brief.
+
+### Changes Made
+
+- **A. Hero right rail** — replaced the single belief line with a stronger editorial marginalia: "THE BELIEF" + serif belief line, a hairline separator, then "THIS SYSTEM MAPS" with a hairline-divided list (Organizations / Workflows / Decisions / Evidence / Outcomes). Narrow, editorial, no metrics, no images. On mobile it sits below the hero CTAs as a clean belief panel.
+- **B. Editorial accent marks** — exactly two tiny highlighter-yellow (#fff347) bars: under the hero CTAs and above the Belief headline. No yellow text, buttons, or large fills.
+- **C. Carbon footer** — converted the footer to `#2c2c26` with paper/olive-sage text: positioning line, core links, and Contact / LinkedIn / Resume. Restrained, no mega-footer, no gradients/shadows.
+- **D. Mobile hero scale** — reduced the headline clamp floor (2.4rem → 2.1rem) and eased line-height (1.02 → 1.04); supporting copy set to a lighter 15px/1.55 on mobile, full token size at md+. Still bold.
+- **E. Section variation** — Operating Manual is now a two-column index/table with numbered rows and a column rule; Thinking reads as field notes ("NOTE 01" mono kicker + serif idea); Building is two "venture notes" split by a vertical rule rather than cards; Evolution is a compact, numbered career arc.
+
+No copy meaning changed, no section reordering, no evidence labels removed, no new dependencies. Hover stayed color/background only (no motion added).
+
+### Screenshots Added
+
+- `10-desktop-polished-fullpage.png`
+- `11-desktop-polished-hero.png`
+- `12-mobile-polished-hero.png`
+- `13-mobile-polished-fullpage.png`
+
+(Captured against the production build via headless Chrome; sticky header neutralized; no dev indicator.)
+
+### Remaining Risks
+
+- Evidence gates still required: title, 28× Digital Gold, AI-native impact, and scale claims remain `[EVIDENCE-GATED]` — all 8 chips remain visible after polish.
+- Placeholder CTAs unchanged: LinkedIn / Resume are still visible disabled placeholders (now in the carbon footer too); Contact uses `mailto:`.
+- Story CTAs still anchor to `#transformations` until story pages exist.
+
+### Recommended Next Step
+
+Homepage is resolved and review-ready. Do not build transformation story pages yet. Next: confirm the polished direction from `10`–`13`, then either verify the gated claims or proceed (in a separate task) to the first transformation story page.
