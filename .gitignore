@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor / OS cruft
+*.swp
+*~
+Thumbs.db
+
+# Node (for when the app is scaffolded)
+node_modules/
+.next/
+dist/
+build/
+.vercel/
+.env*.local

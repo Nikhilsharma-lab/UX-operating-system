@@ -1,0 +1,264 @@
+/*
+ * globals.css — Nikhil Sharma Executive Knowledge System
+ *
+ * Warm Editorial Zine design tokens.
+ * Canonical human-readable reference: DESIGN.md (keep in sync).
+ *
+ * NOTE: Tailwind is not yet installed and no app exists. This file is a
+ * ready-to-wire artifact. When the Next.js app is scaffolded, add
+ * `@import "tailwindcss";` above the @theme block so the @theme tokens
+ * compile into Tailwind v4 utilities.
+ */
+
+@theme {
+  /* Colors */
+  --color-vellum: #f6f6f4;
+  --color-paper: #ffffff;
+  --color-ink: #000000;
+  --color-carbon: #2c2c26;
+  --color-ash: #d0d0c8;
+  --color-olive-char: #57584b;
+  --color-lichen: #6d6e5e;
+  --color-sage: #979886;
+  --color-moss: #aaab9c;
+  --color-bone: #e8e7d9;
+  --color-highlighter-yellow: #fff347;
+  --color-khaki-olive: #aaa674;
+
+  /* Typography */
+  --font-editorial-serif: "Fraunces", "Instrument Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-geometric-mono: "IBM Plex Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Typography — Scale */
+  --text-caption: 12px;
+  --leading-caption: 17px;
+  --tracking-caption: -0.8px;
+
+  --text-body-sm: 14px;
+  --leading-body-sm: 19px;
+  --tracking-body-sm: -0.94px;
+
+  --text-body: 16px;
+  --leading-body: 24px;
+  --tracking-body: -1.07px;
+
+  --text-subheading: 20px;
+  --leading-subheading: 30px;
+  --tracking-subheading: -0.5px;
+
+  --text-heading-sm: 24px;
+  --leading-heading-sm: 24px;
+  --tracking-heading-sm: -1.2px;
+
+  --text-heading: 32px;
+  --leading-heading: 32px;
+  --tracking-heading: -1.6px;
+
+  --text-heading-lg: 48px;
+  --leading-heading-lg: 54px;
+  --tracking-heading-lg: -2.4px;
+
+  --text-display-sm: 64px;
+  --leading-display-sm: 64px;
+  --tracking-display-sm: -3.2px;
+
+  --text-display: 96px;
+  --leading-display: 90px;
+  --tracking-display: -4.8px;
+
+  /* Spacing */
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --spacing-128: 128px;
+
+  /* Layout */
+  --spacing-page-max: 1200px;
+  --spacing-section-gap: 80px;
+  --spacing-card-padding: 24px;
+  --spacing-element-gap: 8px;
+
+  /* Border Radius */
+  --radius-sm: 3px;
+  --radius-lg: 8px;
+}
+
+:root {
+  /* Colors */
+  --color-vellum: #f6f6f4;
+  --color-paper: #ffffff;
+  --color-ink: #000000;
+  --color-carbon: #2c2c26;
+  --color-ash: #d0d0c8;
+  --color-olive-char: #57584b;
+  --color-lichen: #6d6e5e;
+  --color-sage: #979886;
+  --color-moss: #aaab9c;
+  --color-bone: #e8e7d9;
+  --color-highlighter-yellow: #fff347;
+  --color-khaki-olive: #aaa674;
+
+  /* Typography */
+  --font-editorial-serif: "Fraunces", "Instrument Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-geometric-mono: "IBM Plex Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Typography — Scale */
+  --text-caption: 12px;
+  --leading-caption: 17px;
+  --tracking-caption: -0.8px;
+
+  --text-body-sm: 14px;
+  --leading-body-sm: 19px;
+  --tracking-body-sm: -0.94px;
+
+  --text-body: 16px;
+  --leading-body: 24px;
+  --tracking-body: -1.07px;
+
+  --text-subheading: 20px;
+  --leading-subheading: 30px;
+  --tracking-subheading: -0.5px;
+
+  --text-heading-sm: 24px;
+  --leading-heading-sm: 24px;
+  --tracking-heading-sm: -1.2px;
+
+  --text-heading: 32px;
+  --leading-heading: 32px;
+  --tracking-heading: -1.6px;
+
+  --text-heading-lg: 48px;
+  --leading-heading-lg: 54px;
+  --tracking-heading-lg: -2.4px;
+
+  --text-display-sm: 64px;
+  --leading-display-sm: 64px;
+  --tracking-display-sm: -3.2px;
+
+  --text-display: 96px;
+  --leading-display: 90px;
+  --tracking-display: -4.8px;
+
+  /* Spacing */
+  --spacing-unit: 4px;
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --spacing-128: 128px;
+
+  /* Layout */
+  --page-max-width: 1200px;
+  --section-gap: 80px;
+  --card-padding: 24px;
+  --element-gap: 8px;
+
+  /* Border Radius */
+  --radius-sm: 3px;
+  --radius-lg: 8px;
+
+  /* Named Radii */
+  --radius-nav: 3px;
+  --radius-tags: 3px;
+  --radius-cards: 8px;
+  --radius-buttons: 3px;
+
+  /* Surfaces */
+  --surface-vellum: #f6f6f4;
+  --surface-paper: #ffffff;
+  --surface-carbon: #2c2c26;
+  --surface-highlighter: #fff347;
+  --surface-bone: #e8e7d9;
+}
+
+@layer base {
+  html {
+    background: var(--color-vellum);
+    color: var(--color-ink);
+  }
+
+  body {
+    background: var(--color-vellum);
+    color: var(--color-ink);
+    font-family: var(--font-geometric-mono);
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-highlighter-yellow);
+    color: var(--color-ink);
+  }
+}
+
+@layer utilities {
+  .font-editorial-serif {
+    font-family: var(--font-editorial-serif);
+  }
+
+  .font-geometric-mono {
+    font-family: var(--font-geometric-mono);
+  }
+
+  .text-caption-token {
+    font-size: var(--text-caption);
+    line-height: var(--leading-caption);
+    letter-spacing: var(--tracking-caption);
+  }
+
+  .text-body-sm-token {
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-body-sm);
+    letter-spacing: var(--tracking-body-sm);
+  }
+
+  .text-body-token {
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    letter-spacing: var(--tracking-body);
+  }
+
+  .text-heading-token {
+    font-size: var(--text-heading);
+    line-height: var(--leading-heading);
+    letter-spacing: var(--tracking-heading);
+  }
+
+  .text-heading-lg-token {
+    font-size: var(--text-heading-lg);
+    line-height: var(--leading-heading-lg);
+    letter-spacing: var(--tracking-heading-lg);
+  }
+
+  .text-display-token {
+    font-size: var(--text-display);
+    line-height: var(--leading-display);
+    letter-spacing: var(--tracking-display);
+  }
+
+  .page-shell {
+    max-width: var(--page-max-width);
+    margin-inline: auto;
+    padding-inline: var(--spacing-24);
+  }
+
+  .section-gap {
+    padding-block: var(--section-gap);
+  }
+
+  .hairline {
+    border: 1px solid var(--color-ash);
+  }
+
+  .accent-mark {
+    background: var(--color-highlighter-yellow);
+  }
+}
