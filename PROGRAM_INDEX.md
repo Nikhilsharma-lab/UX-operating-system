@@ -115,7 +115,7 @@ See `RELEASES/V1.md` for the full V1 definition.
 - [x] `▶V1` `P0` Homepage strategy → `PAGES/HOME.md` (locked strategy v1, Decision 016)
 - [ ] `▶V1` `P0` Capabilities page → `PAGES/CAPABILITIES.md`
 - [ ] `▶V1` `P0` Transformations index → `PAGES/TRANSFORMATIONS.md`
-- [ ] `▶V1` `P0` Three transformation stories (see `RELEASES/V1.md`)
+- [ ] `▶V1` `P0` Three transformation stories — fixed (Decision 015/017): Building the Design Organization, AI-native Product Development, Digital Gold Growth (skeletons created, evidence intake required)
 - [ ] `▶V1` `P0` Navigation, Footer, Contact
 - [ ] `▶V1` `P0` Basic SEO, Analytics, Accessibility baseline, Responsive
 - [ ] `▶V1` `P0` `DESIGN.md` — root-level design contract for UI consistency
@@ -167,6 +167,13 @@ Framework + eleven stories (Building the Design Organization, AI-Native Product 
 `FRAMEWORK.md` — locked to 16-part structure.
 
 Canonical story structure is now 16 parts, as defined in `MASTER_PLAYBOOK.md` and mirrored in `TRANSFORMATION_STORIES/FRAMEWORK.md`.
+
+V1 stories are now fixed:
+1. Building the Design Organization
+2. AI-native Product Development
+3. Digital Gold Growth
+
+All three have evidence-ready skeletons (status: Evidence Intake Required). Fraud Prevention moved to P1 pending confidentiality review.
 
 ### OPERATING_SYSTEM/
 
@@ -267,6 +274,7 @@ The running record. Source of truth for current execution. Mirrored and expanded
 - **014** — Locked `FOUNDATION/05_AUDIENCE.md` as the canonical audience strategy document → defines primary and secondary audiences, their proof needs, journeys, attention layers, conversion goals, audience risks, and homepage implications before homepage strategy begins.
 - **015** — Selected Digital Gold Growth as the third V1 transformation story → gives the homepage a cleaner public business-growth proof point and keeps Fraud Prevention as P1 until stronger confidentiality review is completed.
 - **016** — Locked `PAGES/HOME.md` homepage strategy v1 → defines homepage purpose, audience journey, section architecture, featured transformations, evidence rules, visual requirements, CTA strategy, and knowledge-graph links before copywriting or UI implementation begins.
+- **017** — Fixed V1 release drift and prepared evidence-ready skeletons for the three V1 transformation stories → aligns `RELEASES/V1.md`, `PROGRAM_INDEX.md`, and story files around Building the Design Organization, AI-native Product Development, and Digital Gold Growth before story prose is written.
 
 ---
 

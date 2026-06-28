@@ -313,6 +313,81 @@ Each claim should eventually capture:
 
 ---
 
+## CLAIM-010 — Design Organization Scale
+
+**Claim:** Nikhil built or scaled the product design organization.
+
+**Category:** Organizational Design
+
+**Status:** Needs Evidence
+
+**Evidence Needed:**
+
+- Starting team size
+- Current team size
+- Timeline
+- Hiring details
+- Operating model introduced
+- Public-safe phrasing
+
+**Related Files:**
+
+- TRANSFORMATION_STORIES/BUILDING_DESIGN_ORGANIZATION.md
+- FOUNDATION/03_POSITIONING.md
+- PAGES/HOME.md
+
+---
+
+## CLAIM-011 — AI-native Product Development Impact
+
+**Claim:** Nikhil introduced AI-assisted product development workflows that changed design-to-engineering collaboration.
+
+**Category:** AI-native Product Development
+
+**Status:** Needs Evidence / Needs Confidentiality Review
+
+**Evidence Needed:**
+
+- Workflow description
+- Tools used
+- Before/after state
+- Impact metrics
+- Public-safe boundaries
+
+**Related Files:**
+
+- TRANSFORMATION_STORIES/AI_NATIVE_PRODUCT_DEVELOPMENT.md
+- OPERATING_SYSTEM/AI_WORKFLOW.md
+- BUILDING/LANE.md
+- PAGES/HOME.md
+
+---
+
+## CLAIM-012 — Digital Gold Growth
+
+**Claim:** Digital Gold adoption or growth increased significantly through behavioral product design changes.
+
+**Category:** Behavioral Growth / Business Outcome
+
+**Status:** Needs Evidence
+
+**Evidence Needed:**
+
+- Exact metric
+- Baseline
+- Timeframe
+- Product change
+- Attribution
+- Public-safe phrasing
+
+**Related Files:**
+
+- TRANSFORMATION_STORIES/DIGITAL_GOLD_GROWTH.md
+- PAGES/HOME.md
+- FRAMEWORKS/BEHAVIORAL_GROWTH_ENGINE.md
+
+---
+
 # Metric Claims To Verify
 
 Each metric below is a claim with default status **Needs Evidence**. It must be expanded into the Per-Claim Schema and pass Claims Review before publication.
