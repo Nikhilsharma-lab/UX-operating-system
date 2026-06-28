@@ -604,6 +604,26 @@ Rules:
 - Give context when needed.
 - Pass Claims Review before publishing major numbers.
 
+### Evidence Ledger Rendering Rule (Decision 025)
+
+The Executive Snapshot ledger is data-driven. Each metric carries a
+`status` (`verified | needs_evidence | private | do_not_publish`), a
+`source`, and a `publicSafeFallback`. Rendering is governed by mode
+(`lib/evidence.ts` → `evidenceMode()`):
+
+- **Public** (production build, or `EVIDENCE_MODE=public`): unverified
+  numeric claims do NOT render. The ledger shows the polished
+  `publicSafeFallback` (label-only, deduped) and feels intentional, not like
+  missing data. Internal governance language (e.g. "evidence-gated") never
+  appears. Only `verified` metrics render their numbers.
+- **Internal / staging** (dev, or `EVIDENCE_MODE=internal`): numbers render
+  with a single restrained "evidence review pending" note.
+
+The internal claim marker (`EvidenceGateLabel`) renders `null` in public and
+a quiet "Evidence review pending" chip internally — never "evidence-gated".
+Flip a metric to `verified` in `lib/evidence-ledger.ts` (after it passes
+review in `EVIDENCE/CLAIMS_REGISTER.md`) and its number renders publicly.
+
 ---
 
 ## Accessibility

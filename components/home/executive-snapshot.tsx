@@ -1,24 +1,13 @@
 import { SectionShell } from "@/components/section-shell";
 import { EvidenceGateLabel } from "@/components/evidence-gate-label";
+import { evidenceMode } from "@/lib/evidence";
+import { resolveLedger } from "@/lib/evidence-ledger";
 
 type SnapshotItem = {
   label: string;
   lines: string[];
   gated: boolean;
 };
-
-// Fast numeric proof. Every figure is evidence-gated (see EVIDENCE/CLAIMS_REGISTER.md)
-// and must pass Evidence Review before it is treated as a final public claim.
-const ledger: { value: string; label: string }[] = [
-  { value: "0→12", label: "Design organization built" },
-  { value: "12M+", label: "Monthly active users served" },
-  { value: "85%", label: "QA/UAT reduction" },
-  { value: "62%", label: "Fraud reduction" },
-  { value: "28×", label: "Digital gold growth" },
-  { value: "500+", label: "User interviews" },
-  { value: "50", label: "Field studies" },
-  { value: "20+", label: "Design hires" },
-];
 
 const items: SnapshotItem[] = [
   {
@@ -60,6 +49,52 @@ const items: SnapshotItem[] = [
   },
 ];
 
+function ProofLedger() {
+  const mode = evidenceMode();
+  const { rows, hasNumbers } = resolveLedger(mode);
+
+  return (
+    <div className="mb-14">
+      <p className="mb-4 t-caption font-geometric-mono uppercase tracking-[0.06em] text-lichen">
+        {hasNumbers ? "Selected outcomes" : "Scope"}
+      </p>
+      <div className="grid border-t border-ash sm:grid-cols-2 sm:gap-x-12">
+        {rows.map((row, index) => (
+          <div
+            key={row.key}
+            className="flex items-baseline gap-5 border-b border-ash py-3.5"
+          >
+            {row.value ? (
+              <span className="w-20 shrink-0 font-editorial-serif text-[22px] leading-none tracking-[-0.01em] tabular-nums text-ink">
+                {row.value}
+              </span>
+            ) : (
+              <span className="w-20 shrink-0 font-geometric-mono text-[12px] tabular-nums text-sage">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+            )}
+            <span
+              className={
+                row.value
+                  ? "t-body-sm text-olive-char"
+                  : "text-[15px] font-medium tracking-[-0.01em] text-ink"
+              }
+            >
+              {row.label}
+            </span>
+          </div>
+        ))}
+      </div>
+      {mode === "internal" && (
+        <p className="mt-4 t-caption font-geometric-mono text-sage">
+          Internal view · evidence review pending · numbers hidden in public
+          mode.
+        </p>
+      )}
+    </div>
+  );
+}
+
 export function ExecutiveSnapshot() {
   return (
     <SectionShell
@@ -81,31 +116,7 @@ export function ExecutiveSnapshot() {
         </>
       }
     >
-      {/* Proof ledger — restrained, evidence-gated */}
-      <div className="mb-14">
-        <p className="mb-4 t-caption font-geometric-mono uppercase tracking-[0.04em] text-lichen">
-          Selected outcomes
-        </p>
-        <div className="grid border-t border-ash sm:grid-cols-2 sm:gap-x-12">
-          {ledger.map((row) => (
-            <div
-              key={row.label}
-              className="flex items-baseline gap-5 border-b border-ash py-3.5"
-            >
-              <span className="w-20 shrink-0 font-editorial-serif text-[22px] leading-none tracking-[-0.01em] tabular-nums text-ink">
-                {row.value}
-              </span>
-              <span className="t-body-sm text-olive-char">{row.label}</span>
-            </div>
-          ))}
-        </div>
-        <div className="mt-4 flex items-center gap-3">
-          <EvidenceGateLabel />
-          <p className="t-caption font-geometric-mono text-sage">
-            Figures pending Evidence Review.
-          </p>
-        </div>
-      </div>
+      <ProofLedger />
 
       <ul className="grid gap-px overflow-hidden rounded-lg border border-ash bg-ash sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item, index) => (

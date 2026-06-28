@@ -24,6 +24,15 @@ Nikhil / Shared
 
 ---
 
+## Rendering Link
+
+Claim status drives public rendering. The Executive Snapshot ledger
+(`lib/evidence-ledger.ts`) mirrors these claims with a machine `status`
+(`verified | needs_evidence | private | do_not_publish`). Until a claim is
+`verified` here and flipped to `verified` there, its numeric value never
+renders on the public homepage — a polished `publicSafeFallback` shows
+instead. See the Evidence Ledger Rendering Rule in `DESIGN.md`.
+
 ## Status Language
 
 Use this status language for every claim:

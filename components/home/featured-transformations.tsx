@@ -1,10 +1,19 @@
 import { SectionShell } from "@/components/section-shell";
 import { EvidenceGateLabel } from "@/components/evidence-gate-label";
+import { evidenceMode } from "@/lib/evidence";
 
 const metaLabel =
   "font-geometric-mono text-[11px] font-medium uppercase tracking-[0.07em]";
 
-const stories = [
+type Story = {
+  index: string;
+  cardHeadline: string;
+  summary: string;
+  proves: string;
+  metric?: string;
+};
+
+const stories: Story[] = [
   {
     index: "01",
     cardHeadline: "From scattered design execution to an operating model.",
@@ -27,11 +36,15 @@ const stories = [
     summary:
       "How commitment anxiety, product framing, and behavioral insight shaped a model that made Digital Gold easier to start and easier to sustain.",
     proves:
-      "Nikhil connects customer behavior, product decisions, and measurable business growth. 28× growth in Digital Gold adoption.",
+      "Nikhil connects customer behavior, product decisions, and measurable business growth.",
+    // numeric claim — only renders in internal mode until verified
+    metric: "28× growth in Digital Gold adoption.",
   },
 ];
 
 export function FeaturedTransformations() {
+  const mode = evidenceMode();
+
   return (
     <SectionShell
       id="transformations"
@@ -76,7 +89,12 @@ export function FeaturedTransformations() {
                   </span>
                   <EvidenceGateLabel />
                 </div>
-                <p className="t-body-sm text-carbon">{story.proves}</p>
+                <p className="t-body-sm text-carbon">
+                  {story.proves}
+                  {mode === "internal" && story.metric
+                    ? ` ${story.metric}`
+                    : ""}
+                </p>
               </div>
             </div>
 
