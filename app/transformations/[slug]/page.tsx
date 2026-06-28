@@ -30,6 +30,8 @@ export async function generateMetadata({
 
 const metaLabel =
   "font-geometric-mono text-[11px] font-medium uppercase tracking-[0.07em]";
+const relatedLink =
+  "font-geometric-mono text-[13px] tracking-[-0.02em] text-lichen transition-colors hover:text-ink";
 
 export default async function StoryPage({
   params,
@@ -87,63 +89,97 @@ export default async function StoryPage({
                 <div className="bg-paper p-5">
                   <dt className={`${metaLabel} text-sage`}>Status</dt>
                   <dd className="mt-2 t-body-sm text-carbon">
-                    {internal
-                      ? "Evidence intake required — working draft"
-                      : "In preparation"}
+                    {internal ? "Evidence intake in progress" : "In preparation"}
                   </dd>
                 </div>
               </dl>
+
+              <p className="mt-6 max-w-[640px] t-body-sm text-lichen">
+                This transformation story is being prepared as an
+                evidence-backed leadership narrative. The final version will
+                include context, decisions, tradeoffs, outcomes, and lessons
+                once evidence intake is complete.
+              </p>
             </header>
 
-            <div className="mt-12 space-y-10">
-              {STORY_FRAMEWORK.map((section) => {
-                const bullets = story.evidence[section.n];
-                return (
-                  <section
-                    key={section.n}
-                    className="border-t border-ash pt-6"
-                  >
-                    <div className="mb-3 flex items-baseline gap-3">
-                      <span className="font-geometric-mono text-[12px] tabular-nums text-sage">
-                        {String(section.n).padStart(2, "0")}
-                      </span>
-                      <h2 className="font-editorial-serif text-[20px] font-normal leading-[1.2] tracking-[-0.01em] text-ink">
-                        {section.title}
-                      </h2>
-                    </div>
-                    <p className="t-body-sm text-olive-char">{section.prompt}</p>
-
-                    {internal && bullets && (
-                      <div className="mt-4 rounded-lg border border-ash bg-paper p-5">
-                        <p className={`${metaLabel} mb-3 text-lichen`}>
-                          Evidence intake
-                        </p>
-                        <ul className="space-y-2">
-                          {bullets.map((b, i) => (
-                            <li
-                              key={i}
-                              className="flex gap-3 t-body-sm text-carbon"
-                            >
-                              <span
-                                aria-hidden="true"
-                                className="mt-2.5 h-px w-3 shrink-0 bg-olive-char"
-                              />
-                              <span>{b}</span>
-                            </li>
-                          ))}
-                        </ul>
+            <section className="mt-14">
+              <p className="mb-6 t-caption font-geometric-mono uppercase tracking-[0.06em] text-lichen">
+                Structure
+              </p>
+              <ol className="divide-y divide-ash border-t border-b border-ash">
+                {STORY_FRAMEWORK.map((section) => {
+                  const bullets = story.evidence[section.n];
+                  return (
+                    <li key={section.n} className="py-5">
+                      <div className="flex items-baseline gap-4">
+                        <span className="w-6 shrink-0 font-geometric-mono text-[12px] tabular-nums text-sage">
+                          {String(section.n).padStart(2, "0")}
+                        </span>
+                        <h2 className="font-editorial-serif text-[19px] font-normal leading-[1.2] tracking-[-0.01em] text-ink">
+                          {section.title}
+                        </h2>
                       </div>
-                    )}
-                  </section>
-                );
-              })}
-            </div>
+                      <p className="mt-1.5 pl-10 t-body-sm text-lichen">
+                        {section.prompt}
+                      </p>
 
-            <p className="mt-12 border-t border-ash pt-6 t-body-sm text-lichen">
-              {internal
-                ? "Draft scaffold. Capture the evidence above before writing the story; no metric publishes until it is registered in EVIDENCE/CLAIMS_REGISTER.md and approved."
-                : "This transformation story is being prepared."}
-            </p>
+                      {internal && bullets && (
+                        <div className="mt-4 ml-10 rounded-lg border border-ash bg-paper p-5">
+                          <p className={`${metaLabel} mb-3 text-lichen`}>
+                            Evidence intake
+                          </p>
+                          <ul className="space-y-2">
+                            {bullets.map((b, i) => (
+                              <li
+                                key={i}
+                                className="flex gap-3 t-body-sm text-carbon"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                  className="mt-2.5 h-px w-3 shrink-0 bg-olive-char"
+                                />
+                                <span>{b}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </li>
+                  );
+                })}
+              </ol>
+            </section>
+
+            {internal && (
+              <p className="mt-10 t-body-sm text-sage">
+                Internal: capture the evidence above before writing the story;
+                no metric publishes until it is registered in
+                EVIDENCE/CLAIMS_REGISTER.md and approved.
+              </p>
+            )}
+
+            <nav
+              aria-label="Related"
+              className="mt-14 border-t border-ash pt-6"
+            >
+              <ul className="flex flex-wrap gap-x-6 gap-y-2">
+                <li>
+                  <Link href="/transformations" className={relatedLink}>
+                    Back to Transformations
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/" className={relatedLink}>
+                    Return Home
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/#contact" className={relatedLink}>
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </nav>
           </div>
         </article>
       </main>

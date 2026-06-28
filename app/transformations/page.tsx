@@ -20,14 +20,19 @@ export default function TransformationsIndex() {
       <main id="main">
         <section className="py-20 md:py-24">
           <div className="page-shell">
-            <header className="mb-12 max-w-[700px]">
-              <div className="mb-5 flex items-center gap-3">
-                <span className="font-geometric-mono text-[12px] font-medium tabular-nums text-ink">
-                  00
-                </span>
-                <span aria-hidden="true" className="h-px w-6 bg-olive-char" />
-                <span className="text-[12px] font-medium uppercase leading-[17px] tracking-[0.06em] font-geometric-mono text-lichen">
-                  Transformations
+            <header className="mb-12 max-w-[760px]">
+              <div className="mb-5 flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <span className="font-geometric-mono text-[12px] font-medium tabular-nums text-ink">
+                    00
+                  </span>
+                  <span aria-hidden="true" className="h-px w-6 bg-olive-char" />
+                  <span className="text-[12px] font-medium uppercase leading-[17px] tracking-[0.06em] font-geometric-mono text-lichen">
+                    Transformations
+                  </span>
+                </div>
+                <span className="font-geometric-mono text-[11px] font-medium uppercase tracking-[0.07em] text-sage">
+                  Archive · V1
                 </span>
               </div>
               <h1 className="font-editorial-serif font-light text-[clamp(2rem,4.4vw,3rem)] leading-[1.06] tracking-[-0.02em] text-ink">

@@ -14,24 +14,27 @@ export type FrameworkSection = {
   prompt: string;
 };
 
-/** Canonical 16-part structure (mirrors TRANSFORMATION_STORIES/FRAMEWORK.md). */
+/**
+ * Canonical 16-part structure (mirrors TRANSFORMATION_STORIES/FRAMEWORK.md).
+ * Prompts are editorial noun-phrases — a dossier table of contents, not a form.
+ */
 export const STORY_FRAMEWORK: FrameworkSection[] = [
-  { n: 1, title: "Context", prompt: "What was happening in the business, product, organization, or market?" },
-  { n: 2, title: "Business Problem", prompt: "What business outcome needed to change?" },
-  { n: 3, title: "Organizational Challenge", prompt: "What team, stakeholder, process, alignment, maturity, or operating-model challenge made this difficult?" },
-  { n: 4, title: "Constraints", prompt: "What constraints shaped the work — regulation, legacy systems, time, alignment, data?" },
-  { n: 5, title: "Research", prompt: "What evidence informed the direction?" },
-  { n: 6, title: "Decisions", prompt: "What important decisions were made, and why? (Judgment, not just output.)" },
-  { n: 7, title: "Tradeoffs", prompt: "What was sacrificed, delayed, simplified, or rejected?" },
-  { n: 8, title: "Execution", prompt: "How was the work turned into reality?" },
-  { n: 9, title: "Outcomes", prompt: "What changed? (Metrics only when they survive evidence review.)" },
-  { n: 10, title: "Lessons", prompt: "What did this work teach that generalizes beyond the story?" },
-  { n: 11, title: "What I’d Do Differently", prompt: "Honest reflection on what would change." },
-  { n: 12, title: "Frameworks Created", prompt: "What reusable model, principle, or operating mechanism came out of it?" },
-  { n: 13, title: "Related Essays", prompt: "Which essays does this connect to?" },
-  { n: 14, title: "Related Operating Manual Pages", prompt: "Which operating-manual pages does this connect to?" },
-  { n: 15, title: "Related Evidence", prompt: "Which evidence files support this story?" },
-  { n: 16, title: "Related Future Formats", prompt: "How can this story compound — essay, talk, template, course?" },
+  { n: 1, title: "Context", prompt: "The business, product, and market situation at the time." },
+  { n: 2, title: "Business Problem", prompt: "The business outcome this transformation was created to address." },
+  { n: 3, title: "Organizational Challenge", prompt: "The organizational condition that made the work difficult." },
+  { n: 4, title: "Constraints", prompt: "The constraints that shaped what was possible." },
+  { n: 5, title: "Research", prompt: "The evidence that informed the direction." },
+  { n: 6, title: "Decisions", prompt: "The decisions that carried the most judgment." },
+  { n: 7, title: "Tradeoffs", prompt: "What was given up to move the work forward." },
+  { n: 8, title: "Execution", prompt: "How the work was turned into operating reality." },
+  { n: 9, title: "Outcomes", prompt: "What measurably changed as a result." },
+  { n: 10, title: "Lessons", prompt: "What this work teaches beyond the story itself." },
+  { n: 11, title: "What I’d Do Differently", prompt: "What a second attempt would change." },
+  { n: 12, title: "Frameworks Created", prompt: "The reusable model this work produced." },
+  { n: 13, title: "Related Essays", prompt: "The thinking this story connects to." },
+  { n: 14, title: "Related Operating Manual Pages", prompt: "The operating systems behind the work." },
+  { n: 15, title: "Related Evidence", prompt: "The evidence that supports the claims." },
+  { n: 16, title: "Related Future Formats", prompt: "How this story compounds into other formats." },
 ];
 
 export type TransformationStory = {

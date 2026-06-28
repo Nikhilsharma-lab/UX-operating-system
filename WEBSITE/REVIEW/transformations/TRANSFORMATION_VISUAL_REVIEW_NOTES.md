@@ -104,3 +104,34 @@ Notes:
 ## Recommended Next Step
 
 Review these eight screenshots (especially `01`, `03`, `06`) to confirm the archive/dossier direction. Do not write story prose until the visual direction is approved. After sign-off, the first content step is the evidence intake for **Building the Design Organization** (lowest confidentiality risk), which turns the public outline into a written transformation story.
+
+---
+
+## Story Shell Polish Pass
+
+### Frontend Design Review
+
+Reviewed against the target (executive transformation archive / strategic field report / editorial dossier). The index already read as an archive; the story page had two craft gaps pushing it toward a worksheet: the 16 prompts were phrased as **questions** (form-like), and the large `space-y-10` gaps between bordered sections created **empty rows** in public mode. Mobile hierarchy held. The polish targeted exactly those.
+
+### Changes Made
+
+- **Editorial prompts (A):** re-voiced all 16 framework prompts from questions to editorial noun-phrases (e.g. "What business outcome needed to change?" → "The business outcome this transformation was created to address."). No story-specific detail invented.
+- **Preparation note (B):** added a confident public-safe note near the meta band — "…being prepared as an evidence-backed leadership narrative. The final version will include context, decisions, tradeoffs, outcomes, and lessons once evidence intake is complete." No scary "incomplete/missing/placeholder" language.
+- **Dossier table of contents (C):** replaced the spaced bordered sections with a tighter, hairline-divided list under a "STRUCTURE" eyebrow — small mono numbers, serif titles, muted prompts indented under the title. Reads as a TOC, not a form; no large empty rows.
+- **Related links (D):** added a compact foot — Back to Transformations · Return Home · Contact (real links only, no fake essays/manual pages).
+- **Index micro-polish (E):** added an "Archive · V1" register tag to the index header; kept the three-card V1 archive, "case file" language, and "Read transformation" links.
+
+### Screenshots Added
+
+- `09-story-polished-desktop-fullpage.png`
+- `10-story-polished-mobile-fullpage.png`
+- `11-index-polished-desktop.png`
+
+### Remaining Risks
+
+- Public depth is still intentionally thin until prose/evidence exists — the page is now a polished dossier outline, but should not be widely linked publicly until at least one story is written.
+- Digital Gold 28× remains correctly hidden in public; internal scaffold + gated metric unchanged.
+
+### Recommended Next Step
+
+- Evidence intake for Building the Design Organization.
