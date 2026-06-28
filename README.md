@@ -68,6 +68,7 @@ If it does not, it should not exist.
 - `DESIGN.md` — the root-level design contract Claude Code must read before any UI change.
 - `FOUNDATION/03_POSITIONING.md` — the canonical positioning document; the source for homepage, resume, LinkedIn, transformation stories, speaking bio, and recruiter narrative.
 - `FOUNDATION/04_BRAND_THESIS.md` — the canonical brand thesis document; defines what the system stands for (belief, promise, enemy, voice, narrative, moat).
+- `FOUNDATION/05_AUDIENCE.md` — the canonical audience strategy document; defines who the system is for, what each audience must believe, the proof they need, journeys, and conversion paths.
 - `DECISION_LOG.md` — the running record of decisions.
 - `ANTI_GOALS.md` — what the system must never become.
 - `VOCABULARY.md` — the preferred language of the system.

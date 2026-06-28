@@ -264,6 +264,8 @@ The Map protects the long-term ambition.
 
 # Audience Map
 
+The canonical audience strategy document is `FOUNDATION/05_AUDIENCE.md`. The map below stays consistent with it; that file is the source for audience needs, proof, journeys, and conversion paths.
+
 | Audience | Core Question |
 |---|---|
 | Recruiter | Should I schedule an interview? |

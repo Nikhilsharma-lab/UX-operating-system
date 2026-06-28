@@ -10,6 +10,8 @@ It documents how ideas connect, so the website behaves like a knowledge network 
 
 The canonical brand thesis document is `FOUNDATION/04_BRAND_THESIS.md`; the knowledge-network principle is a direct expression of that thesis (a useful body of work, no dead ends).
 
+The canonical audience strategy document is `FOUNDATION/05_AUDIENCE.md`; the knowledge paths below should map to the audience journeys defined there.
+
 Every new page should declare:
 
 1. Inbound links

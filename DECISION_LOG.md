@@ -29,6 +29,7 @@ Each entry: ID — Decision → Consequence. Add Date, Context, and Owner as dec
 - **011** — Locked `FOUNDATION/03_POSITIONING.md` as the canonical positioning document → defines Nikhil as an AI-native Product Executive who builds organizations, systems, and businesses, and aligns homepage, resume, LinkedIn, transformation stories, speaking bio, and recruiter narrative.
 - **012** — Registered initial positioning claims in `EVIDENCE/CLAIMS_REGISTER.md` → creates evidence shells for role, organizational design, AI-assisted workflows, product infrastructure, trust work, LANE, Svenklas, and career-scope claims before public copy is written.
 - **013** — Locked `FOUNDATION/04_BRAND_THESIS.md` as the canonical brand thesis document → defines the system’s belief, promise, enemy, voice, narrative, moat, and long-term brand behavior before audience and homepage strategy are written.
+- **014** — Locked `FOUNDATION/05_AUDIENCE.md` as the canonical audience strategy document → defines primary and secondary audiences, their proof needs, journeys, attention layers, conversion goals, audience risks, and homepage implications before homepage strategy begins.
 
 ---
 
