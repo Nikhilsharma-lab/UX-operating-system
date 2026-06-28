@@ -626,25 +626,33 @@ Rules:
 - Give context when needed.
 - Pass Claims Review before publishing major numbers.
 
-### Evidence Ledger Rendering Rule (Decision 025)
+### Evidence Ledger Rendering Rule (Decisions 025, 028)
 
 The Executive Snapshot ledger is data-driven. Each metric carries a
-`status` (`verified | needs_evidence | private | do_not_publish`), a
-`source`, and a `publicSafeFallback`. Rendering is governed by mode
-(`lib/evidence.ts` → `evidenceMode()`):
+`status` (`public_approved | externally_verified | needs_evidence | private | do_not_publish`),
+an `externalVerification` (`pending | confirmed`), a `source`, and a
+`publicSafeFallback`. Rendering is governed by mode (`lib/evidence.ts` →
+`evidenceMode()`):
 
-- **Public** (production build, or `EVIDENCE_MODE=public`): unverified
-  numeric claims do NOT render. The ledger shows the polished
-  `publicSafeFallback` (label-only, deduped) and feels intentional, not like
-  missing data. Internal governance language (e.g. "evidence-gated") never
-  appears. Only `verified` metrics render their numbers.
+- **Public** (production build, or `EVIDENCE_MODE=public`): only
+  public-approved or externally-verified metrics render their numbers
+  (`canPublishNumeric`). Gated metrics show the polished `publicSafeFallback`
+  (label-only, deduped) and feel intentional, not like missing data. Internal
+  governance language (e.g. "evidence-gated") never appears.
 - **Internal / staging** (dev, or `EVIDENCE_MODE=internal`): numbers render
   with a single restrained "evidence review pending" note.
 
+Terminology (Decision 028): **public_approved** = Nikhil-confirmed and safe
+to render publicly, but NOT independently supported by an artifact
+(`externalVerification: "pending"`). **externally_verified** = an artifact
+exists. Never label a public-approved claim "externally verified". The public
+renderer keys off public approval, not external verification.
+
 The internal claim marker (`EvidenceGateLabel`) renders `null` in public and
 a quiet "Evidence review pending" chip internally — never "evidence-gated".
-Flip a metric to `verified` in `lib/evidence-ledger.ts` (after it passes
-review in `EVIDENCE/CLAIMS_REGISTER.md`) and its number renders publicly.
+Set a metric to `public_approved` in `lib/evidence-ledger.ts` (after Nikhil
+confirms it in `EVIDENCE/CLAIMS_REGISTER.md`) and its number renders publicly;
+set `externalVerification: "confirmed"` only when an artifact exists.
 
 ---
 

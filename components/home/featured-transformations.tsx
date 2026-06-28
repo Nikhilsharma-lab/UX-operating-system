@@ -37,7 +37,8 @@ const stories: Story[] = [
       "How commitment anxiety, product framing, and behavioral insight shaped a model that made Digital Gold easier to start and easier to sustain.",
     proves:
       "Nikhil connects customer behavior, product decisions, and measurable business growth.",
-    // numeric claim — only renders in internal mode until verified
+    // numeric claim — gated; only renders in internal mode until the Digital
+    // Gold evidence is captured (baseline/final/timeframe/metric-type/attribution)
     metric: "28× growth in Digital Gold adoption.",
   },
 ];

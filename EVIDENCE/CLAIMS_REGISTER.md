@@ -28,10 +28,24 @@ Nikhil / Shared
 
 Claim status drives public rendering. The Executive Snapshot ledger
 (`lib/evidence-ledger.ts`) mirrors these claims with a machine `status`
-(`verified | needs_evidence | private | do_not_publish`). Until a claim is
-`verified` here and flipped to `verified` there, its numeric value never
-renders on the public homepage — a polished `publicSafeFallback` shows
-instead. See the Evidence Ledger Rendering Rule in `DESIGN.md`.
+(`public_approved | externally_verified | needs_evidence | private | do_not_publish`)
+and an `externalVerification` flag (`pending | confirmed`). A claim renders
+its number publicly once it is `public_approved` (Nikhil-confirmed) — an
+artifact is not required to render, only to claim external verification.
+Gated claims (`needs_evidence`) never render their number publicly; a
+polished `publicSafeFallback` shows instead. See the Evidence Ledger
+Rendering Rule in `DESIGN.md`.
+
+## Public-approved vs Externally verified (Decision 028)
+
+- **User-confirmed / Public-approved** — Nikhil has confirmed the claim is
+  accurate and safe to use publicly. It MAY render publicly. It is NOT
+  independently supported by an artifact unless one is recorded.
+- **Externally verified** — a supporting artifact exists (public source,
+  resume, LinkedIn, report, analytics record, screenshot, document). Do NOT
+  mark a claim externally verified unless such an artifact exists. None of
+  the current homepage claims are externally verified; they are
+  public-approved with external verification pending.
 
 ## Status Language
 
