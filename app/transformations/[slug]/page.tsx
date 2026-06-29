@@ -198,7 +198,7 @@ export default async function StoryPage({
                         <span className="w-6 shrink-0 font-geometric-mono text-[12px] tabular-nums text-sage">
                           {String(section.n).padStart(2, "0")}
                         </span>
-                        <h2 className="font-editorial-serif text-[22px] font-normal leading-[1.18] tracking-[-0.01em] text-ink">
+                        <h2 className="font-heading-serif text-[22px] font-normal leading-[1.18] tracking-[0] text-ink">
                           {section.title}
                         </h2>
                       </div>
@@ -252,7 +252,7 @@ export default async function StoryPage({
                           <span className="w-6 shrink-0 font-geometric-mono text-[12px] tabular-nums text-sage">
                             {String(section.n).padStart(2, "0")}
                           </span>
-                          <h2 className="font-editorial-serif text-[19px] font-normal leading-[1.2] tracking-[-0.01em] text-ink">
+                          <h2 className="font-heading-serif text-[19px] font-normal leading-[1.2] tracking-[0] text-ink">
                             {section.title}
                           </h2>
                         </div>

@@ -47,7 +47,7 @@ export function SectionShell({
               </div>
             )}
             {title && (
-              <h2 className="font-editorial-serif font-light text-[clamp(1.7rem,3.4vw,2.25rem)] leading-[1.08] tracking-[-0.02em] text-ink">
+              <h2 className="font-heading-serif font-normal text-[clamp(1.7rem,3.4vw,2.25rem)] leading-[1.1] tracking-[0] text-ink">
                 {title}
               </h2>
             )}

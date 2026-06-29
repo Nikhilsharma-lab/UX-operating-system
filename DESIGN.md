@@ -17,14 +17,14 @@ The token values defined here are mirrored as machine-readable CSS in `styles/gl
 Active system summary (wired in `app/globals.css` + `app/layout.tsx`):
 
 - **Canvas:** white `#ffffff` page; deep charcoal `#2b2e35` footer/dark panels; **black `#000000` masthead/header**.
-- **Type (two voices):** serif display **Libre Caslon** (substitute for the proprietary TNY Adobe Caslon Pro / Irvin) for headlines & display; **Inter** (substitute for Inter/Graphik) for body, UI, navigation, and labels. No monospace. The `--font-geometric-mono` token now resolves to the Inter UI stack so existing label classes reskin without edits.
+- **Type (four voices — real licensed New Yorker faces, self-hosted via `next/font/local`):** **Adobe Caslon Pro** for display/hero (`font-editorial-serif`); **Irvin Heading Pro** for H2/H3 section & feature titles (`font-heading-serif`); **Inter** for body (`font-sans`); **Graphik** for navigation/UI labels (`--font-geometric-mono` now resolves to Graphik, so existing label classes reskin without edits).
 - **Text:** black `#000000` primary, slate gray `#4a5568` secondary, `#718096` muted.
 - **Accent:** slate blue `#0879bf` (links, marks, focus, selection); green `#38a169` / `#5cd687` and sky `#84d1ff` reserved for color-blocked featured cards; blush `#f7c2c2`.
 - **Radii:** 6px (buttons/inputs), 16px (featured cards).
 - **Elevation:** subtle shadows are now allowed (Level 1 `0 2px 8px /.06`, Level 2 `0 4px 16px /.12`) — this reverses the old flat/no-shadow rule.
 - **Token names preserved** (`vellum`, `paper`, `ink`, `carbon`, `ash`, `highlighter-yellow`, etc.) with New Yorker **values**, so components reskinned without per-component edits.
 
-> Note: the New Yorker fonts (TNY Caslon, Irvin, Graphik) are proprietary and licensed; **Libre Caslon + Inter** are the free substitutes used here. A deeper, pixel-faithful pass (color-blocked featured cards, full elevation on cards, exact 12-column grid) is a follow-up to this v1 reskin.
+> Note: the New Yorker faces (Adobe Caslon Pro, Irvin Heading Pro, Graphik) are licensed/proprietary. The font files are **self-hosted locally and git-ignored** (`app/fonts/`, not committed to the public repo) until the license is purchased before public launch; they must be present in the build environment at deploy. A deeper, pixel-faithful pass (color-blocked featured cards, full elevation on cards, exact 12-column grid) is a follow-up to this v1 reskin.
 
 ---
 

@@ -58,7 +58,7 @@ export function CapabilitiesSection() {
                 Capability
               </span>
             </div>
-            <h3 className="font-editorial-serif text-[21px] font-normal leading-[1.18] tracking-[-0.01em] text-ink">
+            <h3 className="font-heading-serif text-[21px] font-normal leading-[1.18] tracking-[0] text-ink">
               {capability.title}
             </h3>
             <p className="t-body-sm text-olive-char">{capability.copy}</p>

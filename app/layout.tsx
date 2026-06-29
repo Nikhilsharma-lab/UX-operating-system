@@ -1,17 +1,42 @@
 import type { Metadata } from "next";
-import { Libre_Caslon_Text, Inter } from "next/font/google";
+import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-// Serif display — substitute for TNY Adobe Caslon Pro (proprietary).
-const caslon = Libre_Caslon_Text({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
+// New Yorker editorial faces — self-hosted, licensed (license to be
+// purchased before public launch). Files live in app/fonts/ (git-ignored).
+
+// Display / hero serif.
+const caslon = localFont({
+  src: [
+    { path: "./fonts/ACaslonPro-Regular.woff", weight: "400", style: "normal" },
+    { path: "./fonts/ACaslonPro-Italic.woff", weight: "400", style: "italic" },
+    { path: "./fonts/ACaslonPro-Semibold.woff", weight: "600", style: "normal" },
+    { path: "./fonts/ACaslonPro-Bold.woff", weight: "700", style: "normal" },
+  ],
   variable: "--font-caslon",
   display: "swap",
 });
 
-// Body + UI — substitute for Inter/Graphik (New Yorker UI stack).
+// Heading face (H2 / H3 / feature titles).
+const irvin = localFont({
+  src: "./fonts/IrvinHeadingPro.woff2",
+  variable: "--font-irvin",
+  display: "swap",
+});
+
+// Navigation / UI labels.
+const graphik = localFont({
+  src: [
+    { path: "./fonts/Graphik-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/Graphik-Medium.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/Graphik-Bold.woff2", weight: "700", style: "normal" },
+  ],
+  variable: "--font-graphik",
+  display: "swap",
+});
+
+// Body copy.
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -30,7 +55,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${caslon.variable} ${inter.variable}`}>
+    <html
+      lang="en"
+      className={`${caslon.variable} ${irvin.variable} ${graphik.variable} ${inter.variable}`}
+    >
       <body>
         <a
           href="#main"

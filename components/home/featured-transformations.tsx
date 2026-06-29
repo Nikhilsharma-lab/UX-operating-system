@@ -83,7 +83,7 @@ export function FeaturedTransformations() {
             </div>
 
             <div className="flex flex-1 flex-col gap-5 p-6">
-              <h3 className="font-editorial-serif text-[22px] font-normal leading-[1.16] tracking-[-0.01em] text-ink">
+              <h3 className="font-heading-serif text-[22px] font-normal leading-[1.16] tracking-[0] text-ink">
                 {story.cardHeadline}
               </h3>
               <p className="t-body-sm text-olive-char">{story.summary}</p>
