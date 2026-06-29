@@ -80,7 +80,7 @@ const buildingDesignOrganizationDraft: Partial<Record<number, DraftBlock[]>> = {
   2: [
     {
       type: "p",
-      text: "The business needed product teams to ship faster and at higher quality, but the operating model produced avoidable rework. Inconsistent screens, late design involvement, prescriptive solution requests, weak research input, and unclear handoffs slowed delivery — and affected customer experience, conversion, trust, adoption, and product quality.",
+      text: "The business needed product teams to ship faster and at higher quality, but the operating model produced avoidable rework. Inconsistent experiences, unclear handoffs, and uneven product quality slowed delivery — and, in regulated financial products, put real pressure on customer trust and adoption.",
     },
   ],
   3: [
@@ -111,7 +111,7 @@ const buildingDesignOrganizationDraft: Partial<Record<number, DraftBlock[]>> = {
   5: [
     {
       type: "p",
-      text: "Nikhil built a regular field-research practice: monthly local-market visits and quarterly field visits across Indian states, focused mostly on Tier 2 and Tier 3 cities and sometimes rural areas. The team published quarterly research reports for leadership and stakeholders.",
+      text: "Nikhil built a regular field-research practice: monthly local-market visits and quarterly field visits across Indian states, focused mostly on Tier 2 and Tier 3 cities and sometimes rural areas. Over time, this practice grew into 50+ field studies across Tier 2, Tier 3, and occasional rural contexts, and the team published quarterly research reports for leadership and stakeholders.",
     },
     {
       type: "p",
@@ -141,16 +141,12 @@ const buildingDesignOrganizationDraft: Partial<Record<number, DraftBlock[]>> = {
   ],
   7: [
     {
-      type: "list",
-      items: [
-        "Building an internal organization required time, budget, and leadership responsibility.",
-        "Moving design upstream made designers accountable for business, data, technology, and product strategy.",
-        "Reviews and signoff improved quality but could be perceived as slowing teams down.",
-        "Research created better judgment but challenged assumptions and took time.",
-        "Standardization improved scale but could feel restrictive to some designers.",
-        "Asking PMs for problem briefs created early friction before it created partnership.",
-        "Design QA required designers to stay involved after handoff.",
-      ],
+      type: "p",
+      text: "Every gain carried a cost. Building an internal organization required time, budget, and sustained leadership ownership. Moving design upstream raised the bar on the team: designers became accountable for business, data, and product strategy, not just for finished screens.",
+    },
+    {
+      type: "p",
+      text: "Reviews and signoff lifted quality but could feel like a brake on delivery. Asking PMs for problem briefs created early friction before it created partnership. And shared standards improved scale while feeling restrictive to designers who valued individual range. None of these were free — each was a deliberate trade in service of a more reliable system.",
     },
   ],
   8: [
@@ -169,8 +165,16 @@ const buildingDesignOrganizationDraft: Partial<Record<number, DraftBlock[]>> = {
         "Foundations: design-system governance (Vault) and quarterly research reports.",
       ],
     },
+    {
+      type: "note",
+      text: "Nikhil led the shift, but the operating model only became real when designers, PMs, and engineering partners began using the same standards in live product work — not when a process was announced.",
+    },
   ],
   9: [
+    {
+      type: "p",
+      text: "The outcome was not only a larger design team; it was a more reliable product operating system across regulated products that serve 12M+ monthly active users and 1B+ transactions since 2017 — a foundation the wider product organization could build on.",
+    },
     {
       type: "list",
       items: [
@@ -236,6 +240,10 @@ const buildingDesignOrganizationDraft: Partial<Record<number, DraftBlock[]>> = {
   ],
   13: [
     {
+      type: "p",
+      text: "Planned essays that will expand this story:",
+    },
+    {
       type: "list",
       items: [
         "Why case studies are too small for executive work",
@@ -245,9 +253,12 @@ const buildingDesignOrganizationDraft: Partial<Record<number, DraftBlock[]>> = {
         "Design systems are product infrastructure",
       ],
     },
-    { type: "note", text: "Planned essays." },
   ],
   14: [
+    {
+      type: "p",
+      text: "Operating Manual areas this story will connect to:",
+    },
     {
       type: "list",
       items: [
@@ -267,10 +278,14 @@ const buildingDesignOrganizationDraft: Partial<Record<number, DraftBlock[]>> = {
   15: [
     {
       type: "p",
-      text: "Claims and figures in this story are tracked in the evidence register; the field-research figure is being confirmed before any specific number is published.",
+      text: "Evidence areas tracked behind this story: organizational scale (0→20, with 20 designers hired directly), field research (50+ field studies), and product-delivery quality. A broader interview count is still being confirmed before any specific number is published.",
     },
   ],
   16: [
+    {
+      type: "p",
+      text: "Ways this transformation can become reusable:",
+    },
     {
       type: "list",
       items: [
@@ -300,7 +315,10 @@ export const transformations: TransformationStory[] = [
     sourceFile: "TRANSFORMATION_STORIES/BUILDING_DESIGN_ORGANIZATION.md",
     draft: buildingDesignOrganizationDraft,
     evidence: {
-      9: ["0→20 and 20 direct hires public-approved; exact rework-reduction figure not claimed without evidence"],
+      9: [
+        "0→20 and 20 direct hires public-approved; exact rework-reduction figure not claimed without evidence",
+        "Business-impact line uses 12M+ MAU and 1B+ transactions since 2017 as context scale only — public-approved, external verification pending; design is not claimed as sole cause",
+      ],
       15: ["500+ interviews — still needs checking; do not publish as a hard claim. Use 'field research and user conversations' instead.", "50+ field studies — confirmed and public-safe"],
     },
   },

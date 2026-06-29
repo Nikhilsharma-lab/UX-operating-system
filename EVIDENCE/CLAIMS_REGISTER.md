@@ -445,7 +445,7 @@ Status reflects the homepage evidence intake (Decision 027). "Approved (public)"
 | 39% fraud-related support handling | TBD | [ ] Needs Evidence |
 | 32% higher average balance | TBD | [ ] Needs Evidence |
 | 7× onboarding growth | TBD | [ ] Needs Evidence |
-| 50+ field studies | User-confirmed | [x] Public-safe (Decision 031) |
+| 50+ field studies | User-confirmed | [x] Public-safe (Decision 031); used publicly in Story 1 §5 Research |
 | 500+ user interviews | TBD | [ ] Gated — needs checking; use "field research and user conversations" |
 | Awards and recognitions | TBD | [ ] Needs Evidence |
 

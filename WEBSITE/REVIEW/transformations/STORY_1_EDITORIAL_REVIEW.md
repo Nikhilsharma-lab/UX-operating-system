@@ -224,3 +224,38 @@ _(Space for Nikhil / ChatGPT.)_
 # 9. Recommended Next Step
 
 Have Nikhil / ChatGPT read `STORY_1_PUBLIC_COPY.md` and the two screenshots, then apply the **Should-fix** items as a Story 1 polish pass. Do **not** start Story 2 until Story 1 is reviewed and polished.
+
+---
+
+## Story 1 Polish Pass
+
+Applied the Should-fix editorial items (and the team-attribution note) without touching evidence safeguards. Polished screenshots: `14-building-design-org-polished-desktop.png`, `15-building-design-org-polished-mobile.png`. Updated copy export: `STORY_1_PUBLIC_COPY.md`.
+
+### Changes Made
+
+- **Team attribution (A):** Added a closing note to §8 Execution — "Nikhil led the shift, but the operating model only became real when designers, PMs, and engineering partners began using the same standards in live product work…" — and collective framing in the §9 business-impact line ("a foundation the wider product organization could build on"). Leadership role kept intact; no lone-hero read.
+- **Business-impact line (B):** Added one crisp, evidence-safe lead sentence to §9 Outcomes using only approved facts — a "more reliable product operating system across regulated products that serve 12M+ monthly active users and 1B+ transactions since 2017." Framed as context/scale, not as design being the sole cause.
+- **50+ field studies (C):** Added to §5 Research ("grew into 50+ field studies across Tier 2, Tier 3, and occasional rural contexts"). The gated interview count is still excluded.
+- **Reduced repetition (D):** Rewrote §2 to focus on business symptoms (rework, inconsistent experiences, unclear handoffs, product quality, trust/adoption) and removed the duplicated "conversion / trust / adoption / quality" tail and the operating-model causes (those live in §3, which stays the operating-model section).
+- **List fatigue (E):** Converted §7 Tradeoffs from a 7-bullet list to two tight prose paragraphs covering the 5 strongest tradeoffs. §4 Constraints stays compact bullets; §8 Execution stays structured (it carries operating-model proof).
+- **Related sections 13–16 (F):** Reframed as public-facing connectors — "Planned essays that will expand this story:", "Operating Manual areas this story will connect to:", a connector §15 evidence summary, and "Ways this transformation can become reusable:". Rendered as plain list items / prose, no fake links.
+- **Best line (G):** "Design transformation is not a Figma transformation. It is a trust transformation." remains a single, intentional pull-note at the close of §10.
+
+### Evidence Safeguards
+
+- 0→20, 20 direct hires, 50+ field studies — public-approved, used accurately.
+- 12M+ MAU, 1B+ transactions since 2017 — public-approved, **external verification pending**; used as context scale only, attribution not overstated.
+- 500+ interviews — still **not** used as a hard claim (referenced only as "a broader interview count… still being confirmed", no number).
+- 85% QA-time reduction — remains a light cross-reference to the AI-native story, not Story 1 proof.
+- Digital Gold 28×, fraud/onboarding metrics — not introduced anywhere.
+- Nothing marked externally verified. No stakeholder names or confidential details added.
+
+### Remaining Risks
+
+- The 12M+ MAU / 1B+ transactions figures are public-approved but await external verification; the line is phrased to describe product scale, not causation, but a reader could still over-attribute. Acceptable given approved-claim status; revisit when artifacts exist.
+- The story remains deliberately abstract for public safety (trades some vividness for safety) — unchanged by this pass.
+- §13–16 still point to pages/essays that do not exist yet (rendered as plain text, not links), so no broken links — but they remain forward-looking promises.
+
+### Recommended Next Step
+
+Have Nikhil read the polished `STORY_1_PUBLIC_COPY.md` and the two polished screenshots for sign-off. Do not start Story 2 (AI-native Product Development) or Digital Gold Growth until Story 1 is approved.

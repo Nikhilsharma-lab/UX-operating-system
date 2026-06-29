@@ -38,7 +38,7 @@ In 2017, Airtel Payments Bank was scaling digital financial products in a regula
 
 # 2. Business Problem
 
-The business needed product teams to ship faster and at higher quality, but the operating model produced avoidable rework. Inconsistent screens, late design involvement, prescriptive solution requests, weak research input, and unclear handoffs slowed delivery — and affected customer experience, conversion, trust, adoption, and product quality.
+The business needed product teams to ship faster and at higher quality, but the operating model produced avoidable rework. Inconsistent experiences, unclear handoffs, and uneven product quality slowed delivery — and, in regulated financial products, put real pressure on customer trust and adoption.
 
 # 3. Organizational Challenge
 
@@ -59,7 +59,7 @@ Changing this was a trust problem before it was a process problem. Design maturi
 
 # 5. Research
 
-Nikhil built a regular field-research practice: monthly local-market visits and quarterly field visits across Indian states, focused mostly on Tier 2 and Tier 3 cities and sometimes rural areas. The team published quarterly research reports for leadership and stakeholders.
+Nikhil built a regular field-research practice: monthly local-market visits and quarterly field visits across Indian states, focused mostly on Tier 2 and Tier 3 cities and sometimes rural areas. Over time, this practice grew into 50+ field studies across Tier 2, Tier 3, and occasional rural contexts, and the team published quarterly research reports for leadership and stakeholders.
 
 Research moved product debate away from opinion-based pushback and toward evidence from real customer behavior — which is what eventually changed how decisions were argued.
 
@@ -82,13 +82,9 @@ The transformation rested on a small number of decisions made consistently over 
 
 # 7. Tradeoffs
 
-- Building an internal organization required time, budget, and leadership responsibility.
-- Moving design upstream made designers accountable for business, data, technology, and product strategy.
-- Reviews and signoff improved quality but could be perceived as slowing teams down.
-- Research created better judgment but challenged assumptions and took time.
-- Standardization improved scale but could feel restrictive to some designers.
-- Asking PMs for problem briefs created early friction before it created partnership.
-- Design QA required designers to stay involved after handoff.
+Every gain carried a cost. Building an internal organization required time, budget, and sustained leadership ownership. Moving design upstream raised the bar on the team: designers became accountable for business, data, and product strategy, not just for finished screens.
+
+Reviews and signoff lifted quality but could feel like a brake on delivery. Asking PMs for problem briefs created early friction before it created partnership. And shared standards improved scale while feeling restrictive to designers who valued individual range. None of these were free — each was a deliberate trade in service of a more reliable system.
 
 # 8. Execution
 
@@ -101,7 +97,11 @@ Nikhil built the design operating model deliberately — structure, rituals, sta
 - **Quality gate:** design signoff at sprint end, before development handoff.
 - **Foundations:** design-system governance (Vault) and quarterly research reports.
 
+> Nikhil led the shift, but the operating model only became real when designers, PMs, and engineering partners began using the same standards in live product work — not when a process was announced.
+
 # 9. Outcomes
+
+The outcome was not only a larger design team; it was a more reliable product operating system across regulated products that serve 12M+ monthly active users and 1B+ transactions since 2017 — a foundation the wider product organization could build on.
 
 - Design capability scaled from 0→20, with 20 designers hired directly.
 - Design moved from scattered service execution to a strategic product function.
@@ -147,7 +147,7 @@ Nikhil built the design operating model deliberately — structure, rituals, sta
 
 # 13. Related Essays
 
-Planned:
+Planned essays that will expand this story:
 
 - Why case studies are too small for executive work
 - Design transformation is not a Figma transformation
@@ -156,6 +156,8 @@ Planned:
 - Design systems are product infrastructure
 
 # 14. Related Operating Manual Pages
+
+Operating Manual areas this story will connect to:
 
 - Organization Design
 - Hiring
@@ -179,6 +181,8 @@ Planned:
 > 500+ interviews still needs checking. 50+ field studies confirmed and public-safe. 85% QA-time reduction public-approved but cross-referenced to the AI-native story.
 
 # 16. Related Future Formats
+
+Ways this transformation can become reusable:
 
 - LinkedIn post
 - X thread
