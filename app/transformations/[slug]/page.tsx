@@ -8,6 +8,7 @@ import {
   STORY_FRAMEWORK,
   getStory,
   transformations,
+  type DraftBlock,
 } from "@/lib/transformations";
 
 export function generateStaticParams() {
@@ -33,6 +34,80 @@ const metaLabel =
 const relatedLink =
   "font-geometric-mono text-[13px] tracking-[-0.02em] text-lichen transition-colors hover:text-ink";
 
+function Blocks({ blocks }: { blocks: DraftBlock[] }) {
+  return (
+    <div className="space-y-5">
+      {blocks.map((block, i) => {
+        if (block.type === "p") {
+          return (
+            <p key={i} className="max-w-[680px] t-body text-carbon">
+              {block.text}
+            </p>
+          );
+        }
+        if (block.type === "list") {
+          return (
+            <ul key={i} className="space-y-2.5">
+              {block.items.map((item, j) => (
+                <li key={j} className="flex gap-3 t-body-sm text-carbon">
+                  <span
+                    aria-hidden="true"
+                    className="mt-2.5 h-px w-3 shrink-0 bg-olive-char"
+                  />
+                  <span className="max-w-[660px]">{item}</span>
+                </li>
+              ))}
+            </ul>
+          );
+        }
+        if (block.type === "decisions") {
+          return (
+            <div key={i} className="grid gap-4 md:grid-cols-2">
+              {block.items.map((d, j) => (
+                <div
+                  key={j}
+                  className="rounded-lg border border-ash bg-paper p-5"
+                >
+                  <p className="font-editorial-serif text-[17px] leading-[1.3] tracking-[-0.01em] text-ink">
+                    {d.decision}
+                  </p>
+                  <dl className="mt-3 space-y-2">
+                    {(
+                      [
+                        ["Why", d.why],
+                        ["Tradeoff", d.tradeoff],
+                        ["Result", d.result],
+                      ] as const
+                    ).map(([label, value]) => (
+                      <div key={label} className="flex gap-3">
+                        <dt
+                          className={`${metaLabel} w-16 shrink-0 pt-0.5 text-sage`}
+                        >
+                          {label}
+                        </dt>
+                        <dd className="t-body-sm text-olive-char">{value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              ))}
+            </div>
+          );
+        }
+        // note
+        return (
+          <p
+            key={i}
+            className="max-w-[680px] border-l border-khaki-olive pl-4 font-editorial-serif text-[17px] leading-[1.4] text-carbon"
+          >
+            {block.text}
+          </p>
+        );
+      })}
+    </div>
+  );
+}
+
 export default async function StoryPage({
   params,
 }: {
@@ -43,6 +118,13 @@ export default async function StoryPage({
   if (!story) notFound();
 
   const internal = evidenceMode() === "internal";
+  const drafted = story.status === "Draft v1" && !!story.draft;
+
+  const statusText = drafted
+    ? "Draft v1"
+    : internal
+      ? "Evidence intake in progress"
+      : "In preparation";
 
   return (
     <>
@@ -88,73 +170,129 @@ export default async function StoryPage({
                 </div>
                 <div className="bg-paper p-5">
                   <dt className={`${metaLabel} text-sage`}>Status</dt>
-                  <dd className="mt-2 t-body-sm text-carbon">
-                    {internal ? "Evidence intake in progress" : "In preparation"}
-                  </dd>
+                  <dd className="mt-2 t-body-sm text-carbon">{statusText}</dd>
                 </div>
               </dl>
 
-              <p className="mt-6 max-w-[640px] t-body-sm text-lichen">
-                This transformation story is being prepared as an
-                evidence-backed leadership narrative. The final version will
-                include context, decisions, tradeoffs, outcomes, and lessons
-                once evidence intake is complete.
-              </p>
+              {!drafted && (
+                <p className="mt-6 max-w-[640px] t-body-sm text-lichen">
+                  This transformation story is being prepared as an
+                  evidence-backed leadership narrative. The final version will
+                  include context, decisions, tradeoffs, outcomes, and lessons
+                  once evidence intake is complete.
+                </p>
+              )}
             </header>
 
-            <section className="mt-14">
-              <p className="mb-6 t-caption font-geometric-mono uppercase tracking-[0.06em] text-lichen">
-                Structure
-              </p>
-              <ol className="divide-y divide-ash border-t border-b border-ash">
+            {drafted ? (
+              <div className="mt-14 space-y-12">
                 {STORY_FRAMEWORK.map((section) => {
+                  const blocks = story.draft?.[section.n];
                   const bullets = story.evidence[section.n];
                   return (
-                    <li key={section.n} className="py-5">
-                      <div className="flex items-baseline gap-4">
+                    <section
+                      key={section.n}
+                      className="border-t border-ash pt-8"
+                    >
+                      <div className="mb-5 flex items-baseline gap-4">
                         <span className="w-6 shrink-0 font-geometric-mono text-[12px] tabular-nums text-sage">
                           {String(section.n).padStart(2, "0")}
                         </span>
-                        <h2 className="font-editorial-serif text-[19px] font-normal leading-[1.2] tracking-[-0.01em] text-ink">
+                        <h2 className="font-editorial-serif text-[22px] font-normal leading-[1.18] tracking-[-0.01em] text-ink">
                           {section.title}
                         </h2>
                       </div>
-                      <p className="mt-1.5 pl-10 t-body-sm text-lichen">
-                        {section.prompt}
-                      </p>
 
-                      {internal && bullets && (
-                        <div className="mt-4 ml-10 rounded-lg border border-ash bg-paper p-5">
-                          <p className={`${metaLabel} mb-3 text-lichen`}>
-                            Evidence intake
+                      <div className="pl-10">
+                        {blocks ? (
+                          <Blocks blocks={blocks} />
+                        ) : (
+                          <p className="t-body-sm text-lichen">
+                            {section.prompt}
                           </p>
-                          <ul className="space-y-2">
-                            {bullets.map((b, i) => (
-                              <li
-                                key={i}
-                                className="flex gap-3 t-body-sm text-carbon"
-                              >
-                                <span
-                                  aria-hidden="true"
-                                  className="mt-2.5 h-px w-3 shrink-0 bg-olive-char"
-                                />
-                                <span>{b}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                    </li>
+                        )}
+
+                        {internal && bullets && (
+                          <div className="mt-5 rounded-lg border border-ash bg-paper p-5">
+                            <p className={`${metaLabel} mb-3 text-lichen`}>
+                              Internal · evidence note
+                            </p>
+                            <ul className="space-y-2">
+                              {bullets.map((b, i) => (
+                                <li
+                                  key={i}
+                                  className="flex gap-3 t-body-sm text-carbon"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                    className="mt-2.5 h-px w-3 shrink-0 bg-olive-char"
+                                  />
+                                  <span>{b}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
+                    </section>
                   );
                 })}
-              </ol>
-            </section>
+              </div>
+            ) : (
+              <section className="mt-14">
+                <p className="mb-6 t-caption font-geometric-mono uppercase tracking-[0.06em] text-lichen">
+                  Structure
+                </p>
+                <ol className="divide-y divide-ash border-t border-b border-ash">
+                  {STORY_FRAMEWORK.map((section) => {
+                    const bullets = story.evidence[section.n];
+                    return (
+                      <li key={section.n} className="py-5">
+                        <div className="flex items-baseline gap-4">
+                          <span className="w-6 shrink-0 font-geometric-mono text-[12px] tabular-nums text-sage">
+                            {String(section.n).padStart(2, "0")}
+                          </span>
+                          <h2 className="font-editorial-serif text-[19px] font-normal leading-[1.2] tracking-[-0.01em] text-ink">
+                            {section.title}
+                          </h2>
+                        </div>
+                        <p className="mt-1.5 pl-10 t-body-sm text-lichen">
+                          {section.prompt}
+                        </p>
+
+                        {internal && bullets && (
+                          <div className="mt-4 ml-10 rounded-lg border border-ash bg-paper p-5">
+                            <p className={`${metaLabel} mb-3 text-lichen`}>
+                              Evidence intake
+                            </p>
+                            <ul className="space-y-2">
+                              {bullets.map((b, i) => (
+                                <li
+                                  key={i}
+                                  className="flex gap-3 t-body-sm text-carbon"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                    className="mt-2.5 h-px w-3 shrink-0 bg-olive-char"
+                                  />
+                                  <span>{b}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ol>
+              </section>
+            )}
 
             {internal && (
               <p className="mt-10 t-body-sm text-sage">
-                Internal: capture the evidence above before writing the story;
-                no metric publishes until it is registered in
-                EVIDENCE/CLAIMS_REGISTER.md and approved.
+                Internal: no metric publishes until it is registered in
+                EVIDENCE/CLAIMS_REGISTER.md and approved. Unverified claims (e.g.
+                interview counts) stay out of the public draft.
               </p>
             )}
 

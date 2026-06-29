@@ -111,7 +111,7 @@ Each claim should eventually capture:
 
 **Category:** Organizational Design
 
-**Status:** User-confirmed / Public-approved (Decision 027). 0→20 design capability; 20 designers hired directly; rituals, reviews, and research practices confirmed. Supporting artifacts recommended; not externally verified.
+**Status:** User-confirmed / Public-approved (Decisions 027, 031). 0→20 design capability; 20 designers hired directly (visual designers, researchers, UX designers, a UX copywriter); four pods with four design leads reporting to Nikhil; weekly rituals (Monday design reviews, Friday critiques, 14-day product reviews, design signoff); quarterly field-research practice. Supporting artifacts recommended; not externally verified.
 
 **Evidence Needed:**
 
@@ -342,7 +342,7 @@ Each claim should eventually capture:
 
 **Category:** Organizational Design
 
-**Status:** User-confirmed / Public-approved (Decision 027). 0→20 design capability; 20 designers hired directly. Renders as a verified number on the homepage ledger. Supporting artifacts recommended; not externally verified.
+**Status:** User-confirmed / Public-approved (Decisions 027, 031). 0→20 design capability; 20 designers hired directly. Used publicly in the Building the Design Organization Draft v1 story and the homepage ledger. Supporting artifacts recommended; not externally verified.
 
 **Evidence Needed:**
 
@@ -445,8 +445,8 @@ Status reflects the homepage evidence intake (Decision 027). "Approved (public)"
 | 39% fraud-related support handling | TBD | [ ] Needs Evidence |
 | 32% higher average balance | TBD | [ ] Needs Evidence |
 | 7× onboarding growth | TBD | [ ] Needs Evidence |
-| 500+ user interviews | TBD | [ ] Needs Evidence |
-| 50 field studies | TBD | [ ] Needs Evidence |
+| 50+ field studies | User-confirmed | [x] Public-safe (Decision 031) |
+| 500+ user interviews | TBD | [ ] Gated — needs checking; use "field research and user conversations" |
 | Awards and recognitions | TBD | [ ] Needs Evidence |
 
 ---

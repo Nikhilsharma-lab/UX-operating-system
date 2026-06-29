@@ -69,12 +69,19 @@ export default function TransformationsIndex() {
                         {story.title}
                       </h2>
                       <p className="t-body-sm text-olive-char">{story.proves}</p>
-                      <span className="mt-auto inline-flex items-center gap-2 font-geometric-mono text-[13px] font-medium tracking-[-0.01em] text-ink">
-                        Read transformation
-                        <span aria-hidden="true" className="text-lichen">
-                          →
+                      <div className="mt-auto">
+                        <p className="mb-3 font-geometric-mono text-[11px] font-medium uppercase tracking-[0.07em] text-sage">
+                          {story.status === "Draft v1"
+                            ? "Draft v1"
+                            : "In preparation"}
+                        </p>
+                        <span className="inline-flex items-center gap-2 font-geometric-mono text-[13px] font-medium tracking-[-0.01em] text-ink">
+                          Read transformation
+                          <span aria-hidden="true" className="text-lichen">
+                            →
+                          </span>
                         </span>
-                      </span>
+                      </div>
                     </div>
                   </Link>
                 </li>
