@@ -25,6 +25,13 @@ const irvin = localFont({
   display: "swap",
 });
 
+// Headline face (article / card headlines — the lighter text-weight Irvin).
+const irvinText = localFont({
+  src: "./fonts/IrvinText-Regular.woff2",
+  variable: "--font-irvintext",
+  display: "swap",
+});
+
 // Editorial rubrics / kickers / labels (the New Yorker's small uppercase voice).
 const neutraface = localFont({
   src: "./fonts/NeutrafaceNewYorker-Book.woff",
@@ -64,7 +71,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${caslon.variable} ${irvin.variable} ${neutraface.variable} ${graphik.variable} ${inter.variable}`}
+      className={`${caslon.variable} ${irvin.variable} ${irvinText.variable} ${neutraface.variable} ${graphik.variable} ${inter.variable}`}
     >
       <body>
         <a

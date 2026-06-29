@@ -45,7 +45,7 @@ export function BuildingPreview() {
                 {venture.tag}
               </p>
             </div>
-            <h3 className="font-heading-serif text-[26px] font-normal leading-[1.12] tracking-[0] text-ink">
+            <h3 className="font-headline-serif text-[26px] font-normal leading-[1.12] tracking-[0] text-ink">
               {venture.name}
             </h3>
             <p className="max-w-[460px] t-body-sm text-olive-char">

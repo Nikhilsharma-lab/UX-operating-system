@@ -68,7 +68,7 @@ export function CapabilitiesSection() {
                 Capability
               </span>
             </div>
-            <h3 className="font-heading-serif text-[23px] font-normal leading-[1.12] tracking-[0] text-ink">
+            <h3 className="font-headline-serif text-[23px] font-normal leading-[1.12] tracking-[0] text-ink">
               {capability.title}
             </h3>
             <p className="font-editorial-serif text-[15px] leading-[1.45] text-ink/75">

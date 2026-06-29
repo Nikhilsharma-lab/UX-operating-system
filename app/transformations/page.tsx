@@ -65,7 +65,7 @@ export default function TransformationsIndex() {
                       </span>
                     </div>
                     <div className="flex flex-1 flex-col gap-5 p-6">
-                      <h2 className="font-heading-serif text-[22px] font-normal leading-[1.16] tracking-[0] text-ink">
+                      <h2 className="font-headline-serif text-[22px] font-normal leading-[1.16] tracking-[0] text-ink">
                         {story.title}
                       </h2>
                       <p className="t-body-sm text-olive-char">{story.proves}</p>

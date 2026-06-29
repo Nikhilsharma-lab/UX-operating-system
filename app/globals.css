@@ -36,7 +36,8 @@
 
   /* Typography — real New Yorker faces (self-hosted via next/font/local) */
   --font-editorial-serif: var(--font-caslon), Georgia, "Times New Roman", Times, serif; /* Adobe Caslon Pro — display/hero */
-  --font-heading-serif: var(--font-irvin), Georgia, "Times New Roman", Times, serif; /* Irvin Heading Pro — H2/H3 */
+  --font-heading-serif: var(--font-irvin), Georgia, "Times New Roman", Times, serif; /* Irvin Heading Pro — big display section titles + masthead */
+  --font-headline-serif: var(--font-irvintext), var(--font-irvin), Georgia, "Times New Roman", Times, serif; /* Irvin Text — article/card headlines */
   --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* Inter — body */
   /* "mono" token now resolves to Graphik — nav / UI labels */
   --font-geometric-mono: var(--font-graphik), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -98,6 +99,10 @@
 
   .font-heading-serif {
     font-family: var(--font-heading-serif);
+  }
+
+  .font-headline-serif {
+    font-family: var(--font-headline-serif);
   }
 
   .font-geometric-mono {
