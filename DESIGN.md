@@ -16,13 +16,17 @@ The token values defined here are mirrored as machine-readable CSS in `styles/gl
 
 Active system summary (wired in `app/globals.css` + `app/layout.tsx`):
 
-- **Canvas:** white `#ffffff` page; deep charcoal `#2b2e35` footer/dark panels.
+> **Color/face values below are verified from a live crawl of newyorker.com** (local `curl` + headless Chrome; WebFetch is blocked at Anthropic's IPs). The real face stack is TNYAdobeCaslonPro · NeutrafaceNewYorker · Graphik · IrvinText/IrvinHeadingPro — we currently substitute Graphik for Neutraface and Irvin Heading for IrvinText pending those files.
+
+- **Canvas:** white `#ffffff` page; warm paper tint `#f6f4ef` for tinted zones; deep charcoal `#2b2e35` footer/dark panels.
 - **Masthead (authentic):** white header, the wordmark set in **Irvin** (black), with a 1px **black hairline rule** beneath — the New Yorker signature. Nav in Graphik, uppercase, letter-spaced. (Reverted from the earlier solid-black bar.)
 - **Reading texture:** long-form prose, deks/ledes, hero supporting copy, and section intros are set in **Caslon** (serif) — the New Yorker reads serif. Sans (Graphik/Inter) is reserved for rubrics, nav, metadata, labels, and short card copy.
 - **Drop cap:** story openers use a Caslon drop cap on the first letter (`.dropcap`).
 - **Type (four voices — real licensed New Yorker faces, self-hosted via `next/font/local`):** **Adobe Caslon Pro** for display/hero (`font-editorial-serif`); **Irvin Heading Pro** for H2/H3 section & feature titles (`font-heading-serif`); **Inter** for body (`font-sans`); **Graphik** for navigation/UI labels (`--font-geometric-mono` now resolves to Graphik, so existing label classes reskin without edits).
-- **Text:** black `#000000` primary, slate gray `#4a5568` secondary, `#718096` muted.
-- **Accent:** slate blue `#0879bf` (links, marks, focus, selection); green `#38a169` / `#5cd687` and sky `#84d1ff` reserved for color-blocked featured cards; blush `#f7c2c2`.
+- **Text:** **warm near-black `#231f20`** primary (NYer's real ink, not pure black), slate gray `#4a5568` secondary, `#6b7280` muted.
+- **Dividers / hairlines:** `#dadada` (NYer gray).
+- **Accent:** **NYer link blue `#0066ff`** (links, marks, focus, selection).
+- **Color-blocked feature cards (verified pastels):** yellow `#ffe17d`, pale-yellow `#ffefb9`, sky `#a5e8fd`, blue `#84c9ff`, green `#5cd687`, lavender `#ede8f8` — 16px radius, Irvin title + Caslon body + warm-ink text, subtle hover lift. The capabilities grid uses these as a rotating 6-up set (the New Yorker home-grid signature).
 - **Radii:** 6px (buttons/inputs), 16px (featured cards).
 - **Elevation:** subtle shadows are now allowed (Level 1 `0 2px 8px /.06`, Level 2 `0 4px 16px /.12`) — this reverses the old flat/no-shadow rule.
 - **Token names preserved** (`vellum`, `paper`, `ink`, `carbon`, `ash`, `highlighter-yellow`, etc.) with New Yorker **values**, so components reskinned without per-component edits.

@@ -10,25 +10,28 @@
  */
 
 @theme {
-  /* Colors — New Yorker editorial (mapped onto existing token names) */
-  --color-vellum: #ffffff; /* page background (was cream) */
+  /* Colors — New Yorker editorial (verified from a live crawl of newyorker.com) */
+  --color-vellum: #ffffff; /* page background */
   --color-paper: #ffffff; /* card surfaces */
-  --color-ink: #000000; /* core text */
+  --color-ink: #231f20; /* core text — NYer warm near-black (not pure #000) */
   --color-carbon: #2b2e35; /* deep charcoal — footer, dark panels, primary buttons */
-  --color-ash: #e5e5e5; /* dividers / hairline borders */
+  --color-ash: #dadada; /* dividers / hairline borders (NYer gray) */
   --color-olive-char: #4a5568; /* slate gray — strong secondary text */
   --color-lichen: #4a5568; /* labels / muted text */
-  --color-sage: #718096; /* lighter muted text (AA on white) */
+  --color-sage: #6b7280; /* lighter muted text (AA on white) */
   --color-moss: #a0aec0; /* muted light text on dark surfaces */
-  --color-bone: #f7fafc; /* soft off-white tint zones */
-  --color-highlighter-yellow: #0879bf; /* accent → slate blue */
+  --color-bone: #f6f4ef; /* warm off-white tint zones (NYer paper) */
+  --color-highlighter-yellow: #0066ff; /* accent → NYer link blue */
   --color-khaki-olive: #cbd5e0; /* light slate border (tags) */
 
-  /* Accent set (New Yorker) */
-  --color-accent-blue: #0879bf;
-  --color-accent-green: #38a169;
+  /* Accent + featured-card pastels (verified hexes from newyorker.com) */
+  --color-accent-blue: #0066ff;
+  --color-card-yellow: #ffe17d;
+  --color-card-paleyellow: #ffefb9;
+  --color-card-sky: #a5e8fd;
+  --color-card-blue: #84c9ff;
   --color-card-green: #5cd687;
-  --color-card-blue: #84d1ff;
+  --color-card-lavender: #ede8f8;
   --color-blush: #f7c2c2;
 
   /* Typography — real New Yorker faces (self-hosted via next/font/local) */

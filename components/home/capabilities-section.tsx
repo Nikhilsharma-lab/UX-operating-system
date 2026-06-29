@@ -1,5 +1,15 @@
 import { SectionShell } from "@/components/section-shell";
 
+// New Yorker color-blocked feature tiles — verified pastels from newyorker.com.
+const cardTones = [
+  "bg-card-yellow",
+  "bg-card-sky",
+  "bg-card-green",
+  "bg-card-lavender",
+  "bg-card-paleyellow",
+  "bg-card-blue",
+];
+
 const capabilities = [
   {
     title: "Organizational Design",
@@ -44,24 +54,26 @@ export function CapabilitiesSection() {
         </>
       }
     >
-      <ul className="grid gap-px overflow-hidden rounded-lg border border-ash bg-ash md:grid-cols-2 lg:grid-cols-3">
+      <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {capabilities.map((capability, index) => (
           <li
             key={capability.title}
-            className="flex flex-col gap-4 bg-paper p-6 transition-colors hover:bg-bone/50"
+            className={`group flex min-h-[236px] flex-col gap-4 rounded-lg p-7 transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0px_6px_18px_rgba(35,31,32,0.14)] ${cardTones[index % cardTones.length]}`}
           >
-            <div className="flex items-center justify-between">
-              <span className="font-geometric-mono text-[12px] font-medium tabular-nums text-lichen">
+            <div className="flex items-center justify-between text-ink/55">
+              <span className="font-geometric-mono text-[12px] font-medium tabular-nums">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <span className="font-geometric-mono text-[11px] uppercase tracking-[0.07em] text-sage">
+              <span className="font-geometric-mono text-[10px] uppercase tracking-[0.14em]">
                 Capability
               </span>
             </div>
-            <h3 className="font-heading-serif text-[21px] font-normal leading-[1.18] tracking-[0] text-ink">
+            <h3 className="font-heading-serif text-[23px] font-normal leading-[1.12] tracking-[0] text-ink">
               {capability.title}
             </h3>
-            <p className="t-body-sm text-olive-char">{capability.copy}</p>
+            <p className="font-editorial-serif text-[15px] leading-[1.45] text-ink/75">
+              {capability.copy}
+            </p>
           </li>
         ))}
       </ul>
