@@ -64,7 +64,7 @@ export function CapabilitiesSection() {
               <span className="font-geometric-mono text-[12px] font-medium tabular-nums">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <span className="font-geometric-mono text-[10px] uppercase tracking-[0.14em]">
+              <span className="font-rubric text-[10px] uppercase tracking-[0.16em]">
                 Capability
               </span>
             </div>

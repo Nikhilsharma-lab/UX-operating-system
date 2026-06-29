@@ -38,10 +38,10 @@ export function BuildingPreview() {
             }`}
           >
             <div className="flex items-baseline justify-between gap-4">
-              <p className="font-geometric-mono text-[11px] font-medium uppercase tracking-[0.07em] text-lichen">
+              <p className="font-rubric text-[11px] font-medium uppercase tracking-[0.1em] text-lichen">
                 Venture {String(index + 1).padStart(2, "0")}
               </p>
-              <p className="font-geometric-mono text-[11px] uppercase tracking-[0.07em] text-sage">
+              <p className="font-rubric text-[11px] uppercase tracking-[0.1em] text-sage">
                 {venture.tag}
               </p>
             </div>

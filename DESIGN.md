@@ -16,13 +16,13 @@ The token values defined here are mirrored as machine-readable CSS in `styles/gl
 
 Active system summary (wired in `app/globals.css` + `app/layout.tsx`):
 
-> **Color/face values below are verified from a live crawl of newyorker.com** (local `curl` + headless Chrome; WebFetch is blocked at Anthropic's IPs). The real face stack is TNYAdobeCaslonPro · NeutrafaceNewYorker · Graphik · IrvinText/IrvinHeadingPro — we currently substitute Graphik for Neutraface and Irvin Heading for IrvinText pending those files.
+> **Color/face values below are verified from a live crawl of newyorker.com** (local `curl` + headless Chrome; WebFetch is blocked at Anthropic's IPs). The real face stack is TNYAdobeCaslonPro · NeutrafaceNewYorker · Graphik · IrvinText/IrvinHeadingPro. **Neutraface New Yorker (Book) is now self-hosted** and drives the rubric/kicker voice via `.font-rubric` (`--font-neutraface`); Graphik stays for nav/UI. Still substituting Irvin Heading for IrvinText pending that file. (Note: the Neutraface file is a third-party OnlineWebFonts conversion of a commercial House Industries face — licensing to be cleared before public launch.)
 
 - **Canvas:** white `#ffffff` page; warm paper tint `#f6f4ef` for tinted zones; deep charcoal `#2b2e35` footer/dark panels.
 - **Masthead (authentic):** white header, the wordmark set in **Irvin** (black), with a 1px **black hairline rule** beneath — the New Yorker signature. Nav in Graphik, uppercase, letter-spaced. (Reverted from the earlier solid-black bar.)
 - **Reading texture:** long-form prose, deks/ledes, hero supporting copy, and section intros are set in **Caslon** (serif) — the New Yorker reads serif. Sans (Graphik/Inter) is reserved for rubrics, nav, metadata, labels, and short card copy.
 - **Drop cap:** story openers use a Caslon drop cap on the first letter (`.dropcap`).
-- **Type (four voices — real licensed New Yorker faces, self-hosted via `next/font/local`):** **Adobe Caslon Pro** for display/hero (`font-editorial-serif`); **Irvin Heading Pro** for H2/H3 section & feature titles (`font-heading-serif`); **Inter** for body (`font-sans`); **Graphik** for navigation/UI labels (`--font-geometric-mono` now resolves to Graphik, so existing label classes reskin without edits).
+- **Type (five voices — real New Yorker faces, self-hosted via `next/font/local`):** **Adobe Caslon Pro** for display/hero + reading body (`font-editorial-serif`); **Irvin Heading Pro** for H2/H3 section & feature titles (`font-heading-serif`); **Neutraface New Yorker Book** for rubrics/kickers/eyebrows (`font-rubric`); **Graphik** for navigation/UI labels (`--font-geometric-mono`); **Inter** for functional body (`font-sans`).
 - **Text:** **warm near-black `#231f20`** primary (NYer's real ink, not pure black), slate gray `#4a5568` secondary, `#6b7280` muted.
 - **Dividers / hairlines:** `#dadada` (NYer gray).
 - **Accent:** **NYer link blue `#0066ff`** (links, marks, focus, selection).

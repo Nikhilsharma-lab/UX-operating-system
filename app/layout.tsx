@@ -25,6 +25,13 @@ const irvin = localFont({
   display: "swap",
 });
 
+// Editorial rubrics / kickers / labels (the New Yorker's small uppercase voice).
+const neutraface = localFont({
+  src: "./fonts/NeutrafaceNewYorker-Book.woff",
+  variable: "--font-neutraface",
+  display: "swap",
+});
+
 // Navigation / UI labels.
 const graphik = localFont({
   src: [
@@ -57,7 +64,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${caslon.variable} ${irvin.variable} ${graphik.variable} ${inter.variable}`}
+      className={`${caslon.variable} ${irvin.variable} ${neutraface.variable} ${graphik.variable} ${inter.variable}`}
     >
       <body>
         <a

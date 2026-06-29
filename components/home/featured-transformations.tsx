@@ -4,7 +4,7 @@ import { EvidenceGateLabel } from "@/components/evidence-gate-label";
 import { evidenceMode } from "@/lib/evidence";
 
 const metaLabel =
-  "font-geometric-mono text-[11px] font-medium uppercase tracking-[0.07em]";
+  "font-rubric text-[11px] font-medium uppercase tracking-[0.1em]";
 
 type Story = {
   index: string;

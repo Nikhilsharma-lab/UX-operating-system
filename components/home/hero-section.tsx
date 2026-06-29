@@ -49,7 +49,7 @@ export function HeroSection() {
 
         <aside>
           <div className="border-t border-ash pt-6 md:border-l md:border-t-0 md:pl-6 md:pt-1">
-            <p className="text-[12px] font-medium uppercase tracking-[0.06em] font-geometric-mono text-lichen">
+            <p className="text-[12px] font-medium uppercase tracking-[0.1em] font-rubric text-lichen">
               The belief
             </p>
             <p className="mt-3 font-editorial-serif text-[19px] font-light leading-[1.3] tracking-[-0.01em] text-carbon">
@@ -58,7 +58,7 @@ export function HeroSection() {
 
             <hr className="my-6 border-0 border-t border-ash" />
 
-            <p className="text-[12px] font-medium uppercase tracking-[0.06em] font-geometric-mono text-lichen">
+            <p className="text-[12px] font-medium uppercase tracking-[0.1em] font-rubric text-lichen">
               This system maps
             </p>
             <ul className="mt-3 border-t border-ash">

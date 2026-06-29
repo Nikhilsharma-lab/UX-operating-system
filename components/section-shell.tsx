@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 export function SectionEyebrow({ children }: { children: ReactNode }) {
   return (
-    <p className="text-[12px] font-medium uppercase leading-[17px] tracking-[0.06em] font-geometric-mono text-lichen">
+    <p className="text-[12px] font-medium uppercase leading-[17px] tracking-[0.1em] font-rubric text-lichen">
       {children}
     </p>
   );
