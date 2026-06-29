@@ -18,8 +18,3 @@ build/
 .env*.local
 next-env.d.ts
 *.tsbuildinfo
-
-# Proprietary licensed fonts — local only, not distributed until licensed
-# (Adobe Caslon Pro / Irvin Heading Pro / Graphik). Self-hosted via
-# next/font/local in app/layout.tsx; must be present in the build env at deploy.
-app/fonts/

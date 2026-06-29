@@ -24,7 +24,7 @@ Active system summary (wired in `app/globals.css` + `app/layout.tsx`):
 - **Elevation:** subtle shadows are now allowed (Level 1 `0 2px 8px /.06`, Level 2 `0 4px 16px /.12`) — this reverses the old flat/no-shadow rule.
 - **Token names preserved** (`vellum`, `paper`, `ink`, `carbon`, `ash`, `highlighter-yellow`, etc.) with New Yorker **values**, so components reskinned without per-component edits.
 
-> Note: the New Yorker faces (Adobe Caslon Pro, Irvin Heading Pro, Graphik) are licensed/proprietary. The font files are **self-hosted locally and git-ignored** (`app/fonts/`, not committed to the public repo) until the license is purchased before public launch; they must be present in the build environment at deploy. A deeper, pixel-faithful pass (color-blocked featured cards, full elevation on cards, exact 12-column grid) is a follow-up to this v1 reskin.
+> Note: the New Yorker faces (Adobe Caslon Pro, Irvin Heading Pro, Graphik) are self-hosted in `app/fonts/` and **committed** — the license permits use on personal websites (confirmed by Nikhil). A deeper, pixel-faithful pass (color-blocked featured cards, full elevation on cards, exact 12-column grid) is a follow-up to this v1 reskin.
 
 ---
 
