@@ -10,11 +10,21 @@ This file exists to maintain design-system consistency across the entire project
 
 The token values defined here are mirrored as machine-readable CSS in `styles/globals.css`. When the Next.js app is scaffolded, `styles/globals.css` becomes the wired source; this file remains the human-readable contract. Keep the two in sync.
 
-### Canonical Source
+### Canonical Source — Visual System v2 (New Yorker Editorial, Decision 032)
 
-The authoritative design system is the Claude Design project **"Warm Editorial Zine - Design System"** (imported to `design/Warm Editorial Zine - Design System.html`). This `DESIGN.md` is the operational contract derived from it.
+**The active visual system is "New Yorker Editorial"** (from `Desktop/FOnts/www.newyorker.com-DESIGN.md`). It **supersedes the Warm Editorial Zine** (Decisions 006/026) — that system, and the cream/Fraunces/mono/flat specifics elsewhere in this file, are retained for history but no longer authoritative where they conflict.
 
-Reconciled on import (Decision 026): the canonical system confirms the current build — same palette (all 12 tokens), the three-voice typography (**Fraunces** serif / **Hanken Grotesk** sans / **IBM Plex Mono** mono), 3px / 8px radii, flat surfaces, hairline borders, and the evidence-ledger motif. The only adjustment was the Type Scale below (font assignments + uppercase-label tracking) to match the canonical conventions.
+Active system summary (wired in `app/globals.css` + `app/layout.tsx`):
+
+- **Canvas:** white `#ffffff` page; deep charcoal `#2b2e35` footer/dark panels; **black `#000000` masthead/header**.
+- **Type (two voices):** serif display **Libre Caslon** (substitute for the proprietary TNY Adobe Caslon Pro / Irvin) for headlines & display; **Inter** (substitute for Inter/Graphik) for body, UI, navigation, and labels. No monospace. The `--font-geometric-mono` token now resolves to the Inter UI stack so existing label classes reskin without edits.
+- **Text:** black `#000000` primary, slate gray `#4a5568` secondary, `#718096` muted.
+- **Accent:** slate blue `#0879bf` (links, marks, focus, selection); green `#38a169` / `#5cd687` and sky `#84d1ff` reserved for color-blocked featured cards; blush `#f7c2c2`.
+- **Radii:** 6px (buttons/inputs), 16px (featured cards).
+- **Elevation:** subtle shadows are now allowed (Level 1 `0 2px 8px /.06`, Level 2 `0 4px 16px /.12`) — this reverses the old flat/no-shadow rule.
+- **Token names preserved** (`vellum`, `paper`, `ink`, `carbon`, `ash`, `highlighter-yellow`, etc.) with New Yorker **values**, so components reskinned without per-component edits.
+
+> Note: the New Yorker fonts (TNY Caslon, Irvin, Graphik) are proprietary and licensed; **Libre Caslon + Inter** are the free substitutes used here. A deeper, pixel-faithful pass (color-blocked featured cards, full elevation on cards, exact 12-column grid) is a follow-up to this v1 reskin.
 
 ---
 

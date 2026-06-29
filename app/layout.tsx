@@ -1,23 +1,20 @@
 import type { Metadata } from "next";
-import { Fraunces, Hanken_Grotesk, IBM_Plex_Mono } from "next/font/google";
+import { Libre_Caslon_Text, Inter } from "next/font/google";
 import "./globals.css";
 
-const fraunces = Fraunces({
+// Serif display — substitute for TNY Adobe Caslon Pro (proprietary).
+const caslon = Libre_Caslon_Text({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-caslon",
   display: "swap",
 });
 
-const hanken = Hanken_Grotesk({
+// Body + UI — substitute for Inter/Graphik (New Yorker UI stack).
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-hanken",
-  display: "swap",
-});
-
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-plex-mono",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -33,10 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${fraunces.variable} ${hanken.variable} ${plexMono.variable}`}
-    >
+    <html lang="en" className={`${caslon.variable} ${inter.variable}`}>
       <body>
         <a
           href="#main"
