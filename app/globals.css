@@ -168,6 +168,18 @@
     background: var(--color-accent-blue);
   }
 
+  /* New Yorker article opener — Caslon drop cap on the first letter */
+  .dropcap::first-letter {
+    float: left;
+    font-family: var(--font-editorial-serif);
+    font-weight: 400;
+    font-size: 3.4em;
+    line-height: 0.78;
+    padding-right: 0.07em;
+    margin-top: 0.02em;
+    color: var(--color-ink);
+  }
+
   .elevation-1 {
     box-shadow: var(--shadow-1);
   }

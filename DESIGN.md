@@ -16,7 +16,10 @@ The token values defined here are mirrored as machine-readable CSS in `styles/gl
 
 Active system summary (wired in `app/globals.css` + `app/layout.tsx`):
 
-- **Canvas:** white `#ffffff` page; deep charcoal `#2b2e35` footer/dark panels; **black `#000000` masthead/header**.
+- **Canvas:** white `#ffffff` page; deep charcoal `#2b2e35` footer/dark panels.
+- **Masthead (authentic):** white header, the wordmark set in **Irvin** (black), with a 1px **black hairline rule** beneath — the New Yorker signature. Nav in Graphik, uppercase, letter-spaced. (Reverted from the earlier solid-black bar.)
+- **Reading texture:** long-form prose, deks/ledes, hero supporting copy, and section intros are set in **Caslon** (serif) — the New Yorker reads serif. Sans (Graphik/Inter) is reserved for rubrics, nav, metadata, labels, and short card copy.
+- **Drop cap:** story openers use a Caslon drop cap on the first letter (`.dropcap`).
 - **Type (four voices — real licensed New Yorker faces, self-hosted via `next/font/local`):** **Adobe Caslon Pro** for display/hero (`font-editorial-serif`); **Irvin Heading Pro** for H2/H3 section & feature titles (`font-heading-serif`); **Inter** for body (`font-sans`); **Graphik** for navigation/UI labels (`--font-geometric-mono` now resolves to Graphik, so existing label classes reskin without edits).
 - **Text:** black `#000000` primary, slate gray `#4a5568` secondary, `#718096` muted.
 - **Accent:** slate blue `#0879bf` (links, marks, focus, selection); green `#38a169` / `#5cd687` and sky `#84d1ff` reserved for color-blocked featured cards; blush `#f7c2c2`.

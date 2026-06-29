@@ -34,13 +34,24 @@ const metaLabel =
 const relatedLink =
   "font-geometric-mono text-[13px] tracking-[-0.02em] text-lichen transition-colors hover:text-ink";
 
-function Blocks({ blocks }: { blocks: DraftBlock[] }) {
+function Blocks({
+  blocks,
+  dropcap = false,
+}: {
+  blocks: DraftBlock[];
+  dropcap?: boolean;
+}) {
   return (
     <div className="space-y-5">
       {blocks.map((block, i) => {
         if (block.type === "p") {
           return (
-            <p key={i} className="max-w-[680px] t-body text-carbon">
+            <p
+              key={i}
+              className={`max-w-[680px] font-editorial-serif text-[18px] leading-[1.6] tracking-[0] text-carbon ${
+                dropcap && i === 0 ? "dropcap" : ""
+              }`}
+            >
               {block.text}
             </p>
           );
@@ -205,7 +216,7 @@ export default async function StoryPage({
 
                       <div className="pl-10">
                         {blocks ? (
-                          <Blocks blocks={blocks} />
+                          <Blocks blocks={blocks} dropcap={section.n === 1} />
                         ) : (
                           <p className="t-body-sm text-lichen">
                             {section.prompt}

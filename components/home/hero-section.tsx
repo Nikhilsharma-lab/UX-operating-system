@@ -21,7 +21,7 @@ export function HeroSection() {
             measurable outcomes.
           </h1>
 
-          <p className="mt-8 max-w-[620px] text-[15px] leading-[1.55] tracking-[-0.01em] text-olive-char md:t-body">
+          <p className="mt-8 max-w-[640px] font-editorial-serif text-[18px] leading-[1.5] tracking-[0] text-olive-char">
             I lead product design across regulated fintech, design systems,
             customer trust, behavioral growth, and AI-native product
             development — building the teams, rituals, infrastructure, and

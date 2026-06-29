@@ -52,7 +52,7 @@ export function SectionShell({
               </h2>
             )}
             {intro && (
-              <div className="mt-5 space-y-3 t-body text-olive-char">
+              <div className="mt-5 space-y-3 font-editorial-serif text-[16px] leading-[1.55] tracking-[0] text-olive-char">
                 {intro}
               </div>
             )}

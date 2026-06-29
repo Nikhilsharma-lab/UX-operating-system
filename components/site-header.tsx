@@ -11,11 +11,11 @@ const navLinks = [
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 bg-ink text-paper elevation-1">
-      <div className="page-shell flex flex-col gap-2 py-3 sm:h-14 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:py-0">
+    <header className="sticky top-0 z-40 border-b border-ink bg-paper">
+      <div className="page-shell flex flex-col gap-2 py-3 sm:h-16 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:py-0">
         <Link
           href="/"
-          className="font-editorial-serif text-[18px] font-normal tracking-[0] text-paper"
+          className="font-heading-serif text-[24px] leading-none tracking-[0.01em] text-ink"
         >
           Nikhil Sharma
         </Link>
@@ -25,7 +25,7 @@ export function SiteHeader() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="font-geometric-mono text-[12px] font-medium uppercase tracking-[0.04em] text-paper/80 transition-colors hover:text-paper"
+                  className="font-geometric-mono text-[12px] font-medium uppercase tracking-[0.06em] text-ink/65 transition-colors hover:text-ink"
                 >
                   {link.label}
                 </Link>

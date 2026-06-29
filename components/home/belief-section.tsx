@@ -24,7 +24,7 @@ export function BeliefSection() {
             Design creates systems that create products.
           </h2>
 
-          <div className="mt-8 space-y-4 t-body text-olive-char">
+          <div className="mt-8 space-y-4 font-editorial-serif text-[18px] leading-[1.55] tracking-[0] text-olive-char">
             <p>
               Most portfolios show the visible layer: screens, flows, launches,
               and metrics.
