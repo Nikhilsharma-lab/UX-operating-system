@@ -302,6 +302,258 @@ const buildingDesignOrganizationDraft: Partial<Record<number, DraftBlock[]>> = {
   ],
 };
 
+const aiNativeProductDevelopmentDraft: Partial<Record<number, DraftBlock[]>> = {
+  1: [
+    {
+      type: "p",
+      text: "By the time this work began, Airtel Payments Bank had matured its design capability and built Vault — a central design system spanning the consumer app, business apps, the website, and internal artifacts. But even with a design system in place, the connection between Figma and production stayed manual. Designers created screens and components in Figma; engineers inspected and rebuilt them in code; QA and UAT caught the drift between the two late.",
+    },
+  ],
+  2: [
+    {
+      type: "p",
+      text: "The problem was not only visual inconsistency. The gap between approved design and shipped UI slowed the whole product organization. Repetitive frontend translation created rework, stretched QA and UAT cycles, produced inconsistent implementation, delayed experiments, and lowered confidence in what would actually ship.",
+    },
+    {
+      type: "p",
+      text: "The slowest, most error-prone work was the same every time: turning design intent into frontend by hand. It was not a skill problem — it was a workflow that depended on manual translation.",
+    },
+  ],
+  3: [
+    {
+      type: "p",
+      text: "The deeper challenge was structural. Design, the design system, engineering, and QA still operated as separate translation layers. Figma held design intent. Engineering held production reality. QA found the mismatches between them late, after the expensive work was done.",
+    },
+    {
+      type: "p",
+      text: "The organization had a design system, but not a design-to-production system — no shared path where intent became implementation without being rebuilt by hand.",
+    },
+  ],
+  4: [
+    {
+      type: "p",
+      text: "The constraints clustered into a few real risks, not a checklist:",
+    },
+    {
+      type: "list",
+      items: [
+        "Trust and quality: engineering skepticism about AI-generated code, and genuine concerns about code quality, security, accessibility, responsiveness, and production readiness.",
+        "Source quality: token and component mismatches between Figma and code, plus gaps in the design team's implementation-aware skills.",
+        "Governance: version control, compliance in a regulated environment, and the need for clear review and ownership.",
+        "Adoption: leadership skepticism about introducing AI tooling inside a regulated bank.",
+      ],
+    },
+  ],
+  5: [
+    {
+      type: "p",
+      text: "This was not only user research; it was workflow research. Nikhil and the team treated the handoff itself as the object of study, mapping exactly where design-to-engineering translation broke down.",
+    },
+    {
+      type: "list",
+      items: [
+        "Spacing and visual parity between Figma and code.",
+        "Missing or inconsistent component states.",
+        "Specs that varied from designer to designer.",
+        "Responsive behavior and edge cases discovered late.",
+        "Repeated QA and UAT loops on the same classes of issue.",
+        "Engineering effort spent rebuilding UI that already existed in Figma.",
+        "Unclear ownership between design QA and engineering QA.",
+      ],
+    },
+  ],
+  6: [
+    {
+      type: "p",
+      text: "The shift rested on a set of deliberate decisions about where AI belonged in the workflow — and, just as importantly, where it did not.",
+    },
+    {
+      type: "decisions",
+      items: [
+        { decision: "Add AI to Vault only after the design-system foundations were stable.", why: "AI amplifies whatever it reads; unstable foundations would only scale inconsistency.", tradeoff: "Waiting, while the manual workflow kept costing time.", result: "AI worked from a coherent source, not a messy one." },
+        { decision: "Use AI to reduce implementation friction, not to replace engineering.", why: "The waste was repetitive translation, not engineering judgment.", tradeoff: "Less dramatic than an 'AI builds the product' story.", result: "Engineering stayed the owner of production quality." },
+        { decision: "Keep humans in the review loop.", why: "Generated code is a starting point, not a guarantee.", tradeoff: "Review time stays in the workflow.", result: "Speed without surrendering quality." },
+        { decision: "Let designers generate frontend foundations, but not bypass engineering quality.", why: "Designer leverage should not become an end-run around standards.", tradeoff: "Designers had to learn implementation thinking.", result: "More leverage at the same quality bar." },
+        { decision: "Treat prompts and workflows as product infrastructure.", why: "Repeatable systems beat one-off cleverness.", tradeoff: "Up-front effort to build and maintain them.", result: "A workflow the team could use, not a personal trick." },
+        { decision: "Make design tokens and components AI-readable.", why: "Structured, named inputs produce reliable outputs.", tradeoff: "Stricter Figma hygiene and discipline.", result: "Cleaner generation, less correction." },
+        { decision: "Start with controlled components before full product screens.", why: "Prove the workflow on small surfaces first.", tradeoff: "Slower initial rollout.", result: "A workflow that scaled without scaling errors." },
+        { decision: "Use AI first for repetitive UI patterns.", why: "The highest-volume, lowest-judgment work is the safest place to start.", tradeoff: "Complex cases were left for later.", result: "Fast, visible wins at low risk." },
+        { decision: "Define 'production-ready frontend' carefully.", why: "An overstated claim would erode engineering trust.", tradeoff: "A more modest promise.", result: "Componentized, token-aligned, responsive foundations that still require engineering review." },
+        { decision: "Separate visual QA from engineering QA.", why: "Designers and engineers catch different classes of problem.", tradeoff: "Two review passes instead of one.", result: "Clear ownership and fewer missed defects." },
+        { decision: "Keep business logic outside early AI generation.", why: "Generate UI foundations, not security- or data-sensitive logic.", tradeoff: "A narrower scope for AI.", result: "Quality and safety protected in a regulated context." },
+        { decision: "Keep LANE separate from Vault.", why: "Two different systems solving two different problems.", tradeoff: "Less of a single sweeping narrative.", result: "Each system stayed clearly scoped." },
+      ],
+    },
+  ],
+  7: [
+    {
+      type: "p",
+      text: "Every advantage came with a counterweight. AI could speed up repetitive UI work, but it could just as easily accelerate inconsistency if the source design system was weak. Designers gained real leverage — but only by becoming more disciplined about Figma hygiene, tokens, variants, states, and implementation thinking.",
+    },
+    {
+      type: "p",
+      text: "Engineering spent less time on repetitive translation, yet still had to own production quality; review never went away. Starting with controlled components slowed the initial rollout, but it avoided scaling a broken workflow. And keeping business logic outside early AI generation limited scope on purpose, to protect quality and safety in a regulated environment.",
+    },
+  ],
+  8: [
+    {
+      type: "p",
+      text: "Nikhil shifted Vault from a Figma-first design system toward AI-assisted design-to-code infrastructure — connecting cleaner Figma components, tokens, and variants to a generate-review-refine workflow rather than a static handoff.",
+    },
+    {
+      type: "list",
+      items: [
+        "A designer creates or updates a component or screen in Figma.",
+        "The component is checked against the design system.",
+        "Figma MCP connects the design file to Claude Code.",
+        "Claude Code reads the Figma structure and maps it to the frontend stack.",
+        "A designer or engineer gives implementation instructions.",
+        "Claude Code generates a frontend foundation — componentized, token-aligned, and responsive.",
+        "The designer performs visual QA: accuracy, interaction quality, responsive behavior, hierarchy, and design-system compliance.",
+        "Engineering reviews the code and owns quality, architecture, performance, accessibility, security, and integration.",
+        "Product and QA validate behavior.",
+        "The code moves through the normal release process.",
+        "Learnings feed back into the design system.",
+      ],
+    },
+    {
+      type: "p",
+      text: "The stack was conventional and public-safe: Figma MCP, Claude Code (with Cursor and Codex), and a Next.js / React / Tailwind frontend built on design tokens, shipped through Vercel and Page Space.",
+    },
+    {
+      type: "note",
+      text: "LANE is a separate system. Vault and this workflow are about design-system-to-frontend execution; LANE is an AI-native product-ops platform for problem framing and PM/design intake. LANE was not part of this workflow or the 85% QA/UAT reduction.",
+    },
+  ],
+  9: [
+    {
+      type: "list",
+      items: [
+        "Frontend QA/UAT time dropped by about 85% over two years.",
+        "For a single flow, QA/UAT moved from around a day to an hour or less.",
+        "20 designers worked in the new workflow.",
+        "Prototyping and handoff both got faster.",
+        "Implementation became more consistent.",
+        "Fewer QA defects, and less rework.",
+        "Engineering dependency shifted from repetitive UI translation toward higher-value work — review, architecture, integration, performance, accessibility, and maintainability.",
+        "Trust in what would actually ship improved.",
+      ],
+    },
+    {
+      type: "note",
+      text: "AI did not replace the product team. It compressed the waste between design intent and shipped UI.",
+    },
+  ],
+  10: [
+    {
+      type: "list",
+      items: [
+        "AI-native workflows are operating-model changes, not tool rollouts.",
+        "Source quality determines output quality.",
+        "Prompt discipline matters as much as design discipline.",
+        "Human review becomes more important, not less.",
+        "Engineering trust is a prerequisite, not a byproduct.",
+        "AI should automate repetitive translation, not product judgment.",
+        "The goal is not designers generating code; it is reducing the waste between design intent and shipped product.",
+      ],
+    },
+    {
+      type: "note",
+      text: "AI will not fix a weak design system. It will expose it.",
+    },
+  ],
+  11: [
+    {
+      type: "list",
+      items: [
+        "Audit the design system's AI-readiness earlier.",
+        "Set stricter foundations first: naming, variants, tokens, states, accessibility, responsive rules, and coded-component parity.",
+        "Run smaller, more controlled pilots.",
+        "Build prompt libraries sooner.",
+        "Involve engineering from the start.",
+        "Measure workflow impact from day one — time saved, QA issues reduced, visual defects avoided, engineering rework reduced, and adoption across squads.",
+      ],
+    },
+  ],
+  12: [
+    {
+      type: "list",
+      items: [
+        "Executable Design System",
+        "Design-to-Production Workflow",
+        "AI-readiness for Design Systems",
+        "Human-in-the-Loop Review Model",
+        "Visual QA vs Engineering QA",
+        "Prompt Systems as Product Infrastructure",
+        "Generate / Review / Refine / Ship",
+        "AI Governance for Product Teams",
+      ],
+    },
+  ],
+  13: [
+    {
+      type: "p",
+      text: "Planned essays that will expand this story:",
+    },
+    {
+      type: "list",
+      items: [
+        "AI will expose your design system",
+        "Design-to-code is not the same as shipping",
+        "Why AI-native teams need stronger governance",
+        "Prompting as product infrastructure",
+        "The future design system is executable",
+      ],
+    },
+  ],
+  14: [
+    {
+      type: "p",
+      text: "Operating Manual areas this story will connect to:",
+    },
+    {
+      type: "list",
+      items: [
+        "AI Workflow",
+        "Design Systems",
+        "Design Reviews",
+        "Product Reviews",
+        "Decision Making",
+        "Stakeholder Management",
+        "Research",
+        "Engineering Collaboration",
+        "Quality Gates",
+      ],
+    },
+  ],
+  15: [
+    {
+      type: "p",
+      text: "Evidence areas tracked behind this story: the AI-assisted design-to-code workflow (Figma MCP, Claude Code, Vault), QA/UAT impact (about 85% over two years; a single flow from roughly a day to an hour or less), and workflow adoption across 20 designers. These figures are user-confirmed and public-approved, with external verification pending.",
+    },
+  ],
+  16: [
+    {
+      type: "p",
+      text: "Ways this transformation can become reusable:",
+    },
+    {
+      type: "list",
+      items: [
+        "LinkedIn post",
+        "X thread",
+        "Talk",
+        "Workshop",
+        "Operating Manual chapter",
+        "AI workflow template",
+        "Design system AI-readiness checklist",
+        "Conference proposal",
+        "Product demo narrative",
+      ],
+    },
+  ],
+};
+
 export const transformations: TransformationStory[] = [
   {
     slug: "building-design-organization",
@@ -330,15 +582,19 @@ export const transformations: TransformationStory[] = [
     proves:
       "Nikhil is applying AI-assisted design-to-code workflows to reduce implementation friction and improve product delivery quality.",
     primaryAudience: "AI Product Builder / Engineering Leader",
-    status: "Evidence Intake Required",
+    status: "Draft v1",
     sourceFile: "TRANSFORMATION_STORIES/AI_NATIVE_PRODUCT_DEVELOPMENT.md",
+    draft: aiNativeProductDevelopmentDraft,
     evidence: {
-      1: ["The product-development workflow that existed before (design → handoff → engineering)", "Where the friction and rework happened"],
-      2: ["The cost of the old workflow (speed, rework, quality, alignment)"],
-      6: ["What AI-assisted workflow was introduced and why", "Figma MCP / Claude Code / design-to-code choices", "Automation boundaries (what AI does vs what humans decide)"],
-      8: ["Vault (public-safe description, role in the workflow)", "Engineering collaboration model after the change", "Rollout and governance"],
-      9: ["QA-time impact — register in CLAIMS_REGISTER; confidentiality review before any number goes public"],
-      15: ["Confidentiality note: define public-safe vs private (internal architecture, security-relevant detail)"],
+      8: [
+        "Vault described public-safe (design system → AI-assisted design-to-code infra); no internal repo names, architecture, exact prompts, or security detail",
+        "LANE kept separate from Vault and from the 85% figure (Decision 027 / CLAIM-007)",
+        "'production-ready' always defined as componentized/token-aligned/responsive foundations that still require engineering review",
+      ],
+      9: [
+        "85% QA/UAT reduction over two years and single-flow ~1 day → ~1 hour: user-confirmed / public-approved (CLAIM-004 / CLAIM-011), external verification pending",
+        "20 designers used the workflow; 'zero developer dependency' softened to reduced repetitive translation / lower routine-UI dependency",
+      ],
     },
   },
   {

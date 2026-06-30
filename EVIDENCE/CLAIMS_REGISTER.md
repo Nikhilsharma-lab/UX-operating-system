@@ -169,7 +169,7 @@ Each claim should eventually capture:
 
 **Category:** AI-native Product Development
 
-**Status:** User-confirmed / Public-approved (Decision 027). Figma MCP + Claude Code producing production-ready frontend code from Figma components; Vault included; LANE not part of this; 85% reduction in QA time over two years. Not externally verified.
+**Status:** User-confirmed / Public-approved (Decision 027; Story 2 Draft v1, Decision 036). Figma MCP + Claude Code generate frontend foundations from Vault/Figma components; "production-ready" is defined as componentized, token-aligned, responsive foundations that still require engineering review before production (AI does not ship without engineering review). Vault included; LANE separate (CLAIM-007). External verification pending; not externally verified.
 
 **Evidence Needed:**
 
@@ -367,7 +367,7 @@ Each claim should eventually capture:
 
 **Category:** AI-native Product Development
 
-**Status:** User-confirmed / Public-approved (Decision 027). 85% reduction in QA time over two years via the AI-assisted / Vault workflow. Renders as a verified number on the homepage ledger. Not externally verified; artifacts recommended.
+**Status:** User-confirmed / Public-approved (Decision 027; Story 2 Draft v1, Decision 036). 85% reduction in frontend QA/UAT time over two years via the AI-assisted / Vault (Figma MCP + Claude Code) workflow; for a single flow, QA/UAT moved from around 1 day to 1 hour or less. 20 designers used the workflow. Faster prototyping and handoff, better consistency, fewer QA defects, and reduced rework are confirmed/public-safe. "Zero developer dependency" is softened to reduced repetitive translation / lower routine-UI dependency. LANE is separate and was not part of this reduction. **External verification pending** — not externally verified; artifacts recommended.
 
 **Evidence Needed:**
 
@@ -437,7 +437,9 @@ Status reflects the homepage evidence intake (Decision 027). "Approved (public)"
 | 20 designers hired directly | User-confirmed | [x] Approved (public) |
 | 12M+ monthly active users | User-confirmed | [x] Approved (public) |
 | 1B+ transactions | User-confirmed | [x] Approved (public) |
-| 85% QA time reduction | User-confirmed | [x] Approved (public) |
+| 85% QA time reduction | User-confirmed | [x] Approved (public); external verification pending |
+| Single-flow QA/UAT ~1 day → ~1 hour or less | User-confirmed | [x] Public-safe (Decision 036); external verification pending |
+| 20 designers used AI-native workflow | User-confirmed | [x] Public-safe (Decision 036) |
 | Svenklas ₹70L monthly revenue | User-confirmed | [x] Public-safe (not on homepage) |
 | 300K+ units sold | User-confirmed | [x] Public-safe (not on homepage) |
 | 28× digital gold growth | TBD | [ ] Gated — baseline/final/timeframe/metric-type/attribution pending |
