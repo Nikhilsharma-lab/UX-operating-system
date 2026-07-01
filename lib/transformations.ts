@@ -306,17 +306,17 @@ const aiNativeProductDevelopmentDraft: Partial<Record<number, DraftBlock[]>> = {
   1: [
     {
       type: "p",
-      text: "By the time this work began, Airtel Payments Bank had matured its design capability and built Vault — a central design system spanning the consumer app, business apps, the website, and internal artifacts. But even with a design system in place, the connection between Figma and production stayed manual. Designers created screens and components in Figma; engineers inspected and rebuilt them in code; QA and UAT caught the drift between the two late.",
+      text: "By the time this work began, Airtel Payments Bank had matured its design capability and built Vault — a central design system spanning the consumer app, business apps, the website, and internal artifacts. The design foundation was strong and widely adopted. What had not matured was the path from design to production: turning an approved Figma screen into shipped frontend was still a manual crossing, made component by component.",
     },
   ],
   2: [
     {
       type: "p",
-      text: "The problem was not only visual inconsistency. The gap between approved design and shipped UI slowed the whole product organization. Repetitive frontend translation created rework, stretched QA and UAT cycles, produced inconsistent implementation, delayed experiments, and lowered confidence in what would actually ship.",
+      text: "The cost landed on the whole product organization, not only on visual polish. Repetitive frontend translation created rework, stretched QA and UAT cycles, produced inconsistent implementation, delayed experiments, and lowered confidence in what would actually ship.",
     },
     {
       type: "p",
-      text: "The slowest, most error-prone work was the same every time: turning design intent into frontend by hand. It was not a skill problem — it was a workflow that depended on manual translation.",
+      text: "It was not a skill problem. The work that consumed the most delivery time carried the least product judgment — and the organization paid that cost on every screen.",
     },
   ],
   3: [
@@ -373,16 +373,14 @@ const aiNativeProductDevelopmentDraft: Partial<Record<number, DraftBlock[]>> = {
         { decision: "Add AI to Vault only after the design-system foundations were stable.", why: "AI amplifies whatever it reads; unstable foundations would only scale inconsistency.", tradeoff: "Waiting, while the manual workflow kept costing time.", result: "AI worked from a coherent source, not a messy one." },
         { decision: "Use AI to reduce implementation friction, not to replace engineering.", why: "The waste was repetitive translation, not engineering judgment.", tradeoff: "Less dramatic than an 'AI builds the product' story.", result: "Engineering stayed the owner of production quality." },
         { decision: "Keep humans in the review loop.", why: "Generated code is a starting point, not a guarantee.", tradeoff: "Review time stays in the workflow.", result: "Speed without surrendering quality." },
-        { decision: "Let designers generate frontend foundations, but not bypass engineering quality.", why: "Designer leverage should not become an end-run around standards.", tradeoff: "Designers had to learn implementation thinking.", result: "More leverage at the same quality bar." },
         { decision: "Treat prompts and workflows as product infrastructure.", why: "Repeatable systems beat one-off cleverness.", tradeoff: "Up-front effort to build and maintain them.", result: "A workflow the team could use, not a personal trick." },
         { decision: "Make design tokens and components AI-readable.", why: "Structured, named inputs produce reliable outputs.", tradeoff: "Stricter Figma hygiene and discipline.", result: "Cleaner generation, less correction." },
-        { decision: "Start with controlled components before full product screens.", why: "Prove the workflow on small surfaces first.", tradeoff: "Slower initial rollout.", result: "A workflow that scaled without scaling errors." },
-        { decision: "Use AI first for repetitive UI patterns.", why: "The highest-volume, lowest-judgment work is the safest place to start.", tradeoff: "Complex cases were left for later.", result: "Fast, visible wins at low risk." },
-        { decision: "Define 'production-ready frontend' carefully.", why: "An overstated claim would erode engineering trust.", tradeoff: "A more modest promise.", result: "Componentized, token-aligned, responsive foundations that still require engineering review." },
-        { decision: "Separate visual QA from engineering QA.", why: "Designers and engineers catch different classes of problem.", tradeoff: "Two review passes instead of one.", result: "Clear ownership and fewer missed defects." },
-        { decision: "Keep business logic outside early AI generation.", why: "Generate UI foundations, not security- or data-sensitive logic.", tradeoff: "A narrower scope for AI.", result: "Quality and safety protected in a regulated context." },
-        { decision: "Keep LANE separate from Vault.", why: "Two different systems solving two different problems.", tradeoff: "Less of a single sweeping narrative.", result: "Each system stayed clearly scoped." },
+        { decision: "Define 'production-ready frontend' carefully.", why: "An overstated claim would erode engineering trust.", tradeoff: "A more modest promise.", result: "Componentized, token-aligned, responsive foundations that still require engineering review — not code shipped without engineering ownership." },
       ],
+    },
+    {
+      type: "note",
+      text: "The full workflow rested on more decisions than the six above — starting with controlled components before full screens, using AI first for repetitive UI patterns, letting designers generate foundations without bypassing engineering quality, separating visual QA from engineering QA, keeping business logic outside early AI generation, and keeping LANE separate from Vault. Those are carried in the canonical story and future Operating Manual material; the six shown here are the ones that most shaped where AI belonged — and where it did not.",
     },
   ],
   7: [
@@ -418,7 +416,7 @@ const aiNativeProductDevelopmentDraft: Partial<Record<number, DraftBlock[]>> = {
     },
     {
       type: "p",
-      text: "The stack was conventional and public-safe: Figma MCP, Claude Code (with Cursor and Codex), and a Next.js / React / Tailwind frontend built on design tokens, shipped through Vercel and Page Space.",
+      text: "The stack was conventional and public-safe: Figma MCP, Claude Code (with Cursor and Codex), and a Next.js / React / Tailwind frontend built on design tokens, shipped through Vercel and an existing internal frontend system.",
     },
     {
       type: "note",
@@ -479,14 +477,14 @@ const aiNativeProductDevelopmentDraft: Partial<Record<number, DraftBlock[]>> = {
     {
       type: "list",
       items: [
-        "Executable Design System",
-        "Design-to-Production Workflow",
-        "AI-readiness for Design Systems",
-        "Human-in-the-Loop Review Model",
-        "Visual QA vs Engineering QA",
-        "Prompt Systems as Product Infrastructure",
-        "Generate / Review / Refine / Ship",
-        "AI Governance for Product Teams",
+        "Executable Design System — a design system structured to support frontend generation, not only visual reuse.",
+        "Design-to-Production Workflow — a repeatable path from Figma structure to generated frontend foundation to engineering review.",
+        "AI-readiness for Design Systems — the hygiene bar for naming, variants, tokens, states, accessibility, and responsive behavior before AI generation.",
+        "Human-in-the-Loop Review Model — the rule that AI output must pass design QA, engineering review, product validation, and QA/UAT.",
+        "Visual QA vs Engineering QA — a separation of visual-parity ownership from code quality and production ownership.",
+        "Prompt Systems as Product Infrastructure — reusable prompts and workflow rules treated as part of the delivery system, not ad hoc commands.",
+        "Generate / Review / Refine / Ship — the operating loop that keeps AI useful without bypassing governance.",
+        "AI Governance for Product Teams — the boundaries for what AI can generate, what humans must review, and what cannot be automated.",
       ],
     },
   ],

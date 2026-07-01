@@ -169,7 +169,9 @@ Each claim should eventually capture:
 
 **Category:** AI-native Product Development
 
-**Status:** User-confirmed / Public-approved (Decision 027; Story 2 Draft v1, Decision 036). Figma MCP + Claude Code generate frontend foundations from Vault/Figma components; "production-ready" is defined as componentized, token-aligned, responsive foundations that still require engineering review before production (AI does not ship without engineering review). Vault included; LANE separate (CLAIM-007). External verification pending; not externally verified.
+**Status:** User-confirmed / Public-approved (Decision 027; Story 2 Draft v1, Decision 036; polished Decision 037). Figma MCP + Claude Code generate frontend foundations from Vault/Figma components; "production-ready" is defined as componentized, token-aligned, responsive foundations that still require engineering review before production (AI does not ship without engineering review). Vault included; LANE separate (CLAIM-007). External verification pending; not externally verified.
+
+**Public wording (Decision 037):** the internal hosting/frontend tool is referenced publicly as "an existing internal frontend system." The specific internal name (Page Space) is not exposed in public copy; keep it out of the rendered story unless explicitly approved later.
 
 **Evidence Needed:**
 
