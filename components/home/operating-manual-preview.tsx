@@ -1,15 +1,17 @@
+import Link from "next/link";
 import { SectionShell } from "@/components/section-shell";
 import { CtaLink } from "@/components/cta-link";
 
-const topics = [
-  "Hiring",
-  "Design Reviews",
-  "Product Reviews",
-  "AI Workflow",
-  "Research",
-  "Decision Making",
-  "Design Systems",
-  "Stakeholder Management",
+/** Topics with a live manual entry link to it; the rest go to the index. */
+const topics: { label: string; href: string }[] = [
+  { label: "Organization Design", href: "/operating-manual/organization-design" },
+  { label: "Design Systems", href: "/operating-manual/design-systems" },
+  { label: "AI Workflow", href: "/operating-manual/ai-workflow" },
+  { label: "Design Reviews", href: "/operating-manual/design-reviews" },
+  { label: "Stakeholder Management", href: "/operating-manual/stakeholder-management" },
+  { label: "Hiring", href: "/operating-manual" },
+  { label: "Research", href: "/operating-manual" },
+  { label: "Decision Making", href: "/operating-manual" },
 ];
 
 export function OperatingManualPreview() {
@@ -35,9 +37,9 @@ export function OperatingManualPreview() {
       <div className="border-t border-ash">
         <div className="grid grid-cols-1 sm:grid-cols-2">
           {topics.map((topic, index) => (
-            <a
-              key={topic}
-              href="#operating-manual"
+            <Link
+              key={topic.label}
+              href={topic.href}
               className={`group flex items-baseline gap-4 border-b border-ash px-1 py-4 transition-colors hover:bg-bone/50 ${
                 index % 2 === 0 ? "sm:border-r" : ""
               }`}
@@ -46,7 +48,7 @@ export function OperatingManualPreview() {
                 {String(index + 1).padStart(2, "0")}
               </span>
               <span className="font-editorial-serif text-[17px] tracking-[-0.01em] text-ink">
-                {topic}
+                {topic.label}
               </span>
               <span
                 aria-hidden="true"
@@ -54,13 +56,13 @@ export function OperatingManualPreview() {
               >
                 →
               </span>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
 
       <div className="mt-10">
-        <CtaLink href="#operating-manual" variant="secondary">
+        <CtaLink href="/operating-manual" variant="secondary">
           Explore Operating Manual
         </CtaLink>
       </div>
