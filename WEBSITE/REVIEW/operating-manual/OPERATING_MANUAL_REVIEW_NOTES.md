@@ -210,3 +210,38 @@ Screenshots: `12-design-systems-guide-desktop.png` (1440×9109), `13-design-syst
 ### Recommended Next Step
 
 Nikhil sign-off on `/operating-manual/design-systems` (screenshots 12–13) and the reverse links (22–23). Next candidates, in order: (a) add an in-page section index for guide-length pages, (b) expand Design Reviews (feeds both existing guides' review loops). Digital Gold, Thinking, and Building pages remain out of scope.
+
+---
+
+## Operating Guide Section Index
+
+Screenshots: `15-ai-workflow-with-section-index-desktop.png` (1440×9166), `16-ai-workflow-with-section-index-mobile.png` (390×12713), `17-design-systems-with-section-index-desktop.png` (1440×9429), `18-design-systems-with-section-index-mobile.png` (390×13217). Logged as Decision **043**.
+
+### Changes Made
+
+- **Section index block:** full guides now open with a "Section index" nav — hairline-bordered paper card, mono `SECTION INDEX` label, intro line ("Use this guide as a system map. Jump to the section you need."), and a numbered grid of anchor links (1-col mobile / 2-col tablet / 3-col desktop). Placed after the header/meta band, before the first section. Existing hover tone-shift only; no buttons, icons, or CTA styling.
+- **Single source of truth:** section titles/order/numbering now derive from one `guideSections()` list computed from guide data (including the conditional "Related operating guide(s)" section and singular/plural titles) — the index, the section headings, and the section numbers can no longer drift apart. The previous hardcoded `n="01"…"16"` props were replaced by the derived values.
+- **Anchors:** every guide section carries a kebab-case `id` (`#what-this-solves` … `#future-additions`) with `scroll-mt-28` so targets clear the sticky masthead. Plain `<a href="#…">` inside a `<nav aria-label="Section index">` — accessible, JS-free, static-prerender-safe (verified in the production build).
+- **Scope:** index renders only when an entry has full guide content — currently AI Workflow and Design Systems. The three shell entries verified clean. `DESIGN.md` reviewed — no update needed; the block reuses existing tokens and patterns.
+
+### Readability Review
+
+- The index doubles as a table of contents *and* a one-glance summary of the operating system's shape — a reader sees inputs → model → ownership → gates → rollout before reading a word of body copy. That is the "system map" framing working.
+- Guide pages are ~9,200–9,400px tall; the jump links remove the scroll-hunting problem that motivated this task.
+
+### Mobile Review
+
+- 390w: the grid collapses to a single column; 16 rows of compact mono links (~one viewport tall) — scannable, wraps cleanly, no overflow.
+
+### Evidence Safeguards
+
+- Navigation-only change; no copy added beyond the label/intro. No metrics anywhere (none of 85%, day→hour, 20 designers, 0→20, 12M+, 1B+, 28×, 500+ interviews, fraud/onboarding). Nothing marked externally verified.
+
+### Remaining Risks
+
+- The index is not sticky (per task scope); on very long guides a reader who is deep in the page must scroll back up to jump again. Sticky side-rail navigation remains the candidate follow-up if reading behavior demands it.
+- Anchor ids are stable strings — if a section is ever renamed/removed in `guideSections()`, external links to old anchors will silently no-op (browser default). Acceptable; noted.
+
+### Recommended Next Step
+
+Nikhil sign-off on the section index (screenshots 15–18), then expand the next manual entry — **Design Reviews** — which now benefits from the index pattern from day one. Digital Gold, Thinking, and Building pages remain out of scope.

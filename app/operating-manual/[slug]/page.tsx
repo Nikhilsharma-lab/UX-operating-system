@@ -52,14 +52,16 @@ function HairlineList({ items }: { items: string[] }) {
 function ManualSection({
   n,
   title,
+  id,
   children,
 }: {
   n: string;
   title: string;
+  id?: string;
   children: React.ReactNode;
 }) {
   return (
-    <section className="border-t border-ash pt-7">
+    <section id={id} className="scroll-mt-28 border-t border-ash pt-7">
       <div className="mb-5 flex items-baseline gap-4">
         <span className="w-6 shrink-0 font-geometric-mono text-[12px] tabular-nums text-sage">
           {n}
@@ -152,26 +154,112 @@ function RelatedTransformationsBlock({
 
 /* ------------------------------ Guide layout ----------------------------- */
 
-function GuideBody({ entry, guide }: { entry: ManualEntry; guide: ManualGuide }) {
+/**
+ * The ordered section list for a full guide, derived from guide data —
+ * single source of truth for both the section index and section numbering.
+ */
+function guideSections(entry: ManualEntry, guide: ManualGuide) {
+  const sections: { id: string; title: string }[] = [
+    { id: "what-this-solves", title: "What this solves" },
+    { id: "when-to-use", title: "When to use this system" },
+    { id: "when-not-to-use", title: "When not to use this system" },
+    { id: "core-principles", title: "Core principles" },
+    { id: "inputs-required", title: "Inputs required" },
+    { id: "operating-model", title: "Operating model" },
+    { id: "ownership-model", title: "Ownership model" },
+    { id: "quality-gates", title: "Quality gates" },
+    { id: "anti-patterns", title: "Anti-patterns" },
+    { id: "metrics-to-track", title: "Metrics to track" },
+    { id: "governance-rules", title: "Governance rules" },
+    { id: "implementation-sequence", title: "Implementation sequence" },
+    { id: "leadership-questions", title: "Leadership questions" },
+    {
+      id: "related-transformations",
+      title:
+        entry.relatedTransformations.length > 1
+          ? "Related transformations"
+          : "Related transformation",
+    },
+  ];
+  if (guide.relatedGuides && guide.relatedGuides.length > 0) {
+    sections.push({
+      id: "related-operating-guides",
+      title:
+        guide.relatedGuides.length > 1
+          ? "Related operating guides"
+          : "Related operating guide",
+    });
+  }
+  sections.push({ id: "future-additions", title: "Future additions" });
+  return sections;
+}
+
+function SectionIndex({
+  sections,
+}: {
+  sections: { id: string; title: string }[];
+}) {
   return (
-    <div className="mt-14 space-y-11">
-      <ManualSection n="01" title="What this solves">
+    <nav
+      aria-label="Section index"
+      className="mt-10 rounded-lg border border-ash bg-paper p-5 sm:p-6"
+    >
+      <p className={`${metaLabel} text-lichen`}>Section index</p>
+      <p className="mt-2 t-body-sm text-lichen">
+        Use this guide as a system map. Jump to the section you need.
+      </p>
+      <ol className="mt-5 grid gap-x-8 gap-y-2.5 sm:grid-cols-2 lg:grid-cols-3">
+        {sections.map((s, i) => (
+          <li key={s.id}>
+            <a
+              href={`#${s.id}`}
+              className="group flex items-baseline gap-3"
+            >
+              <span className="shrink-0 font-geometric-mono text-[11px] tabular-nums text-sage">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span className="font-geometric-mono text-[13px] tracking-[-0.01em] text-olive-char transition-colors group-hover:text-ink">
+                {s.title}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
+}
+
+function GuideBody({ entry, guide }: { entry: ManualEntry; guide: ManualGuide }) {
+  const sections = guideSections(entry, guide);
+  const sec = (id: string) => {
+    const i = sections.findIndex((s) => s.id === id);
+    return {
+      id,
+      n: String(i + 1).padStart(2, "0"),
+      title: sections[i].title,
+    };
+  };
+  return (
+    <>
+      <SectionIndex sections={sections} />
+      <div className="mt-14 space-y-11">
+        <ManualSection {...sec("what-this-solves")}>
         <HairlineList items={entry.whatItSolves} />
       </ManualSection>
 
-      <ManualSection n="02" title="When to use this system">
+      <ManualSection {...sec("when-to-use")}>
         <p className="mb-4 t-body-sm text-lichen">
           Use this operating model when:
         </p>
         <HairlineList items={guide.whenToUse} />
       </ManualSection>
 
-      <ManualSection n="03" title="When not to use this system">
+      <ManualSection {...sec("when-not-to-use")}>
         <p className="mb-4 t-body-sm text-lichen">Do not use this model when:</p>
         <HairlineList items={guide.whenNotToUse} />
       </ManualSection>
 
-      <ManualSection n="04" title="Core principles">
+      <ManualSection {...sec("core-principles")}>
         <ol className="space-y-5">
           {guide.principles.map((p, i) => (
             <li key={i} className="flex gap-4">
@@ -189,7 +277,7 @@ function GuideBody({ entry, guide }: { entry: ManualEntry; guide: ManualGuide })
         </ol>
       </ManualSection>
 
-      <ManualSection n="05" title="Inputs required">
+      <ManualSection {...sec("inputs-required")}>
         <p className="mb-4 t-body-sm text-lichen">
           What must exist before the workflow starts.
         </p>
@@ -206,7 +294,7 @@ function GuideBody({ entry, guide }: { entry: ManualEntry; guide: ManualGuide })
         </ul>
       </ManualSection>
 
-      <ManualSection n="06" title="Operating model">
+      <ManualSection {...sec("operating-model")}>
         <p className="mb-5 t-body-sm text-lichen">
           The step-by-step system. Each step has a purpose, an owner, and an
           output.
@@ -243,7 +331,7 @@ function GuideBody({ entry, guide }: { entry: ManualEntry; guide: ManualGuide })
         </ol>
       </ManualSection>
 
-      <ManualSection n="07" title="Ownership model">
+      <ManualSection {...sec("ownership-model")}>
         <div className="grid gap-px overflow-hidden rounded-lg border border-ash bg-ash sm:grid-cols-2">
           {guide.owners.map((o) => (
             <div key={o.role} className="bg-paper p-5">
@@ -264,7 +352,7 @@ function GuideBody({ entry, guide }: { entry: ManualEntry; guide: ManualGuide })
         </div>
       </ManualSection>
 
-      <ManualSection n="08" title="Quality gates">
+      <ManualSection {...sec("quality-gates")}>
         <p className="mb-5 t-body-sm text-lichen">
           What must be true at each stage before work moves forward.
         </p>
@@ -288,12 +376,12 @@ function GuideBody({ entry, guide }: { entry: ManualEntry; guide: ManualGuide })
         </div>
       </ManualSection>
 
-      <ManualSection n="09" title="Anti-patterns">
+      <ManualSection {...sec("anti-patterns")}>
         <p className="mb-4 t-body-sm text-lichen">What breaks this system.</p>
         <HairlineList items={entry.antiPatterns} />
       </ManualSection>
 
-      <ManualSection n="10" title="Metrics to track">
+      <ManualSection {...sec("metrics-to-track")}>
         <p className="mb-4 max-w-[660px] t-body-sm text-lichen">
           {guide.metricsNote}
         </p>
@@ -310,11 +398,11 @@ function GuideBody({ entry, guide }: { entry: ManualEntry; guide: ManualGuide })
         </ul>
       </ManualSection>
 
-      <ManualSection n="11" title="Governance rules">
+      <ManualSection {...sec("governance-rules")}>
         <HairlineList items={guide.governance} />
       </ManualSection>
 
-      <ManualSection n="12" title="Implementation sequence">
+      <ManualSection {...sec("implementation-sequence")}>
         <ol className="space-y-3">
           {guide.phases.map((p) => (
             <li
@@ -335,7 +423,7 @@ function GuideBody({ entry, guide }: { entry: ManualEntry; guide: ManualGuide })
         </ol>
       </ManualSection>
 
-      <ManualSection n="13" title="Leadership questions">
+      <ManualSection {...sec("leadership-questions")}>
         <p className="mb-4 t-body-sm text-lichen">
           The questions a leadership team should be able to answer before and
           during adoption.
@@ -354,19 +442,12 @@ function GuideBody({ entry, guide }: { entry: ManualEntry; guide: ManualGuide })
         </ol>
       </ManualSection>
 
-      <ManualSection n="14" title="Related transformations">
+      <ManualSection {...sec("related-transformations")}>
         <RelatedTransformationsBlock entry={entry} note={guide.derivedFromNote} />
       </ManualSection>
 
       {guide.relatedGuides && guide.relatedGuides.length > 0 && (
-        <ManualSection
-          n="15"
-          title={
-            guide.relatedGuides.length > 1
-              ? "Related operating guides"
-              : "Related operating guide"
-          }
-        >
+        <ManualSection {...sec("related-operating-guides")}>
           <ul className="space-y-4">
             {guide.relatedGuides.map((g) => (
               <li key={g.href}>
@@ -395,16 +476,14 @@ function GuideBody({ entry, guide }: { entry: ManualEntry; guide: ManualGuide })
         </ManualSection>
       )}
 
-      <ManualSection
-        n={guide.relatedGuides && guide.relatedGuides.length > 0 ? "16" : "15"}
-        title="Future additions"
-      >
+      <ManualSection {...sec("future-additions")}>
         <p className="mb-4 t-body-sm text-lichen">
           This guide will expand with:
         </p>
         <HairlineList items={guide.futureAdditions} />
       </ManualSection>
-    </div>
+      </div>
+    </>
   );
 }
 
