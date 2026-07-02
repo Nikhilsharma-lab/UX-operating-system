@@ -1,8 +1,10 @@
 /**
  * Operating Manual data.
  *
- * Each entry renders as a public-safe shell (status "Shell v1"): thesis,
- * principles, an operating-model outline, quality gates, and anti-patterns.
+ * Each entry renders as a public-safe shell: thesis, principles, an
+ * operating-model outline, quality gates, and anti-patterns. Shells carry the
+ * public status "In development" ("Shell v1" remains an internal type option;
+ * do not expose it in rendered UI).
  * No full manual prose yet, and no new metrics — manual pages may reference
  * transformation stories but introduce no quantified claims beyond what the
  * claims register already approves.
@@ -57,7 +59,7 @@ export const manualEntries: ManualEntry[] = [
     number: "01",
     category: "Org System",
     title: "Organization Design",
-    status: "Shell v1",
+    status: "In development",
     audience: "Design leaders, product leaders, founders",
     thesis:
       "A design organization does not scale through headcount alone. It scales through ownership, rituals, quality standards, and trust.",
@@ -146,7 +148,7 @@ export const manualEntries: ManualEntry[] = [
     number: "02",
     category: "Product Infrastructure",
     title: "Design Systems",
-    status: "Shell v1",
+    status: "In development",
     audience: "Design leaders, engineering leaders, product teams",
     thesis:
       "A design system is not a Figma library. It is product infrastructure for consistency, speed, governance, and implementation quality.",
@@ -234,7 +236,7 @@ export const manualEntries: ManualEntry[] = [
     number: "03",
     category: "AI-native Delivery",
     title: "AI Workflow",
-    status: "Shell v1",
+    status: "In development",
     audience: "Design leaders, product leaders, engineering leaders",
     thesis:
       "AI-native workflows should compress repetitive translation work without bypassing human judgment or engineering ownership.",
@@ -321,7 +323,7 @@ export const manualEntries: ManualEntry[] = [
     number: "04",
     category: "Quality Ritual",
     title: "Design Reviews",
-    status: "Shell v1",
+    status: "In development",
     audience: "Design managers, design leads, product teams",
     thesis:
       "Design reviews are not approval meetings. They are quality systems for judgment, consistency, and shared product thinking.",
@@ -404,7 +406,7 @@ export const manualEntries: ManualEntry[] = [
     number: "05",
     category: "Trust System",
     title: "Stakeholder Management",
-    status: "Shell v1",
+    status: "In development",
     audience: "Design leaders, product leaders, senior ICs",
     thesis:
       "Stakeholder management is not alignment theater. It is the operating discipline of building trust before decisions become expensive.",

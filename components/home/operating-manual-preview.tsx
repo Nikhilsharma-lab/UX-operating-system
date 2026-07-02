@@ -2,16 +2,13 @@ import Link from "next/link";
 import { SectionShell } from "@/components/section-shell";
 import { CtaLink } from "@/components/cta-link";
 
-/** Topics with a live manual entry link to it; the rest go to the index. */
+/** Only live manual entries are listed; new topics appear as entries ship. */
 const topics: { label: string; href: string }[] = [
   { label: "Organization Design", href: "/operating-manual/organization-design" },
   { label: "Design Systems", href: "/operating-manual/design-systems" },
   { label: "AI Workflow", href: "/operating-manual/ai-workflow" },
   { label: "Design Reviews", href: "/operating-manual/design-reviews" },
   { label: "Stakeholder Management", href: "/operating-manual/stakeholder-management" },
-  { label: "Hiring", href: "/operating-manual" },
-  { label: "Research", href: "/operating-manual" },
-  { label: "Decision Making", href: "/operating-manual" },
 ];
 
 export function OperatingManualPreview() {
@@ -41,7 +38,9 @@ export function OperatingManualPreview() {
               key={topic.label}
               href={topic.href}
               className={`group flex items-baseline gap-4 border-b border-ash px-1 py-4 transition-colors hover:bg-bone/50 ${
-                index % 2 === 0 ? "sm:border-r" : ""
+                index % 2 === 0 && index !== topics.length - 1
+                  ? "sm:border-r"
+                  : ""
               }`}
             >
               <span className="t-caption font-geometric-mono tabular-nums text-lichen">

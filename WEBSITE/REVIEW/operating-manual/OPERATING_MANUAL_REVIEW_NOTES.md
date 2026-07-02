@@ -85,3 +85,39 @@ Notes:
 ## Recommended Next Step
 
 Do not write full manual prose until the shell is reviewed. Have Nikhil review the four screenshots and the five entry pages, confirm the category labels and the 8-topic homepage preview treatment, then choose the first entry to expand into a full operating guide (AI Workflow is the strongest candidate — it compounds the Story 2 narrative).
+
+---
+
+## Operating Manual Polish Pass
+
+Polished screenshots: `05-manual-polished-index-desktop.png`, `06-manual-polished-index-mobile.png`, `07-manual-polished-entry-desktop.png`, `08-manual-polished-entry-mobile.png` (representative entry: `/operating-manual/ai-workflow`). Logged as Decision **039**.
+
+### Changes Made
+
+- **Public status wording:** all rendered "Shell v1" replaced with **"In development"** — entry data status, index cards, entry-page status cell, and the index eyebrow ("Field guide · In development"). "Shell v1" survives only as an internal type option in `lib/operating-manual.ts` (documented as not-for-UI); it appears nowhere in rendered HTML (verified by grep against the live pages).
+- **Homepage preview (Option 1):** trimmed from 8 topics to the **5 live manual entries**, all linking to real routes. The three planned topics (Hiring, Research, Decision Making) were removed rather than marked "Planned" — cleanest option, no fake links, and the preview now converges exactly with the manual index. Also dropped the stray right hairline on the unpaired fifth row cell.
+- **Index/entry microcopy:** reviewed against the "serious executive field guide" bar — no further changes needed. The anti-frame line ("This is not a blog…") is retained verbatim; the entry structure (What this solves → Core principles → Operating model → Quality gates → Anti-patterns → Related transformations → future depth note) is unchanged and stays shell-level.
+
+### Public Language Check
+
+- "Shell v1" — absent from all rendered UI. ✓
+- "In development" — honest, public-facing, does not imply completion. The future-depth note still explicitly says each entry "is intentionally in shell form." ✓
+- No course/blog/placeholder vocabulary introduced. ✓
+
+### Homepage Preview Check
+
+- 5 rows, all live routes, no dead anchors, no "Planned" placeholders. The preview intro's broader topic sentence (hiring, research, decision-making…) still describes the manual's ambition — acceptable as forward-looking prose, revisit if it reads as over-promise.
+
+### Evidence Safeguards
+
+- No metrics anywhere in manual pages: no 85%, 0→20, 12M+, 1B+, 28×, 500+ interviews, fraud or onboarding metrics. Nothing marked externally verified. Vault/LANE still not named in manual pages. The manual remains concept/system-led.
+
+### Remaining Risks
+
+- "In development" appears on every card and entry; once the first full entry ships, statuses should differentiate (e.g. "Field guide v1" vs "In development") so the manual shows progress.
+- The homepage preview intro sentence promises more topics than the 5 live entries; fine while the manual is visibly in development, but tighten it if entries stall.
+- No reverse links from transformation stories to manual entries yet (stories still list manual areas as plain text) — wire when full prose lands.
+
+### Recommended Next Step
+
+Have Nikhil sign off on the polished shell (screenshots 05–08), then expand the first entry into a full operating guide — **AI Workflow** remains the strongest candidate. Do not start Digital Gold, Thinking, or Building pages before that sign-off.

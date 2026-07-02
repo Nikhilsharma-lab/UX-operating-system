@@ -32,7 +32,7 @@ export default function OperatingManualIndex() {
                   </span>
                 </div>
                 <span className={`${metaLabel} text-sage`}>
-                  Field guide · Shell v1
+                  Field guide · In development
                 </span>
               </div>
               <h1 className="font-editorial-serif font-light text-[clamp(2rem,4.4vw,3rem)] leading-[1.06] tracking-[-0.02em] text-ink">
