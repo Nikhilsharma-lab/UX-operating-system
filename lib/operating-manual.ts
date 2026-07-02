@@ -21,7 +21,58 @@ export type RelatedTransformation = {
   title: string;
 };
 
-export type ManualStatus = "Shell v1" | "In development";
+export type ManualStatus = "Shell v1" | "In development" | "Operating guide v1";
+
+export type GuidePrinciple = {
+  rule: string;
+  note: string;
+};
+
+export type GuideStep = {
+  step: string;
+  purpose: string;
+  owner: string;
+  output: string;
+};
+
+export type OwnerCard = {
+  role: string;
+  owns: string[];
+};
+
+export type GateGroup = {
+  stage: string;
+  checks: string[];
+};
+
+export type GuidePhase = {
+  phase: string;
+  title: string;
+  detail: string;
+};
+
+/**
+ * Full operating-guide content. When present, the entry page renders the
+ * expanded guide instead of the shell outline. Concept-led only — no
+ * quantified claims; targets and benchmarks are never implied.
+ */
+export type ManualGuide = {
+  supportingLine: string;
+  whenToUse: string[];
+  whenNotToUse: string[];
+  principles: GuidePrinciple[];
+  inputs: string[];
+  steps: GuideStep[];
+  owners: OwnerCard[];
+  gateGroups: GateGroup[];
+  metricsToTrack: string[];
+  metricsNote: string;
+  governance: string[];
+  phases: GuidePhase[];
+  leadershipQuestions: string[];
+  derivedFromNote: string;
+  futureAdditions: string[];
+};
 
 export type ManualEntry = {
   slug: string;
@@ -38,6 +89,8 @@ export type ManualEntry = {
   antiPatterns: string[];
   relatedTransformations: RelatedTransformation[];
   futureDepthNote: string;
+  /** Present only once an entry has been expanded into a full guide. */
+  guide?: ManualGuide;
 };
 
 const FUTURE_DEPTH_NOTE =
@@ -236,7 +289,7 @@ export const manualEntries: ManualEntry[] = [
     number: "03",
     category: "AI-native Delivery",
     title: "AI Workflow",
-    status: "In development",
+    status: "Operating guide v1",
     audience: "Design leaders, product leaders, engineering leaders",
     thesis:
       "AI-native workflows should compress repetitive translation work without bypassing human judgment or engineering ownership.",
@@ -246,6 +299,9 @@ export const manualEntries: ManualEntry[] = [
       "Repetitive frontend work",
       "Slow experimentation",
       "Weak design-to-production continuity",
+      "Design system not connected to implementation",
+      "Engineering time spent on repetitive UI translation",
+      "Designers unable to validate production parity quickly",
     ],
     principles: [
       "AI should accelerate the system, not amplify inconsistency.",
@@ -309,14 +365,312 @@ export const manualEntries: ManualEntry[] = [
       "Engineering trusts the workflow enough to keep using it.",
     ],
     antiPatterns: [
-      "Adding AI on top of a messy design system.",
-      "Treating generated code as shippable without review.",
-      "Framing the workflow as designers replacing developers.",
-      "One-off prompt cleverness instead of repeatable systems.",
-      "Letting AI scope creep into security- or data-sensitive logic.",
+      "Generating from messy Figma files.",
+      "Treating AI output as production code.",
+      "Bypassing engineering review.",
+      "Using AI for complex product logic too early.",
+      "Hardcoding styles instead of tokens.",
+      "Letting every designer invent their own prompts.",
+      "Measuring tool usage instead of workflow impact.",
+      "Calling prototypes “production-ready”.",
+      "Scaling before controlled wins.",
+      "Ignoring accessibility and responsive behavior.",
     ],
-    relatedTransformations: [STORY_AI_NATIVE],
+    relatedTransformations: [STORY_AI_NATIVE, STORY_BUILDING_DESIGN_ORG],
     futureDepthNote: FUTURE_DEPTH_NOTE,
+    guide: {
+      supportingLine:
+        "The goal is not to prove that designers can generate code. The goal is to reduce waste between design intent and shipped product while protecting quality.",
+      whenToUse: [
+        "A design system exists but implementation still varies across squads.",
+        "Engineers repeatedly rebuild UI from Figma.",
+        "QA/UAT is catching visual parity problems late.",
+        "Designers are producing polished screens but not production-ready foundations.",
+        "Product teams need faster experiments without lowering implementation quality.",
+        "AI tools are available but workflow governance is missing.",
+      ],
+      whenNotToUse: [
+        "The design system is still messy.",
+        "Components lack clear naming, variants, states, or tokens.",
+        "Engineering has not agreed on review ownership.",
+        "Product logic is complex, regulated, or security-sensitive.",
+        "The team wants AI to bypass code review.",
+        "Designers are not ready to own Figma hygiene.",
+        "Leadership expects magic automation instead of operating change.",
+      ],
+      principles: [
+        {
+          rule: "AI accelerates the system you already have.",
+          note: "If the operating model is weak, AI scales the weakness.",
+        },
+        {
+          rule: "Source quality determines output quality.",
+          note: "Generation is only as reliable as the tokens, variants, and naming it reads.",
+        },
+        {
+          rule: "Production-ready does not mean production-owned by AI.",
+          note: "Foundations still pass engineering review before anything ships.",
+        },
+        {
+          rule: "Human review becomes more important, not less.",
+          note: "Output volume rises; human judgment is the gate that keeps quality flat.",
+        },
+        {
+          rule: "Prompts and workflows are product infrastructure.",
+          note: "Reusable patterns beat personal tricks; maintain them like code.",
+        },
+        {
+          rule: "Engineering trust is the scaling constraint.",
+          note: "Adoption grows at the speed engineers trust the output — not faster.",
+        },
+        {
+          rule: "Start with controlled components before journeys.",
+          note: "Prove the loop on small surfaces before screens and full flows.",
+        },
+        {
+          rule: "AI should automate translation, not judgment.",
+          note: "Repetitive UI translation is in scope; product and design decisions are not.",
+        },
+      ],
+      inputs: [
+        "Clean Figma components",
+        "Naming conventions",
+        "Tokens",
+        "Variants",
+        "States",
+        "Responsive rules",
+        "Accessibility basics",
+        "Existing frontend conventions",
+        "Component ownership",
+        "Review ownership",
+        "Prompt patterns",
+        "QA/UAT path",
+        "Production release path",
+      ],
+      steps: [
+        {
+          step: "Audit design-system readiness.",
+          purpose: "Confirm the source system can support generation before any tooling.",
+          owner: "Design, with engineering input",
+          output: "Readiness gaps and a go / no-go call",
+        },
+        {
+          step: "Select controlled components.",
+          purpose: "Start where volume is high and judgment is low.",
+          owner: "Design + engineering",
+          output: "A pilot component list",
+        },
+        {
+          step: "Clean Figma source structure.",
+          purpose: "Make the source unambiguous — naming, tokens, variants, states.",
+          owner: "Design",
+          output: "Generation-ready components",
+        },
+        {
+          step: "Define generation boundaries.",
+          purpose: "Fix what AI may produce and what stays human-led.",
+          owner: "Design + engineering leadership",
+          output: "Written boundary rules",
+        },
+        {
+          step: "Connect Figma structure through MCP.",
+          purpose: "Give the generation tool structured design input, not screenshots.",
+          owner: "Engineering setup; design owns the source",
+          output: "A live design-to-tool connection",
+        },
+        {
+          step: "Generate frontend foundation.",
+          purpose: "Produce componentized, token-aligned, responsive starting code.",
+          owner: "The designer or engineer operating the workflow",
+          output: "A reviewable frontend foundation",
+        },
+        {
+          step: "Run design visual QA.",
+          purpose: "Verify parity, states, hierarchy, and responsive behavior.",
+          owner: "Design",
+          output: "Visual QA pass, or a fix list",
+        },
+        {
+          step: "Run engineering review.",
+          purpose: "Protect code quality, architecture, security, and integration.",
+          owner: "Engineering",
+          output: "Production-quality code, or rework notes",
+        },
+        {
+          step: "Run product and QA validation.",
+          purpose: "Confirm behavior against acceptance criteria and edge cases.",
+          owner: "Product + QA",
+          output: "A validated build",
+        },
+        {
+          step: "Move through the normal release process.",
+          purpose: "Ship with the same guarantees as any other code.",
+          owner: "Engineering",
+          output: "A released frontend",
+        },
+        {
+          step: "Feed failures back into the design system.",
+          purpose: "Convert defects into system improvements, not one-off fixes.",
+          owner: "Design-system owner",
+          output: "Updated components, tokens, and prompt patterns",
+        },
+      ],
+      owners: [
+        {
+          role: "Design owns",
+          owns: [
+            "Figma structure",
+            "Component naming",
+            "Visual parity",
+            "Design tokens usage",
+            "Interaction intent",
+            "State completeness",
+            "Visual QA",
+          ],
+        },
+        {
+          role: "Engineering owns",
+          owns: [
+            "Code quality",
+            "Architecture",
+            "Performance",
+            "Accessibility",
+            "Security",
+            "API integration",
+            "State management",
+            "Testing",
+            "Deployment",
+            "Maintainability",
+          ],
+        },
+        {
+          role: "Product owns",
+          owns: [
+            "Business intent",
+            "Flow priority",
+            "Experiment scope",
+            "Acceptance criteria",
+            "Outcome validation",
+          ],
+        },
+        {
+          role: "QA owns",
+          owns: [
+            "Functional validation",
+            "Edge cases",
+            "Regression",
+            "Release confidence",
+          ],
+        },
+      ],
+      gateGroups: [
+        {
+          stage: "Before generation",
+          checks: [
+            "Figma source uses approved components.",
+            "Tokens are applied.",
+            "States are defined.",
+            "Responsive expectations are clear.",
+            "Component ownership is known.",
+          ],
+        },
+        {
+          stage: "Before engineering review",
+          checks: [
+            "Generated UI matches Figma visually.",
+            "No hardcoded styles where tokens exist.",
+            "Common states are present.",
+            "Component structure is reusable.",
+            "Known gaps are documented.",
+          ],
+        },
+        {
+          stage: "Before production",
+          checks: [
+            "Engineering review complete.",
+            "Accessibility reviewed.",
+            "Functional QA complete.",
+            "Product validation complete.",
+            "Release path followed.",
+            "Learnings captured.",
+          ],
+        },
+      ],
+      metricsToTrack: [
+        "Time from approved design to working frontend foundation",
+        "Visual QA defects",
+        "QA/UAT cycle time",
+        "Number of handoff clarification loops",
+        "Rework caused by visual mismatch",
+        "Component reuse rate",
+        "Token usage consistency",
+        "Number of AI-generated components accepted after review",
+        "Engineering review effort",
+        "Accessibility issues found",
+        "Adoption across squads and designers",
+      ],
+      metricsNote:
+        "Track these before and after adoption. Targets depend on your product, team, and regulatory context — no benchmark numbers are implied here.",
+      governance: [
+        "AI cannot bypass design QA.",
+        "AI cannot bypass engineering review.",
+        "AI cannot own regulated or business logic.",
+        "AI cannot ship code without the normal release process.",
+        "Prompt patterns must be reusable.",
+        "Generation failures must improve the system.",
+        "Human owners remain accountable.",
+      ],
+      phases: [
+        {
+          phase: "Phase 1",
+          title: "Foundation audit",
+          detail:
+            "Design-system hygiene: tokens, variants, states, and coded-component parity.",
+        },
+        {
+          phase: "Phase 2",
+          title: "Controlled component pilot",
+          detail: "Use safe, high-volume components first.",
+        },
+        {
+          phase: "Phase 3",
+          title: "Screen-level generation",
+          detail: "Move from components to screens only after pilot stability.",
+        },
+        {
+          phase: "Phase 4",
+          title: "Review loop standardization",
+          detail:
+            "Design QA, engineering review, product validation, and QA/UAT as a fixed loop.",
+        },
+        {
+          phase: "Phase 5",
+          title: "Scale across teams",
+          detail: "Adoption, training, prompt libraries, and measurement.",
+        },
+      ],
+      leadershipQuestions: [
+        "What should AI be allowed to generate?",
+        "What should remain human-led?",
+        "What must engineering own?",
+        "What source-system quality is required before scaling?",
+        "What metrics prove the workflow is working?",
+        "What risks increase if adoption is forced too early?",
+        "Where can this create technical or design debt?",
+        "How will failures improve the system?",
+      ],
+      derivedFromNote:
+        "This operating guide is derived from the AI-native Product Development transformation story. The workflow also depends on the design-system and organizational maturity built in Building the Design Organization.",
+      futureAdditions: [
+        "AI-readiness checklist",
+        "Prompt pattern library",
+        "Design-system audit template",
+        "Visual QA rubric",
+        "Engineering review checklist",
+        "Governance checklist",
+        "Adoption scorecard",
+      ],
+    },
   },
   {
     slug: "design-reviews",

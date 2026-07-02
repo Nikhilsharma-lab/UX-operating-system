@@ -121,3 +121,47 @@ Polished screenshots: `05-manual-polished-index-desktop.png`, `06-manual-polishe
 ### Recommended Next Step
 
 Have Nikhil sign off on the polished shell (screenshots 05–08), then expand the first entry into a full operating guide — **AI Workflow** remains the strongest candidate. Do not start Digital Gold, Thinking, or Building pages before that sign-off.
+
+---
+
+## AI Workflow Operating Guide v1
+
+Screenshots: `09-ai-workflow-guide-desktop.png` (1440×8616), `10-ai-workflow-guide-mobile.png` (390×11823), `11-manual-index-after-ai-guide-desktop.png` (1440×1434). Logged as Decision **040**.
+
+### Changes Made
+
+- **Data model:** added an optional `guide` structure to `ManualEntry` (`ManualGuide`: supportingLine, whenToUse, whenNotToUse, principles-with-notes, inputs, steps with purpose/owner/output, owner cards, gate groups, metrics + framing note, governance, phases, leadership questions, derived-from note, future additions) and extended `ManualStatus` with `"Operating guide v1"`. Static TS only — no CMS, no MDX. Shell entries are untouched and still render the shell layout.
+- **AI Workflow content:** expanded from shell to a 15-section operating guide — What this solves (8 items) → When to use → When not to use → 8 core principles each with a one-line explanation → 13-item inputs checklist → an 11-step operating model (each step with Purpose / Owner / Output) → 4-role ownership model (Design / Engineering / Product / QA) → 3-stage quality gates (before generation / before engineering review / before production) → 10 anti-patterns → 11 metrics to track (explicitly no benchmark numbers) → 7 governance rules → 5-phase implementation sequence → 8 leadership questions → related transformations with the derived-from note → future additions.
+- **Page rendering:** the entry template now branches — guide layout when `entry.guide` exists, shell layout otherwise. Guide layout reuses existing patterns only: hairline lists, mono labels, bordered step cards (same grammar as story decision cards), hairline owner/gate grids, phase blocks. No images, no icons, no new visual language.
+- **Status:** AI Workflow shows "Operating guide v1" on the entry page and the index card; the other four entries remain "In development". The shell "intentionally in shell form" note no longer renders on AI Workflow (replaced by the Future Additions section); homepage preview unchanged (visually consistent).
+
+### Reusability Review
+
+- The guide reads as "how to build the system again," not as a retelling of Story 2: no company context, no narrative beats, no outcomes claims — rules, checklists, owners, gates, and sequence throughout.
+- When-to-use / when-not-to-use is the strongest reusability signal — it scopes the model honestly (messy design systems, regulated logic, and review-bypass ambitions are all disqualifiers).
+- The ownership model and quality gates are directly liftable by another team; the leadership questions double as interview-defense material.
+- Tool references stay generic (Figma, MCP) — no internal tool names; the guide is stack-portable.
+
+### Evidence Safeguards
+
+- None of the gated/forbidden figures appear: no 85%, no 1 day → 1 hour, no 20 designers, no 0→20, 12M+, 1B+, 28×, 500+ interviews, fraud or onboarding metrics. Verified by grep against the rendered HTML.
+- The Metrics to Track section explicitly states targets depend on context and "no benchmark numbers are implied here."
+- Nothing marked externally verified; Vault/LANE and internal tooling not named ("Page Space" stays out; MCP referenced generically).
+- Allowed concept references only: AI compresses repetitive translation, engineering ownership intact, human review required, AI exposes weak design systems, hygiene before scaling.
+
+### Visual Review
+
+- **Desktop:** long page (~8,600px) but structured — bordered step cards, two-column checklists (inputs, metrics), 2×2 ownership grid, 3-column gate grid, and phase rows break up the text. Reads as a field manual, clearly distinct from the serif-prose story pages.
+- **Mobile (390w):** all grids collapse to single column cleanly; step cards and phase blocks stack; no overflow (~11,800px tall — long but navigable through numbered sections).
+- **Index:** AI Workflow card now shows "Operating guide v1" against four "In development" cards — visible progress without redesign.
+
+### Remaining Risks
+
+- Page length: 15 sections is at the upper bound. If reading fatigue shows up in review, a sticky in-page section index would help — deferred to keep this task scoped.
+- The index eyebrow still reads "Field guide · In development"; accurate for the manual overall, but worth revisiting once 2–3 entries are full guides.
+- The 8 core principles partially overlap the anti-patterns (inverse phrasings). Intentional (principles teach, anti-patterns warn), but watch for redundancy as other entries expand.
+- Story 2 does not yet link back to this guide; wiring story → manual links is a natural follow-up.
+
+### Recommended Next Step
+
+Have Nikhil review the guide at `/operating-manual/ai-workflow` (screenshots 09–10) for sign-off. Then either (a) wire reverse links from Story 2 to this guide, or (b) expand the second manual entry (Design Systems is the natural next — it feeds the AI Workflow's readiness requirements). Do not start Digital Gold, Thinking, or Building pages.
