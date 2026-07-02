@@ -121,16 +121,23 @@ export const manualEntries: ManualEntry[] = [
     number: "01",
     category: "Org System",
     title: "Organization Design",
-    status: "In development",
+    status: "Operating guide v1",
     audience: "Design leaders, product leaders, founders",
     thesis:
       "A design organization does not scale through headcount alone. It scales through ownership, rituals, quality standards, and trust.",
     whatItSolves: [
       "Design treated as a service desk",
       "Scattered ownership",
-      "Late involvement",
-      "Weak product partnership",
-      "Inconsistent quality",
+      "Late design involvement",
+      "PMs bringing solution requests instead of problem briefs",
+      "Inconsistent design quality",
+      "Weak research input",
+      "Weak design reviews",
+      "Engineering handoff ambiguity",
+      "Leadership not seeing design as a business capability",
+      "Designers operating as task completers instead of product partners",
+      "Design quality depending on heroic individuals",
+      "Team growth without operating maturity",
     ],
     principles: [
       "Design must enter before solution decisions harden.",
@@ -196,14 +203,362 @@ export const manualEntries: ManualEntry[] = [
       "Leadership sees design outcomes in business language.",
     ],
     antiPatterns: [
-      "Scaling headcount before scaling the operating model.",
-      "Introducing process as correction instead of leverage.",
-      "Designers accountable for screens but not outcomes.",
-      "Rituals that exist on the calendar but not in behavior.",
-      "Design maturity announced rather than earned.",
+      "Hiring designers without changing the operating model.",
+      "Treating design as a ticket queue.",
+      "Letting PMs prescribe screens instead of problems.",
+      "Running reviews as taste debates.",
+      "Doing research but not changing decisions.",
+      "Creating pods without clear ownership.",
+      "Scaling rituals into meeting overload.",
+      "Letting design systems become optional.",
+      "Measuring design by output volume.",
+      "Treating handoff as the end of design.",
+      "Positioning design maturity as correction or criticism.",
+      "Relying on heroic senior designers instead of systems.",
     ],
-    relatedTransformations: [STORY_BUILDING_DESIGN_ORG],
+    relatedTransformations: [STORY_BUILDING_DESIGN_ORG, STORY_AI_NATIVE],
     futureDepthNote: FUTURE_DEPTH_NOTE,
+    guide: {
+      supportingLine:
+        "The goal is not to make design look more important. The goal is to make the organization better at deciding what to build, how to build it, and how to protect quality as it scales.",
+      whenToUse: [
+        "Design is being pulled into work too late.",
+        "PMs give screens or solutions instead of business context and user problems.",
+        "Designers are scattered across product areas without shared standards.",
+        "Product quality varies by designer or squad.",
+        "Design reviews are absent or taste-led.",
+        "Research is not regularly shaping product decisions.",
+        "Engineering handoff depends on individual discipline.",
+        "Leadership sees design as execution rather than product capability.",
+        "The design team is growing but rituals, ownership, and quality systems are not.",
+      ],
+      whenNotToUse: [
+        "The team is tiny and still discovering basic product-market fit.",
+        "The org does not yet have repeated product surfaces.",
+        "There is no leadership support for shared standards.",
+        "You only need short-term execution capacity.",
+        "Designers are not yet ready for product ownership.",
+        "The organization wants process theater but not decision change.",
+        "You cannot protect time for rituals, reviews, and research.",
+      ],
+      principles: [
+        {
+          rule: "Headcount does not create maturity by itself.",
+          note: "More designers inside a weak system produce more inconsistent output.",
+        },
+        {
+          rule: "Design must enter before solutions harden.",
+          note: "The leverage is in problem framing, not pixels.",
+        },
+        {
+          rule: "Ownership should follow user and business complexity.",
+          note: "Structure maps to the product, not to the org chart.",
+        },
+        {
+          rule: "Rituals create shared standards faster than documents alone.",
+          note: "Standards live in repeated behavior, not in wikis.",
+        },
+        {
+          rule: "Designers must become product-fluent.",
+          note: "Partnership requires business, data, and strategy literacy.",
+        },
+        {
+          rule: "Research must become part of decision-making, not a separate activity.",
+          note: "Evidence should settle debates, not decorate decks.",
+        },
+        {
+          rule: "Quality gates protect trust.",
+          note: "Every defect that ships spends credibility the team needs later.",
+        },
+        {
+          rule: "Design leadership is operating-model design.",
+          note: "The leader's real product is the system the team runs on.",
+        },
+      ],
+      inputs: [
+        "Product surface map",
+        "Current design team structure",
+        "PM/design intake pattern",
+        "Research maturity assessment",
+        "Design review maturity assessment",
+        "Handoff quality assessment",
+        "Design-system maturity assessment",
+        "Hiring gaps",
+        "Skill matrix",
+        "Leadership expectations",
+        "Product/business priorities",
+        "Engineering collaboration model",
+        "Current rituals",
+        "Decision rights",
+        "Quality standards",
+      ],
+      steps: [
+        {
+          step: "Diagnose design maturity.",
+          purpose: "Establish where the organization actually is before changing it.",
+          owner: "Design leadership",
+          output: "A maturity assessment and gap list",
+        },
+        {
+          step: "Map product surfaces and ownership gaps.",
+          purpose: "See where design work has no clear owner.",
+          owner: "Design leadership + product",
+          output: "A surface-to-owner map",
+        },
+        {
+          step: "Define design operating principles.",
+          purpose: "Fix the standards the organization will run on.",
+          owner: "Design leadership",
+          output: "Written operating principles",
+        },
+        {
+          step: "Create pod or ownership model.",
+          purpose: "Attach designers to product areas with real accountability.",
+          owner: "Design leadership",
+          output: "A pod / ownership structure",
+        },
+        {
+          step: "Establish intake rules.",
+          purpose: "Shift PM requests from solutions to problem briefs.",
+          owner: "Design leadership + product",
+          output: "An intake standard",
+        },
+        {
+          step: "Create design review and critique rituals.",
+          purpose: "Build shared quality standards through repetition.",
+          owner: "Design leads",
+          output: "A fixed review cadence with decision criteria",
+        },
+        {
+          step: "Build research-to-decision loop.",
+          purpose: "Make evidence a recurring product input, not a side activity.",
+          owner: "Design + research",
+          output: "A research cadence wired to product decisions",
+        },
+        {
+          step: "Standardize design-system and handoff quality.",
+          purpose: "Remove the ambiguity engineering pays for downstream.",
+          owner: "Design leads + engineering",
+          output: "A handoff standard and system usage rules",
+        },
+        {
+          step: "Create design signoff / quality gates.",
+          purpose: "Protect quality at the most expensive moments to fix it.",
+          owner: "Design leads",
+          output: "Signoff gates inside the delivery loop",
+        },
+        {
+          step: "Build hiring and growth paths.",
+          purpose: "Raise the bar and grow product-fluent designers.",
+          owner: "Design leadership",
+          output: "A hiring bar, skill matrix, and growth paths",
+        },
+        {
+          step: "Tell design impact in business language.",
+          purpose: "Earn executive trust with outcomes, not artifacts.",
+          owner: "Design leadership",
+          output: "A recurring leadership narrative",
+        },
+        {
+          step: "Feed learnings back into the operating model.",
+          purpose: "Keep the model alive as the organization changes.",
+          owner: "Design leadership",
+          output: "Operating-model revisions",
+        },
+      ],
+      owners: [
+        {
+          role: "Design leadership owns",
+          owns: [
+            "Operating model",
+            "Design quality standards",
+            "Team structure",
+            "Hiring bar",
+            "Ritual design",
+            "Cross-functional trust",
+            "Executive storytelling",
+            "Career growth system",
+          ],
+        },
+        {
+          role: "Design leads own",
+          owns: [
+            "Pod-level quality",
+            "Critique discipline",
+            "Designer coaching",
+            "Handoff quality",
+            "Local stakeholder alignment",
+            "Product-area design consistency",
+          ],
+        },
+        {
+          role: "Designers own",
+          owns: [
+            "Problem framing",
+            "Experience quality",
+            "Research participation",
+            "Design rationale",
+            "Design-system usage",
+            "Edge cases and states",
+            "Post-handoff follow-through",
+          ],
+        },
+        {
+          role: "Product owns",
+          owns: [
+            "Business context",
+            "Problem briefs",
+            "Prioritization",
+            "Metrics and expected impact",
+            "Roadmap tradeoffs",
+            "Outcome validation",
+          ],
+        },
+        {
+          role: "Engineering owns",
+          owns: [
+            "Implementation feasibility",
+            "Technical constraints",
+            "Build quality",
+            "Production review",
+            "Delivery collaboration",
+            "Feedback on handoff quality",
+          ],
+        },
+      ],
+      gateGroups: [
+        {
+          stage: "Before design starts",
+          checks: [
+            "Problem is framed.",
+            "Business context is clear.",
+            "User/customer evidence is available or research need is identified.",
+            "Expected impact is stated.",
+            "Constraints are known.",
+            "Ownership is clear.",
+          ],
+        },
+        {
+          stage: "Before development handoff",
+          checks: [
+            "Design rationale is documented.",
+            "States and edge cases are covered.",
+            "Design-system usage is clear.",
+            "Accessibility basics are considered.",
+            "Engineering feasibility has been reviewed.",
+            "Product acceptance criteria are aligned.",
+          ],
+        },
+        {
+          stage: "Before release",
+          checks: [
+            "Design QA is complete.",
+            "Critical UX regressions are resolved.",
+            "Product behavior matches intent.",
+            "Analytics/learning plan exists where relevant.",
+            "Post-launch review is scheduled.",
+          ],
+        },
+      ],
+      metricsToTrack: [
+        "Design involvement stage",
+        "Intake quality",
+        "Rework caused by unclear briefs",
+        "Review participation",
+        "Design-system adoption",
+        "Research influence on decisions",
+        "Handoff clarification loops",
+        "Design QA issues",
+        "Time from problem framing to delivery",
+        "Stakeholder satisfaction",
+        "Designer growth and maturity",
+        "Product outcome movement where measurable",
+      ],
+      metricsNote:
+        "Track these before and after adoption. Targets depend on your product, team, and context — no benchmark numbers are implied here.",
+      governance: [
+        "PMs should bring problems, context, constraints, and expected impact.",
+        "Designers should challenge weak briefs respectfully.",
+        "Design reviews need decision criteria.",
+        "Research insights should be visible to product leadership.",
+        "Handoff quality must be standardized.",
+        "Design signoff should protect quality, not create bureaucracy.",
+        "Designers should stay involved after handoff when quality risk is high.",
+        "Leadership should see design impact in business language.",
+        "Rituals should reduce ambiguity, not create theater.",
+      ],
+      phases: [
+        {
+          phase: "Phase 1",
+          title: "Diagnosis",
+          detail:
+            "Map current maturity, product surfaces, intake quality, handoff gaps, and leadership perception.",
+        },
+        {
+          phase: "Phase 2",
+          title: "Operating model definition",
+          detail:
+            "Define ownership, intake rules, design review rhythm, research loop, and quality gates.",
+        },
+        {
+          phase: "Phase 3",
+          title: "Team structure and hiring",
+          detail:
+            "Create pods, clarify roles, hire for product thinking, and build growth paths.",
+        },
+        {
+          phase: "Phase 4",
+          title: "Ritual adoption",
+          detail:
+            "Run design reviews, critiques, product reviews, 1:1s, design-dev syncs, and show-and-tell with discipline.",
+        },
+        {
+          phase: "Phase 5",
+          title: "Executive trust",
+          detail:
+            "Translate design work into business impact, delivery quality, risk reduction, and customer outcomes.",
+        },
+      ],
+      leadershipQuestions: [
+        "Where does design currently enter the product lifecycle?",
+        "Are PMs bringing problems or solutions?",
+        "What decisions can designers influence?",
+        "What rituals protect quality?",
+        "Where does research affect roadmap decisions?",
+        "How does engineering experience design handoff?",
+        "What design work creates business value?",
+        "Which designers are ready for product ownership?",
+        "What should be centralized vs owned by pods?",
+        "Where is design maturity being mistaken for process?",
+      ],
+      derivedFromNote:
+        "This operating guide is derived from the Building the Design Organization transformation story. AI-native workflows depend on the organizational foundations this guide describes: ownership, quality gates, design-system discipline, and engineering trust.",
+      relatedGuides: [
+        {
+          title: "Design Systems",
+          href: "/operating-manual/design-systems",
+          description:
+            "The product-infrastructure layer that helps design organizations scale consistency, quality, and implementation maturity.",
+        },
+        {
+          title: "AI Workflow",
+          href: "/operating-manual/ai-workflow",
+          description:
+            "The AI-native delivery layer that depends on mature ownership, review discipline, and engineering trust.",
+        },
+      ],
+      futureAdditions: [
+        "Design maturity assessment",
+        "PM intake rubric",
+        "Pod ownership model",
+        "Design review rubric",
+        "Research-to-decision template",
+        "Handoff quality checklist",
+        "Career ladder",
+        "Stakeholder trust map",
+        "Executive design impact narrative",
+      ],
+    },
   },
   {
     slug: "design-systems",
@@ -601,6 +956,12 @@ export const manualEntries: ManualEntry[] = [
           description:
             "AI Workflow depends on design-system hygiene. This guide defines the system-readiness layer before AI-assisted generation.",
         },
+        {
+          title: "Organization Design",
+          href: "/operating-manual/organization-design",
+          description:
+            "The ownership, ritual, and trust layer that makes design-system governance possible.",
+        },
       ],
       futureAdditions: [
         "Design-system audit template",
@@ -997,6 +1358,12 @@ export const manualEntries: ManualEntry[] = [
           href: "/operating-manual/design-systems",
           description:
             "The system-readiness layer for clean components, tokens, states, naming, and governance before AI-assisted generation.",
+        },
+        {
+          title: "Organization Design",
+          href: "/operating-manual/organization-design",
+          description:
+            "The operating model that creates the ownership, review discipline, and engineering trust required before AI-native workflows can scale.",
         },
       ],
       futureAdditions: [

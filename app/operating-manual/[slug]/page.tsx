@@ -333,8 +333,15 @@ function GuideBody({ entry, guide }: { entry: ManualEntry; guide: ManualGuide })
 
       <ManualSection {...sec("ownership-model")}>
         <div className="grid gap-px overflow-hidden rounded-lg border border-ash bg-ash sm:grid-cols-2">
-          {guide.owners.map((o) => (
-            <div key={o.role} className="bg-paper p-5">
+          {guide.owners.map((o, i) => (
+            <div
+              key={o.role}
+              className={`bg-paper p-5 ${
+                guide.owners.length % 2 === 1 && i === guide.owners.length - 1
+                  ? "sm:col-span-2"
+                  : ""
+              }`}
+            >
               <h3 className={`${metaLabel} mb-3 text-lichen`}>{o.role}</h3>
               <ul className="space-y-1.5">
                 {o.owns.map((item, i) => (

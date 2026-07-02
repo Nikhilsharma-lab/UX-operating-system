@@ -245,3 +245,49 @@ Screenshots: `15-ai-workflow-with-section-index-desktop.png` (1440×9166), `16-a
 ### Recommended Next Step
 
 Nikhil sign-off on the section index (screenshots 15–18), then expand the next manual entry — **Design Reviews** — which now benefits from the index pattern from day one. Digital Gold, Thinking, and Building pages remain out of scope.
+
+---
+
+## Organization Design Operating Guide v1
+
+Screenshots: `19-organization-design-guide-desktop.png` (1440×~10,100), `20-organization-design-guide-mobile.png` (390×~14,200), `21-manual-index-after-organization-design-desktop.png` (1440×1434); reverse link: `../transformations/24-story-1-with-organization-design-link-desktop.png`. Logged as Decision **044**.
+
+### Changes Made
+
+- **Content:** Organization Design expanded from shell to a full guide reusing the `ManualGuide` structure — What this solves (12 items) → When to use (9) → When not to use (7) → 8 principles with one-line notes → 15-item inputs checklist → **12-step operating model** (Purpose/Owner/Output per step; diagnose → map ownership → principles → pods → intake rules → review rituals → research loop → handoff standards → quality gates → hiring/growth → business-language storytelling → feedback loop) → **5-role ownership model** (Design leadership / Design leads / Designers / Product / Engineering) → 3-stage quality gates (before design starts / before development handoff / before release) → 12 anti-patterns → 12 metrics (no benchmark numbers) → 9 governance rules → 5-phase rollout (diagnosis → operating model → team/hiring → ritual adoption → executive trust) → 10 leadership questions → related transformations (Story 1 primary; Story 2 dependency note) → related operating guides (Design Systems + AI Workflow) → future additions.
+- **Layout fix:** the ownership grid previously exposed an ash-colored empty cell when a guide had an odd number of owner cards; the last odd card now spans the full row (`sm:col-span-2`). Applies to any future guide automatically.
+- **Status:** Organization Design now "Operating guide v1" — three of five entries are full guides; Design Reviews and Stakeholder Management remain "In development".
+- **Reverse links:** Design Systems guide → Organization Design ("the ownership, ritual, and trust layer…"); AI Workflow guide → Organization Design ("the operating model that creates the ownership, review discipline, and engineering trust…"); Story 1 → Organization Design (listed first, before the kept Design Systems link; label pluralized to "Related operating guides").
+- **No data-model changes** — the existing `ManualGuide` structure handled 12 steps and 5 owner roles without extension. Section index derived automatically (16 sections).
+
+### Reusability Review
+
+- The guide reads as "how to build the system again": diagnosis-first sequencing, ownership boundaries, gates, and governance — no retelling of Story 1's narrative, no company specifics, no culture-essay drift.
+- The 5-role ownership model (adding Design leadership vs Design leads vs Designers) is the most differentiated block — it answers the "who actually owns what" question most org-design content dodges.
+- When-not-to-use is again the credibility anchor (tiny teams, no leadership support, process theater).
+- The leadership questions double as a design-leadership interview kit.
+
+### Evidence Safeguards
+
+- Grep-verified against rendered HTML: none of 85%, day→hour, 20 designers, 0→20, 12M+, 1B+, 28×, 500+ interviews, **50+ studies**, fraud/onboarding metrics appear. Metrics section disclaims benchmark numbers. Nothing externally verified. No pod counts or team sizes stated anywhere — structure is described without numbers.
+
+### Cross-Linking Review
+
+- The three guides now form a closed triangle (Org Design ↔ Design Systems ↔ AI Workflow ↔ Org Design), each edge with layer-specific copy (trust layer → infrastructure layer → delivery layer). Story 1 links both org-side guides; Story 2 links both delivery-side guides. All verified live.
+- Guide cross-reference blocks now carry two cards each — at the agreed ceiling; do not add a third without consolidating.
+
+### Visual Review
+
+- **Desktop:** ~10,100px — longest guide yet (12 steps + 5 owner cards), but the section index and block grammar keep it navigable. The full-width fifth owner card reads as intentional.
+- **Mobile (390w):** single column collapse clean, ~14,200px.
+- **Index:** three "Operating guide v1" cards vs two "In development" — the manual has crossed into majority-complete.
+
+### Remaining Risks
+
+- Three guides now share the identical skeleton — the "templated" risk flagged at Design Systems is now real. The remaining two entries (Design Reviews, Stakeholder Management) are narrower topics; consider a deliberately shorter guide format for them rather than stretching to 16 sections.
+- Guide length keeps growing (9.1k → 9.4k → 10.1k px). The non-sticky index means deep readers scroll back to jump; sticky side-rail is the next readability investment if expansions continue.
+- The index eyebrow "Field guide · In development" is increasingly conservative with 3/5 guides complete.
+
+### Recommended Next Step
+
+Nikhil sign-off on `/operating-manual/organization-design` (screenshots 19–20) and the Story 1 reverse link (24). Then decide: (a) expand Design Reviews — possibly in a shorter format, or (b) revisit the index eyebrow and manual-level status language now that guides outnumber shells. Digital Gold, Thinking, and Building pages remain out of scope.

@@ -575,6 +575,12 @@ export const transformations: TransformationStory[] = [
     draft: buildingDesignOrganizationDraft,
     relatedOperatingGuides: [
       {
+        title: "Organization Design",
+        href: "/operating-manual/organization-design",
+        description:
+          "A reusable guide for building the ownership, rituals, quality standards, and trust behind a mature design organization.",
+      },
+      {
         title: "Design Systems",
         href: "/operating-manual/design-systems",
         description:
