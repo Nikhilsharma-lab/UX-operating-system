@@ -259,3 +259,9 @@ Applied the Should-fix editorial items (and the team-attribution note) without t
 ### Recommended Next Step
 
 Have Nikhil read the polished `STORY_1_PUBLIC_COPY.md` and the two polished screenshots for sign-off. Do not start Story 2 (AI-native Product Development) or Digital Gold Growth until Story 1 is approved.
+
+---
+
+## Story 1 → Design Systems Guide Link (Decision 042)
+
+Story 1 now carries its first "Related operating guide" cross-reference — **Design Systems** ("A reusable guide for turning component libraries into governed product infrastructure."), linking `/operating-manual/design-systems`. Same restrained editorial card treatment as Story 2's guide links; placed at the story foot. No content, evidence, or claims changes to the story itself. Screenshot: `22-story-1-with-design-systems-link-desktop.png`.

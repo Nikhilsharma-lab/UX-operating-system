@@ -358,7 +358,47 @@ function GuideBody({ entry, guide }: { entry: ManualEntry; guide: ManualGuide })
         <RelatedTransformationsBlock entry={entry} note={guide.derivedFromNote} />
       </ManualSection>
 
-      <ManualSection n="15" title="Future additions">
+      {guide.relatedGuides && guide.relatedGuides.length > 0 && (
+        <ManualSection
+          n="15"
+          title={
+            guide.relatedGuides.length > 1
+              ? "Related operating guides"
+              : "Related operating guide"
+          }
+        >
+          <ul className="space-y-4">
+            {guide.relatedGuides.map((g) => (
+              <li key={g.href}>
+                <Link
+                  href={g.href}
+                  className="group block max-w-[680px] rounded-lg border border-ash bg-paper p-5 transition-colors hover:border-olive-char"
+                >
+                  <span className="inline-flex items-baseline gap-3">
+                    <span className="font-editorial-serif text-[18px] leading-[1.3] tracking-[-0.01em] text-ink">
+                      {g.title}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="font-geometric-mono text-[13px] text-sage transition-colors group-hover:text-ink"
+                    >
+                      →
+                    </span>
+                  </span>
+                  <p className="mt-2 t-body-sm text-olive-char">
+                    {g.description}
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </ManualSection>
+      )}
+
+      <ManualSection
+        n={guide.relatedGuides && guide.relatedGuides.length > 0 ? "16" : "15"}
+        title="Future additions"
+      >
         <p className="mb-4 t-body-sm text-lichen">
           This guide will expand with:
         </p>

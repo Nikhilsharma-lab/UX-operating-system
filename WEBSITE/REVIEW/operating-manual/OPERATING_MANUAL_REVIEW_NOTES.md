@@ -165,3 +165,48 @@ Screenshots: `09-ai-workflow-guide-desktop.png` (1440×8616), `10-ai-workflow-gu
 ### Recommended Next Step
 
 Have Nikhil review the guide at `/operating-manual/ai-workflow` (screenshots 09–10) for sign-off. Then either (a) wire reverse links from Story 2 to this guide, or (b) expand the second manual entry (Design Systems is the natural next — it feeds the AI Workflow's readiness requirements). Do not start Digital Gold, Thinking, or Building pages.
+
+---
+
+## Design Systems Operating Guide v1
+
+Screenshots: `12-design-systems-guide-desktop.png` (1440×9109), `13-design-systems-guide-mobile.png` (390×12592), `14-manual-index-after-design-systems-desktop.png` (1440×1434); reverse links: `../transformations/22-story-1-with-design-systems-link-desktop.png`, `../transformations/23-story-2-with-design-systems-link-desktop.png`. Logged as Decision **042**.
+
+### Changes Made
+
+- **Content:** Design Systems expanded from shell to a 16-section operating guide reusing the AI Workflow `ManualGuide` structure — What this solves (10 items) → When to use (8) → When not to use (7) → 8 principles with one-line notes → 15-item inputs checklist → 11-step operating model (Purpose/Owner/Output per step) → 4-role ownership model → 3-stage quality gates (before adding a component / before adoption / **before AI-assisted generation**) → 12 anti-patterns → 12 metrics to track (no benchmark numbers) → 9 governance rules → 5-phase rollout (pattern audit → foundation → governance → engineering parity → AI-readiness) → 9 leadership questions → related transformations (both stories, with the connect/foundation note) → related operating guide (AI Workflow) → future additions.
+- **Data model:** one small addition — optional `relatedGuides` (`RelatedGuideLink`: title/href/description) on `ManualGuide`, rendered as a "Related operating guide(s)" section with the same hairline-card treatment as the story cross-reference. No other model changes; static TS.
+- **Status:** Design Systems now "Operating guide v1" (entry page + index card). AI Workflow unchanged at "Operating guide v1"; the other three entries remain "In development".
+- **Reverse links:** (a) AI Workflow guide → Design Systems ("the system-readiness layer… before AI-assisted generation"); (b) Story 1 → Design Systems ("turning component libraries into governed product infrastructure") — Story 1's first guide link; (c) Story 2 → Design Systems added alongside the existing AI Workflow link, with the story-page label now pluralizing ("Related operating guides").
+
+### Reusability Review
+
+- The guide is tool-portable and company-free: rules, owners, gates, and sequence — no narrative retelling of either story.
+- The "before AI-assisted generation" gate group is the connective tissue to the AI Workflow guide — the two now read as one system in two layers (readiness → workflow).
+- When-not-to-use is honest about scope (small stable surfaces, no governance owner, UI-kit-only ambitions) — the strongest credibility signal.
+- The leadership questions double as interview-defense material for design-infrastructure conversations.
+
+### Evidence Safeguards
+
+- Grep-verified against rendered HTML: none of 85%, day→hour, 20 designers, 0→20, 12M+, 1B+, 28×, 500+ interviews, fraud/onboarding metrics appear. Metrics section explicitly disclaims benchmark numbers. Nothing externally verified. Vault/LANE/internal tools unnamed.
+
+### Cross-Linking Review
+
+- The proof-to-system loop is now a mesh: Story 1 ↔ Design Systems, Story 2 ↔ AI Workflow, Story 2 ↔ Design Systems, AI Workflow ↔ Design Systems. All six links verified live; all use the same restrained editorial cross-reference card — no CTA styling anywhere.
+- Story 2 now carries two guide cards; two is the right ceiling before the block starts feeling like a directory.
+
+### Visual Review
+
+- **Desktop:** ~9,100px — the longest page yet, but the same block grammar (step cards, owner grid, 3-column gates, phase rows) keeps it scannable. Reads as a field manual.
+- **Mobile (390w):** grids collapse cleanly, no overflow (~12,600px).
+- **Index:** two "Operating guide v1" cards against three "In development" — the manual now visibly has substance.
+
+### Remaining Risks
+
+- Two guides share an identical 15/16-section skeleton; a third identical expansion (Design Reviews or Org Design) will start to feel stamped. Consider varying depth per entry by content need.
+- Page lengths are compounding — an in-page section index is now worth doing before the next guide expansion.
+- The index eyebrow still reads "Field guide · In development"; with 2 of 5 entries at guide v1, consider "Field guide · Expanding" or similar at the next pass.
+
+### Recommended Next Step
+
+Nikhil sign-off on `/operating-manual/design-systems` (screenshots 12–13) and the reverse links (22–23). Next candidates, in order: (a) add an in-page section index for guide-length pages, (b) expand Design Reviews (feeds both existing guides' review loops). Digital Gold, Thinking, and Building pages remain out of scope.

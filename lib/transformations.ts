@@ -573,6 +573,14 @@ export const transformations: TransformationStory[] = [
     status: "Draft v1",
     sourceFile: "TRANSFORMATION_STORIES/BUILDING_DESIGN_ORGANIZATION.md",
     draft: buildingDesignOrganizationDraft,
+    relatedOperatingGuides: [
+      {
+        title: "Design Systems",
+        href: "/operating-manual/design-systems",
+        description:
+          "A reusable guide for turning component libraries into governed product infrastructure.",
+      },
+    ],
     evidence: {
       9: [
         "0→20 and 20 direct hires public-approved; exact rework-reduction figure not claimed without evidence",
@@ -598,6 +606,12 @@ export const transformations: TransformationStory[] = [
         href: "/operating-manual/ai-workflow",
         description:
           "A reusable operating guide for compressing the gap between design intent and shipped UI without bypassing design QA, engineering review, or product validation.",
+      },
+      {
+        title: "Design Systems",
+        href: "/operating-manual/design-systems",
+        description:
+          "The design-system foundation required before AI-assisted design-to-code workflows can scale.",
       },
     ],
     evidence: {

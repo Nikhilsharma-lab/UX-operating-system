@@ -400,3 +400,9 @@ Screenshots: `20-ai-native-with-operating-guide-link-desktop.png` (1440×8200), 
 ### Recommended Next Step
 
 With the proof-to-system loop in place, the natural next move is expanding the **Design Systems** manual entry (it feeds the AI Workflow guide's readiness requirements), after Nikhil signs off on the cross-link. Digital Gold, Thinking, and Building pages remain out of scope.
+
+---
+
+## Story 2 → Design Systems Guide Link (Decision 042)
+
+Story 2's related-guides block now lists two guides — AI Workflow (kept) and **Design Systems** ("The design-system foundation required before AI-assisted design-to-code workflows can scale."), with the label pluralized to "Related operating guides". No content, evidence, or claims changes to the story itself. Screenshot: `23-story-2-with-design-systems-link-desktop.png`.

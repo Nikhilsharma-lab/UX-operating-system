@@ -303,7 +303,9 @@ export default async function StoryPage({
               story.relatedOperatingGuides.length > 0 && (
                 <aside className="mt-14 border-t border-ash pt-6">
                   <p className={`${metaLabel} mb-4 text-lichen`}>
-                    Related operating guide
+                    {story.relatedOperatingGuides.length > 1
+                      ? "Related operating guides"
+                      : "Related operating guide"}
                   </p>
                   <ul className="space-y-4">
                     {story.relatedOperatingGuides.map((guide) => (

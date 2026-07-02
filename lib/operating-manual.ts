@@ -51,6 +51,13 @@ export type GuidePhase = {
   detail: string;
 };
 
+/** Editorial cross-reference from one guide to another. */
+export type RelatedGuideLink = {
+  title: string;
+  href: string;
+  description: string;
+};
+
 /**
  * Full operating-guide content. When present, the entry page renders the
  * expanded guide instead of the shell outline. Concept-led only — no
@@ -71,6 +78,8 @@ export type ManualGuide = {
   phases: GuidePhase[];
   leadershipQuestions: string[];
   derivedFromNote: string;
+  /** Cross-references to other Operating Manual guides. */
+  relatedGuides?: RelatedGuideLink[];
   futureAdditions: string[];
 };
 
@@ -201,16 +210,20 @@ export const manualEntries: ManualEntry[] = [
     number: "02",
     category: "Product Infrastructure",
     title: "Design Systems",
-    status: "In development",
+    status: "Operating guide v1",
     audience: "Design leaders, engineering leaders, product teams",
     thesis:
       "A design system is not a Figma library. It is product infrastructure for consistency, speed, governance, and implementation quality.",
     whatItSolves: [
-      "Inconsistent UI",
+      "Inconsistent UI across product surfaces",
       "Design debt",
       "Engineering rework",
-      "Weak component governance",
       "Slow handoff",
+      "Weak component governance",
+      "Detached Figma libraries",
+      "Teams rebuilding patterns differently",
+      "QA catching visual inconsistencies late",
+      "Designers duplicating old files or creating one-off patterns",
       "AI generation from messy source systems",
     ],
     principles: [
@@ -275,14 +288,331 @@ export const manualEntries: ManualEntry[] = [
       "The system is clean enough that generation from it is safe.",
     ],
     antiPatterns: [
-      "A large library with no governance.",
-      "Documentation standing in for ownership.",
-      "System decisions made only by whoever shipped last.",
-      "Letting drift between Figma and code accumulate silently.",
-      "Treating the system as decoration instead of infrastructure.",
+      "Treating the design system as a UI kit.",
+      "Building components without ownership.",
+      "Measuring success by component count.",
+      "Creating components for one-off needs.",
+      "Allowing detached local variants.",
+      "Ignoring states and edge cases.",
+      "Letting every squad customize patterns.",
+      "Documenting without adoption rituals.",
+      "Skipping engineering partnership.",
+      "Using AI on messy components.",
+      "Never deprecating old patterns.",
+      "Turning governance into bureaucracy.",
     ],
     relatedTransformations: [STORY_BUILDING_DESIGN_ORG, STORY_AI_NATIVE],
     futureDepthNote: FUTURE_DEPTH_NOTE,
+    guide: {
+      supportingLine:
+        "The value of a design system is not how many components it contains. The value is how much interpretation, rework, and product inconsistency it removes from the organization.",
+      whenToUse: [
+        "Multiple squads are designing and shipping related product surfaces.",
+        "UI patterns are being recreated across teams.",
+        "Figma components exist but adoption is inconsistent.",
+        "Engineers repeatedly rebuild or reinterpret components.",
+        "QA finds recurring visual or state inconsistencies.",
+        "Product teams need faster delivery without sacrificing quality.",
+        "The organization wants AI-assisted design-to-code workflows later.",
+        "Design quality depends too much on individual designers.",
+      ],
+      whenNotToUse: [
+        "The product surface is very small and stable.",
+        "The team does not have repeated patterns yet.",
+        "No one can own governance.",
+        "Leadership wants a one-time UI kit, not a long-term system.",
+        "Components will not be maintained after creation.",
+        "Teams are unwilling to follow shared standards.",
+        "The organization only wants visual polish, not operating discipline.",
+      ],
+      principles: [
+        {
+          rule: "Governance matters more than library size.",
+          note: "A small governed system beats a large drifting one.",
+        },
+        {
+          rule: "Components need ownership, not only documentation.",
+          note: "Documentation describes; owners decide, maintain, and deprecate.",
+        },
+        {
+          rule: "Tokens, variants, states, and naming are production concerns.",
+          note: "They determine what ships, not just how the library looks.",
+        },
+        {
+          rule: "A design system should reduce interpretation.",
+          note: "Every ambiguous component becomes rework downstream.",
+        },
+        {
+          rule: "System adoption is an operating problem, not a Figma problem.",
+          note: "Rituals, reviews, and incentives drive usage; libraries alone do not.",
+        },
+        {
+          rule: "Quality gates prevent the system from becoming design debt.",
+          note: "Ungated growth turns the system into the inconsistency it was built to remove.",
+        },
+        {
+          rule: "AI-readiness starts with design-system hygiene.",
+          note: "Generation reads structure; messy structure scales into messy code.",
+        },
+        {
+          rule: "A design system should create leverage for design, engineering, product, and QA.",
+          note: "If only designers benefit, it is a library, not infrastructure.",
+        },
+      ],
+      inputs: [
+        "Product surface inventory",
+        "Repeated pattern audit",
+        "Component ownership",
+        "Naming conventions",
+        "Design tokens",
+        "Variants",
+        "States",
+        "Responsive rules",
+        "Accessibility basics",
+        "Usage guidelines",
+        "Contribution rules",
+        "Review process",
+        "Engineering counterpart or coded-component mapping",
+        "Adoption path",
+        "Deprecation rules",
+      ],
+      steps: [
+        {
+          step: "Audit product surfaces and repeated patterns.",
+          purpose: "Find where inconsistency and rework actually live.",
+          owner: "Design, with product input",
+          output: "A pattern inventory and priority list",
+        },
+        {
+          step: "Define design-system ownership.",
+          purpose: "Give the system a named owner before building anything.",
+          owner: "Design leadership",
+          output: "An owner and a governance mandate",
+        },
+        {
+          step: "Establish tokens and naming conventions.",
+          purpose: "Make styling decisions systematic and machine-readable.",
+          owner: "Design + engineering",
+          output: "A token set and naming rules",
+        },
+        {
+          step: "Build foundational components.",
+          purpose: "Cover the highest-frequency patterns first.",
+          owner: "Design-system owner",
+          output: "The foundation component set",
+        },
+        {
+          step: "Define variants, states, and responsive behavior.",
+          purpose: "Remove the ambiguity QA otherwise finds late.",
+          owner: "Design",
+          output: "Complete component definitions",
+        },
+        {
+          step: "Create usage guidelines.",
+          purpose: "Reduce interpretation at the point of use.",
+          owner: "Design-system owner",
+          output: "Usage guidance per component",
+        },
+        {
+          step: "Map design components to coded components where possible.",
+          purpose: "Keep design and implementation from drifting apart.",
+          owner: "Design + engineering",
+          output: "A design-to-code parity map",
+        },
+        {
+          step: "Create contribution and review rules.",
+          purpose: "Let the system grow without decaying.",
+          owner: "Design-system owner",
+          output: "A lightweight contribution model",
+        },
+        {
+          step: "Introduce design-system QA during product delivery.",
+          purpose: "Catch inconsistency before it ships, not after.",
+          owner: "Design + QA",
+          output: "System checks inside the delivery loop",
+        },
+        {
+          step: "Track adoption and exceptions.",
+          purpose: "Measure whether the system is used, not just built.",
+          owner: "Design-system owner + product",
+          output: "An adoption and exception log",
+        },
+        {
+          step: "Feed product learnings back into the system.",
+          purpose: "Keep the system aligned with real product needs.",
+          owner: "Design-system owner",
+          output: "Updated components and guidelines",
+        },
+      ],
+      owners: [
+        {
+          role: "Design owns",
+          owns: [
+            "Component design quality",
+            "Figma structure",
+            "Naming",
+            "Variants",
+            "States",
+            "Tokens usage",
+            "Usage guidelines",
+            "Design-system governance",
+          ],
+        },
+        {
+          role: "Engineering owns",
+          owns: [
+            "Coded components",
+            "Frontend architecture",
+            "Implementation constraints",
+            "Accessibility implementation",
+            "Performance",
+            "Versioning",
+            "Technical maintainability",
+          ],
+        },
+        {
+          role: "Product owns",
+          owns: [
+            "Pattern priority",
+            "Business use cases",
+            "Product adoption",
+            "Exceptions based on user and business needs",
+          ],
+        },
+        {
+          role: "QA owns",
+          owns: [
+            "Implementation consistency",
+            "Regression checks",
+            "State coverage",
+            "Device and browser validation",
+          ],
+        },
+      ],
+      gateGroups: [
+        {
+          stage: "Before adding a component",
+          checks: [
+            "Repeated use case exists.",
+            "Existing component cannot solve the need.",
+            "Owner is assigned.",
+            "Naming fits the system.",
+            "States are defined.",
+            "Accessibility basics are considered.",
+          ],
+        },
+        {
+          stage: "Before adoption",
+          checks: [
+            "Usage guidelines exist.",
+            "Variants are documented.",
+            "Design and engineering mapping is clear.",
+            "Common edge cases are covered.",
+            "Contribution path is known.",
+          ],
+        },
+        {
+          stage: "Before AI-assisted generation",
+          checks: [
+            "Tokens are applied.",
+            "Components are structured cleanly.",
+            "States are complete.",
+            "Responsive behavior is clear.",
+            "Component naming is AI-readable.",
+            "Coded counterpart or frontend convention is known.",
+          ],
+        },
+      ],
+      metricsToTrack: [
+        "Component adoption rate",
+        "Number of repeated patterns reduced",
+        "Handoff clarification loops",
+        "Visual QA defects",
+        "Design-system exceptions",
+        "Component reuse across squads",
+        "Time from design to implementation",
+        "Number of detached or local components",
+        "Token usage consistency",
+        "Coded-component parity",
+        "Accessibility issues",
+        "Contribution turnaround time",
+      ],
+      metricsNote:
+        "Track these before and after adoption. Targets depend on your product, team, and context — no benchmark numbers are implied here.",
+      governance: [
+        "Every component needs an owner.",
+        "Every new component needs a repeated use case.",
+        "Variants and states must be documented before adoption.",
+        "Components must map to product behavior, not only visuals.",
+        "Exceptions must be recorded.",
+        "Deprecated patterns must be removed.",
+        "Contribution rules must be lightweight but real.",
+        "Engineering must be involved where implementation parity matters.",
+        "AI generation can only use system-approved components.",
+      ],
+      phases: [
+        {
+          phase: "Phase 1",
+          title: "Pattern audit",
+          detail: "Map repeated product surfaces and inconsistencies.",
+        },
+        {
+          phase: "Phase 2",
+          title: "Foundation components",
+          detail:
+            "Build tokens, typography, spacing, buttons, inputs, cards, navigation, and forms.",
+        },
+        {
+          phase: "Phase 3",
+          title: "Governance layer",
+          detail:
+            "Define owners, contribution model, review rhythm, and adoption rules.",
+        },
+        {
+          phase: "Phase 4",
+          title: "Engineering parity",
+          detail:
+            "Map Figma components to coded components and implementation conventions.",
+        },
+        {
+          phase: "Phase 5",
+          title: "AI-readiness",
+          detail:
+            "Prepare components for design-to-code workflows through naming, states, variants, tokens, and responsive rules.",
+        },
+      ],
+      leadershipQuestions: [
+        "What business problem is the design system solving?",
+        "Which patterns repeat enough to deserve systemization?",
+        "Who owns component quality?",
+        "How does the system reduce rework?",
+        "How does engineering participate?",
+        "What should be standardized and what should remain flexible?",
+        "How are exceptions handled?",
+        "How will adoption be measured?",
+        "Is the system ready for AI-assisted design-to-code workflows?",
+      ],
+      derivedFromNote:
+        "This operating guide connects to the design-system governance work behind the Building the Design Organization transformation story. It also forms the foundation for the AI-native Product Development transformation, where design-system hygiene became a prerequisite for frontend generation.",
+      relatedGuides: [
+        {
+          title: "AI Workflow",
+          href: "/operating-manual/ai-workflow",
+          description:
+            "AI Workflow depends on design-system hygiene. This guide defines the system-readiness layer before AI-assisted generation.",
+        },
+      ],
+      futureAdditions: [
+        "Design-system audit template",
+        "Component contribution rubric",
+        "Token governance checklist",
+        "AI-readiness checklist",
+        "Design QA checklist",
+        "Engineering parity map",
+        "Component deprecation model",
+        "Adoption scorecard",
+      ],
+    },
   },
   {
     slug: "ai-workflow",
@@ -661,6 +991,14 @@ export const manualEntries: ManualEntry[] = [
       ],
       derivedFromNote:
         "This operating guide is derived from the AI-native Product Development transformation story. The workflow also depends on the design-system and organizational maturity built in Building the Design Organization.",
+      relatedGuides: [
+        {
+          title: "Design Systems",
+          href: "/operating-manual/design-systems",
+          description:
+            "The system-readiness layer for clean components, tokens, states, naming, and governance before AI-assisted generation.",
+        },
+      ],
       futureAdditions: [
         "AI-readiness checklist",
         "Prompt pattern library",
