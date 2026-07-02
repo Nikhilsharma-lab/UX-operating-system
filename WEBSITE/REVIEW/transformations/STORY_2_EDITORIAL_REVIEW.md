@@ -374,3 +374,29 @@ Applied the Should-fix editorial items without touching evidence safeguards or A
 ### Recommended Next Step
 
 Have Nikhil read the polished `STORY_2_PUBLIC_COPY.md` and the two polished screenshots (`18`, `19`) for sign-off. Do **not** start Story 3 (Digital Gold Growth) or build Operating Manual pages until Story 2 is approved.
+
+---
+
+## Story 2 → AI Workflow Guide Link
+
+Screenshots: `20-ai-native-with-operating-guide-link-desktop.png` (1440×8200), `21-ai-native-with-operating-guide-link-mobile.png` (390×12669). Logged as Decision **041**.
+
+### Changes Made
+
+- **Data model:** added `RelatedOperatingGuide` (`title`, `href`, `description`) and an optional `relatedOperatingGuides` field to `TransformationStory` in `lib/transformations.ts`. Populated only for Story 2 (AI Workflow guide). Static TS; no CMS/MDX; simplest possible support.
+- **Story page:** the `[slug]` template now renders a "Related operating guide" block when the field is present — placed after the 16 story sections (below §14 Related Operating Manual Pages territory) and above the related-links foot. Editorial cross-reference styling: mono uppercase label, hairline-bordered paper card, serif title + arrow, one-sentence description; hover is the existing border tone-shift. No CTA/button styling, no icons or images. Renders only on Story 2 (verified Story 1 is unaffected).
+- **Canonical markdown:** `TRANSFORMATION_STORIES/AI_NATIVE_PRODUCT_DEVELOPMENT.md` gains a "Related Operating Guide" section noting the AI Workflow guide and route.
+- **Loop closed:** the AI Workflow guide already links back to Story 2 ("derived from…"); Story 2 now links forward to the guide — transformation proof ↔ reusable operating system.
+
+### Public Safety
+
+- The block copy is generic and public-safe: "compressing the gap between design intent and shipped UI without bypassing design QA, engineering review, or product validation." No internal tool names, no architecture, no security detail.
+- Note on screenshots: `20`/`21` were captured against the dev server, which renders **internal mode** — the "Internal · evidence note" blocks visible in them do not appear in the public production render.
+
+### Evidence Safeguards
+
+- No new metrics introduced; the block and markdown note contain none of the gated/forbidden figures (85%, day→hour, 20 designers, 0→20, 12M+, 1B+, 28×, 500+ interviews, fraud/onboarding). Nothing marked externally verified. Cross-linking only.
+
+### Recommended Next Step
+
+With the proof-to-system loop in place, the natural next move is expanding the **Design Systems** manual entry (it feeds the AI Workflow guide's readiness requirements), after Nikhil signs off on the cross-link. Digital Gold, Thinking, and Building pages remain out of scope.

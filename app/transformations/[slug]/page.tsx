@@ -299,6 +299,40 @@ export default async function StoryPage({
               </section>
             )}
 
+            {story.relatedOperatingGuides &&
+              story.relatedOperatingGuides.length > 0 && (
+                <aside className="mt-14 border-t border-ash pt-6">
+                  <p className={`${metaLabel} mb-4 text-lichen`}>
+                    Related operating guide
+                  </p>
+                  <ul className="space-y-4">
+                    {story.relatedOperatingGuides.map((guide) => (
+                      <li key={guide.href}>
+                        <Link
+                          href={guide.href}
+                          className="group block max-w-[680px] rounded-lg border border-ash bg-paper p-5 transition-colors hover:border-olive-char"
+                        >
+                          <span className="inline-flex items-baseline gap-3">
+                            <span className="font-editorial-serif text-[18px] leading-[1.3] tracking-[-0.01em] text-ink">
+                              {guide.title}
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              className="font-geometric-mono text-[13px] text-sage transition-colors group-hover:text-ink"
+                            >
+                              →
+                            </span>
+                          </span>
+                          <p className="mt-2 t-body-sm text-olive-char">
+                            {guide.description}
+                          </p>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </aside>
+              )}
+
             {internal && (
               <p className="mt-10 t-body-sm text-sage">
                 Internal: no metric publishes until it is registered in

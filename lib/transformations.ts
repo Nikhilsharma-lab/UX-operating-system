@@ -52,6 +52,13 @@ export type DraftBlock =
 
 export type StoryStatus = "Evidence Intake Required" | "Draft v1";
 
+/** Editorial cross-reference from a story to a reusable Operating Manual guide. */
+export type RelatedOperatingGuide = {
+  title: string;
+  href: string;
+  description: string;
+};
+
 export type TransformationStory = {
   slug: string;
   index: string;
@@ -67,6 +74,8 @@ export type TransformationStory = {
   evidence: Partial<Record<number, string[]>>;
   /** Drafted narrative (Draft v1). When present, the public page renders prose. */
   draft?: Partial<Record<number, DraftBlock[]>>;
+  /** Cross-references to reusable Operating Manual guides derived from this story. */
+  relatedOperatingGuides?: RelatedOperatingGuide[];
   sourceFile: string;
 };
 
@@ -583,6 +592,14 @@ export const transformations: TransformationStory[] = [
     status: "Draft v1",
     sourceFile: "TRANSFORMATION_STORIES/AI_NATIVE_PRODUCT_DEVELOPMENT.md",
     draft: aiNativeProductDevelopmentDraft,
+    relatedOperatingGuides: [
+      {
+        title: "AI Workflow",
+        href: "/operating-manual/ai-workflow",
+        description:
+          "A reusable operating guide for compressing the gap between design intent and shipped UI without bypassing design QA, engineering review, or product validation.",
+      },
+    ],
     evidence: {
       8: [
         "Vault described public-safe (design system → AI-assisted design-to-code infra); no internal repo names, architecture, exact prompts, or security detail",

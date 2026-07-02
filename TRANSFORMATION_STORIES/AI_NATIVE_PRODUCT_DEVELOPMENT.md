@@ -214,6 +214,12 @@ Operating Manual areas this story will connect to:
 
 ---
 
+# Related Operating Guide
+
+- AI Workflow — reusable operating guide derived from this transformation. Public route: `/operating-manual/ai-workflow`. The story page cross-references it as an editorial "Related operating guide" note; the guide links back here.
+
+---
+
 # Relationship to LANE
 
 Vault and the AI-native workflow are about design-system-to-frontend execution.
