@@ -132,7 +132,7 @@ export default async function StoryPage({
   const drafted = story.status === "Draft v1" && !!story.draft;
 
   const statusText = drafted
-    ? "Draft v1"
+    ? "Field report v1"
     : internal
       ? "Evidence intake in progress"
       : "In preparation";

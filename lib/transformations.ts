@@ -113,7 +113,7 @@ const buildingDesignOrganizationDraft: Partial<Record<number, DraftBlock[]>> = {
         "Leadership skepticism from a sales/telco-oriented culture.",
         "Multiple product lines and constant business urgency.",
         "Low-literacy users requiring more explicit, trust-building experiences.",
-        "Internal politics and ownership tensions.",
+        "Organizational politics and ownership tensions.",
       ],
     },
   ],
@@ -287,7 +287,7 @@ const buildingDesignOrganizationDraft: Partial<Record<number, DraftBlock[]>> = {
   15: [
     {
       type: "p",
-      text: "Evidence areas tracked behind this story: organizational scale (0→20, with 20 designers hired directly), field research (50+ field studies), and product-delivery quality. A broader interview count is still being confirmed before any specific number is published.",
+      text: "Evidence areas tracked behind this story: organizational scale (0→20, with 20 designers hired directly), field research (50+ field studies and 500+ user interviews / research conversations), and product-delivery quality.",
     },
   ],
   16: [
@@ -536,7 +536,7 @@ const aiNativeProductDevelopmentDraft: Partial<Record<number, DraftBlock[]>> = {
   15: [
     {
       type: "p",
-      text: "Evidence areas tracked behind this story: the AI-assisted design-to-code workflow (Figma MCP, Claude Code, Vault), QA/UAT impact (about 85% over two years; a single flow from roughly a day to an hour or less), and workflow adoption across 20 designers. These figures are user-confirmed and public-approved, with external verification pending.",
+      text: "Evidence areas tracked behind this story: the AI-assisted design-to-code workflow (Figma MCP, Claude Code, Vault), QA/UAT impact (about 85% over two years; a single flow from roughly a day to an hour or less), and workflow adoption across 20 designers.",
     },
   ],
   16: [
@@ -568,7 +568,7 @@ export const transformations: TransformationStory[] = [
     title: "Building the Design Organization",
     capability: "Organizational Design",
     proves:
-      "Nikhil can build the operating system of a product design organization, not just manage design output.",
+      "Built the operating model behind a maturing product design organization — teams, rituals, quality standards, and trust, not only design output.",
     primaryAudience: "VP Design / Chief Design Officer",
     status: "Draft v1",
     sourceFile: "TRANSFORMATION_STORIES/BUILDING_DESIGN_ORGANIZATION.md",
@@ -592,7 +592,7 @@ export const transformations: TransformationStory[] = [
         "0→20 and 20 direct hires public-approved; exact rework-reduction figure not claimed without evidence",
         "Business-impact line uses 12M+ MAU and 1B+ transactions since 2017 as context scale only — public-approved, external verification pending; design is not claimed as sole cause",
       ],
-      15: ["500+ interviews — still needs checking; do not publish as a hard claim. Use 'field research and user conversations' instead.", "50+ field studies — confirmed and public-safe"],
+      15: ["500+ user interviews / research conversations — public-approved by Nikhil (Decision 046); external verification pending; supporting artifact recommended before broad public launch", "50+ field studies — confirmed and public-safe"],
     },
   },
   {
@@ -601,7 +601,7 @@ export const transformations: TransformationStory[] = [
     title: "AI-native Product Development",
     capability: "AI-native Product Development",
     proves:
-      "Nikhil is applying AI-assisted design-to-code workflows to reduce implementation friction and improve product delivery quality.",
+      "Applied AI-assisted design-to-code workflows that reduced implementation friction and improved product delivery quality — with engineering ownership intact.",
     primaryAudience: "AI Product Builder / Engineering Leader",
     status: "Draft v1",
     sourceFile: "TRANSFORMATION_STORIES/AI_NATIVE_PRODUCT_DEVELOPMENT.md",
@@ -638,9 +638,7 @@ export const transformations: TransformationStory[] = [
     title: "Digital Gold Growth",
     capability: "Behavioral Growth",
     proves:
-      "Nikhil connects customer behavior, product decisions, and measurable business growth.",
-    // GATED — internal mode only until baseline/final/timeframe/metric-type/attribution captured
-    provesMetric: "28× growth in Digital Gold adoption.",
+      "A behavioral-growth story being prepared to document the baseline, timeframe, product decisions, and attribution behind the selected 28× growth outcome.",
     primaryAudience: "Founder / CEO",
     status: "Evidence Intake Required",
     sourceFile: "TRANSFORMATION_STORIES/DIGITAL_GOLD_GROWTH.md",
@@ -650,7 +648,7 @@ export const transformations: TransformationStory[] = [
       5: ["The customer-behavior barrier (why users avoided lump-sum gold purchases)", "Research behind the ₹10/day SIP-style approach"],
       6: ["The core product decision (low-commitment recurring micro-investment vs lump sum)", "Behavioral framing and entry-point decisions"],
       8: ["Activation mechanics (onboarding, defaults, nudges, habit loop)"],
-      9: ["GATED: 28× figure stays hidden publicly until baseline, final number, timeframe, exact metric type, and attribution are captured"],
+      9: ["28× is public-approved as a selected headline outcome (homepage + story lede, Decision 046); external verification pending. The full story must document baseline, final number, timeframe, exact metric type, and attribution before publication."],
       12: ["Candidate framework: Behavioral Growth Engine / Product Confidence Pyramid"],
     },
   },

@@ -50,7 +50,7 @@ function ProofLedger() {
   return (
     <div className="mb-14">
       <p className="mb-4 t-caption font-geometric-mono uppercase tracking-[0.06em] text-lichen">
-        {hasNumbers ? "Selected outcomes" : "Scope"}
+        {hasNumbers ? "Selected outcomes from transformation work" : "Scope"}
       </p>
       <div className="grid border-t border-ash sm:grid-cols-2 sm:gap-x-12">
         {rows.map((row) => (

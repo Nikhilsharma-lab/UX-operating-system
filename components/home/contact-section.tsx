@@ -20,6 +20,11 @@ export function ContactSection() {
         <CtaLink href="mailto:hi.nikhilsharma@gmail.com" variant="primary">
           Contact
         </CtaLink>
+        {/* TODO: swap these for a real LinkedIn URL and CV PDF link once they
+            exist in the repo — do not invent either. */}
+        <p className="font-geometric-mono text-[13px] tracking-[-0.02em] text-lichen">
+          LinkedIn and CV available on request.
+        </p>
       </div>
     </SectionShell>
   );

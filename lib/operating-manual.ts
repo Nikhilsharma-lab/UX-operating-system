@@ -703,7 +703,7 @@ export const manualEntries: ManualEntry[] = [
         },
         {
           rule: "Quality gates prevent the system from becoming design debt.",
-          note: "Ungated growth turns the system into the inconsistency it was built to remove.",
+          note: "Unchecked growth turns the system into the inconsistency it was built to remove.",
         },
         {
           rule: "AI-readiness starts with design-system hygiene.",

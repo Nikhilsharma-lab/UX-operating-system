@@ -72,7 +72,7 @@ export default function TransformationsIndex() {
                       <div className="mt-auto">
                         <p className="mb-3 font-geometric-mono text-[11px] font-medium uppercase tracking-[0.07em] text-sage">
                           {story.status === "Draft v1"
-                            ? "Draft v1"
+                            ? "Field report v1"
                             : "In preparation"}
                         </p>
                         <span className="inline-flex items-center gap-2 font-geometric-mono text-[13px] font-medium tracking-[-0.01em] text-ink">

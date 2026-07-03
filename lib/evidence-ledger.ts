@@ -60,30 +60,35 @@ export const executiveLedger: LedgerMetric[] = [
     claimId: "CLAIM-011",
   },
   {
-    // GATED — public-safe but evidence incomplete (baseline/final/timeframe/attribution pending)
+    // Public-approved by Nikhil as a selected headline outcome (Decision 046).
+    // External verification pending; the full Digital Gold story adds
+    // baseline/timeframe/metric definition/attribution before publication.
     value: "28×",
     label: "Digital gold growth",
-    status: "needs_evidence",
+    status: "public_approved",
     externalVerification: "pending",
     source: "EVIDENCE/CLAIMS_REGISTER.md",
     publicSafeFallback: "Behavioral growth",
     claimId: "CLAIM-012",
   },
   {
-    // not part of this intake — remains gated
+    // Public-approved by Nikhil (Decision 046); external verification pending.
+    // Label kept deliberately narrow ("fraud-related") until the exact metric
+    // definition is documented.
     value: "62%",
-    label: "Fraud reduction",
-    status: "needs_evidence",
+    label: "Fraud-related reduction",
+    status: "public_approved",
     externalVerification: "pending",
     source: "EVIDENCE/CLAIMS_REGISTER.md",
     publicSafeFallback: "Customer trust systems",
     claimId: "CLAIM-006",
   },
   {
-    // not part of this intake — remains gated
+    // Public-approved by Nikhil (Decision 046); external verification pending.
+    // Framed as interviews + research conversations, not a hard interview count.
     value: "500+",
-    label: "User interviews",
-    status: "needs_evidence",
+    label: "User interviews / research conversations",
+    status: "public_approved",
     externalVerification: "pending",
     source: "EVIDENCE/CLAIMS_REGISTER.md",
     publicSafeFallback: "Field research depth",

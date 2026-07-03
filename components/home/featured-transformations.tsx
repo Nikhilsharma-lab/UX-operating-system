@@ -1,7 +1,5 @@
 import Link from "next/link";
 import { SectionShell } from "@/components/section-shell";
-import { EvidenceGateLabel } from "@/components/evidence-gate-label";
-import { evidenceMode } from "@/lib/evidence";
 
 const metaLabel =
   "font-rubric text-[11px] font-medium uppercase tracking-[0.1em]";
@@ -12,7 +10,6 @@ type Story = {
   cardHeadline: string;
   summary: string;
   proves: string;
-  metric?: string;
 };
 
 const stories: Story[] = [
@@ -23,7 +20,7 @@ const stories: Story[] = [
     summary:
       "How a product design function evolved into a clearer organizational system: teams, rituals, research, reviews, hiring, design systems, and cross-functional product collaboration.",
     proves:
-      "Nikhil can build the operating system of a product design organization, not just manage design output.",
+      "Built the operating model behind a maturing product design organization — not only its design output.",
   },
   {
     index: "02",
@@ -32,7 +29,7 @@ const stories: Story[] = [
     summary:
       "How AI-assisted workflows, design systems, and product operating tools began changing the relationship between problem framing, validation, design, implementation, and engineering collaboration.",
     proves:
-      "Nikhil is applying AI-assisted design-to-code workflows to reduce implementation friction and improve product delivery quality.",
+      "Applied AI-assisted design-to-code workflows that reduced implementation friction while keeping engineering ownership intact.",
   },
   {
     index: "03",
@@ -40,17 +37,14 @@ const stories: Story[] = [
     cardHeadline: "Designing growth around customer behavior.",
     summary:
       "How commitment anxiety, product framing, and behavioral insight shaped a model that made Digital Gold easier to start and easier to sustain.",
+    // 28× is public-approved as a selected headline outcome (Decision 046);
+    // the full story adds baseline/timeframe/attribution before publication.
     proves:
-      "Nikhil connects customer behavior, product decisions, and measurable business growth.",
-    // numeric claim — gated; only renders in internal mode until the Digital
-    // Gold evidence is captured (baseline/final/timeframe/metric-type/attribution)
-    metric: "28× growth in Digital Gold adoption.",
+      "Connected customer behavior and product decisions to the selected 28× Digital Gold growth outcome — full story in preparation.",
   },
 ];
 
 export function FeaturedTransformations() {
-  const mode = evidenceMode();
-
   return (
     <SectionShell
       id="transformations"
@@ -91,17 +85,10 @@ export function FeaturedTransformations() {
               <div className="mt-auto space-y-3 border-t border-ash pt-4">
                 <div className="flex items-center justify-between gap-3">
                   <span className={`${metaLabel} text-lichen`}>
-                    What it proves
+                    Leadership signal
                   </span>
-                  {/* gate kept only where a number is still under review (Digital Gold) */}
-                  {story.metric && <EvidenceGateLabel />}
                 </div>
-                <p className="t-body-sm text-carbon">
-                  {story.proves}
-                  {mode === "internal" && story.metric
-                    ? ` ${story.metric}`
-                    : ""}
-                </p>
+                <p className="t-body-sm text-carbon">{story.proves}</p>
               </div>
             </div>
 

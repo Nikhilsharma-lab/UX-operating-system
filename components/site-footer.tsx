@@ -40,6 +40,20 @@ export function SiteFooter() {
                 Contact
               </a>
             </li>
+            {/* TODO: replace with the real LinkedIn profile URL once provided
+                (none exists in the repo — do not invent one). */}
+            <li>
+              <span className="font-geometric-mono text-[13px] tracking-[-0.02em] text-sage">
+                LinkedIn available on request
+              </span>
+            </li>
+            {/* TODO: link a real CV PDF once one is added to public/ (no PDF
+                exists in the repo — do not fabricate one). */}
+            <li>
+              <span className="font-geometric-mono text-[13px] tracking-[-0.02em] text-sage">
+                CV available on request
+              </span>
+            </li>
           </ul>
           <p className="t-caption font-geometric-mono uppercase text-sage">
             Nikhil Sharma — Executive Knowledge System

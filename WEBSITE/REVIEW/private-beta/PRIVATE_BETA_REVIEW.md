@@ -314,3 +314,63 @@ Verdict:
 - **Ready for private review**
 
 The three front-door blockers (placeholder CTAs) are fixed, share metadata and a favicon are in place, all routes and safety scans pass against the production build, and the remaining open items are editorial preferences or nice-to-haves that do not embarrass the site in front of a trusted reviewer.
+
+---
+
+## Public Credibility Hardening Pass
+
+Screenshots: `17-home-credibility-hardening-desktop.png` (1440×8462), `18-home-credibility-hardening-mobile.png` (390×12768), `19-transformations-credibility-hardening-desktop.png` (1440×1197), `20-story-2-credibility-hardening-desktop.png` (1440×7928), `21-digital-gold-shell-after-metric-consistency-desktop.png` (1440×2580). All captured from the production/public build. Logged as Decision **046**.
+
+### Why This Was Needed
+
+- A private-review simulation flagged a contradiction class: metrics visible (or referenced) publicly while other public surfaces described them as hidden, gated, or unconfirmed — and internal governance vocabulary ("external verification pending", "public-approved", "still being confirmed") leaking into public prose. Nikhil's product decision: **keep 28×, 500+, and 62% publicly visible on the homepage** — so the fix is defensible framing and zero contradiction, not removal.
+
+### Homepage Claim Consistency
+
+- The evidence-ledger model is unchanged (`public_approved` / `externally_verified` / `needs_evidence`); the three metrics moved from `needs_evidence` to **`public_approved` with `externalVerification: "pending"`** — the exact model the register documents: *Public-approved by Nikhil; external verification pending; artifact recommended before broad public launch.* Nothing is labeled externally verified anywhere.
+- Ledger microcopy is now "**Selected outcomes from transformation work**" — framed as selected outcomes, not verified proof, without reading defensively.
+- Story §15 public prose no longer carries governance vocabulary: Story 1 dropped "a broader interview count is still being confirmed…" (and now includes the approved 500+ figure); Story 2 dropped "user-confirmed and public-approved, with external verification pending."
+
+### Metrics Kept Public
+
+- **28× — Digital gold growth** (headline; full story adds baseline/timeframe/definition/attribution before publication)
+- **500+ — User interviews / research conversations** (framed as interviews + research conversations, not a hard interview count)
+- **62% — Fraud-related reduction** (label kept deliberately narrow until the exact metric definition is documented; not attached to any story)
+- Alongside the previously public 0→20, 12M+, 1B+, 85%. Claims register updated for all three (CLAIM-012, CLAIM-006, and the 500+ metric row): User-confirmed / Public-approved (Decision 046); external verification pending; artifact recommended before broad launch.
+
+### Public DOM Evidence Leak Scan
+
+- Full scan of all 11 public routes on the production build, HTML-entity-decoded, against the expanded forbidden list (INTERNAL/Internal, CLAIM-, decision IDs, EVIDENCE/CLAIMS_REGISTER, claims register, evidence-gated, evidence review pending, evidence note, external verification pending, externally verified, needs evidence/needs_evidence, gated, Shell v1, Page Space, public-approved, Draft v1): **all clean**.
+- Two wording-level hits were fixed en route: Story 1's constraints bullet "Internal politics…" → "Organizational politics…", and the Design Systems principle note "Ungated growth…" → "Unchecked growth…".
+
+### Digital Gold Consistency
+
+- The story lede now reads: *"A behavioral-growth story being prepared to document the baseline, timeframe, product decisions, and attribution behind the selected 28× growth outcome."* — consistent with the homepage, no hidden/gated/needs-evidence language, no invented baseline or timeframe. Status remains "In preparation" over the 16-part outline. The homepage Digital Gold card lede matches ("…the selected 28× Digital Gold growth outcome — full story in preparation"). The internal evidence-intake note was rewritten to the same model (no more "GATED / stays hidden" contradiction).
+
+### Status / Tone Cleanup
+
+- Public "Draft v1" → "**Field report v1**" on the transformations index and both drafted story pages (internal `StoryStatus` type value unchanged — display-layer only). "In preparation" (Digital Gold), "In development" (two manual shells), and "Operating guide v1" (three guides) unchanged.
+- Homepage card label "WHAT IT PROVES" → "**Leadership signal**", with the three card lines rewritten evidence-led ("Built the operating model behind…", "Applied AI-assisted design-to-code workflows…", "Connected customer behavior… — full story in preparation"). Story-page proof lines got the same light third-person-assertive → evidence-led pass. No story bodies rewritten.
+- The now-unused evidence-gate chip was removed from the homepage story cards (28× no longer needs a gate; the component itself remains in the codebase for future gated claims).
+
+### LinkedIn / CV Access
+
+- **No LinkedIn URL exists anywhere in the repo** (checked source + CAREER_ASSETS; `LINKEDIN_PROFILE.md` contains no URL) — did not invent one. Added public-safe planned states: footer "LinkedIn available on request", and "LinkedIn and CV available on request." in the homepage contact section, with code TODOs marking exactly where the real URL goes. **Exact LinkedIn URL needed from Nikhil.**
+- **No resume/CV PDF exists in the repo** (CAREER_ASSETS holds markdown only) — did not fabricate one. Footer shows "CV available on request"; code TODO marks where a real `public/` PDF link goes. **Real CV PDF needed from Nikhil.**
+- Both planned states are muted text (sage mono), not fake links; the mailto Contact sits directly beside them, making "on request" actionable.
+
+### Remaining Public-Launch Risks
+
+- The three newly public metrics are Nikhil-approved but have **no supporting artifacts yet** — attach source records before broad public launch (the register now says exactly this per metric). This is the main launch gate.
+- 62% is intentionally narrow ("fraud-related reduction"); if Nikhil wants the stronger "fraud reduction" wording, that is a one-line change plus his explicit approval.
+- 28× is public before its story — acceptable by decision, but the Digital Gold story is now the highest-value next content piece, since a public headline invites the "how?" question.
+- No OG image (carried from prior pass), and no public product/design artifact yet.
+- **Future improvement: add one public-safe artifact or annotated before/after to demonstrate design taste and craft, without exposing confidential product details.**
+
+### Updated Verdict
+
+Verdict:
+
+- **Ready for limited public soft launch**
+
+All public surfaces are internally consistent — homepage metrics, story pages, the Digital Gold shell, and the claims register now tell one story (public-approved, verification pending, artifacts recommended). No internal governance language or claim IDs render publicly, statuses read as editorial labels rather than drafting states, and reviewer affordances (LinkedIn/CV on request) are in place. The remaining gates for a *broad* public launch are artifact attachment for the headline metrics, the real LinkedIn URL/CV file, and the Digital Gold story itself.

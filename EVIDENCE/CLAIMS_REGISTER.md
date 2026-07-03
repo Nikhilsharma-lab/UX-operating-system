@@ -229,7 +229,7 @@ Each claim should eventually capture:
 
 **Category:** Customer Trust / Regulated Fintech
 
-**Status:** Partially approved (Decision 027) — qualitative trust/fraud work is public-safe; the 62% fraud-reduction figure remains gated pending evidence.
+**Status:** Qualitative trust/fraud work public-safe (Decision 027). The 62% figure is User-confirmed / Public-approved by Nikhil (Decision 046) for the homepage, labeled narrowly as "fraud-related reduction" until the exact metric definition is documented. External verification pending; supporting artifact recommended before broad public launch. NOT externally verified. Not attached to a full story (Fraud Prevention story remains P1).
 
 **Evidence Needed:**
 
@@ -394,7 +394,7 @@ Each claim should eventually capture:
 
 **Category:** Behavioral Growth / Business Outcome
 
-**Status:** Public-safe but evidence incomplete (Decision 027). KEEP GATED — the 28× figure stays hidden in public until baseline, final number, timeframe, exact metric type, and key product/design changes (attribution) are captured. ₹10/day SIP framing is accurate; the change was directly linked to product/design.
+**Status:** User-confirmed / Public-approved by Nikhil (Decision 046) as a selected headline outcome — renders on the public homepage and as the Digital Gold story lede. External verification pending; supporting artifact recommended before broad public launch. NOT externally verified. The full story must still document baseline, final number, timeframe, exact metric type, and key product/design changes (attribution) before publication. ₹10/day SIP framing is accurate; the change was directly linked to product/design.
 
 **Evidence Needed:**
 
@@ -444,13 +444,13 @@ Status reflects the homepage evidence intake (Decision 027). "Approved (public)"
 | 20 designers used AI-native workflow | User-confirmed | [x] Public-safe (Decision 036) |
 | Svenklas ₹70L monthly revenue | User-confirmed | [x] Public-safe (not on homepage) |
 | 300K+ units sold | User-confirmed | [x] Public-safe (not on homepage) |
-| 28× digital gold growth | TBD | [ ] Gated — baseline/final/timeframe/metric-type/attribution pending |
-| 62% fraud reduction | TBD | [ ] Needs Evidence |
+| 28× digital gold growth | User-confirmed | [x] Public-approved (homepage headline, Decision 046); external verification pending; artifact recommended before broad launch; full story still needs baseline/timeframe/metric-type/attribution |
+| 62% fraud-related reduction | User-confirmed | [x] Public-approved (homepage, Decision 046, narrow label); external verification pending; artifact recommended before broad launch |
 | 39% fraud-related support handling | TBD | [ ] Needs Evidence |
 | 32% higher average balance | TBD | [ ] Needs Evidence |
 | 7× onboarding growth | TBD | [ ] Needs Evidence |
 | 50+ field studies | User-confirmed | [x] Public-safe (Decision 031); used publicly in Story 1 §5 Research |
-| 500+ user interviews | TBD | [ ] Gated — needs checking; use "field research and user conversations" |
+| 500+ user interviews / research conversations | User-confirmed | [x] Public-approved (homepage + Story 1 §15, Decision 046); external verification pending; artifact recommended before broad launch |
 | Awards and recognitions | TBD | [ ] Needs Evidence |
 
 ---
