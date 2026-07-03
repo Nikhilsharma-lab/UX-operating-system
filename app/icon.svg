@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Minimal text-free mark: ink field, cream ledger-card frame with masthead rule.
+       Palette: ink #231f20 / warm paper #f6f4ef (site tokens). No logos, no photos. -->
+  <rect width="32" height="32" rx="6" fill="#231f20" />
+  <rect x="7.5" y="7.5" width="17" height="17" fill="none" stroke="#f6f4ef" stroke-width="1.5" />
+  <line x1="7.5" y1="13" x2="24.5" y2="13" stroke="#f6f4ef" stroke-width="1.5" />
+</svg>

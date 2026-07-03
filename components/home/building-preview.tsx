@@ -1,5 +1,4 @@
 import { SectionShell } from "@/components/section-shell";
-import { CtaLink } from "@/components/cta-link";
 
 const ventures = [
   {
@@ -55,10 +54,11 @@ export function BuildingPreview() {
         ))}
       </div>
 
-      <div className="mt-10">
-        <CtaLink href="#building" variant="secondary">
-          Explore Building
-        </CtaLink>
+      <div className="mt-10 flex items-center gap-3">
+        <span aria-hidden="true" className="h-px w-6 bg-olive-char" />
+        <p className="font-geometric-mono text-[12px] font-medium uppercase tracking-[0.06em] text-lichen">
+          Building archive in development
+        </p>
       </div>
     </SectionShell>
   );

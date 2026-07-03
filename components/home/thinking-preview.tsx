@@ -1,5 +1,4 @@
 import { SectionShell } from "@/components/section-shell";
-import { CtaLink } from "@/components/cta-link";
 
 const essaySeeds = [
   "Why case studies are too small for executive work",
@@ -47,10 +46,11 @@ export function ThinkingPreview() {
         ))}
       </ul>
 
-      <div className="mt-10">
-        <CtaLink href="#thinking" variant="secondary">
-          Read Thinking
-        </CtaLink>
+      <div className="mt-10 flex items-center gap-3">
+        <span aria-hidden="true" className="h-px w-6 bg-olive-char" />
+        <p className="font-geometric-mono text-[12px] font-medium uppercase tracking-[0.06em] text-lichen">
+          Essays in development
+        </p>
       </div>
     </SectionShell>
   );

@@ -261,3 +261,56 @@ Reason:
 # 10. Recommended Next Step
 
 Have Nikhil review this file and the 14 screenshots, then approve a small **pre-beta polish task** limited to the Should-fix items (CTA targets, eyebrow wording, story §14 links, OG metadata, favicon). No new content — do not expand Design Reviews / Stakeholder Management, do not start Digital Gold, do not build Thinking or Building pages — until private-beta feedback is in.
+
+---
+
+## Private Beta Readiness Fix Pass
+
+Screenshots: `15-home-after-readiness-fixes-desktop.png` (1440×8463), `16-home-after-readiness-fixes-mobile.png` (390×12672). Logged as Decision **045**. All verification below was run against the **production/public build**.
+
+### Changes Made
+
+- **Hero CTA (Issue 1):** "Explore Operating Manual" now routes to `/operating-manual` (was the `#operating-manual` homepage anchor). Both instances of the CTA on the homepage now point at the live index.
+- **Thinking CTA (Issue 2):** the "Read Thinking" self-anchor button is replaced with a restrained planned state — hairline dash + mono label "**Essays in development**". Not a link, not button-styled; cannot be mistaken for clickable. No `/thinking` route created (confirmed 404).
+- **Building CTA (Issue 3):** the "Explore Building" self-anchor button is replaced the same way — "**Building archive in development**". No `/building` route created (confirmed 404).
+- **Metadata (Issue 6):** root metadata upgraded — default title "Nikhil Sharma — AI-native Product & Design Executive", default description "An executive knowledge system documenting transformation stories, operating guides, and systems for building AI-native product organizations.", plus Open Graph `og:title`, `og:description`, `og:type=website`, and `og:site_name`. Page-level titles/descriptions already existed for `/transformations`, `/operating-manual`, and both `[slug]` routes (via `generateMetadata`) and are unchanged. **Option A** taken on the OG image: metadata ships without an image for now (no complex image generated, no fake logos).
+- **Favicon (Issue 7):** added `app/icon.svg` — a minimal text-free mark (ink `#231f20` field, warm-paper `#f6f4ef` ledger-card frame with a masthead rule, echoing the site's hairline/ledger motif). Next.js serves and links it automatically; verified in rendered `<head>` and HTTP 200. No employer branding, no photos, no text.
+
+### Placeholder CTA Check
+
+- "Explore Operating Manual" (hero) → `/operating-manual` ✓ (verified in production HTML)
+- "Explore Operating Manual" (manual preview) → `/operating-manual` ✓ (already correct)
+- "Read Thinking" → removed; planned-state label renders ✓
+- "Explore Building" → removed; planned-state label renders ✓
+- `/thinking` → 404 ✓, `/building` → 404 ✓ (no fake routes)
+
+### Metadata / Share Preview Check
+
+- `<title>`, `meta description`, `og:title`, `og:description`, `og:type`, `og:site_name` all present in production HTML ✓
+- No unsupported claims in any metadata copy — description is descriptive, metric-free.
+- Not visually capturable in screenshots (head-level); verified via rendered HTML instead. Share unfurls will show title + description; **no OG image yet** — remains the one intentional gap (see Remaining Issues).
+
+### Favicon Check
+
+- `app/icon.svg` served at `/icon.svg` (HTTP 200) and auto-linked as `<link rel="icon" type="image/svg+xml">` ✓. SVG favicons render in all modern browsers; a fallback `.ico` was not added (acceptable for private beta; note for public launch).
+
+### Public Safety Check
+
+- Full-site rescan (all 11 public pages, production HTML, entity-decoded): no `evidence-gated`, `evidence review pending`, `internal evidence note`, `internal scaffold`, `500+ interviews`, `28×`/`28x`, `62%`, `7× onboarding`, `Page Space`, `Shell v1`, or `externally verified`. **All clean** ✓. No metrics introduced by this pass.
+
+### Remaining Issues
+
+From the Top 15 (none blocking):
+
+- **[Should → open]** No `og:image` yet (Option A taken deliberately) — links unfurl with text only. Create a simple static OG card in the site's visual language when convenient.
+- **[Should → open]** Manual index eyebrow still "Field guide · In development" (Issue 4) — wording decision deferred to Nikhil.
+- **[Should → open]** Story §14 "Related Operating Manual Pages" still plain text (Issue 5) — content decision deferred to Nikhil (link live guides vs trim the section).
+- The Optional items (8–15) remain as listed.
+
+### Updated Verdict
+
+Verdict:
+
+- **Ready for private review**
+
+The three front-door blockers (placeholder CTAs) are fixed, share metadata and a favicon are in place, all routes and safety scans pass against the production build, and the remaining open items are editorial preferences or nice-to-haves that do not embarrass the site in front of a trusted reviewer.

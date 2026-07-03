@@ -32,7 +32,7 @@ export function HeroSection() {
             <CtaLink href="/transformations" variant="primary">
               Read Transformations
             </CtaLink>
-            <CtaLink href="#operating-manual" variant="secondary">
+            <CtaLink href="/operating-manual" variant="secondary">
               Explore Operating Manual
             </CtaLink>
             <CtaLink href="#contact" variant="ghost">

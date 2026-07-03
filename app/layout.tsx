@@ -57,10 +57,22 @@ const inter = Inter({
   display: "swap",
 });
 
+const SITE_TITLE = "Nikhil Sharma — AI-native Product & Design Executive";
+const SITE_DESCRIPTION =
+  "An executive knowledge system documenting transformation stories, operating guides, and systems for building AI-native product organizations.";
+
 export const metadata: Metadata = {
-  title: "Nikhil Sharma — AI-native Product Executive",
-  description:
-    "Nikhil Sharma builds AI-native product organizations, systems, and businesses that turn ambiguity into measurable outcomes.",
+  title: {
+    default: SITE_TITLE,
+    template: "%s",
+  },
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    type: "website",
+    siteName: "Nikhil Sharma — Executive Knowledge System",
+  },
 };
 
 export default function RootLayout({
