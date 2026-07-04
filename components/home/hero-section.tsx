@@ -28,6 +28,11 @@ export function HeroSection() {
             decision systems that help organizations ship with clarity.
           </p>
 
+          {/* IMAGE SLOT 01 (pending real asset from Nikhil):
+              editorial B&W portrait or workspace photograph, right-aligned
+              asymmetric split at lg+, ~880x1100 (4:5). Do NOT fill with stock
+              or generated imagery; evidence discipline requires a real,
+              approved photo. Layout becomes a 7/5 split when it lands. */}
           <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
             <CtaLink href="/transformations" variant="primary">
               Read Transformations

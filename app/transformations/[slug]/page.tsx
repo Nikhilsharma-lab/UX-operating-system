@@ -195,6 +195,12 @@ export default async function StoryPage({
               )}
             </header>
 
+            {/* IMAGE SLOT 04 (per drafted story, pending intake): one
+                public-safe annotated artifact per story - e.g. a sanitized
+                workflow diagram for AI-native Product Development, an
+                operating-rhythm map for Building the Design Organization.
+                Renders inside section 08 Execution, full column width,
+                ~1360x900. Must pass evidence/confidentiality review first. */}
             {drafted ? (
               <div className="mt-14 space-y-12">
                 {STORY_FRAMEWORK.map((section) => {

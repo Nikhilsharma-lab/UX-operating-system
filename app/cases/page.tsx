@@ -52,6 +52,10 @@ export default function CasesIndex() {
               </div>
             </header>
 
+            {/* IMAGE SLOTS 05-08 (one per future case, pending Nikhil's
+                material): each case card gains a lead artifact - before/after
+                journey frame or annotated flow, ~1360x900 - when the real case
+                content lands. No stock, no mockups, no generated stand-ins. */}
             <ul className="grid gap-5 sm:grid-cols-2">
               {caseSlots.map((slot) => (
                 <li
