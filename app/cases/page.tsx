@@ -6,7 +6,7 @@ import { CASE_STRUCTURE, caseSlots } from "@/lib/cases";
 export const metadata: Metadata = {
   title: "Cases — Nikhil Sharma",
   description:
-    "Director-level UX and product cases currently being prepared: business problems, journey diagnosis, strategic design decisions, shipped experience, and measurable outcomes.",
+    "Product and UX cases built around business problems, journey diagnosis, strategic design decisions, shipped experience, and measurable outcomes.",
 };
 
 const metaLabel =
@@ -35,7 +35,7 @@ export default function CasesIndex() {
                 </span>
               </div>
               <h1 className="font-editorial-serif font-light text-[clamp(2rem,4.4vw,3rem)] leading-[1.06] tracking-[-0.02em] text-ink">
-                Director-level UX and product cases currently being prepared.
+                Product and UX cases built around business problems, design decisions, and measurable outcomes.
               </h1>
               <div className="mt-5 space-y-3 t-body text-olive-char">
                 <p>
@@ -81,11 +81,11 @@ export default function CasesIndex() {
                   Future case structure
                 </p>
                 <h2 className="font-heading-serif text-[24px] font-normal leading-[1.18] tracking-[0] text-ink">
-                  Built for Director-level case reports.
+                  Built for senior product case reports.
                 </h2>
                 <div className="mt-4 space-y-3 t-body-sm text-olive-char">
                   <p>
-                    These cases will not follow a junior portfolio format. Each
+                    These cases will not follow a generic portfolio format. Each
                     case will start with the business problem, then show the
                     user journey, the strategic design bet, the key decisions,
                     the shipped experience, and the measurable outcome.
@@ -112,7 +112,7 @@ export default function CasesIndex() {
 
               <p className="mt-8 max-w-[660px] border-l border-khaki-olive pl-4 t-body-sm text-lichen">
                 Full case content will be written after evidence intake. This
-                structure is designed for Director-level case reports: business
+                structure is designed for senior product case reports: business
                 problem first, user journey second, strategic bet third,
                 experience and outcome evidence after that.
               </p>

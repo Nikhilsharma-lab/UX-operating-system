@@ -87,3 +87,9 @@ Notes:
 ## Recommended Next Step
 
 Nikhil should provide the actual case names, business context, user problem, journey diagnosis, strategic bet, key decisions, artifacts, metrics, and narrative before individual case pages are created.
+
+---
+
+## Cases Wording Polish (Decision 048)
+
+Public self-grading language removed while keeping the senior structure intact: the index title is now "Product and UX cases built around business problems, design decisions, and measurable outcomes."; "Director-level UX/product case" → "senior UX/product case"; "Built for Director-level case reports" → "Built for senior product case reports"; "junior portfolio format" → "generic portfolio format"; homepage section title → "Product and UX cases, in preparation." with "senior product and UX cases" in the intro. The load-bearing ideas are preserved verbatim (business problem first → user journey → strategic bet → experience and outcome evidence; "changed behavior, not just how screens were produced"). Verified on the production build: no "Director-level" or "junior portfolio" in public DOM; no metrics, case names, or internal language. Screenshots: `05-cases-wording-polish-desktop.png`, `06-home-cases-wording-polish-desktop.png`. (The concern flagged above about "Director-level" in public copy is now resolved.)

@@ -20,7 +20,7 @@ export const caseSlots: CaseSlot[] = [
     status: "Content pending",
     title: "Case 01",
     description:
-      "A Director-level UX/product case will be added here after the business context, journey details, artifacts, decisions, and outcome evidence are collated.",
+      "A senior UX/product case will be added here after the business context, journey details, artifacts, decisions, and outcome evidence are collated.",
   },
   {
     number: "02",
@@ -46,7 +46,7 @@ export const caseSlots: CaseSlot[] = [
 ];
 
 /**
- * The Director-level structure every future case will follow.
+ * The senior case structure every future case will follow.
  * Structure only — full case content is written after evidence intake.
  */
 export const CASE_STRUCTURE: string[] = [

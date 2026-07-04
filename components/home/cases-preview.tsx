@@ -11,12 +11,12 @@ export function CasesPreview() {
       id="cases"
       index="05"
       eyebrow="Cases"
-      title="Director-level product and UX cases, in preparation."
+      title="Product and UX cases, in preparation."
       intro={
         <>
           <p>
-            A future home for Director-level product and UX cases showing how
-            business problems, journey diagnosis, design decisions, and shipped
+            A future home for senior product and UX cases showing how business
+            problems, journey diagnosis, design decisions, and shipped
             experience moved measurable outcomes.
           </p>
           <p className="text-lichen">
