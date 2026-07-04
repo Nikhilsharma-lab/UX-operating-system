@@ -24,15 +24,9 @@
   --color-highlighter-yellow: #0066ff; /* accent → NYer link blue */
   --color-khaki-olive: #cbd5e0; /* light slate border (tags) */
 
-  /* Accent + featured-card pastels (verified hexes from newyorker.com) */
+  /* Accent (single, locked site-wide). The newyorker.com pastel feature-card
+     tints were retired in Decision 049 — non-premium on this site's register. */
   --color-accent-blue: #0066ff;
-  --color-card-yellow: #ffe17d;
-  --color-card-paleyellow: #ffefb9;
-  --color-card-sky: #a5e8fd;
-  --color-card-blue: #84c9ff;
-  --color-card-green: #5cd687;
-  --color-card-lavender: #ede8f8;
-  --color-blush: #f7c2c2;
 
   /* Typography — real New Yorker faces (self-hosted via next/font/local) */
   --font-editorial-serif: var(--font-caslon), Georgia, "Times New Roman", Times, serif; /* Adobe Caslon Pro — display/hero */

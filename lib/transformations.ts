@@ -16,7 +16,7 @@ export type FrameworkSection = {
 
 /**
  * Canonical 16-part structure (mirrors TRANSFORMATION_STORIES/FRAMEWORK.md).
- * Prompts are editorial noun-phrases — a dossier table of contents, not a form.
+ * Prompts are editorial noun-phrases: a dossier table of contents, not a form.
  */
 export const STORY_FRAMEWORK: FrameworkSection[] = [
   { n: 1, title: "Context", prompt: "The business, product, and market situation at the time." },
@@ -66,7 +66,7 @@ export type TransformationStory = {
   capability: string;
   /** Public-approved qualitative proof line. */
   proves: string;
-  /** Gated numeric proof — internal mode only (e.g. Digital Gold 28×). */
+  /** Gated numeric proof, internal mode only (e.g. Digital Gold 28×). */
   provesMetric?: string;
   primaryAudience: string;
   status: StoryStatus;
@@ -83,19 +83,19 @@ const buildingDesignOrganizationDraft: Partial<Record<number, DraftBlock[]>> = {
   1: [
     {
       type: "p",
-      text: "In 2017, Airtel Payments Bank was scaling digital financial products in a regulated, high-pressure environment. Product teams were moving fast, but design was not yet operating as a centralized strategic function. There was no mature design system, no regular research practice, and no formal design-review culture — design work often arrived late, framed as execution.",
+      text: "In 2017, Airtel Payments Bank was scaling digital financial products in a regulated, high-pressure environment. Product teams were moving fast, but design was not yet operating as a centralized strategic function. There was no mature design system, no regular research practice, and no formal design-review culture. Design work often arrived late, framed as execution.",
     },
   ],
   2: [
     {
       type: "p",
-      text: "The business needed product teams to ship faster and at higher quality, but the operating model produced avoidable rework. Inconsistent experiences, unclear handoffs, and uneven product quality slowed delivery — and, in regulated financial products, put real pressure on customer trust and adoption.",
+      text: "The business needed product teams to ship faster and at higher quality, but the operating model produced avoidable rework. Inconsistent experiences, unclear handoffs, and uneven product quality slowed delivery and, in regulated financial products, put real pressure on customer trust and adoption.",
     },
   ],
   3: [
     {
       type: "p",
-      text: "The deeper challenge was not design quality. Design was treated as a service function. Product managers, under real pressure to ship, were used to bringing solutions rather than problems. Designers were used to completing tasks. Engineering received uneven handoffs. Leadership — in a sales- and telco-oriented culture — had not yet consistently seen design as a business capability.",
+      text: "The deeper challenge was not design quality. Design was treated as a service function. Product managers, under real pressure to ship, were used to bringing solutions rather than problems. Designers were used to completing tasks. Engineering received uneven handoffs. Leadership, in a sales- and telco-oriented culture, had not yet consistently seen design as a business capability.",
     },
     {
       type: "p",
@@ -124,7 +124,7 @@ const buildingDesignOrganizationDraft: Partial<Record<number, DraftBlock[]>> = {
     },
     {
       type: "p",
-      text: "Research moved product debate away from opinion-based pushback and toward evidence from real customer behavior — which is what eventually changed how decisions were argued.",
+      text: "Research moved product debate away from opinion-based pushback and toward evidence from real customer behavior, which is what eventually changed how decisions were argued.",
     },
   ],
   6: [
@@ -155,20 +155,20 @@ const buildingDesignOrganizationDraft: Partial<Record<number, DraftBlock[]>> = {
     },
     {
       type: "p",
-      text: "Reviews and signoff lifted quality but could feel like a brake on delivery. Asking PMs for problem briefs created early friction before it created partnership. And shared standards improved scale while feeling restrictive to designers who valued individual range. None of these were free — each was a deliberate trade in service of a more reliable system.",
+      text: "Reviews and signoff lifted quality but could feel like a brake on delivery. Asking PMs for problem briefs created early friction before it created partnership. And shared standards improved scale while feeling restrictive to designers who valued individual range. None of these were free. Each was a deliberate trade in service of a more reliable system.",
     },
   ],
   8: [
     {
       type: "p",
-      text: "Nikhil built the design operating model deliberately — structure, rituals, standards, and collaboration — rather than chasing individual screens.",
+      text: "Nikhil built the design operating model deliberately: structure, rituals, standards, and collaboration rather than chasing individual screens.",
     },
     {
       type: "list",
       items: [
-        "Team: design capability scaled from 0→20, with 20 designers hired directly — visual designers, researchers, UX designers, and a UX copywriter.",
+        "Team: design capability scaled from 0→20, with 20 designers hired directly: visual designers, researchers, UX designers, and a UX copywriter.",
         "Structure: four pods, each with senior and junior designers, and four design leads reporting to Nikhil.",
-        "Operating rhythm: Monday design reviews, 14-day product reviews, Friday critiques, weekly show-and-tell, sprint planning, design–dev sync, office hours, and weekly 1:1s.",
+        "Operating rhythm: Monday design reviews, 14-day product reviews, Friday critiques, weekly show-and-tell, sprint planning, design-dev sync, office hours, and weekly 1:1s.",
         "Growth: monthly three-hour upskilling sessions.",
         "Quality gate: design signoff at sprint end, before development handoff.",
         "Foundations: design-system governance (Vault) and quarterly research reports.",
@@ -176,13 +176,13 @@ const buildingDesignOrganizationDraft: Partial<Record<number, DraftBlock[]>> = {
     },
     {
       type: "note",
-      text: "Nikhil led the shift, but the operating model only became real when designers, PMs, and engineering partners began using the same standards in live product work — not when a process was announced.",
+      text: "Nikhil led the shift, but the operating model only became real when designers, PMs, and engineering partners began using the same standards in live product work, not when a process was announced.",
     },
   ],
   9: [
     {
       type: "p",
-      text: "The outcome was not only a larger design team; it was a more reliable product operating system across regulated products that serve 12M+ monthly active users and 1B+ transactions since 2017 — a foundation the wider product organization could build on.",
+      text: "The outcome was not only a larger design team; it was a more reliable product operating system across regulated products that serve 12M+ monthly active users and 1B+ transactions since 2017, a foundation the wider product organization could build on.",
     },
     {
       type: "list",
@@ -315,7 +315,7 @@ const aiNativeProductDevelopmentDraft: Partial<Record<number, DraftBlock[]>> = {
   1: [
     {
       type: "p",
-      text: "By the time this work began, Airtel Payments Bank had matured its design capability and built Vault — a central design system spanning the consumer app, business apps, the website, and internal artifacts. The design foundation was strong and widely adopted. What had not matured was the path from design to production: turning an approved Figma screen into shipped frontend was still a manual crossing, made component by component.",
+      text: "By the time this work began, Airtel Payments Bank had matured its design capability and built Vault, a central design system spanning the consumer app, business apps, the website, and internal artifacts. The design foundation was strong and widely adopted. What had not matured was the path from design to production: turning an approved Figma screen into shipped frontend was still a manual crossing, made component by component.",
     },
   ],
   2: [
@@ -325,7 +325,7 @@ const aiNativeProductDevelopmentDraft: Partial<Record<number, DraftBlock[]>> = {
     },
     {
       type: "p",
-      text: "It was not a skill problem. The work that consumed the most delivery time carried the least product judgment — and the organization paid that cost on every screen.",
+      text: "It was not a skill problem. The work that consumed the most delivery time carried the least product judgment, and the organization paid that cost on every screen.",
     },
   ],
   3: [
@@ -335,7 +335,7 @@ const aiNativeProductDevelopmentDraft: Partial<Record<number, DraftBlock[]>> = {
     },
     {
       type: "p",
-      text: "The organization had a design system, but not a design-to-production system — no shared path where intent became implementation without being rebuilt by hand.",
+      text: "The organization had a design system, but not a design-to-production system: no shared path where intent became implementation without being rebuilt by hand.",
     },
   ],
   4: [
@@ -374,7 +374,7 @@ const aiNativeProductDevelopmentDraft: Partial<Record<number, DraftBlock[]>> = {
   6: [
     {
       type: "p",
-      text: "The shift rested on a set of deliberate decisions about where AI belonged in the workflow — and, just as importantly, where it did not.",
+      text: "The shift rested on a set of deliberate decisions about where AI belonged in the workflow and, just as importantly, where it did not.",
     },
     {
       type: "decisions",
@@ -384,18 +384,18 @@ const aiNativeProductDevelopmentDraft: Partial<Record<number, DraftBlock[]>> = {
         { decision: "Keep humans in the review loop.", why: "Generated code is a starting point, not a guarantee.", tradeoff: "Review time stays in the workflow.", result: "Speed without surrendering quality." },
         { decision: "Treat prompts and workflows as product infrastructure.", why: "Repeatable systems beat one-off cleverness.", tradeoff: "Up-front effort to build and maintain them.", result: "A workflow the team could use, not a personal trick." },
         { decision: "Make design tokens and components AI-readable.", why: "Structured, named inputs produce reliable outputs.", tradeoff: "Stricter Figma hygiene and discipline.", result: "Cleaner generation, less correction." },
-        { decision: "Define 'production-ready frontend' carefully.", why: "An overstated claim would erode engineering trust.", tradeoff: "A more modest promise.", result: "Componentized, token-aligned, responsive foundations that still require engineering review — not code shipped without engineering ownership." },
+        { decision: "Define 'production-ready frontend' carefully.", why: "An overstated claim would erode engineering trust.", tradeoff: "A more modest promise.", result: "Componentized, token-aligned, responsive foundations that still require engineering review, not code shipped without engineering ownership." },
       ],
     },
     {
       type: "note",
-      text: "The full workflow rested on more decisions than the six above — starting with controlled components before full screens, using AI first for repetitive UI patterns, letting designers generate foundations without bypassing engineering quality, separating visual QA from engineering QA, keeping business logic outside early AI generation, and keeping LANE separate from Vault. Those are carried in the canonical story and future Operating Manual material; the six shown here are the ones that most shaped where AI belonged — and where it did not.",
+      text: "The full workflow rested on more decisions than the six above: starting with controlled components before full screens, using AI first for repetitive UI patterns, letting designers generate foundations without bypassing engineering quality, separating visual QA from engineering QA, keeping business logic outside early AI generation, and keeping LANE separate from Vault. Those are carried in the canonical story and future Operating Manual material; the six shown here are the ones that most shaped where AI belonged, and where it did not.",
     },
   ],
   7: [
     {
       type: "p",
-      text: "Every advantage came with a counterweight. AI could speed up repetitive UI work, but it could just as easily accelerate inconsistency if the source design system was weak. Designers gained real leverage — but only by becoming more disciplined about Figma hygiene, tokens, variants, states, and implementation thinking.",
+      text: "Every advantage came with a counterweight. AI could speed up repetitive UI work, but it could just as easily accelerate inconsistency if the source design system was weak. Designers gained real leverage, but only by becoming more disciplined about Figma hygiene, tokens, variants, states, and implementation thinking.",
     },
     {
       type: "p",
@@ -405,7 +405,7 @@ const aiNativeProductDevelopmentDraft: Partial<Record<number, DraftBlock[]>> = {
   8: [
     {
       type: "p",
-      text: "Nikhil shifted Vault from a Figma-first design system toward AI-assisted design-to-code infrastructure — connecting cleaner Figma components, tokens, and variants to a generate-review-refine workflow rather than a static handoff.",
+      text: "Nikhil shifted Vault from a Figma-first design system toward AI-assisted design-to-code infrastructure, connecting cleaner Figma components, tokens, and variants to a generate-review-refine workflow rather than a static handoff.",
     },
     {
       type: "list",
@@ -415,7 +415,7 @@ const aiNativeProductDevelopmentDraft: Partial<Record<number, DraftBlock[]>> = {
         "Figma MCP connects the design file to Claude Code.",
         "Claude Code reads the Figma structure and maps it to the frontend stack.",
         "A designer or engineer gives implementation instructions.",
-        "Claude Code generates a frontend foundation — componentized, token-aligned, and responsive.",
+        "Claude Code generates a frontend foundation: componentized, token-aligned, and responsive.",
         "The designer performs visual QA: accuracy, interaction quality, responsive behavior, hierarchy, and design-system compliance.",
         "Engineering reviews the code and owns quality, architecture, performance, accessibility, security, and integration.",
         "Product and QA validate behavior.",
@@ -442,7 +442,7 @@ const aiNativeProductDevelopmentDraft: Partial<Record<number, DraftBlock[]>> = {
         "Prototyping and handoff both got faster.",
         "Implementation became more consistent.",
         "Fewer QA defects, and less rework.",
-        "Engineering dependency shifted from repetitive UI translation toward higher-value work — review, architecture, integration, performance, accessibility, and maintainability.",
+        "Engineering dependency shifted from repetitive UI translation toward higher-value work: review, architecture, integration, performance, accessibility, and maintainability.",
         "Trust in what would actually ship improved.",
       ],
     },
@@ -478,7 +478,7 @@ const aiNativeProductDevelopmentDraft: Partial<Record<number, DraftBlock[]>> = {
         "Run smaller, more controlled pilots.",
         "Build prompt libraries sooner.",
         "Involve engineering from the start.",
-        "Measure workflow impact from day one — time saved, QA issues reduced, visual defects avoided, engineering rework reduced, and adoption across squads.",
+        "Measure workflow impact from day one: time saved, QA issues reduced, visual defects avoided, engineering rework reduced, and adoption across squads.",
       ],
     },
   ],
@@ -486,14 +486,14 @@ const aiNativeProductDevelopmentDraft: Partial<Record<number, DraftBlock[]>> = {
     {
       type: "list",
       items: [
-        "Executable Design System — a design system structured to support frontend generation, not only visual reuse.",
-        "Design-to-Production Workflow — a repeatable path from Figma structure to generated frontend foundation to engineering review.",
-        "AI-readiness for Design Systems — the hygiene bar for naming, variants, tokens, states, accessibility, and responsive behavior before AI generation.",
-        "Human-in-the-Loop Review Model — the rule that AI output must pass design QA, engineering review, product validation, and QA/UAT.",
-        "Visual QA vs Engineering QA — a separation of visual-parity ownership from code quality and production ownership.",
-        "Prompt Systems as Product Infrastructure — reusable prompts and workflow rules treated as part of the delivery system, not ad hoc commands.",
-        "Generate / Review / Refine / Ship — the operating loop that keeps AI useful without bypassing governance.",
-        "AI Governance for Product Teams — the boundaries for what AI can generate, what humans must review, and what cannot be automated.",
+        "Executable Design System: a design system structured to support frontend generation, not only visual reuse.",
+        "Design-to-Production Workflow: a repeatable path from Figma structure to generated frontend foundation to engineering review.",
+        "AI-readiness for Design Systems: the hygiene bar for naming, variants, tokens, states, accessibility, and responsive behavior before AI generation.",
+        "Human-in-the-Loop Review Model: the rule that AI output must pass design QA, engineering review, product validation, and QA/UAT.",
+        "Visual QA vs Engineering QA: a separation of visual-parity ownership from code quality and production ownership.",
+        "Prompt Systems as Product Infrastructure: reusable prompts and workflow rules treated as part of the delivery system, not ad hoc commands.",
+        "Generate / Review / Refine / Ship: the operating loop that keeps AI useful without bypassing governance.",
+        "AI Governance for Product Teams: the boundaries for what AI can generate, what humans must review, and what cannot be automated.",
       ],
     },
   ],
@@ -568,7 +568,7 @@ export const transformations: TransformationStory[] = [
     title: "Building the Design Organization",
     capability: "Organizational Design",
     proves:
-      "Built the operating model behind a maturing product design organization — teams, rituals, quality standards, and trust, not only design output.",
+      "Built the operating model behind a maturing product design organization: teams, rituals, quality standards, and trust, not only design output.",
     primaryAudience: "VP Design / Chief Design Officer",
     status: "Draft v1",
     sourceFile: "TRANSFORMATION_STORIES/BUILDING_DESIGN_ORGANIZATION.md",
@@ -590,9 +590,9 @@ export const transformations: TransformationStory[] = [
     evidence: {
       9: [
         "0→20 and 20 direct hires public-approved; exact rework-reduction figure not claimed without evidence",
-        "Business-impact line uses 12M+ MAU and 1B+ transactions since 2017 as context scale only — public-approved, external verification pending; design is not claimed as sole cause",
+        "Business-impact line uses 12M+ MAU and 1B+ transactions since 2017 as context scale only; public-approved, external verification pending; design is not claimed as sole cause",
       ],
-      15: ["500+ user interviews / research conversations — public-approved by Nikhil (Decision 046); external verification pending; supporting artifact recommended before broad public launch", "50+ field studies — confirmed and public-safe"],
+      15: ["500+ user interviews / research conversations: public-approved by Nikhil (Decision 046); external verification pending; supporting artifact recommended before broad public launch", "50+ field studies: confirmed and public-safe"],
     },
   },
   {
@@ -601,7 +601,7 @@ export const transformations: TransformationStory[] = [
     title: "AI-native Product Development",
     capability: "AI-native Product Development",
     proves:
-      "Applied AI-assisted design-to-code workflows that reduced implementation friction and improved product delivery quality — with engineering ownership intact.",
+      "Applied AI-assisted design-to-code workflows that reduced implementation friction and improved product delivery quality, with engineering ownership intact.",
     primaryAudience: "AI Product Builder / Engineering Leader",
     status: "Draft v1",
     sourceFile: "TRANSFORMATION_STORIES/AI_NATIVE_PRODUCT_DEVELOPMENT.md",

@@ -1,7 +1,7 @@
 /**
  * Cases section data.
  *
- * SHELL ONLY. These are generic placeholder slots — Nikhil will provide the
+ * SHELL ONLY. These are generic placeholder slots. Nikhil will provide the
  * actual case names, business context, journey details, decisions, artifacts,
  * metrics, and role details later. Do not add case names, metrics, or product
  * specifics here until they are provided and pass evidence review.
@@ -27,27 +27,27 @@ export const caseSlots: CaseSlot[] = [
     status: "Content pending",
     title: "Case 02",
     description:
-      "Reserved for a full case report — business problem, journey diagnosis, strategic bet, shipped experience, and metric movement.",
+      "Reserved for a full case report: business problem, journey diagnosis, strategic bet, shipped experience, and metric movement.",
   },
   {
     number: "03",
     status: "Content pending",
     title: "Case 03",
     description:
-      "Reserved for a full case report — to be written after evidence intake, with public-safe product context confirmed.",
+      "Reserved for a full case report, to be written after evidence intake, with public-safe product context confirmed.",
   },
   {
     number: "04",
     status: "Content pending",
     title: "Case 04",
     description:
-      "Reserved for a full case report — added only once the underlying artifacts and outcome evidence are in place.",
+      "Reserved for a full case report, added only once the underlying artifacts and outcome evidence are in place.",
   },
 ];
 
 /**
  * The senior case structure every future case will follow.
- * Structure only — full case content is written after evidence intake.
+ * Structure only; full case content is written after evidence intake.
  */
 export const CASE_STRUCTURE: string[] = [
   "Executive Summary",

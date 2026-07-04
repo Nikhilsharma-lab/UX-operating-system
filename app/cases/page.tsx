@@ -4,7 +4,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { CASE_STRUCTURE, caseSlots } from "@/lib/cases";
 
 export const metadata: Metadata = {
-  title: "Cases — Nikhil Sharma",
+  title: "Cases · Nikhil Sharma",
   description:
     "Product and UX cases built around business problems, journey diagnosis, strategic design decisions, shipped experience, and measurable outcomes.",
 };

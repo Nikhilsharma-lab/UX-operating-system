@@ -24,7 +24,7 @@ export function HeroSection() {
           <p className="mt-8 max-w-[640px] font-editorial-serif text-[18px] leading-[1.5] tracking-[0] text-olive-char">
             I lead product design across regulated fintech, design systems,
             customer trust, behavioral growth, and AI-native product
-            development — building the teams, rituals, infrastructure, and
+            development, building the teams, rituals, infrastructure, and
             decision systems that help organizations ship with clarity.
           </p>
 

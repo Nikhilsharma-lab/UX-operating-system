@@ -17,7 +17,7 @@ export type LedgerMetric = {
  * Executive Snapshot ledger.
  *
  * `public_approved` metrics (user-confirmed during intake) render their
- * numbers publicly even though `externalVerification` is still "pending" —
+ * numbers publicly even though `externalVerification` is still "pending";
  * approval is enough to render; an artifact is only needed to claim external
  * verification. Everything still under review (`needs_evidence`) renders its
  * `publicSafeFallback` (no numbers) in public mode.

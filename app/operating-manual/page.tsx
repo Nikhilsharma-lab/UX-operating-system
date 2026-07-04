@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { manualEntries } from "@/lib/operating-manual";
 
 export const metadata: Metadata = {
-  title: "Operating Manual — Nikhil Sharma",
+  title: "Operating Manual · Nikhil Sharma",
   description:
     "A field guide for the operating models, rituals, decision systems, and quality gates behind high-trust product teams.",
 };

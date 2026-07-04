@@ -21,9 +21,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const entry = getManualEntry(slug);
-  if (!entry) return { title: "Operating Manual — Nikhil Sharma" };
+  if (!entry) return { title: "Operating Manual · Nikhil Sharma" };
   return {
-    title: `${entry.title} — Operating Manual — Nikhil Sharma`,
+    title: `${entry.title} · Operating Manual · Nikhil Sharma`,
     description: entry.thesis,
   };
 }
@@ -155,8 +155,8 @@ function RelatedTransformationsBlock({
 /* ------------------------------ Guide layout ----------------------------- */
 
 /**
- * The ordered section list for a full guide, derived from guide data —
- * single source of truth for both the section index and section numbering.
+ * The ordered section list for a full guide, derived from guide data,
+ * the single source of truth for both the section index and section numbering.
  */
 function guideSections(entry: ManualEntry, guide: ManualGuide) {
   const sections: { id: string; title: string }[] = [

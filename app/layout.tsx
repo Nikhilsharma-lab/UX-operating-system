@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-// New Yorker editorial faces — self-hosted, licensed (license to be
+// New Yorker editorial faces, self-hosted, licensed (license to be
 // purchased before public launch). Files live in app/fonts/ (git-ignored).
 
 // Display / hero serif.
@@ -25,7 +25,7 @@ const irvin = localFont({
   display: "swap",
 });
 
-// Headline face (article / card headlines — the lighter text-weight Irvin).
+// Headline face (article / card headlines, the lighter text-weight Irvin).
 const irvinText = localFont({
   src: "./fonts/IrvinText-Regular.woff2",
   variable: "--font-irvintext",
@@ -57,7 +57,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const SITE_TITLE = "Nikhil Sharma — AI-native Product & Design Executive";
+const SITE_TITLE = "Nikhil Sharma · AI-native Product & Design Executive";
 const SITE_DESCRIPTION =
   "An executive knowledge system documenting transformation stories, operating guides, and systems for building AI-native product organizations.";
 
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     type: "website",
-    siteName: "Nikhil Sharma — Executive Knowledge System",
+    siteName: "Nikhil Sharma · Executive Knowledge System",
   },
 };
 

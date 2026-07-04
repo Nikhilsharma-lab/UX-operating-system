@@ -20,7 +20,7 @@ const stories: Story[] = [
     summary:
       "How a product design function evolved into a clearer organizational system: teams, rituals, research, reviews, hiring, design systems, and cross-functional product collaboration.",
     proves:
-      "Built the operating model behind a maturing product design organization — not only its design output.",
+      "Built the operating model behind a maturing product design organization, not only its design output.",
   },
   {
     index: "02",
@@ -40,7 +40,7 @@ const stories: Story[] = [
     // 28× is public-approved as a selected headline outcome (Decision 046);
     // the full story adds baseline/timeframe/attribution before publication.
     proves:
-      "Connected customer behavior and product decisions to the selected 28× Digital Gold growth outcome — full story in preparation.",
+      "Connected customer behavior and product decisions to the selected 28× Digital Gold growth outcome; full story in preparation.",
   },
 ];
 

@@ -5,7 +5,7 @@
  * operating-model outline, quality gates, and anti-patterns. Shells carry the
  * public status "In development" ("Shell v1" remains an internal type option;
  * do not expose it in rendered UI).
- * No full manual prose yet, and no new metrics — manual pages may reference
+ * No full manual prose yet, and no new metrics; manual pages may reference
  * transformation stories but introduce no quantified claims beyond what the
  * claims register already approves.
  */
@@ -60,7 +60,7 @@ export type RelatedGuideLink = {
 
 /**
  * Full operating-guide content. When present, the entry page renders the
- * expanded guide instead of the shell outline. Concept-led only — no
+ * expanded guide instead of the shell outline. Concept-led only; no
  * quantified claims; targets and benchmarks are never implied.
  */
 export type ManualGuide = {
@@ -475,7 +475,7 @@ export const manualEntries: ManualEntry[] = [
         "Product outcome movement where measurable",
       ],
       metricsNote:
-        "Track these before and after adoption. Targets depend on your product, team, and context — no benchmark numbers are implied here.",
+        "Track these before and after adoption. Targets depend on your product, team, and context; no benchmark numbers are implied here.",
       governance: [
         "PMs should bring problems, context, constraints, and expected impact.",
         "Designers should challenge weak briefs respectfully.",
@@ -601,7 +601,7 @@ export const manualEntries: ManualEntry[] = [
         heading: "Rituals",
         items: [
           "Component review before anything enters the system",
-          "Regular design–engineering parity checks",
+          "Regular design-engineering parity checks",
           "Deprecation and versioning passes",
         ],
       },
@@ -625,7 +625,7 @@ export const manualEntries: ManualEntry[] = [
         heading: "Ownership",
         items: [
           "Named system ownership with contribution rules",
-          "Shared design–engineering accountability for parity",
+          "Shared design-engineering accountability for parity",
         ],
       },
       {
@@ -638,7 +638,7 @@ export const manualEntries: ManualEntry[] = [
     qualityGates: [
       "Every component has an owner and a governance path.",
       "Tokens, variants, and states are named consistently across design and code.",
-      "Design–code parity is checked, not assumed.",
+      "Design-code parity is checked, not assumed.",
       "Contribution and deprecation rules are written down.",
       "The system is clean enough that generation from it is safe.",
     ],
@@ -893,7 +893,7 @@ export const manualEntries: ManualEntry[] = [
         "Contribution turnaround time",
       ],
       metricsNote:
-        "Track these before and after adoption. Targets depend on your product, team, and context — no benchmark numbers are implied here.",
+        "Track these before and after adoption. Targets depend on your product, team, and context; no benchmark numbers are implied here.",
       governance: [
         "Every component needs an owner.",
         "Every new component needs a repeated use case.",
@@ -1013,7 +1013,7 @@ export const manualEntries: ManualEntry[] = [
       {
         heading: "Rituals",
         items: [
-          "Generate–review–refine loops on controlled surfaces",
+          "Generate-review-refine loops on controlled surfaces",
           "Visual QA by design; production review by engineering",
           "Learnings fed back into the design system",
         ],
@@ -1112,7 +1112,7 @@ export const manualEntries: ManualEntry[] = [
         },
         {
           rule: "Engineering trust is the scaling constraint.",
-          note: "Adoption grows at the speed engineers trust the output — not faster.",
+          note: "Adoption grows at the speed engineers trust the output, not faster.",
         },
         {
           rule: "Start with controlled components before journeys.",
@@ -1153,7 +1153,7 @@ export const manualEntries: ManualEntry[] = [
         },
         {
           step: "Clean Figma source structure.",
-          purpose: "Make the source unambiguous — naming, tokens, variants, states.",
+          purpose: "Make the source unambiguous: naming, tokens, variants, states.",
           owner: "Design",
           output: "Generation-ready components",
         },
@@ -1301,7 +1301,7 @@ export const manualEntries: ManualEntry[] = [
         "Adoption across squads and designers",
       ],
       metricsNote:
-        "Track these before and after adoption. Targets depend on your product, team, and regulatory context — no benchmark numbers are implied here.",
+        "Track these before and after adoption. Targets depend on your product, team, and regulatory context; no benchmark numbers are implied here.",
       governance: [
         "AI cannot bypass design QA.",
         "AI cannot bypass engineering review.",

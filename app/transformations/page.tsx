@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { transformations } from "@/lib/transformations";
 
 export const metadata: Metadata = {
-  title: "Transformations — Nikhil Sharma",
+  title: "Transformations · Nikhil Sharma",
   description:
     "Transformation stories, not case studies: what changed, why it mattered, and the systems that made it possible.",
 };

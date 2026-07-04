@@ -4,7 +4,7 @@ const ventures = [
   {
     name: "LANE",
     tag: "AI product operating system",
-    copy: "LANE is an AI-native product operating system for product and design teams — built from the belief that product work should begin with clearer problems, better decisions, and stronger validation before execution.",
+    copy: "LANE is an AI-native product operating system for product and design teams, built from the belief that product work should begin with clearer problems, better decisions, and stronger validation before execution.",
   },
   {
     name: "Svenklas",
@@ -22,7 +22,7 @@ export function BuildingPreview() {
       title="The operating philosophy, productized."
       intro={
         <p className="text-lichen">
-          LANE and Svenklas are not side projects. They are builder proof — that
+          LANE and Svenklas are not side projects. They are builder proof that
           the operating philosophy extends beyond advisory language into product
           and business creation.
         </p>

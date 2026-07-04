@@ -3,7 +3,7 @@ import { evidenceMode } from "@/lib/evidence";
 /**
  * Internal-only claim indicator.
  *
- * Renders nothing in public mode — internal governance language must never
+ * Renders nothing in public mode; internal governance language must never
  * leak into the public experience. In internal/staging mode it shows a quiet,
  * restrained marker (never the words "evidence-gated").
  */
