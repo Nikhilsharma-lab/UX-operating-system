@@ -17,7 +17,7 @@ export function BuildingPreview() {
   return (
     <SectionShell
       id="building"
-      index="07"
+      index="08"
       eyebrow="Building"
       title="The operating philosophy, productized."
       intro={

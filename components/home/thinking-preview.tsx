@@ -12,7 +12,7 @@ export function ThinkingPreview() {
   return (
     <SectionShell
       id="thinking"
-      index="06"
+      index="07"
       eyebrow="Thinking"
       title="Essays, frameworks, and mental models for modern product organizations."
       intro={

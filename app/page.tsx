@@ -5,6 +5,7 @@ import { ExecutiveSnapshot } from "@/components/home/executive-snapshot";
 import { BeliefSection } from "@/components/home/belief-section";
 import { CapabilitiesSection } from "@/components/home/capabilities-section";
 import { FeaturedTransformations } from "@/components/home/featured-transformations";
+import { CasesPreview } from "@/components/home/cases-preview";
 import { OperatingManualPreview } from "@/components/home/operating-manual-preview";
 import { ThinkingPreview } from "@/components/home/thinking-preview";
 import { BuildingPreview } from "@/components/home/building-preview";
@@ -21,6 +22,7 @@ export default function HomePage() {
         <BeliefSection />
         <CapabilitiesSection />
         <FeaturedTransformations />
+        <CasesPreview />
         <OperatingManualPreview />
         <ThinkingPreview />
         <BuildingPreview />

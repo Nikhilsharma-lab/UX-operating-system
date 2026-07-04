@@ -15,7 +15,7 @@ export function OperatingManualPreview() {
   return (
     <SectionShell
       id="operating-manual"
-      index="05"
+      index="06"
       eyebrow="Operating Manual"
       title="A public operating manual for design organizations that ship."
       intro={

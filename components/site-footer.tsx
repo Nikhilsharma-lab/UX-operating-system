@@ -3,6 +3,7 @@ import Link from "next/link";
 const coreLinks = [
   { label: "Capabilities", href: "/#capabilities" },
   { label: "Transformations", href: "/transformations" },
+  { label: "Cases", href: "/cases" },
   { label: "Manual", href: "/operating-manual" },
   { label: "Thinking", href: "/#thinking" },
   { label: "Building", href: "/#building" },
