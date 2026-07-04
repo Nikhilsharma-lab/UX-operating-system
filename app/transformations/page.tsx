@@ -49,7 +49,11 @@ export default function TransformationsIndex() {
             </header>
 
             <ul className="grid gap-6 lg:grid-cols-3">
-              {transformations.map((story) => (
+              {/* Digital Gold lives in Cases now; its transformation shell
+                  stays routable (linked from the case) but is not listed. */}
+              {transformations
+                .filter((story) => story.slug !== "digital-gold-growth")
+                .map((story) => (
                 <li key={story.slug}>
                   <Link
                     href={`/transformations/${story.slug}`}
