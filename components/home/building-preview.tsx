@@ -1,3 +1,4 @@
+import { ImageSlot } from "@/components/image-slot";
 import { SectionShell } from "@/components/section-shell";
 
 const ventures = [
@@ -54,12 +55,19 @@ export function BuildingPreview() {
         ))}
       </div>
 
-      {/* IMAGE SLOTS 02-03 (pending real assets from Nikhil):
-          one public-safe product image per venture above (LANE interface
-          crop or brand mark; Svenklas product photography), ~1200x800 (3:2)
-          each, placed inside the venture blocks. Real assets only. */}
+      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+        <ImageSlot
+          label="Image slot 02 · LANE"
+          note="Public-safe product image pending (interface crop or brand mark)."
+          ratio="3/2"
+        />
+        <ImageSlot
+          label="Image slot 03 · Svenklas"
+          note="Product photography pending. Real assets only."
+          ratio="3/2"
+        />
+      </div>
       <div className="mt-10 flex items-center gap-3">
-        <span aria-hidden="true" className="h-px w-6 bg-olive-char" />
         <p className="font-geometric-mono text-[12px] font-medium uppercase tracking-[0.06em] text-lichen">
           Building archive in development
         </p>

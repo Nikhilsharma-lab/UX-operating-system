@@ -1,4 +1,5 @@
 import { CtaLink } from "@/components/cta-link";
+import { ImageSlot } from "@/components/image-slot";
 import { SectionEyebrow } from "@/components/section-shell";
 
 const systemMaps = [
@@ -28,11 +29,6 @@ export function HeroSection() {
             decision systems that help organizations ship with clarity.
           </p>
 
-          {/* IMAGE SLOT 01 (pending real asset from Nikhil):
-              editorial B&W portrait or workspace photograph, right-aligned
-              asymmetric split at lg+, ~880x1100 (4:5). Do NOT fill with stock
-              or generated imagery; evidence discipline requires a real,
-              approved photo. Layout becomes a 7/5 split when it lands. */}
           <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
             <CtaLink href="/transformations" variant="primary">
               Read Transformations
@@ -54,6 +50,12 @@ export function HeroSection() {
 
         <aside>
           <div className="border-t border-ash pt-6 md:border-l md:border-t-0 md:pl-6 md:pt-1">
+            <ImageSlot
+              label="Image slot 01"
+              note="Editorial portrait pending. Real photograph only; added after approval."
+              ratio="4/5"
+              className="mb-6"
+            />
             <p className="text-[12px] font-medium uppercase tracking-[0.1em] font-rubric text-lichen">
               The belief
             </p>

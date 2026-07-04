@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ImageSlot } from "@/components/image-slot";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { CASE_STRUCTURE, caseSlots } from "@/lib/cases";
@@ -25,7 +26,6 @@ export default function CasesIndex() {
                   <span className="font-geometric-mono text-[12px] font-medium tabular-nums text-ink">
                     00
                   </span>
-                  <span aria-hidden="true" className="h-px w-6 bg-olive-char" />
                   <span className="text-[12px] font-medium uppercase leading-[17px] tracking-[0.06em] font-geometric-mono text-lichen">
                     Cases
                   </span>
@@ -52,10 +52,6 @@ export default function CasesIndex() {
               </div>
             </header>
 
-            {/* IMAGE SLOTS 05-08 (one per future case, pending Nikhil's
-                material): each case card gains a lead artifact - before/after
-                journey frame or annotated flow, ~1360x900 - when the real case
-                content lands. No stock, no mockups, no generated stand-ins. */}
             <ul className="grid gap-5 sm:grid-cols-2">
               {caseSlots.map((slot) => (
                 <li
@@ -70,7 +66,12 @@ export default function CasesIndex() {
                       {slot.status}
                     </span>
                   </div>
-                  <div className="p-5">
+                  <div className="flex flex-1 flex-col gap-4 p-5">
+                    <ImageSlot
+                      label={`Image slot · Case ${slot.number} artifact`}
+                      note="Lead artifact pending: before/after journey frame or annotated flow."
+                      ratio="3/2"
+                    />
                     <p className="max-w-[520px] t-body-sm text-olive-char">
                       {slot.description}
                     </p>

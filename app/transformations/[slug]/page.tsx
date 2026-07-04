@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ImageSlot } from "@/components/image-slot";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { evidenceMode } from "@/lib/evidence";
@@ -155,7 +156,6 @@ export default async function StoryPage({
                 <span className="font-geometric-mono text-[12px] font-medium tabular-nums text-ink">
                   {story.index}
                 </span>
-                <span aria-hidden="true" className="h-px w-6 bg-olive-char" />
                 <span className={`${metaLabel} text-lichen`}>
                   Transformation · {story.capability}
                 </span>
@@ -195,12 +195,15 @@ export default async function StoryPage({
               )}
             </header>
 
-            {/* IMAGE SLOT 04 (per drafted story, pending intake): one
-                public-safe annotated artifact per story - e.g. a sanitized
-                workflow diagram for AI-native Product Development, an
-                operating-rhythm map for Building the Design Organization.
-                Renders inside section 08 Execution, full column width,
-                ~1360x900. Must pass evidence/confidentiality review first. */}
+            {drafted && (
+              <ImageSlot
+                label="Image slot 04 · Artifact"
+                note="A public-safe annotated artifact for this story is pending evidence and confidentiality review."
+                ratio="1360/560"
+                className="mt-10"
+              />
+            )}
+
             {drafted ? (
               <div className="mt-14 space-y-12">
                 {STORY_FRAMEWORK.map((section) => {

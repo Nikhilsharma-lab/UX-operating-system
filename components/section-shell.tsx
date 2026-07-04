@@ -40,9 +40,6 @@ export function SectionShell({
                     {index}
                   </span>
                 )}
-                {index && (
-                  <span aria-hidden="true" className="h-px w-6 bg-olive-char" />
-                )}
                 <SectionEyebrow>{eyebrow}</SectionEyebrow>
               </div>
             )}

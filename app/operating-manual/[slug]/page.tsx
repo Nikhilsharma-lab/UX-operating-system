@@ -82,7 +82,6 @@ function EntryHeader({ entry }: { entry: ManualEntry }) {
         <span className="font-geometric-mono text-[12px] font-medium tabular-nums text-ink">
           {entry.number}
         </span>
-        <span aria-hidden="true" className="h-px w-6 bg-olive-char" />
         <span className={`${metaLabel} text-lichen`}>
           Manual · {entry.category}
         </span>

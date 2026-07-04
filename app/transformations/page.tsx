@@ -26,7 +26,6 @@ export default function TransformationsIndex() {
                   <span className="font-geometric-mono text-[12px] font-medium tabular-nums text-ink">
                     00
                   </span>
-                  <span aria-hidden="true" className="h-px w-6 bg-olive-char" />
                   <span className="text-[12px] font-medium uppercase leading-[17px] tracking-[0.06em] font-geometric-mono text-lichen">
                     Transformations
                   </span>
