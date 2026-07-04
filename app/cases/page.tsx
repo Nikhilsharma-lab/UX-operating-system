@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ImageSlot } from "@/components/image-slot";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -53,31 +54,64 @@ export default function CasesIndex() {
             </header>
 
             <ul className="grid gap-5 sm:grid-cols-2">
-              {caseSlots.map((slot) => (
-                <li
-                  key={slot.number}
-                  className="flex flex-col rounded-lg border border-ash bg-paper"
-                >
-                  <div className="flex items-center justify-between border-b border-ash px-5 py-2.5">
-                    <span className={`${metaLabel} text-lichen`}>
-                      Case {slot.number}
-                    </span>
-                    <span className={`${metaLabel} text-sage`}>
-                      {slot.status}
-                    </span>
-                  </div>
-                  <div className="flex flex-1 flex-col gap-4 p-5">
-                    <ImageSlot
-                      label={`Image slot · Case ${slot.number} artifact`}
-                      note="Lead artifact pending: before/after journey frame or annotated flow."
-                      ratio="3/2"
-                    />
-                    <p className="max-w-[520px] t-body-sm text-olive-char">
-                      {slot.description}
-                    </p>
-                  </div>
-                </li>
-              ))}
+              {caseSlots.map((slot) => {
+                const inner = (
+                  <>
+                    <div className="flex items-center justify-between border-b border-ash px-5 py-2.5">
+                      <span className={`${metaLabel} text-lichen`}>
+                        Case {slot.number}
+                      </span>
+                      <span className={`${metaLabel} text-sage`}>
+                        {slot.status}
+                      </span>
+                    </div>
+                    <div className="flex flex-1 flex-col gap-4 p-5">
+                      <ImageSlot
+                        label={`Image slot · Case ${slot.number} artifact`}
+                        note="Lead artifact pending: before/after journey frame or annotated flow."
+                        ratio="3/2"
+                      />
+                      {slot.slug && (
+                        <h2 className="font-headline-serif text-[22px] font-normal leading-[1.16] tracking-[0] text-ink">
+                          {slot.title}
+                        </h2>
+                      )}
+                      <p className="max-w-[520px] t-body-sm text-olive-char">
+                        {slot.description}
+                      </p>
+                      {slot.metricSignal && (
+                        <p className={`${metaLabel} text-lichen`}>
+                          {slot.metricSignal}
+                        </p>
+                      )}
+                      {slot.slug && (
+                        <span className="mt-auto inline-flex items-center gap-2 font-geometric-mono text-[13px] font-medium tracking-[-0.01em] text-ink">
+                          Read case
+                          <span aria-hidden="true" className="text-lichen">
+                            →
+                          </span>
+                        </span>
+                      )}
+                    </div>
+                  </>
+                );
+                return (
+                  <li key={slot.number}>
+                    {slot.slug ? (
+                      <Link
+                        href={`/cases/${slot.slug}`}
+                        className="group flex h-full flex-col rounded-lg border border-ash bg-paper transition-colors hover:border-olive-char"
+                      >
+                        {inner}
+                      </Link>
+                    ) : (
+                      <div className="flex h-full flex-col rounded-lg border border-ash bg-paper">
+                        {inner}
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
 
             <section className="mt-16 border-t border-ash pt-8">

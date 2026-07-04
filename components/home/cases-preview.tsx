@@ -27,24 +27,53 @@ export function CasesPreview() {
       }
     >
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {caseSlots.map((slot) => (
-          <li
-            key={slot.number}
-            className="flex flex-col rounded-lg border border-ash bg-paper"
-          >
-            <div className="flex items-center justify-between border-b border-ash px-4 py-2.5">
-              <span className={`${metaLabel} text-lichen`}>
-                Case {slot.number}
-              </span>
-            </div>
-            <div className="flex flex-1 flex-col gap-3 p-4">
-              <span className={`${metaLabel} text-sage`}>{slot.status}</span>
-              <p className="t-body-sm text-olive-char">
-                Reserved for a full case report after evidence intake.
-              </p>
-            </div>
-          </li>
-        ))}
+        {caseSlots.map((slot) => {
+          const inner = (
+            <>
+              <div className="flex items-center justify-between border-b border-ash px-4 py-2.5">
+                <span className={`${metaLabel} text-lichen`}>
+                  Case {slot.number}
+                </span>
+              </div>
+              <div className="flex flex-1 flex-col gap-3 p-4">
+                <span className={`${metaLabel} text-sage`}>{slot.status}</span>
+                {slot.slug ? (
+                  <>
+                    <p className="font-headline-serif text-[18px] font-normal leading-[1.2] text-ink">
+                      {slot.title}
+                    </p>
+                    <span className="mt-auto inline-flex items-center gap-2 font-geometric-mono text-[13px] font-medium tracking-[-0.01em] text-ink">
+                      Read case
+                      <span aria-hidden="true" className="text-lichen">
+                        →
+                      </span>
+                    </span>
+                  </>
+                ) : (
+                  <p className="t-body-sm text-olive-char">
+                    Reserved for a full case report after evidence intake.
+                  </p>
+                )}
+              </div>
+            </>
+          );
+          return (
+            <li key={slot.number}>
+              {slot.slug ? (
+                <Link
+                  href={`/cases/${slot.slug}`}
+                  className="group flex h-full flex-col rounded-lg border border-ash bg-paper transition-colors hover:border-olive-char"
+                >
+                  {inner}
+                </Link>
+              ) : (
+                <div className="flex h-full flex-col rounded-lg border border-ash bg-paper">
+                  {inner}
+                </div>
+              )}
+            </li>
+          );
+        })}
       </ul>
 
       <div className="mt-8">

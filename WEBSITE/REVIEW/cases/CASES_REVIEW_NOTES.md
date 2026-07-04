@@ -93,3 +93,48 @@ Nikhil should provide the actual case names, business context, user problem, jou
 ## Cases Wording Polish (Decision 048)
 
 Public self-grading language removed while keeping the senior structure intact: the index title is now "Product and UX cases built around business problems, design decisions, and measurable outcomes."; "Director-level UX/product case" → "senior UX/product case"; "Built for Director-level case reports" → "Built for senior product case reports"; "junior portfolio format" → "generic portfolio format"; homepage section title → "Product and UX cases, in preparation." with "senior product and UX cases" in the intro. The load-bearing ideas are preserved verbatim (business problem first → user journey → strategic bet → experience and outcome evidence; "changed behavior, not just how screens were produced"). Verified on the production build: no "Director-level" or "junior portfolio" in public DOM; no metrics, case names, or internal language. Screenshots: `05-cases-wording-polish-desktop.png`, `06-home-cases-wording-polish-desktop.png`. (The concern flagged above about "Director-level" in public copy is now resolved.)
+
+---
+
+## Case 01 · Digital Gold Growth Draft (Decision 050)
+
+### What Was Added
+
+- `/cases/digital-gold-growth`: the first real case page, built on the published 16-part structure with the supplied copy verbatim. New `CaseStudy` model + `digitalGoldCase` data in `lib/cases.ts`; SSG route at `app/cases/[slug]/page.tsx`. Header carries the full meta grid (status Draft in progress, Financial services, 3 months, Product Design Head, 2 designers, 5 developers, 1 PM, 28× metric signal) plus the restrained preparation note. Layout: serif case title, mono labels, hairline meta grid, 3 decision cards, a compact 6-row tradeoff matrix, bone-tinted pending blocks for artifacts and metric wiring. Distinct from story pages (meta-dense header, matrix, pending blocks) while staying in the ledger vocabulary.
+- Cases index: Case 01 now links to the page with title, summary, metric signal, and Read case affordance; slots 02-04 unchanged and unnamed. Homepage preview: Case 01 links with its title; other slots stay pending. Story shell cross-link added (Digital Gold transformation foot: "Related case: Digital Gold Growth"); the case links back ("Related transformation: Digital Gold Growth").
+
+### Repetition Review
+
+- Each section keeps its assigned job (summary condenses; business = what the bank needed; user = felt hesitation; diagnosis = where the journey broke; bet = the reframing; decisions/before/after/shipped = concrete change; tradeoffs = costs; lessons = reusable principle). The trust-at-commitment idea appears in full only in the summary and diagnosis; elsewhere it is referenced, not restated.
+
+### Evidence Placeholders
+
+- Metric Movement shows the approved 28× headline signal and an explicit "to wire in" list (baseline, final number, timeframe definition, metric definition, measurement source, attribution model, comparison type). Nothing invented.
+
+### Artifact Placeholders
+
+- Experience Before carries an "Artifact pending" block; Artifacts section lists available-to-prepare vs to-wire items with the confidentiality note. No fake screenshots, no gray boxes.
+
+### Public Safety
+
+- Production scan clean: no claim IDs, claims register, gated, needs evidence, external verification language; no em/en dashes; no employer branding; 28× is the only metric (already public-approved for the homepage, Decision 046). Placeholder routes 404 (`/cases/fraud-prevention`, `/cases/safe-pay`). No overflow desktop or mobile.
+
+### Remaining Missing Inputs
+
+- Baseline
+- Final number
+- Metric definition
+- Measurement source
+- Attribution model
+- Old journey screenshots / flow
+- New journey screenshots / flow
+- Funnel snapshot
+- SIP landing-page annotation
+
+### Recommended Next Step
+
+Wire in evidence and artifacts after Nikhil provides the missing inputs.
+
+### Build note
+
+- Recurring `.next` corruption traced to the managed dev preview auto-respawning on port 3000 and writing into the same dist dir as production builds. Fixed permanently: `next.config.mjs` now honors `NEXT_DIST_DIR`; QA builds run with `NEXT_DIST_DIR=.next-prod PORT=3100`, fully isolated (`.next-prod/` gitignored).

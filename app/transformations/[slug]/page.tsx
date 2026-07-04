@@ -362,6 +362,16 @@ export default async function StoryPage({
                     Back to Transformations
                   </Link>
                 </li>
+                {story.slug === "digital-gold-growth" && (
+                  <li>
+                    <Link
+                      href="/cases/digital-gold-growth"
+                      className={relatedLink}
+                    >
+                      Related case: Digital Gold Growth
+                    </Link>
+                  </li>
+                )}
                 <li>
                   <Link href="/" className={relatedLink}>
                     Return Home
