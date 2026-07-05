@@ -46,7 +46,7 @@ export function CasesPreview() {
                 <span className={`${metaLabel} text-sage`}>{slot.status}</span>
                 {slot.slug ? (
                   <>
-                    <p className="font-headline-serif text-[18px] font-normal leading-[1.2] text-ink">
+                    <p className="t-hed-card text-ink">
                       {slot.title}
                     </p>
                     <span className="mt-auto inline-flex items-center gap-2 font-geometric-mono text-[13px] font-medium tracking-[-0.01em] text-ink">

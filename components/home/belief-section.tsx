@@ -20,11 +20,11 @@ export function BeliefSection() {
             aria-hidden="true"
             className="mb-6 block h-[4px] w-12 bg-highlighter-yellow"
           />
-          <h2 className="font-editorial-serif font-light text-[clamp(2rem,4.4vw,3rem)] leading-[1.06] tracking-[-0.02em] text-ink">
+          <h2 className="t-hed-1 text-ink">
             Design creates systems that create products.
           </h2>
 
-          <div className="mt-8 space-y-4 font-editorial-serif text-[18px] leading-[1.55] tracking-[0] text-olive-char">
+          <div className="mt-8 space-y-4 t-dek tracking-[0] text-olive-char">
             <p>
               Most portfolios show the visible layer: screens, flows, launches,
               and metrics.

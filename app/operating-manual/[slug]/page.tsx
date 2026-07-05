@@ -67,7 +67,7 @@ function ManualSection({
         <span className="w-6 shrink-0 font-geometric-mono text-[12px] tabular-nums text-sage">
           {n}
         </span>
-        <h2 className="font-heading-serif text-[21px] font-normal leading-[1.18] tracking-[0] text-ink">
+        <h2 className="t-hed-3 text-ink">
           {title}
         </h2>
       </div>
@@ -88,11 +88,11 @@ function EntryHeader({ entry }: { entry: ManualEntry }) {
         </span>
       </div>
 
-      <h1 className="font-editorial-serif font-light text-[clamp(2rem,4.6vw,3rem)] leading-[1.06] tracking-[-0.02em] text-ink">
+      <h1 className="t-hed-1 text-ink">
         {entry.title}
       </h1>
 
-      <p className="mt-6 max-w-[660px] font-editorial-serif text-[18px] leading-[1.55] text-carbon">
+      <p className="mt-6 max-w-[660px] t-dek text-carbon">
         {entry.thesis}
       </p>
 
@@ -135,7 +135,7 @@ function RelatedTransformationsBlock({
               href={`/transformations/${t.slug}`}
               className="group inline-flex items-baseline gap-3"
             >
-              <span className="font-editorial-serif text-[17px] leading-[1.4] text-ink transition-colors group-hover:text-olive-char">
+              <span className="t-body-serif text-ink transition-colors group-hover:text-olive-char">
                 {t.title}
               </span>
               <span
@@ -267,7 +267,7 @@ function GuideBody({ entry, guide }: { entry: ManualEntry; guide: ManualGuide })
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div className="max-w-[640px]">
-                <p className="font-editorial-serif text-[17px] leading-[1.4] text-ink">
+                <p className="t-body-serif text-ink">
                   {p.rule}
                 </p>
                 <p className="mt-1 t-body-sm text-olive-char">{p.note}</p>
@@ -306,7 +306,7 @@ function GuideBody({ entry, guide }: { entry: ManualEntry; guide: ManualGuide })
                 <span className="shrink-0 font-geometric-mono text-[12px] tabular-nums text-sage">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <p className="font-editorial-serif text-[17px] leading-[1.3] tracking-[-0.01em] text-ink">
+                <p className="t-body-serif text-ink">
                   {s.step}
                 </p>
               </div>
@@ -420,7 +420,7 @@ function GuideBody({ entry, guide }: { entry: ManualEntry; guide: ManualGuide })
                 {p.phase}
               </span>
               <div>
-                <p className="font-editorial-serif text-[17px] leading-[1.3] text-ink">
+                <p className="t-body-serif text-ink">
                   {p.title}
                 </p>
                 <p className="mt-1 t-body-sm text-olive-char">{p.detail}</p>
@@ -441,7 +441,7 @@ function GuideBody({ entry, guide }: { entry: ManualEntry; guide: ManualGuide })
               <span className="shrink-0 pt-0.5 font-geometric-mono text-[12px] tabular-nums text-sage">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <span className="max-w-[640px] font-editorial-serif text-[17px] leading-[1.45] text-carbon">
+              <span className="max-w-[640px] t-body-serif text-carbon">
                 {q}
               </span>
             </li>
@@ -463,7 +463,7 @@ function GuideBody({ entry, guide }: { entry: ManualEntry; guide: ManualGuide })
                   className="group block max-w-[680px] rounded-lg border border-ash bg-paper p-5 transition-colors hover:border-olive-char"
                 >
                   <span className="inline-flex items-baseline gap-3">
-                    <span className="font-editorial-serif text-[18px] leading-[1.3] tracking-[-0.01em] text-ink">
+                    <span className="t-hed-card text-ink">
                       {g.title}
                     </span>
                     <span
@@ -511,7 +511,7 @@ function ShellBody({ entry }: { entry: ManualEntry }) {
                 <span className="shrink-0 pt-0.5 font-geometric-mono text-[12px] tabular-nums text-sage">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="max-w-[640px] font-editorial-serif text-[17px] leading-[1.5] text-carbon">
+                <span className="max-w-[640px] t-body-serif text-carbon">
                   {p}
                 </span>
               </li>

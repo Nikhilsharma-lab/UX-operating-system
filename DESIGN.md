@@ -249,86 +249,43 @@ If the section does not answer a question, do not build it.
 
 ---
 
-## Type Scale
+## Type Scale — v3 (Decision 052, measured against newyorker.com)
 
-Reconciled to the three-voice system and the canonical "Warm Editorial Zine" conventions: **mono** uppercase labels track **positive** (+0.04–0.06em); **sans** body tracks near-zero (≈ −0.01em); **serif** headlines track **negative** (−0.02 to −0.03em).
+**This section supersedes the Warm Editorial Zine scale.** Values below were
+derived from an empirical crawl of newyorker.com (computed styles on the
+homepage river + an article page, plus the site's declared CSS), then mapped
+onto our licensed faces. The scale is implemented as role classes in
+`app/globals.css` (`.t-display` … `.t-caption`) — **components must consume
+these classes, never arbitrary `text-[Npx]` values.**
+`npm run check:type` (scripts/check-type.mjs) fails if computed values on key
+pages drift.
 
-Eyebrow / Label
+Reference values measured from newyorker.com (2026-07, 1440px):
+article H1 Irvin 42/46.7 w400 · river hed Irvin 36/40 (28/32 mobile) ·
+dek Caslon 21/28 · article body Caslon 18–21 at 1.5 · in-article h2
+Caslon 32/36 · byline Neutraface 15 w600 · caption Graphik 13/16 ·
+rubric IrvinText 12/16 · **no weight below 400 anywhere**.
 
-- Size: 11–12px
-- Line height: 17px
-- Letter spacing: +0.06em
-- Transform: UPPERCASE
-- Font: mono
+Our v3 roles (all serif weights are 400 — the faces ship no 300; `font-light`
+is banned because the browser synthesizes a faux-thin):
 
-Caption / Metadata
+| Role class | Face | Size / leading | Use |
+|---|---|---|---|
+| `.t-display` | Caslon | clamp 36→64px / 1.06, ls −0.02em | hero/cover only |
+| `.t-hed-1` | Caslon | clamp 32→42px / 1.12, ls −0.015em | page & article titles |
+| `.t-hed-2` | Irvin Heading | clamp 28→36px / 1.11 | home/index section titles |
+| `.t-hed-3` | Irvin Heading | 28 / 32 | in-article section headings |
+| `.t-hed-card` | Irvin Text | 24 / 28 | card headlines |
+| `.t-dek` | Caslon | 21 / 28 | standfirsts, proves lines, section intros |
+| `.t-body-serif` | Caslon | 18 / 27, measure ≤ 700px | long-form reading prose |
+| `.t-body` | Inter | 16 / 24 | functional sans prose |
+| `.t-body-sm` | Inter | **15 / 22** | lists, card copy, meta values — 15px is the content floor, never 13 |
+| `.t-caption` | Graphik | 13 / 16, ls −0.01em | image captions, plate labels |
+| Eyebrow/kicker | Neutraface (`font-rubric`) | 11–12 / 16, caps, +0.08–0.16em | unchanged motif |
+| Ledger number | Caslon tabular | 22 / 1 | evidence ledger |
 
-- Size: 11–12px
-- Line height: 17px
-- Letter spacing: +0.04em (uppercase) / 0 (sentence case)
-- Font: mono
-
-Body Small
-
-- Size: 14px
-- Line height: 22px
-- Letter spacing: −0.006em
-- Font: sans
-
-Body
-
-- Size: 16px
-- Line height: 26px
-- Letter spacing: −0.011em
-- Font: sans
-
-Subheading
-
-- Size: 18–20px
-- Line height: 30px
-- Letter spacing: −0.01em
-- Font: serif (editorial lines) or sans (UI) by context
-
-Heading Small
-
-- Size: 22–24px
-- Line height: 1.18
-- Letter spacing: −0.01em
-- Font: serif
-
-Heading
-
-- Size: 28–32px
-- Line height: 1.08
-- Letter spacing: −0.02em
-- Font: serif
-
-Heading Large
-
-- Size: 44–48px
-- Line height: 1.1
-- Letter spacing: −0.024em
-- Font: serif
-
-Display Small
-
-- Size: 64px
-- Line height: 1.0
-- Letter spacing: −0.03em
-- Font: serif
-
-Display (Hero)
-
-- Size: clamp 2.1rem → 5.5rem (≈ 34–88px)
-- Line height: 1.04
-- Letter spacing: −0.03em
-- Font: serif
-
-Ledger Number
-
-- Size: 22px
-- Letter spacing: −0.01em
-- Font: serif, tabular-nums
+Paragraph rhythm in long-form prose: 24px between paragraphs (≈1.33em of the
+18px body). Reading measure: 65–75ch (`max-w-[680px]` at 18px).
 
 ---
 

@@ -6,11 +6,11 @@ export function HeroSection() {
       <div className="page-shell flex flex-col items-center text-center">
         <SectionEyebrow>AI-native Product Executive</SectionEyebrow>
 
-        <h1 className="mt-6 max-w-[980px] font-editorial-serif font-light text-[clamp(2.1rem,6vw,5.5rem)] leading-[1.04] tracking-[-0.03em] text-ink">
+        <h1 className="mt-6 max-w-[980px] t-display text-ink">
           From ambiguity to shipped outcomes.
         </h1>
 
-        <p className="mt-8 max-w-[640px] font-editorial-serif text-[18px] leading-[1.5] tracking-[0] text-olive-char">
+        <p className="mt-8 max-w-[640px] t-dek text-olive-char">
           I build AI-native product design organizations that turn unclear
           problems into trusted systems, faster decisions, and measurable
           product impact.

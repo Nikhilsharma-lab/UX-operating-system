@@ -35,10 +35,10 @@ export default function OperatingManualIndex() {
                   Field guide · In development
                 </span>
               </div>
-              <h1 className="font-editorial-serif font-light text-[clamp(2rem,4.4vw,3rem)] leading-[1.06] tracking-[-0.02em] text-ink">
+              <h1 className="t-hed-1 text-ink">
                 Systems for building AI-native product organizations.
               </h1>
-              <div className="mt-5 space-y-3 t-body text-olive-char">
+              <div className="mt-5 space-y-3 t-dek text-olive-char">
                 <p>
                   A field guide for the operating models, rituals, decision
                   systems, and quality gates behind high-trust product teams.
@@ -73,7 +73,7 @@ export default function OperatingManualIndex() {
                       </span>
                     </div>
                     <div className="flex flex-1 flex-col gap-4 p-5">
-                      <h2 className="font-headline-serif text-[20px] font-normal leading-[1.18] tracking-[0] text-ink">
+                      <h2 className="t-hed-card text-ink">
                         {entry.title}
                       </h2>
                       <p className="t-body-sm text-olive-char">

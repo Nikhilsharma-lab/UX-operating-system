@@ -116,59 +116,107 @@
     font-family: var(--font-rubric);
   }
 
-  /* Type scale — New Yorker hierarchy (sans UI, serif display via component classes) */
+  /*
+   * Type scale v3 (Decision 052) — measured against newyorker.com computed
+   * styles + declared CSS (article H1 Irvin 42/46.7 w400; deks Caslon 21/28;
+   * body Caslon 18–21/1.5; in-article h2 32/36; byline 15 w600; captions
+   * Graphik 13/16; rubric 12/16; NO weight below 400 anywhere).
+   *
+   * These role classes are THE source of truth. Components must consume them
+   * instead of arbitrary text-[Npx]/leading-[N] values. scripts/check-type.mjs
+   * fails the build check if key computed values drift.
+   */
+
+  /* -- Furniture (sans voices) -- */
   .t-caption {
-    font-size: 12px;
-    line-height: 15px;
-    letter-spacing: 0.02em;
+    /* image captions, plate labels — NYer: Graphik 13/16 */
+    font-family: var(--font-geometric-mono);
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: -0.01em;
   }
 
   .t-body-sm {
-    font-size: 13px;
-    line-height: 18px;
+    /* structural support text: checklists, card copy, ledger labels, meta
+       values. NYer content floor is 15px — never 13. */
+    font-size: 15px;
+    line-height: 22px;
     letter-spacing: 0;
   }
 
   .t-body {
-    font-size: 14px;
-    line-height: 20px;
+    /* functional sans body (non-reading UI prose) */
+    font-size: 16px;
+    line-height: 24px;
     letter-spacing: 0;
   }
 
-  .t-subheading {
+  /* -- Reading voices (serif) -- */
+  .t-body-serif {
+    /* long-form reading text — NYer article body: Caslon 18/27 (1.5) */
+    font-family: var(--font-editorial-serif);
     font-size: 18px;
-    line-height: 26px;
+    line-height: 27px;
     letter-spacing: 0;
+    font-weight: 400;
   }
 
-  .t-heading-sm {
+  .t-dek {
+    /* standfirst / dek / proves line / section intro — NYer dek: Caslon 21/28 */
+    font-family: var(--font-editorial-serif);
+    font-size: 21px;
+    line-height: 28px;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+
+  /* -- Headline scale (weights are ALWAYS 400: the faces ship no 300; the
+        old `font-light` rendered a synthesized faux-thin) -- */
+  .t-hed-card {
+    /* card headlines — Irvin Text */
+    font-family: var(--font-headline-serif);
     font-size: 24px;
     line-height: 28px;
     letter-spacing: 0;
+    font-weight: 400;
   }
 
-  .t-heading {
-    font-size: 32px;
-    line-height: 36px;
+  .t-hed-3 {
+    /* in-article section headings — was 21–22px (flattened); NYer in-article
+       h2 runs 32/36. 28/32 keeps rhythm on 16-section pages. */
+    font-family: var(--font-heading-serif);
+    font-size: 28px;
+    line-height: 32px;
     letter-spacing: 0;
+    font-weight: 400;
   }
 
-  .t-heading-lg {
-    font-size: 42px;
-    line-height: 46px;
+  .t-hed-2 {
+    /* index/home section titles — NYer river hed: Irvin 36/40 desktop, 28/32 mobile */
+    font-family: var(--font-heading-serif);
+    font-size: clamp(1.75rem, 1.05rem + 1.95vw, 2.25rem);
+    line-height: 1.11;
     letter-spacing: 0;
+    font-weight: 400;
   }
 
-  .t-display-sm {
-    font-size: 56px;
-    line-height: 58px;
-    letter-spacing: 0;
+  .t-hed-1 {
+    /* page/article titles — NYer article H1: 42/46.7, weight 400 */
+    font-family: var(--font-editorial-serif);
+    font-size: clamp(2rem, 1.55rem + 1.55vw, 2.625rem);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    font-weight: 400;
   }
 
   .t-display {
-    font-size: 72px;
-    line-height: 72px;
-    letter-spacing: 0;
+    /* hero/cover voice only. Capped at 64px — the old 86px hero dwarfed
+       every publication proportion. Weight 400, never 300. */
+    font-family: var(--font-editorial-serif);
+    font-size: clamp(2.25rem, 1.35rem + 3.1vw, 4rem);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    font-weight: 400;
   }
 
   .page-shell {

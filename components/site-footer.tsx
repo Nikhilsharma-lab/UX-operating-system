@@ -17,7 +17,7 @@ export function SiteFooter() {
     <footer className="bg-carbon py-16 text-paper">
       <div className="page-shell">
         <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
-          <p className="max-w-[460px] font-editorial-serif text-[clamp(1.25rem,2.4vw,1.6rem)] font-light leading-[1.2] tracking-[-0.01em] text-paper">
+          <p className="max-w-[460px] t-dek text-paper">
             AI-native Product Executive building organizations, systems, and
             businesses.
           </p>

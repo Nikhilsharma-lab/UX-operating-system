@@ -27,7 +27,7 @@ export function EvolutionPreview() {
             <span className="t-caption font-geometric-mono tabular-nums text-lichen">
               {String(index + 1).padStart(2, "0")}
             </span>
-            <span className="min-w-[150px] font-editorial-serif text-[17px] tracking-[-0.01em] text-ink sm:min-w-[200px]">
+            <span className="min-w-[150px] t-body-serif text-ink sm:min-w-[200px]">
               {step.era}
             </span>
             <span className="t-body-sm text-olive-char">{step.lesson}</span>

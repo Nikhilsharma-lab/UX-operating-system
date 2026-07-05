@@ -35,7 +35,7 @@ function Prose({ paragraphs }: { paragraphs: string[] }) {
       {paragraphs.map((t, i) => (
         <p
           key={i}
-          className="max-w-[680px] font-editorial-serif text-[18px] leading-[1.6] tracking-[0] text-carbon"
+          className="max-w-[680px] t-body-serif text-carbon"
         >
           {t}
         </p>
@@ -68,7 +68,7 @@ function CaseSection({
         <span className="w-6 shrink-0 font-geometric-mono text-[12px] tabular-nums text-sage">
           {String(n).padStart(2, "0")}
         </span>
-        <h2 className="font-heading-serif text-[22px] font-normal leading-[1.18] tracking-[0] text-ink">
+        <h2 className="t-hed-3 text-ink">
           {title}
         </h2>
       </div>
@@ -121,7 +121,7 @@ export default async function CasePage({
                 </span>
               </div>
 
-              <h1 className="font-editorial-serif font-light text-[clamp(1.9rem,4.2vw,2.9rem)] leading-[1.08] tracking-[-0.02em] text-ink">
+              <h1 className="t-hed-1 text-ink">
                 {cs.caseTitle}
               </h1>
 
@@ -181,7 +181,7 @@ export default async function CasePage({
                       key={i}
                       className="rounded-lg border border-ash bg-paper p-5"
                     >
-                      <p className="font-editorial-serif text-[17px] leading-[1.3] tracking-[-0.01em] text-ink">
+                      <p className="t-body-serif text-ink">
                         {d.decision}
                       </p>
                       <dl className="mt-3 space-y-2">
@@ -258,7 +258,7 @@ export default async function CasePage({
                 <p className={`${metaLabel} mb-3 text-lichen`}>
                   Known headline signal
                 </p>
-                <p className="max-w-[680px] font-editorial-serif text-[22px] leading-[1.3] text-ink">
+                <p className="max-w-[680px] t-dek text-ink">
                   {cs.metricMovement.known}
                 </p>
                 <div className="mt-6">

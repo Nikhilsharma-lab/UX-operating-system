@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "check:type": "node scripts/check-type.mjs"
   },
   "dependencies": {
     "next": "^15.1.6",
@@ -20,6 +21,7 @@
     "@types/react-dom": "^19.0.3",
     "eslint": "^8.57.1",
     "eslint-config-next": "^15.1.6",
+    "puppeteer-core": "^23.11.1",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.7.3"
   }

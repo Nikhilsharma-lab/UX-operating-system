@@ -44,13 +44,13 @@ function Blocks({
   dropcap?: boolean;
 }) {
   return (
-    <div className="space-y-5">
+    <div className="space-y-6">
       {blocks.map((block, i) => {
         if (block.type === "p") {
           return (
             <p
               key={i}
-              className={`max-w-[680px] font-editorial-serif text-[18px] leading-[1.6] tracking-[0] text-carbon ${
+              className={`max-w-[680px] t-body-serif text-carbon ${
                 dropcap && i === 0 ? "dropcap" : ""
               }`}
             >
@@ -81,7 +81,7 @@ function Blocks({
                   key={j}
                   className="rounded-lg border border-ash bg-paper p-5"
                 >
-                  <p className="font-editorial-serif text-[17px] leading-[1.3] tracking-[-0.01em] text-ink">
+                  <p className="t-body-serif text-ink">
                     {d.decision}
                   </p>
                   <dl className="mt-3 space-y-2">
@@ -111,7 +111,7 @@ function Blocks({
         return (
           <p
             key={i}
-            className="max-w-[680px] border-l border-khaki-olive pl-4 font-editorial-serif text-[17px] leading-[1.4] text-carbon"
+            className="max-w-[680px] border-l border-khaki-olive pl-4 t-body-serif text-carbon"
           >
             {block.text}
           </p>
@@ -162,11 +162,11 @@ export default async function StoryPage({
                 </span>
               </div>
 
-              <h1 className="font-editorial-serif font-light text-[clamp(2rem,4.6vw,3.2rem)] leading-[1.06] tracking-[-0.02em] text-ink">
+              <h1 className="t-hed-1 text-ink">
                 {story.title}
               </h1>
 
-              <p className="mt-6 max-w-[640px] t-body text-olive-char">
+              <p className="mt-6 max-w-[640px] t-dek text-olive-char">
                 {story.proves}
                 {internal && story.provesMetric
                   ? ` ${story.provesMetric}`
@@ -227,7 +227,7 @@ export default async function StoryPage({
                         <span className="w-6 shrink-0 font-geometric-mono text-[12px] tabular-nums text-sage">
                           {String(section.n).padStart(2, "0")}
                         </span>
-                        <h2 className="font-heading-serif text-[22px] font-normal leading-[1.18] tracking-[0] text-ink">
+                        <h2 className="t-hed-3 text-ink">
                           {section.title}
                         </h2>
                       </div>
@@ -281,7 +281,7 @@ export default async function StoryPage({
                           <span className="w-6 shrink-0 font-geometric-mono text-[12px] tabular-nums text-sage">
                             {String(section.n).padStart(2, "0")}
                           </span>
-                          <h2 className="font-heading-serif text-[19px] font-normal leading-[1.2] tracking-[0] text-ink">
+                          <h2 className="t-hed-3 text-ink">
                             {section.title}
                           </h2>
                         </div>
@@ -333,7 +333,7 @@ export default async function StoryPage({
                           className="group block max-w-[680px] rounded-lg border border-ash bg-paper p-5 transition-colors hover:border-olive-char"
                         >
                           <span className="inline-flex items-baseline gap-3">
-                            <span className="font-editorial-serif text-[18px] leading-[1.3] tracking-[-0.01em] text-ink">
+                            <span className="t-hed-card text-ink">
                               {guide.title}
                             </span>
                             <span

@@ -39,7 +39,7 @@ export function ThinkingPreview() {
             <span className="t-caption font-geometric-mono uppercase tracking-[0.04em] text-lichen sm:w-24 sm:shrink-0">
               Note {String(index + 1).padStart(2, "0")}
             </span>
-            <p className="max-w-[640px] font-editorial-serif text-[19px] font-light leading-[1.32] tracking-[-0.01em] text-ink">
+            <p className="max-w-[640px] t-dek text-ink">
               {seed}
             </p>
           </li>

@@ -36,10 +36,10 @@ export default function CasesIndex() {
                   Case archive · In preparation
                 </span>
               </div>
-              <h1 className="font-editorial-serif font-light text-[clamp(2rem,4.4vw,3rem)] leading-[1.06] tracking-[-0.02em] text-ink">
+              <h1 className="t-hed-1 text-ink">
                 Product and UX cases built around business problems, design decisions, and measurable outcomes.
               </h1>
-              <div className="mt-5 space-y-3 t-body text-olive-char">
+              <div className="mt-5 space-y-3 t-dek text-olive-char">
                 <p>
                   This section will hold polished product and UX cases showing
                   how business problems, user journeys, strategic design
@@ -80,7 +80,7 @@ export default function CasesIndex() {
                         ratio="3/2"
                       />
                       {slot.slug && (
-                        <h2 className="font-headline-serif text-[22px] font-normal leading-[1.16] tracking-[0] text-ink">
+                        <h2 className="t-hed-card text-ink">
                           {slot.title}
                         </h2>
                       )}
@@ -127,7 +127,7 @@ export default function CasesIndex() {
                 <p className={`${metaLabel} mb-4 text-lichen`}>
                   Future case structure
                 </p>
-                <h2 className="font-heading-serif text-[24px] font-normal leading-[1.18] tracking-[0] text-ink">
+                <h2 className="t-hed-3 text-ink">
                   Built for senior product case reports.
                 </h2>
                 <div className="mt-4 space-y-3 t-body-sm text-olive-char">
@@ -150,7 +150,7 @@ export default function CasesIndex() {
                     <span className="w-6 shrink-0 font-geometric-mono text-[12px] tabular-nums text-sage">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="font-editorial-serif text-[17px] leading-[1.4] text-carbon">
+                    <span className="t-body-serif text-carbon">
                       {title}
                     </span>
                   </li>

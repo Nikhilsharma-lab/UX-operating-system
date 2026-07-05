@@ -44,12 +44,12 @@ export function SectionShell({
               </div>
             )}
             {title && (
-              <h2 className="font-heading-serif font-normal text-[clamp(1.7rem,3.4vw,2.25rem)] leading-[1.1] tracking-[0] text-ink">
+              <h2 className="t-hed-2 text-ink">
                 {title}
               </h2>
             )}
             {intro && (
-              <div className="mt-5 space-y-3 font-editorial-serif text-[16px] leading-[1.55] tracking-[0] text-olive-char">
+              <div className="mt-5 space-y-3 t-dek text-olive-char">
                 {intro}
               </div>
             )}

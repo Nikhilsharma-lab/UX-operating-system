@@ -53,7 +53,7 @@ export function OperatingManualPreview() {
               <span className="t-caption font-geometric-mono tabular-nums text-lichen">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <span className="font-editorial-serif text-[17px] tracking-[-0.01em] text-ink">
+              <span className="t-body-serif text-ink">
                 {topic.label}
               </span>
               <span

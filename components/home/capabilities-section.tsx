@@ -95,12 +95,12 @@ export function CapabilitiesSection() {
                 </span>
               </div>
               <h3
-                className={`font-headline-serif text-[23px] font-normal leading-[1.12] tracking-[0] ${tone.title}`}
+                className={`t-hed-card ${tone.title}`}
               >
                 {capability.title}
               </h3>
               <p
-                className={`font-editorial-serif text-[15px] leading-[1.45] ${tone.copy}`}
+                className={`t-body-serif ${tone.copy}`}
               >
                 {capability.copy}
               </p>

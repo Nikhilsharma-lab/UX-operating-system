@@ -35,10 +35,10 @@ export default function TransformationsIndex() {
                   Archive · V1
                 </span>
               </div>
-              <h1 className="font-editorial-serif font-light text-[clamp(2rem,4.4vw,3rem)] leading-[1.06] tracking-[-0.02em] text-ink">
+              <h1 className="t-hed-1 text-ink">
                 Transformation stories, not case studies.
               </h1>
-              <div className="mt-5 space-y-3 t-body text-olive-char">
+              <div className="mt-5 space-y-3 t-dek text-olive-char">
                 <p>A case study shows what was designed.</p>
                 <p>A transformation story shows what changed.</p>
                 <p className="text-lichen">
@@ -76,7 +76,7 @@ export default function TransformationsIndex() {
                       </span>
                     </div>
                     <div className="flex flex-1 flex-col gap-5 p-6">
-                      <h2 className="font-headline-serif text-[22px] font-normal leading-[1.16] tracking-[0] text-ink">
+                      <h2 className="t-hed-card text-ink">
                         {story.title}
                       </h2>
                       <p className="t-body-sm text-olive-char">{story.proves}</p>
