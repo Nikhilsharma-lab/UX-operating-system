@@ -3,8 +3,8 @@ import Image from "next/image";
 /*
  * Poster hero (user-approved real asset): the doorway illustration is the
  * full-bleed background; headline in poster yellow, dek in parchment. The
- * light shaft occupies the left of the frame, so the text composes into the
- * black field on the right at md+; mobile gets a scrim for legibility.
+ * image is flipped horizontally so the light shaft sits right and the text
+ * composes into the black field on the left at md+; mobile gets a scrim.
  * Replaces the painterly SVG opener slot home.hero.editorial-opener.
  */
 export function HeroSection() {
@@ -15,7 +15,7 @@ export function HeroSection() {
         alt=""
         fill
         priority
-        className="object-cover object-left-bottom"
+        className="-scale-x-100 object-cover object-left-bottom"
       />
       {/* mobile-only scrim; the md+ composition sits on the black field */}
       <div
@@ -24,7 +24,7 @@ export function HeroSection() {
       />
       <div className="relative z-10 flex min-h-[76vh] items-center py-24 md:py-32">
         <div className="page-shell w-full">
-          <div className="flex flex-col items-center text-center md:ml-auto md:w-[58%] md:items-start md:text-left">
+          <div className="flex flex-col items-center text-center md:mr-auto md:w-[58%] md:items-start md:text-left">
             <p className="text-[12px] font-medium uppercase leading-[17px] tracking-[0.1em] font-rubric text-bone/70">
               AI-native Product Executive
             </p>

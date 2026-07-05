@@ -105,10 +105,6 @@ export function ExecutiveSnapshot() {
             design systems, research, healthcare, payments, and
             entrepreneurship.
           </p>
-          <p className="text-lichen">
-            This is not a collection of projects. It is a record of systems
-            built, decisions made, and outcomes created.
-          </p>
         </>
       }
     >
