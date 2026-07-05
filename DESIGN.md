@@ -26,7 +26,7 @@ Active system summary (wired in `app/globals.css` + `app/layout.tsx`):
 - **Text:** **warm near-black `#231f20`** primary (NYer's real ink, not pure black), slate gray `#4a5568` secondary, `#6b7280` muted.
 - **Dividers / hairlines:** `#dadada` (NYer gray).
 - **Accent:** **NYer link blue `#0066ff`** (links, marks, focus, selection).
-- **Color-blocked feature cards (verified pastels):** yellow `#ffe17d`, pale-yellow `#ffefb9`, sky `#a5e8fd`, blue `#84c9ff`, green `#5cd687`, lavender `#ede8f8` — 16px radius, Irvin title + Caslon body + warm-ink text, subtle hover lift. The capabilities grid uses these as a rotating 6-up set (the New Yorker home-grid signature).
+- **Color-blocked feature cards — RETIRED (Decision 049):** the six newyorker.com pastel tints (yellow/pale-yellow/sky/blue/green/lavender) were flagged non-premium on this site's register and removed. Capability tiles use the ledger vocabulary instead: hairline paper cells, one carbon flagship cell, one bone closing cell, hover as the site-wide border tone-shift.
 - **Radii:** 6px (buttons/inputs), 16px (featured cards).
 - **Elevation:** subtle shadows are now allowed (Level 1 `0 2px 8px /.06`, Level 2 `0 4px 16px /.12`) — this reverses the old flat/no-shadow rule.
 - **Token names preserved** (`vellum`, `paper`, `ink`, `carbon`, `ash`, `highlighter-yellow`, etc.) with New Yorker **values**, so components reskinned without per-component edits.
@@ -122,7 +122,7 @@ The system uses three voices (upgraded from two — see Decision 024). Mono is n
 
 A recurring, restrained motif of **evidence ledger + operating-system grid** ties the page together:
 
-- Every major section carries a two-digit index ("01"–"09") with a short coordinate rule before its eyebrow.
+- Section grammar is the Neutraface rubric voice alone (Decision 053). The former two-digit section indices ("01"–"09") are retired; numbers appear only where the sequence is real (case files, the evolution timeline).
 - Proof is expressed as a ledger (strong serif number + quiet sans label + hairline divider), never as SaaS metric cards.
 - Cards carry small mono metadata bands (e.g. "CASE FILE 01 · TRANSFORMATION", "VENTURE 01", "WHAT IT PROVES").
 - Numbered markers, fine rules, and small annotated labels recur throughout.
@@ -742,7 +742,7 @@ Not allowed: bounce, parallax, cursor gimmicks, overanimated cards, scroll hijac
 
 Mobile is its own art-direction pass, not a compressed desktop.
 
-- Hero: serif headline scales via clamp (floor ≈ 2.1rem); supporting copy is lighter sans; the two CTAs stack vertically with Contact as a quiet text link below; the belief/system-index rail moves below the CTAs as a clean panel.
+- Hero (feature opener, Decision 054): near-black field; the tile-grid face illustration as a centered plate; headline in Irvin (`t-display-feature`, clamp floor 36px) and Caslon dek in white beneath, all centered; no eyebrow, no caption, no hero CTAs.
 - Ledger and grids fall to single column with hairline-divided rows.
 - Section indices and labels remain legible; cards keep breathing room; no horizontal overflow.
 

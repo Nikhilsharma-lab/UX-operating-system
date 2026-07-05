@@ -25,7 +25,7 @@ export type LedgerMetric = {
 export const executiveLedger: LedgerMetric[] = [
   {
     value: "0→20",
-    label: "Design organization built",
+    label: "Product design capability built and scaled",
     status: "public_approved",
     externalVerification: "pending",
     source: "EVIDENCE/CLAIMS_REGISTER.md",
@@ -34,7 +34,7 @@ export const executiveLedger: LedgerMetric[] = [
   },
   {
     value: "12M+",
-    label: "Monthly active users",
+    label: "Monthly active users across regulated financial products",
     status: "public_approved",
     externalVerification: "pending",
     source: "EVIDENCE/CLAIMS_REGISTER.md",
@@ -43,7 +43,7 @@ export const executiveLedger: LedgerMetric[] = [
   },
   {
     value: "1B+",
-    label: "Transactions served",
+    label: "Transactions since 2017",
     status: "public_approved",
     externalVerification: "pending",
     source: "EVIDENCE/CLAIMS_REGISTER.md",
@@ -52,7 +52,7 @@ export const executiveLedger: LedgerMetric[] = [
   },
   {
     value: "85%",
-    label: "QA time reduction",
+    label: "QA/UAT reduction through AI-assisted workflow",
     status: "public_approved",
     externalVerification: "pending",
     source: "EVIDENCE/CLAIMS_REGISTER.md",
@@ -64,7 +64,7 @@ export const executiveLedger: LedgerMetric[] = [
     // External verification pending; the full Digital Gold story adds
     // baseline/timeframe/metric definition/attribution before publication.
     value: "28×",
-    label: "Digital gold growth",
+    label: "Digital Gold purchase growth",
     status: "public_approved",
     externalVerification: "pending",
     source: "EVIDENCE/CLAIMS_REGISTER.md",

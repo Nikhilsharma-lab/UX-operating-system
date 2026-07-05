@@ -1,51 +1,43 @@
 import Image from "next/image";
 
 /*
- * Poster hero (user-approved real asset): the doorway illustration is the
- * full-bleed background; headline in poster yellow, dek in parchment. The
- * image is flipped horizontally so the light shaft sits right and the text
- * composes into the black field on the left at md+; mobile gets a scrim.
- * Replaces the painterly SVG opener slot home.hero.editorial-opener.
+ * Feature-opener hero (Decision 054): the New Yorker feature-story
+ * treatment replaces the white magazine lead. Near-black field, the
+ * tile-grid face illustration as a centered plate, headline in Irvin
+ * (t-display-feature) and Caslon dek in white beneath — all centered,
+ * no eyebrow, no caption. The dek stays the h1's next sibling for the
+ * check:type probe. Load sequence unchanged; reduced motion renders
+ * instantly.
  */
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-[#050505]">
-      <Image
-        src="/art/hero-doorway.png"
-        alt=""
-        fill
-        priority
-        className="-scale-x-100 object-cover object-left-bottom"
-      />
-      {/* mobile-only scrim; the md+ composition sits on the black field */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-black/55 md:bg-transparent"
-      />
-      <div className="relative z-10 flex min-h-[76vh] items-center py-24 md:py-32">
-        <div className="page-shell w-full">
-          <div className="flex flex-col items-center text-center md:mr-auto md:w-[58%] md:items-start md:text-left">
-            <p className="text-[12px] font-medium uppercase leading-[17px] tracking-[0.1em] font-rubric text-bone/70">
-              AI-native Product Executive
-            </p>
+    <section className="bg-[#050505]">
+      {/* The opener is sized to the viewport: container height is 100svh
+          minus the measured masthead (57px mobile / 93px at md), so plate,
+          headline, and dek always land above the fold. The plate flexes to
+          absorb whatever height the text doesn't need, capped at 470px. */}
+      <div className="page-shell flex h-[calc(100svh-57px)] max-h-[880px] min-h-[520px] flex-col items-center justify-center py-8 text-center md:h-[calc(100svh-93px)] md:py-10">
+        <figure className="hero-enter flex min-h-0 w-full flex-1 items-center justify-center">
+          <Image
+            src="/art/hero-face-grid.jpeg"
+            alt="Illustration: a face assembled from sliding puzzle tiles while hands adjust and measure the pieces."
+            width={2560}
+            height={2560}
+            priority
+            sizes="(min-width: 768px) 470px, 100vw"
+            className="h-full max-h-[470px] w-auto max-w-full object-contain"
+          />
+        </figure>
 
-            <h1 className="mt-6 t-display text-[#ffd23f]">
-              From ambiguity to shipped outcomes.
-            </h1>
+        <h1 className="hero-enter hero-enter-1 mt-7 max-w-[820px] t-display-feature text-balance text-paper">
+          From ambiguity to shipped outcomes.
+        </h1>
 
-            <p className="mt-8 max-w-[560px] t-dek text-bone">
-              I build AI-native product design organizations that turn unclear
-              problems into trusted systems, faster decisions, and measurable
-              product impact.
-            </p>
-
-            {/* editorial accent mark (1 of 2 on the page) */}
-            <span
-              aria-hidden="true"
-              className="mt-9 block h-[4px] w-12 bg-[#ffd23f]"
-            />
-          </div>
-        </div>
+        <p className="hero-enter hero-enter-2 mt-5 max-w-[600px] t-dek text-paper">
+          I build AI-native product design organizations that turn unclear
+          problems into trusted systems, faster decisions, and measurable
+          product impact.
+        </p>
       </div>
     </section>
   );

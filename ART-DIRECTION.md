@@ -37,11 +37,15 @@ time. Spec and implementation match 1:1 — 18 slots.
 
 ## Slot ID: home.hero.editorial-opener — REPLACED (real asset shipped)
 
-**Status:** this slot no longer renders a placeholder. The hero now uses the
-user-supplied illustration `public/art/hero-doorway.png` (1672×941) as a
-full-bleed poster background with poster-yellow headline and parchment dek
-(`components/home/hero-section.tsx`). The prompt below is retained for
-reference / future regeneration only.
+**Status:** this slot no longer renders a placeholder. The hero (Decision
+054) uses the user-supplied tile-grid face illustration
+`public/art/hero-face-grid.jpeg` (2560×2560) as a centered plate on a
+near-black field, feature-opener style: Irvin headline (`t-display-feature`)
+and Caslon dek in white beneath, all centered, no eyebrow, no caption
+(`components/home/hero-section.tsx`). The previous asset
+`public/art/hero-doorway.png` (1672×941, the white magazine-lead plate of
+Decision 053) remains in `public/art/` for reuse. The prompt below is
+retained for reference / future regeneration only.
 
 ## Original spec: home.hero.editorial-opener
 
@@ -63,28 +67,32 @@ Create an original abstract painterly editorial illustration on warm paper. The 
 
 ---
 
-## Slot ID: home.transformations.strip
+## Slot ID: home.transformations.lead-plate
 
-- **Route:** `/` (Transformations section)
+Replaces `home.transformations.strip` (Decision 053: the strip became the lead story's art plate).
+
+- **Route:** `/` (Transformations section, lead story)
 - **Component:** `components/home/featured-transformations.tsx`
-- **Aspect ratio:** strip, 1360×240 (export 2720×480)
+- **Aspect ratio:** plate, 1360×680 (export 2720×1360)
 - **Current placeholder:** `transformation-plate` SVG (strata + rising path)
-- **Final art type:** Spot Painting (strip format)
+- **Final art type:** Editorial Plate
 - **Palette:** cream, ink, olive; accent optional
-- **Composition:** a long horizontal band of layered strata with a thin rising path crossing them; small circular marks along the path
+- **Composition:** layered strata crossed by a thin rising path with small circular marks along it; the plate sits beside the lead story text, so the composition should read at half-page width
 - **Mood:** momentum without triumphalism
 
 **ChatGPT image prompt:**
-Create an original abstract painterly editorial illustration on warm paper in a long horizontal strip format. The composition should suggest gradual organizational change through three or four soft layered strata crossed by one thin rising hand-drawn path with small circular marks along it. Use restrained ink, gouache-like texture, imperfect brush edges, quiet negative space, and a literary magazine composition. Palette: cream, ink black, muted olive, ash, and at most one restrained blue accent. No text, no logos, no brand references, no real people, no product UI, no stock-photo realism, no corporate vector style.
+Create an original abstract painterly editorial illustration on warm paper in a landscape plate format (2:1). The composition should suggest gradual organizational change through three or four soft layered strata crossed by one thin rising hand-drawn path with small circular marks along it. Use restrained ink, gouache-like texture, imperfect brush edges, quiet negative space, and a literary magazine composition. Palette: cream, ink black, muted olive, ash, and at most one restrained blue accent. No text, no logos, no brand references, no real people, no product UI, no stock-photo realism, no corporate vector style.
 
-**Replacement instructions:** export 2720×480, save as `public/art/home-transformations-strip.png`, replace slot `home.transformations.strip`.
+**Replacement instructions:** export 2720×1360, save as `public/art/home-transformations-lead-plate.png`, replace slot `home.transformations.lead-plate`.
 
 ---
 
-## Slot ID: home.cases.strip
+## Slot ID: home.cases.strip — RETIRED (Decision 053)
+
+The homepage Cases section merged into the library band rail; it carries no art slot. Spec retained for history only.
 
 - **Route:** `/` (Cases section)
-- **Component:** `components/home/cases-preview.tsx`
+- **Component:** `components/home/cases-preview.tsx` (removed)
 - **Aspect ratio:** strip, 1360×240 (export 2720×480)
 - **Current placeholder:** `journey-painting` SVG (path, threshold, commitment dot)
 - **Final art type:** Spot Painting (strip format)
@@ -99,10 +107,12 @@ Create an original abstract painterly editorial illustration on warm paper in a 
 
 ---
 
-## Slot ID: home.manual.strip
+## Slot ID: home.manual.strip — RETIRED (Decision 053)
+
+The homepage Operating Manual section merged into the library band river; it carries no art slot. Spec retained for history only.
 
 - **Route:** `/` (Operating Manual section)
-- **Component:** `components/home/operating-manual-preview.tsx`
+- **Component:** `components/home/operating-manual-preview.tsx` (removed)
 - **Aspect ratio:** strip, 1360×240 (export 2720×480)
 - **Current placeholder:** `diagram-painting` SVG (nodes, flows, gate)
 - **Final art type:** Spot Painting (strip format)
@@ -114,6 +124,50 @@ Create an original abstract painterly editorial illustration on warm paper in a 
 Create an original abstract painterly editorial illustration on warm paper in a long horizontal strip format. The composition should suggest an operating system drawn by hand: faint vertical guide rules, five or six irregular ink nodes connected by slightly wobbly lines, and one dashed vertical gate line the flow must pass through. Use restrained ink, gouache-like texture, imperfect brush edges, quiet negative space, and a literary magazine composition. Palette: cream, ink black, muted olive, ash, and at most one restrained blue accent. No text, no logos, no brand references, no real people, no product UI, no stock-photo realism, no corporate vector style.
 
 **Replacement instructions:** export 2720×480, save as `public/art/home-manual-strip.png`, replace slot `home.manual.strip`.
+
+---
+
+## Slot ID: home.thinking.album — REAL ASSET (no placeholder)
+
+**Status:** the standalone Thinking section (Decision 055) uses the
+user-supplied sticker-album illustration `public/art/thinking-album.jpeg`
+(2132×1599) as its left plate on the bone tint band
+(`components/home/thinking-section.tsx`). No generated placeholder ever
+rendered here; replace only if Nikhil supplies a new asset.
+
+---
+
+## Slot ID: home.building.lane-plate
+
+Added by Decision 053 (ventures as illustrated plates). This plate is itself a designed-forthcoming object: the final replacement is a real public-safe LANE interface crop or brand mark, not generated art, per the caption shipped with it.
+
+- **Route:** `/` (Building section, LANE)
+- **Component:** `components/home/building-preview.tsx`
+- **Aspect ratio:** plate, 1360×680 (export 2720×1360)
+- **Current placeholder:** `diagram-painting` SVG (nodes, flows, gate)
+- **Final art type:** Real product imagery (public-safe LANE interface crop or brand mark) after review
+- **Palette:** n/a for final (real asset); placeholder uses cream, ink, olive
+- **Composition:** placeholder suggests an operating system drawn by hand: irregular nodes joined by wobbling connector lines, one dashed gate line
+- **Mood:** technical but human
+
+**Replacement instructions:** once a public-safe LANE asset clears review, export at 2720×1360 (or crop to 2:1), save as `public/art/home-building-lane-plate.png`, replace slot `home.building.lane-plate`, and update the caption in `building-preview.tsx`.
+
+---
+
+## Slot ID: home.building.svenklas-plate
+
+Added by Decision 053 (ventures as illustrated plates). This plate is itself a designed-forthcoming object: the final replacement is real Svenklas product photography, not generated art, per the caption shipped with it.
+
+- **Route:** `/` (Building section, Svenklas)
+- **Component:** `components/home/building-preview.tsx`
+- **Aspect ratio:** plate, 1360×680 (export 2720×1360)
+- **Current placeholder:** `spot` SVG (single quiet form)
+- **Final art type:** Real product photography after review ("Real assets only")
+- **Palette:** n/a for final (real asset); placeholder uses cream, ink, olive
+- **Composition:** placeholder is a single quiet painterly form with a thin crossing stroke
+- **Mood:** crafted, physical, unhurried
+
+**Replacement instructions:** once real product photography is selected, export at 2720×1360 (or crop to 2:1), save as `public/art/home-building-svenklas-plate.png`, replace slot `home.building.svenklas-plate`, and update the caption in `building-preview.tsx`.
 
 ---
 

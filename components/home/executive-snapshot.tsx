@@ -1,24 +1,28 @@
 import { SectionShell } from "@/components/section-shell";
-import { evidenceMode } from "@/lib/evidence";
-import { resolveLedger } from "@/lib/evidence-ledger";
 
 type SnapshotItem = {
   label: string;
   lines: string[];
 };
 
+/*
+ * Executive Snapshot (homepage IA cleanup, Decision 056): the identity grid,
+ * correctly named. The metric ledger moved out to the Selected Outcomes
+ * strip; this section answers who Nikhil is, the level and scale he operates
+ * at, the organizational systems he has built, and what he is building now.
+ */
 const items: SnapshotItem[] = [
   {
     label: "Leadership",
     lines: [
       "Head of Product Design at Airtel Payments Bank.",
-      "Built and scaled product design capability from 0→20 across consumer banking, merchant, and internal product ecosystems.",
+      "Built and scaled product design capability from 0→20 across consumer, merchant, and internal product ecosystems.",
     ],
   },
   {
     label: "Organization",
     lines: [
-      "Built design rituals, critique systems, research practices, design reviews, operating rhythms, hiring systems, and cross-functional product collaboration models.",
+      "Built the rituals, research practices, design reviews, hiring systems, and cross-functional operating rhythms behind a maturing product design organization.",
     ],
   },
   {
@@ -30,7 +34,7 @@ const items: SnapshotItem[] = [
   {
     label: "Outcomes",
     lines: [
-      "Contributed to measurable outcomes across growth, trust, onboarding, fraud prevention, AI-assisted implementation speed, and design-system maturity.",
+      "Contributed to measurable outcomes across growth, trust, onboarding, fraud prevention, design-system maturity, and AI-assisted implementation speed.",
     ],
   },
   {
@@ -42,74 +46,19 @@ const items: SnapshotItem[] = [
   },
 ];
 
-function ProofLedger() {
-  const mode = evidenceMode();
-  const { rows, hasNumbers } = resolveLedger(mode);
-  const hasPending = rows.some((r) => r.value === undefined);
-
-  return (
-    <div className="mb-14">
-      <p className="mb-4 t-caption font-geometric-mono uppercase tracking-[0.06em] text-lichen">
-        {hasNumbers ? "Selected outcomes from transformation work" : "Scope"}
-      </p>
-      <div className="grid border-t border-ash sm:grid-cols-2 sm:gap-x-12">
-        {rows.map((row) => (
-          <div
-            key={row.key}
-            className="flex items-baseline gap-5 border-b border-ash py-3.5"
-          >
-            {row.value ? (
-              <span className="w-20 shrink-0 font-editorial-serif text-[22px] leading-none tracking-[-0.01em] tabular-nums text-ink">
-                {row.value}
-              </span>
-            ) : (
-              <span
-                aria-hidden="true"
-                className="mt-2.5 h-px w-5 shrink-0 bg-olive-char"
-              />
-            )}
-            <span
-              className={
-                row.value
-                  ? "t-body-sm text-olive-char"
-                  : "text-[15px] font-medium tracking-[-0.01em] text-ink"
-              }
-            >
-              {row.label}
-            </span>
-          </div>
-        ))}
-      </div>
-      {mode === "internal" && hasPending && (
-        <p className="mt-4 t-caption font-geometric-mono text-sage">
-          Internal view · some figures pending Evidence Review · hidden in
-          public mode.
-        </p>
-      )}
-    </div>
-  );
-}
-
 export function ExecutiveSnapshot() {
   return (
     <SectionShell
       id="executive-snapshot"
-      index="01"
-      eyebrow="Executive Snapshot"
-      title="Design leadership at the intersection of product, AI, trust, and business outcomes."
+      bordered={false}
+      title="Executive Snapshot"
       intro={
-        <>
-          <p>
-            My work spans product design leadership, AI-native product
-            development, regulated fintech, customer trust, behavioral growth,
-            design systems, research, healthcare, payments, and
-            entrepreneurship.
-          </p>
-        </>
+        <p>
+          A quick view of the leadership scope, organizational systems, scale,
+          outcomes, and builder work behind the site.
+        </p>
       }
     >
-      <ProofLedger />
-
       <ul className="grid gap-px overflow-hidden rounded-lg border border-ash bg-ash sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item, index) => (
           <li

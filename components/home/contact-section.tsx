@@ -5,7 +5,6 @@ export function ContactSection() {
   return (
     <SectionShell
       id="contact"
-      index="10"
       eyebrow="Contact"
       title="For serious product, design, AI, and operating-model conversations."
       intro={

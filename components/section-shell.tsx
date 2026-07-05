@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Reveal } from "@/components/reveal";
 
 export function SectionEyebrow({ children }: { children: ReactNode }) {
   return (
@@ -8,9 +9,14 @@ export function SectionEyebrow({ children }: { children: ReactNode }) {
   );
 }
 
+/*
+ * Section furniture. The two-digit ledger indices were retired in the
+ * homepage recomposition (see DECISION_LOG.md): the rubric voice alone is
+ * the section grammar; numbers remain only where a real sequence exists
+ * (case files, the evolution timeline).
+ */
 export function SectionShell({
   id,
-  index,
   eyebrow,
   title,
   intro,
@@ -18,7 +24,6 @@ export function SectionShell({
   bordered = true,
 }: {
   id?: string;
-  index?: string;
   eyebrow?: string;
   title?: string;
   intro?: ReactNode;
@@ -32,28 +37,21 @@ export function SectionShell({
     >
       <div className="page-shell">
         {(eyebrow || title || intro) && (
-          <header className="mb-12 max-w-[700px]">
-            {eyebrow && (
-              <div className="mb-5 flex items-center gap-3">
-                {index && (
-                  <span className="font-geometric-mono text-[12px] font-medium tabular-nums text-ink">
-                    {index}
-                  </span>
-                )}
-                <SectionEyebrow>{eyebrow}</SectionEyebrow>
-              </div>
-            )}
-            {title && (
-              <h2 className="t-hed-2 text-ink">
-                {title}
-              </h2>
-            )}
-            {intro && (
-              <div className="mt-5 space-y-3 t-dek text-olive-char">
-                {intro}
-              </div>
-            )}
-          </header>
+          <Reveal>
+            <header className="mb-12 max-w-[700px]">
+              {eyebrow && (
+                <div className="mb-5">
+                  <SectionEyebrow>{eyebrow}</SectionEyebrow>
+                </div>
+              )}
+              {title && <h2 className="t-hed-2 text-ink">{title}</h2>}
+              {intro && (
+                <div className="mt-5 space-y-3 t-dek text-olive-char">
+                  {intro}
+                </div>
+              )}
+            </header>
+          </Reveal>
         )}
         {children}
       </div>

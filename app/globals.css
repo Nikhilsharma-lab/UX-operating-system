@@ -219,6 +219,19 @@
     font-weight: 400;
   }
 
+  .t-display-feature {
+    /* feature-opener display voice (Decision 054): the hero headline set in
+       Irvin on the dark field — the New Yorker feature-story title
+       treatment. Irvin's titling forms carry the caps look without
+       text-transform. Capped at 52px (below .t-display's 64) so the full
+       opener — plate, headline, dek — stays above the fold. */
+    font-family: var(--font-heading-serif);
+    font-size: clamp(2.125rem, 1.25rem + 2.4vw, 3.25rem);
+    line-height: 1.08;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+
   .page-shell {
     max-width: var(--spacing-page-max);
     margin-inline: auto;
@@ -251,5 +264,63 @@
 
   .elevation-2 {
     box-shadow: var(--shadow-2);
+  }
+
+  /*
+   * Motion — calm and structural only (DESIGN.md Motion rules).
+   * Two materials: a hero page-load sequence and a below-fold section
+   * entrance. Content is always visible by default; the Reveal component
+   * hides an element only after confirming it sits below the fold, so
+   * no-JS, headless, and reduced-motion readers always get finished pages.
+   */
+  @keyframes rise-in {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .hero-enter {
+    animation: rise-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .hero-enter-1 {
+    animation-delay: 90ms;
+  }
+
+  .hero-enter-2 {
+    animation-delay: 180ms;
+  }
+
+  .hero-enter-3 {
+    animation-delay: 280ms;
+  }
+
+  .reveal-pending {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  .reveal-in {
+    animation: rise-in 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-enter,
+    .hero-enter-1,
+    .hero-enter-2,
+    .hero-enter-3,
+    .reveal-in {
+      animation: none;
+    }
+
+    .reveal-pending {
+      opacity: 1;
+      transform: none;
+    }
   }
 }
