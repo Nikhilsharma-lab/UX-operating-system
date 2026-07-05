@@ -35,7 +35,15 @@ time. Spec and implementation match 1:1 — 18 slots.
 
 ---
 
-## Slot ID: home.hero.editorial-opener
+## Slot ID: home.hero.editorial-opener — REPLACED (real asset shipped)
+
+**Status:** this slot no longer renders a placeholder. The hero now uses the
+user-supplied illustration `public/art/hero-doorway.png` (1672×941) as a
+full-bleed poster background with poster-yellow headline and parchment dek
+(`components/home/hero-section.tsx`). The prompt below is retained for
+reference / future regeneration only.
+
+## Original spec: home.hero.editorial-opener
 
 - **Route:** `/`
 - **Component:** `app/page.tsx` (band between hero and Executive Snapshot)
