@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { EditorialArt } from "@/components/editorial/editorial-art";
 import { SectionShell } from "@/components/section-shell";
 
 const metaLabel =
@@ -68,6 +69,12 @@ export function FeaturedTransformations() {
         </>
       }
     >
+      <EditorialArt
+        slotId="home.transformations.strip"
+        variant="transformation-plate"
+        aspect="strip"
+        className="mb-8"
+      />
       <ul className="grid gap-6 lg:grid-cols-3">
         {stories.map((story) => (
           <li

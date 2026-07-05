@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { EditorialArt } from "@/components/editorial/editorial-art";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import {
@@ -591,6 +592,23 @@ export default async function ManualEntryPage({
             </Link>
 
             <EntryHeader entry={entry} />
+
+            {entry.guide ? (
+              <EditorialArt
+                slotId={`manual.${entry.slug}.opener`}
+                variant="diagram-painting"
+                aspect="wide"
+                caption="Diagram-painting: this operating system as a handmade schematic."
+                className="mt-10"
+              />
+            ) : (
+              <EditorialArt
+                slotId={`manual.${entry.slug}.placeholder-art`}
+                variant="spot"
+                aspect="strip"
+                className="mt-10"
+              />
+            )}
 
             {entry.guide ? (
               <GuideBody entry={entry} guide={entry.guide} />

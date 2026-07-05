@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { EditorialArt } from "@/components/editorial/editorial-art";
 import { ImageSlot } from "@/components/image-slot";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -194,6 +195,14 @@ export default async function StoryPage({
                 </p>
               )}
             </header>
+
+            <EditorialArt
+              slotId={`transformation.${story.slug}.opener`}
+              variant="transformation-plate"
+              aspect="plate"
+              caption="Opening plate: the operating system behind this transformation, in abstract."
+              className="mt-10"
+            />
 
             {drafted && (
               <ImageSlot

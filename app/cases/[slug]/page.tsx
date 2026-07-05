@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { EditorialArt } from "@/components/editorial/editorial-art";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { caseStudies, getCaseStudy } from "@/lib/cases";
@@ -138,6 +139,14 @@ export default async function CasePage({
               </p>
             </header>
 
+            <EditorialArt
+              slotId={`case.${cs.slug}.opener`}
+              variant="journey-painting"
+              aspect="wide"
+              caption="Opening plate: hesitation, threshold, and commitment as an abstract journey."
+              className="mt-10"
+            />
+
             <div className="mt-14 space-y-12">
               <CaseSection n={next()} title="Executive Summary">
                 <Prose paragraphs={cs.executiveSummary} />
@@ -153,6 +162,12 @@ export default async function CasePage({
 
               <CaseSection n={next()} title="Journey Diagnosis">
                 <Prose paragraphs={cs.journeyDiagnosis} />
+                <EditorialArt
+                  slotId={`case.${cs.slug}.journey-break`}
+                  variant="spot"
+                  aspect="strip"
+                  className="mt-6 max-w-[680px]"
+                />
               </CaseSection>
 
               <CaseSection n={next()} title="Strategic Bet">
@@ -215,6 +230,12 @@ export default async function CasePage({
 
               <CaseSection n={next()} title="Tradeoffs">
                 <Prose paragraphs={cs.tradeoffs} />
+                <EditorialArt
+                  slotId={`case.${cs.slug}.tradeoff-break`}
+                  variant="spot"
+                  aspect="strip"
+                  className="mt-6 max-w-[680px]"
+                />
                 <div className="mt-6 max-w-[680px] overflow-hidden rounded-lg border border-ash">
                   {cs.tradeoffMatrix.map(([a, b], i) => (
                     <div

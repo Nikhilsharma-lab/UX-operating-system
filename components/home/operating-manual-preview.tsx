@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { SectionShell } from "@/components/section-shell";
 import { CtaLink } from "@/components/cta-link";
+import { EditorialArt } from "@/components/editorial/editorial-art";
+import { SectionShell } from "@/components/section-shell";
 
 /** Only live manual entries are listed; new topics appear as entries ship. */
 const topics: { label: string; href: string }[] = [
@@ -31,6 +32,12 @@ export function OperatingManualPreview() {
         </>
       }
     >
+      <EditorialArt
+        slotId="home.manual.strip"
+        variant="diagram-painting"
+        aspect="strip"
+        className="mb-8"
+      />
       <div className="border-t border-ash">
         <div className="grid grid-cols-1 sm:grid-cols-2">
           {topics.map((topic, index) => (

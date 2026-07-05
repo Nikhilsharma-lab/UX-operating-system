@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EditorialArt } from "@/components/editorial/editorial-art";
 import { ImageSlot } from "@/components/image-slot";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -53,6 +54,13 @@ export default function CasesIndex() {
               </div>
             </header>
 
+            <EditorialArt
+              slotId="cases.index.opener"
+              variant="journey-painting"
+              aspect="wide"
+              caption="Case archive: user journeys as abstract paths, thresholds, and commitments."
+              className="mb-12"
+            />
             <ul className="grid gap-5 sm:grid-cols-2">
               {caseSlots.map((slot) => {
                 const inner = (

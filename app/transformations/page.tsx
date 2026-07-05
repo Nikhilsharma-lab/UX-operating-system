@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EditorialArt } from "@/components/editorial/editorial-art";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { transformations } from "@/lib/transformations";
@@ -48,6 +49,13 @@ export default function TransformationsIndex() {
               </div>
             </header>
 
+            <EditorialArt
+              slotId="transformations.index.opener"
+              variant="transformation-plate"
+              aspect="wide"
+              caption="Field reports: organizational change rendered as layered forms."
+              className="mb-12"
+            />
             <ul className="grid gap-6 lg:grid-cols-3">
               {/* Digital Gold lives in Cases now; its transformation shell
                   stays routable (linked from the case) but is not listed. */}

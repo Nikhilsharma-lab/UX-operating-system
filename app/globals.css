@@ -38,6 +38,15 @@
   /* Neutraface New Yorker — editorial rubrics / kickers / eyebrows */
   --font-rubric: var(--font-neutraface), var(--font-graphik), "Helvetica Neue", Helvetica, Arial, sans-serif;
 
+  /* Editorial publication aliases (Decision 051). These reference fonts
+     already wired locally via next/font in app/layout.tsx; safe fallbacks
+     only. No font files are added by this system. Nikhil can repoint these
+     to other locally installed faces by editing the first name in each. */
+  --font-display: var(--font-caslon), "Libre Caslon Text", Georgia, serif;
+  --font-text: var(--font-caslon), "Source Serif 4", Georgia, serif;
+  --font-ui: var(--font-graphik), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
   /* Border Radius */
   --radius-sm: 6px; /* buttons, small UI */
   --radius-lg: 16px; /* featured cards, large containers */

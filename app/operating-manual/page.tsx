@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EditorialArt } from "@/components/editorial/editorial-art";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { manualEntries } from "@/lib/operating-manual";
@@ -49,6 +50,13 @@ export default function OperatingManualIndex() {
               </div>
             </header>
 
+            <EditorialArt
+              slotId="manual.index.opener"
+              variant="diagram-painting"
+              aspect="wide"
+              caption="A field manual, in abstract: grids, nodes, flows, and governance."
+              className="mb-12"
+            />
             <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {manualEntries.map((entry) => (
                 <li key={entry.slug}>

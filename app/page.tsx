@@ -1,3 +1,4 @@
+import { EditorialArt } from "@/components/editorial/editorial-art";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { HeroSection } from "@/components/home/hero-section";
@@ -18,6 +19,14 @@ export default function HomePage() {
       <SiteHeader />
       <main id="main">
         <HeroSection />
+        <div className="page-shell pb-4">
+          <EditorialArt
+            slotId="home.hero.editorial-opener"
+            variant="hero-painting"
+            aspect="wide"
+            caption="Ambiguity becoming structure: an abstract systems field."
+          />
+        </div>
         <ExecutiveSnapshot />
         <BeliefSection />
         <CapabilitiesSection />

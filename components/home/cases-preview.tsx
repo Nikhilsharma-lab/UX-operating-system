@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { EditorialArt } from "@/components/editorial/editorial-art";
 import { SectionShell } from "@/components/section-shell";
 import { caseSlots } from "@/lib/cases";
 
@@ -26,6 +27,12 @@ export function CasesPreview() {
         </>
       }
     >
+      <EditorialArt
+        slotId="home.cases.strip"
+        variant="journey-painting"
+        aspect="strip"
+        className="mb-8"
+      />
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {caseSlots.map((slot) => {
           const inner = (
