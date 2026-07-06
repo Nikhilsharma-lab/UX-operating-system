@@ -19,7 +19,7 @@ Active system summary (wired in `app/globals.css` + `app/layout.tsx`):
 > **Color/face values below are verified from a live crawl of newyorker.com** (local `curl` + headless Chrome; WebFetch is blocked at Anthropic's IPs). The real face stack is TNYAdobeCaslonPro · NeutrafaceNewYorker · Graphik · IrvinText/IrvinHeadingPro. **Neutraface New Yorker (Book) is now self-hosted** and drives the rubric/kicker voice via `.font-rubric` (`--font-neutraface`); Graphik stays for nav/UI. **Irvin Text is now self-hosted** (`--font-irvintext`, `.font-headline-serif`) for card headlines, so the full real face stack is wired. (Licensing for the third-party font conversions is owner-handled.)
 
 - **Canvas:** white `#ffffff` page; warm paper tint `#f6f4ef` for tinted zones; deep charcoal `#2b2e35` footer/dark panels.
-- **Masthead (authentic):** white header, the wordmark set in **Irvin** (black), with a 1px **black hairline rule** beneath — the New Yorker signature. Nav in Graphik, uppercase, letter-spaced. (Reverted from the earlier solid-black bar.)
+- **Masthead (Decision 057):** the masthead matches the feature-opener hero — near-black `#050505` field, wordmark set in **Irvin** (white), nav in Graphik uppercase muted paper (65%, hover 100%), 1px paper/15 rule beneath. The bar and the hero read as one surface. (Supersedes the white "authentic" masthead of Decisions 032/033, by owner directive.)
 - **Reading texture:** long-form prose, deks/ledes, hero supporting copy, and section intros are set in **Caslon** (serif) — the New Yorker reads serif. Sans (Graphik/Inter) is reserved for rubrics, nav, metadata, labels, and short card copy.
 - **Drop cap:** story openers use a Caslon drop cap on the first letter (`.dropcap`).
 - **Type (six voices — real New Yorker faces, self-hosted via `next/font/local`):** **Adobe Caslon Pro** for display/hero + reading body (`font-editorial-serif`); **Irvin Heading Pro** for big display section titles + masthead (`font-heading-serif`); **Irvin Text** for article/card headlines (`font-headline-serif`); **Neutraface New Yorker Book** for rubrics/kickers/eyebrows (`font-rubric`); **Graphik** for navigation/UI labels (`--font-geometric-mono`); **Inter** for functional body (`font-sans`). The Irvin Heading/Text split mirrors the crawl: display headings use Heading Pro, smaller card headlines use Text.
@@ -280,6 +280,8 @@ is banned because the browser synthesizes a faux-thin):
 | `.t-body-serif` | Caslon | 18 / 27, measure ≤ 700px | long-form reading prose |
 | `.t-body` | Inter | 16 / 24 | functional sans prose |
 | `.t-body-sm` | Inter | **15 / 22** | lists, card copy, meta values — 15px is the content floor, never 13 |
+| `.t-mix-hed` | Caslon | 22 / 28, w400, ink | editorial-card heading (newyorker.com "Today's Mix", measured 1:1) |
+| `.t-mix-dek` | Caslon | 17 / 24, w400, #333 | editorial-card subheading (paired with `.t-mix-hed`) |
 | `.t-caption` | Graphik | 13 / 16, ls −0.01em | image captions, plate labels |
 | Eyebrow/kicker | Neutraface (`font-rubric`) | 11–12 / 16, caps, +0.08–0.16em | unchanged motif |
 | Ledger number | Caslon tabular | 22 / 1 | evidence ledger |
@@ -482,10 +484,10 @@ Dark panels may use:
 
 ## Layout
 
-Page max width:
+Page max width (Decision 059):
 
 ```css
-1200px
+1472px
 ```
 
 Layout principles:

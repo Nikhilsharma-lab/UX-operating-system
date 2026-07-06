@@ -24,13 +24,15 @@ export type ArtVariant =
   | "journey-painting"
   | "spot";
 
-type Aspect = "wide" | "plate" | "strip" | "square";
+type Aspect = "wide" | "plate" | "strip" | "square" | "portrait" | "tall";
 
 const ASPECTS: Record<Aspect, { w: number; h: number }> = {
   wide: { w: 1360, h: 560 },
   plate: { w: 1360, h: 680 },
   strip: { w: 1360, h: 240 },
   square: { w: 680, h: 680 },
+  portrait: { w: 680, h: 906 },
+  tall: { w: 680, h: 1020 },
 };
 
 /** Deterministic tiny PRNG seeded from the slotId string. */

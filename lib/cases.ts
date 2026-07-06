@@ -1,74 +1,158 @@
 /**
- * Cases section data.
+ * Cases data.
  *
- * Case 01 (Digital Gold Growth) is a structured draft built from supplied
- * project notes: no invented baselines, final numbers, timeframe definitions,
- * or artifacts. Placeholder slots stay generic until Nikhil provides material.
- * The 28× metric signal is public-approved (Decision 046, homepage headline);
- * do not add metric variants beyond it.
+ * Two independent structures live here:
+ *
+ * 1. `caseProjects` — the Cases IA prototype (Decision 061): big product
+ *    systems, each holding nested placeholder case cards that link to
+ *    placeholder case landing pages. Every name, category, and line of copy
+ *    is a generic placeholder. No real project names, metrics, product data,
+ *    or confidential context appears here.
+ *
+ * 2. `digitalGoldCase` / `caseStudies` (below) — the one real drafted case,
+ *    kept only for its existing `/cases/digital-gold-growth` route. It is
+ *    deliberately NOT featured anywhere in the Cases IA prototype.
  */
 
-export type CaseSlot = {
+export type CaseCard = {
+  slug: string;
   number: string;
-  status: string;
   title: string;
-  description: string;
-  /** Present once the case has a real page. */
-  slug?: string;
-  metricSignal?: string;
+  category: string;
+  status: string;
+  summary: string;
+  ctaLabel: string;
 };
 
-export const caseSlots: CaseSlot[] = [
+export type CaseProject = {
+  slug: string;
+  number: string;
+  title: string;
+  status: string;
+  overview: string;
+  scope: string[];
+  cases: CaseCard[];
+};
+
+const PLACEHOLDER_STATUS = "Content pending";
+const PLACEHOLDER_CTA = "Open case shell";
+
+const PROJECT_OVERVIEW =
+  "A placeholder product system containing multiple UX and product cases. Real project context, product details, metrics, and artifacts will be added after Nikhil provides the final case material.";
+
+const CARD_SUMMARY =
+  "A placeholder case card for a future UX and product case. This will later document the business problem, user journey, design decisions, shipped experience, and measurable outcome.";
+
+/** Generic, public-safe scope items shared by every placeholder project. */
+const PROJECT_SCOPE = [
+  "Product journey",
+  "User behavior",
+  "Experience strategy",
+  "Shipped experience",
+  "Metric movement",
+  "Design artifacts",
+];
+
+/** Build generic placeholder case cards, one per supplied category. */
+function placeholderCards(categories: string[]): CaseCard[] {
+  return categories.map((category, i) => {
+    const number = String(i + 1).padStart(2, "0");
+    return {
+      slug: `case-${number}`,
+      number,
+      title: `Case ${number}`,
+      category,
+      status: PLACEHOLDER_STATUS,
+      summary: CARD_SUMMARY,
+      ctaLabel: PLACEHOLDER_CTA,
+    };
+  });
+}
+
+export const caseProjects: CaseProject[] = [
   {
+    slug: "project-01",
     number: "01",
-    status: "Draft in progress",
-    title: "Digital Gold Growth",
-    description:
-      "Reframing Digital Gold from a high-commitment purchase into a low-commitment savings habit.",
-    slug: "digital-gold-growth",
-    metricSignal: "28× increase in Digital Gold purchases",
+    title: "Big Project 01",
+    status: PLACEHOLDER_STATUS,
+    overview: PROJECT_OVERVIEW,
+    scope: PROJECT_SCOPE,
+    cases: placeholderCards([
+      "Product journey",
+      "Funnel repair",
+      "Trust system",
+    ]),
   },
   {
+    slug: "project-02",
     number: "02",
-    status: "Content pending",
-    title: "Case 02",
-    description:
-      "Reserved for a full case report: business problem, journey diagnosis, strategic bet, shipped experience, and metric movement.",
+    title: "Big Project 02",
+    status: PLACEHOLDER_STATUS,
+    overview: PROJECT_OVERVIEW,
+    scope: PROJECT_SCOPE,
+    cases: placeholderCards(["Platform experience", "Research system"]),
   },
   {
+    slug: "project-03",
     number: "03",
-    status: "Content pending",
-    title: "Case 03",
-    description:
-      "Reserved for a full case report, to be written after evidence intake, with public-safe product context confirmed.",
+    title: "Big Project 03",
+    status: PLACEHOLDER_STATUS,
+    overview: PROJECT_OVERVIEW,
+    scope: PROJECT_SCOPE,
+    cases: placeholderCards([
+      "Design infrastructure",
+      "Product journey",
+      "Funnel repair",
+    ]),
   },
   {
+    slug: "project-04",
     number: "04",
-    status: "Content pending",
-    title: "Case 04",
-    description:
-      "Reserved for a full case report, added only once the underlying artifacts and outcome evidence are in place.",
+    title: "Big Project 04",
+    status: PLACEHOLDER_STATUS,
+    overview: PROJECT_OVERVIEW,
+    scope: PROJECT_SCOPE,
+    cases: placeholderCards(["Trust system", "Platform experience"]),
   },
 ];
 
+export function getCaseProject(slug: string): CaseProject | undefined {
+  return caseProjects.find((p) => p.slug === slug);
+}
+
+export function getCaseCard(
+  projectSlug: string,
+  caseSlug: string,
+): { project: CaseProject; card: CaseCard } | undefined {
+  const project = getCaseProject(projectSlug);
+  const card = project?.cases.find((c) => c.slug === caseSlug);
+  if (!project || !card) return undefined;
+  return { project, card };
+}
+
+/** All project/case slug pairs, for generateStaticParams. */
+export function allCaseParams(): { slug: string; caseSlug: string }[] {
+  return caseProjects.flatMap((p) =>
+    p.cases.map((c) => ({ slug: p.slug, caseSlug: c.slug })),
+  );
+}
+
 /**
- * The senior case structure every future case will follow.
- * Structure only; full case content is written after evidence intake.
+ * The senior case-report structure every placeholder case shell exposes.
+ * Structure only; every section renders "Content pending" until real
+ * material is provided.
  */
-export const CASE_STRUCTURE: string[] = [
+export const CASE_SHELL: string[] = [
   "Executive Summary",
   "Business Problem",
   "User Problem",
   "Journey Diagnosis",
-  "Strategic Bet",
-  "Key Decisions",
+  "Strategic Bet & Key Decisions",
   "Experience Before",
-  "Experience After",
-  "What Shipped",
+  "Experience After / What Shipped",
   "Tradeoffs",
   "Metric Movement",
   "My Role",
-  "Artifacts",
   "What Changed Beyond the Screen",
   "Lessons",
   "What I’d Do Differently",

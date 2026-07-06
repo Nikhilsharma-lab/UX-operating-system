@@ -13,23 +13,22 @@ const navLinks = [
 ];
 
 const linkClass =
-  "font-geometric-mono text-[12px] font-medium uppercase tracking-[0.06em] text-olive-char transition-colors hover:text-ink";
+  "font-geometric-mono text-[12px] font-medium uppercase tracking-[0.06em] text-paper/65 transition-colors hover:text-paper";
 
 /*
- * The authentic New Yorker masthead (DESIGN.md, Decision 032): white field,
- * the wordmark set in Irvin in black, a 1px black hairline rule beneath,
- * nav in Graphik uppercase. This ships the documented revert from the
- * earlier solid-dark bar.
+ * Masthead matched to the feature-opener hero (Decision 057): the same
+ * near-black field as the hero plate section, wordmark in Irvin white,
+ * nav in muted paper — the bar and the hero read as one surface.
  */
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-ink bg-paper">
+    <header className="sticky top-0 z-40 bg-[#050505]">
       <div className="page-shell relative flex items-center justify-center py-4 md:flex-col md:gap-3">
         <Link
           href="/"
-          className="font-heading-serif text-[24px] leading-none tracking-[0.01em] text-ink"
+          className="font-heading-serif text-[24px] leading-none tracking-[0.01em] text-paper"
         >
           Nikhil Sharma
         </Link>
@@ -53,7 +52,7 @@ export function SiteHeader() {
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((v) => !v)}
-          className="absolute right-6 top-1/2 -translate-y-1/2 rounded-sm px-2 py-1 font-geometric-mono text-[12px] font-medium uppercase tracking-[0.08em] text-olive-char transition-colors hover:text-ink md:hidden"
+          className="absolute right-6 top-1/2 -translate-y-1/2 rounded-sm px-2 py-1 font-geometric-mono text-[12px] font-medium uppercase tracking-[0.08em] text-paper/80 transition-colors hover:text-paper md:hidden"
         >
           {open ? "Close" : "Menu"}
         </button>
@@ -64,11 +63,11 @@ export function SiteHeader() {
         <nav
           id="mobile-nav"
           aria-label="Primary"
-          className="border-t border-ash bg-paper md:hidden"
+          className="border-t border-paper/15 bg-[#050505] md:hidden"
         >
           <ul className="page-shell flex flex-col py-2">
             {navLinks.map((link) => (
-              <li key={link.href} className="border-b border-ash last:border-b-0">
+              <li key={link.href} className="border-b border-paper/10 last:border-b-0">
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}

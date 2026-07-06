@@ -51,8 +51,8 @@
   --radius-sm: 6px; /* buttons, small UI */
   --radius-lg: 16px; /* featured cards, large containers */
 
-  /* Layout */
-  --spacing-page-max: 1200px;
+  /* Layout (Decision 059: widened from 1200px by owner directive) */
+  --spacing-page-max: 1472px;
 
   /* Elevation (New Yorker allows subtle shadows) */
   --shadow-1: 0px 2px 8px rgba(0, 0, 0, 0.06);
@@ -159,6 +159,28 @@
     line-height: 27px;
     letter-spacing: 0;
     font-weight: 400;
+  }
+
+  .t-mix-hed {
+    /* Card heading — measured 1:1 from newyorker.com "Today's Mix"
+       (SmartItemHed): Caslon 22/28, weight 400, near-black. Hierarchy is by
+       size + color, never weight. Color set via text-ink utility. */
+    font-family: var(--font-editorial-serif);
+    font-size: 22px;
+    line-height: 28px;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+
+  .t-mix-dek {
+    /* Card subheading — measured 1:1 from newyorker.com "Today's Mix"
+       (SmartItemDek): Caslon 17/24, weight 400, #333. */
+    font-family: var(--font-editorial-serif);
+    font-size: 17px;
+    line-height: 24px;
+    letter-spacing: 0;
+    font-weight: 400;
+    color: #333333;
   }
 
   .t-dek {

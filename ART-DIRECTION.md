@@ -137,6 +137,24 @@ rendered here; replace only if Nikhil supplies a new asset.
 
 ---
 
+## Slot IDs: home.snapshot.* — REAL ASSETS (Decision 058 amendment)
+
+The Executive Snapshot gallery (`components/home/executive-snapshot.tsx`)
+now renders five owner-supplied photographs (no placeholders). Files in
+`public/art/`, cropped by fixed aspect boxes so the row's flush-bottom
+stagger holds:
+
+- `home-snapshot-leadership.jpg` — pastel apartment blocks assembling in the sky (2:3 box, bottom crop)
+- `home-snapshot-organization.jpg` — butterfly-winged figure on pink (square box, top crop)
+- `home-snapshot-scale.jpg` — crane stacking building floors (3:4 box, center)
+- `home-snapshot-building.jpg` — concrete blocks lifting off a skyline (3:4 box, center)
+- `home-snapshot-outcomes.jpg` — swimmer on a red float (UNUSED since Decision 060: the Outcomes card was removed; file kept for reuse)
+
+To swap any image later: keep the aspect box, replace the file, keep a
+meaningful alt.
+
+---
+
 ## Slot ID: home.building.lane-plate
 
 Added by Decision 053 (ventures as illustrated plates). This plate is itself a designed-forthcoming object: the final replacement is a real public-safe LANE interface crop or brand mark, not generated art, per the caption shipped with it.

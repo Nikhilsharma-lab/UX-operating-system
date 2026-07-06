@@ -22,6 +22,7 @@ export function SectionShell({
   intro,
   children,
   bordered = true,
+  align = "left",
 }: {
   id?: string;
   eyebrow?: string;
@@ -29,6 +30,7 @@ export function SectionShell({
   intro?: ReactNode;
   children?: ReactNode;
   bordered?: boolean;
+  align?: "left" | "center";
 }) {
   return (
     <section
@@ -38,7 +40,11 @@ export function SectionShell({
       <div className="page-shell">
         {(eyebrow || title || intro) && (
           <Reveal>
-            <header className="mb-12 max-w-[700px]">
+            <header
+              className={`mb-12 max-w-[700px] ${
+                align === "center" ? "mx-auto text-center" : ""
+              }`}
+            >
               {eyebrow && (
                 <div className="mb-5">
                   <SectionEyebrow>{eyebrow}</SectionEyebrow>
