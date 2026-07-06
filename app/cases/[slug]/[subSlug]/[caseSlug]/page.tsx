@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { CASE_SHELL, allCaseParams, getCaseCard } from "@/lib/cases";
+import { CASE_SHELL, allCaseParams, getCaseStudyRef } from "@/lib/cases";
 
 export function generateStaticParams() {
   return allCaseParams();
@@ -12,13 +12,13 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string; caseSlug: string }>;
+  params: Promise<{ slug: string; subSlug: string; caseSlug: string }>;
 }): Promise<Metadata> {
-  const { slug, caseSlug } = await params;
-  const ref = getCaseCard(slug, caseSlug);
+  const { slug, subSlug, caseSlug } = await params;
+  const ref = getCaseStudyRef(slug, subSlug, caseSlug);
   if (!ref) return { title: "Cases · Nikhil Sharma" };
   return {
-    title: `${ref.project.title} · ${ref.card.title} · Cases · Nikhil Sharma`,
+    title: `${ref.project.title} · ${ref.sub.title} · ${ref.study.title} · Cases · Nikhil Sharma`,
     description:
       "Placeholder case landing page. Final case content is pending real material.",
   };
@@ -30,25 +30,26 @@ const relatedLink =
   "font-geometric-mono text-[13px] tracking-[-0.02em] text-lichen transition-colors hover:text-ink";
 
 /*
- * Placeholder case landing page (Cases IA prototype, Decision 061). Renders
- * the senior case-report shell with every section marked "Content pending".
+ * Placeholder case landing page (nested Cases IA prototype, Decision 062).
+ * Renders the senior case-report shell with every section "Content pending".
  * No invented prose, no real product examples, no metrics.
  */
 export default async function PlaceholderCasePage({
   params,
 }: {
-  params: Promise<{ slug: string; caseSlug: string }>;
+  params: Promise<{ slug: string; subSlug: string; caseSlug: string }>;
 }) {
-  const { slug, caseSlug } = await params;
-  const ref = getCaseCard(slug, caseSlug);
+  const { slug, subSlug, caseSlug } = await params;
+  const ref = getCaseStudyRef(slug, subSlug, caseSlug);
   if (!ref) notFound();
-  const { project, card } = ref;
+  const { project, sub, study } = ref;
 
   const headerMeta: [string, string][] = [
-    ["Product system", project.title],
-    ["Case", card.title],
-    ["Category", card.category],
-    ["Status", card.status],
+    ["Big project", project.title],
+    ["Subproject", sub.title],
+    ["Case study", study.title],
+    ["Category", study.category],
+    ["Status", study.status],
   ];
 
   return (
@@ -65,17 +66,17 @@ export default async function PlaceholderCasePage({
             </Link>
 
             <header className="mt-8 border-t border-ink pt-6">
-              <div className="mb-5 flex items-center gap-3">
+              <div className="mb-5 flex flex-wrap items-center gap-x-3 gap-y-1">
                 <span className="font-geometric-mono text-[12px] font-medium tabular-nums text-ink">
-                  {project.number}·{card.number}
+                  {project.number}·{sub.number}·{study.number}
                 </span>
                 <span className={`${metaLabel} text-lichen`}>
-                  {project.title} · {card.category}
+                  {project.title} · {sub.title} · {study.category}
                 </span>
               </div>
 
               <h1 className="t-hed-1 text-balance text-ink">
-                {project.title}, {card.title}
+                {study.title}
               </h1>
 
               <dl className="mt-8 grid gap-px overflow-hidden rounded-lg border border-ash bg-ash sm:grid-cols-2">
@@ -92,18 +93,16 @@ export default async function PlaceholderCasePage({
                   Placeholder case landing page
                 </span>
                 The final case will be written after Nikhil provides the real
-                business context, user problem, journey diagnosis, design
-                decisions, shipped experience, artifacts, and measured outcome.
+                business context, user problem, journey diagnosis, strategic
+                design decisions, shipped experience, artifacts, and measured
+                outcome.
               </p>
             </header>
 
-            {/* Case-report shell — every section pending */}
+            {/* Case-study shell — every section pending */}
             <ol className="mt-14 space-y-10">
               {CASE_SHELL.map((title, i) => (
-                <li
-                  key={title}
-                  className="border-t border-ash pt-6"
-                >
+                <li key={title} className="border-t border-ash pt-6">
                   <div className="flex items-baseline gap-4">
                     <span className="w-6 shrink-0 font-geometric-mono text-[12px] tabular-nums text-sage">
                       {String(i + 1).padStart(2, "0")}
@@ -117,10 +116,7 @@ export default async function PlaceholderCasePage({
               ))}
             </ol>
 
-            <nav
-              aria-label="Related"
-              className="mt-14 border-t border-ash pt-6"
-            >
+            <nav aria-label="Related" className="mt-14 border-t border-ash pt-6">
               <ul className="flex flex-wrap gap-x-6 gap-y-2">
                 <li>
                   <Link href="/cases" className={relatedLink}>

@@ -3,18 +3,18 @@
  *
  * Two independent structures live here:
  *
- * 1. `caseProjects` — the Cases IA prototype (Decision 061): big product
- *    systems, each holding nested placeholder case cards that link to
- *    placeholder case landing pages. Every name, category, and line of copy
- *    is a generic placeholder. No real project names, metrics, product data,
- *    or confidential context appears here.
+ * 1. `caseProjects` — the nested Cases IA prototype (Decision 062):
+ *    Big Project → Subproject → Case Study. Every name, category, and line
+ *    of copy is a generic placeholder. No real project, subproject, or case
+ *    names, no metrics, product data, or confidential context.
  *
- * 2. `digitalGoldCase` / `caseStudies` (below) — the one real drafted case,
- *    kept only for its existing `/cases/digital-gold-growth` route. It is
- *    deliberately NOT featured anywhere in the Cases IA prototype.
+ * 2. `digitalGoldCase` / `caseStudies` (below, typed `FullCaseStudy`) — the
+ *    one real drafted case, kept only for its existing
+ *    `/cases/digital-gold-growth` route. It is deliberately NOT featured
+ *    anywhere in the Cases IA prototype.
  */
 
-export type CaseCard = {
+export type CaseStudy = {
   slug: string;
   number: string;
   title: string;
@@ -24,24 +24,36 @@ export type CaseCard = {
   ctaLabel: string;
 };
 
-export type CaseProject = {
+export type CaseSubproject = {
+  slug: string;
+  number: string;
+  title: string;
+  status: string;
+  description: string;
+  cases: CaseStudy[];
+};
+
+export type CaseBigProject = {
   slug: string;
   number: string;
   title: string;
   status: string;
   overview: string;
   scope: string[];
-  cases: CaseCard[];
+  subprojects: CaseSubproject[];
 };
 
 const PLACEHOLDER_STATUS = "Content pending";
 const PLACEHOLDER_CTA = "Open case shell";
 
 const PROJECT_OVERVIEW =
-  "A placeholder product system containing multiple UX and product cases. Real project context, product details, metrics, and artifacts will be added after Nikhil provides the final case material.";
+  "A placeholder large product system containing multiple subprojects and UX and product cases. Real program context, product details, metrics, artifacts, and outcomes will be added after Nikhil provides the final case material.";
 
-const CARD_SUMMARY =
-  "A placeholder case card for a future UX and product case. This will later document the business problem, user journey, design decisions, shipped experience, and measurable outcome.";
+const SUBPROJECT_DESCRIPTION =
+  "A placeholder product area inside this larger program. The final description will explain the specific journey family, user segment, product surface, or problem space.";
+
+const CASE_SUMMARY =
+  "A placeholder case study for a future UX and product case. This will later document the business problem, user journey, strategic design decisions, shipped experience, and measurable outcome.";
 
 /** Generic, public-safe scope items shared by every placeholder project. */
 const PROJECT_SCOPE = [
@@ -53,23 +65,36 @@ const PROJECT_SCOPE = [
   "Design artifacts",
 ];
 
-/** Build generic placeholder case cards, one per supplied category. */
-function placeholderCards(categories: string[]): CaseCard[] {
+/** Build generic placeholder case studies, one per supplied category. */
+function placeholderCases(categories: string[]): CaseStudy[] {
   return categories.map((category, i) => {
     const number = String(i + 1).padStart(2, "0");
     return {
       slug: `case-${number}`,
       number,
-      title: `Case ${number}`,
+      title: `Case Study ${number}`,
       category,
       status: PLACEHOLDER_STATUS,
-      summary: CARD_SUMMARY,
+      summary: CASE_SUMMARY,
       ctaLabel: PLACEHOLDER_CTA,
     };
   });
 }
 
-export const caseProjects: CaseProject[] = [
+/** Build a placeholder subproject holding the supplied case categories. */
+function subproject(n: number, categories: string[]): CaseSubproject {
+  const number = String(n).padStart(2, "0");
+  return {
+    slug: `subproject-${number}`,
+    number,
+    title: `Subproject ${number}`,
+    status: PLACEHOLDER_STATUS,
+    description: SUBPROJECT_DESCRIPTION,
+    cases: placeholderCases(categories),
+  };
+}
+
+export const caseProjects: CaseBigProject[] = [
   {
     slug: "project-01",
     number: "01",
@@ -77,11 +102,10 @@ export const caseProjects: CaseProject[] = [
     status: PLACEHOLDER_STATUS,
     overview: PROJECT_OVERVIEW,
     scope: PROJECT_SCOPE,
-    cases: placeholderCards([
-      "Product journey",
-      "Funnel repair",
-      "Trust system",
-    ]),
+    subprojects: [
+      subproject(1, ["Product journey", "Funnel repair", "Trust system"]),
+      subproject(2, ["Platform experience", "Research system"]),
+    ],
   },
   {
     slug: "project-02",
@@ -90,7 +114,10 @@ export const caseProjects: CaseProject[] = [
     status: PLACEHOLDER_STATUS,
     overview: PROJECT_OVERVIEW,
     scope: PROJECT_SCOPE,
-    cases: placeholderCards(["Platform experience", "Research system"]),
+    subprojects: [
+      subproject(1, ["Design infrastructure", "Product journey"]),
+      subproject(2, ["Trust system"]),
+    ],
   },
   {
     slug: "project-03",
@@ -99,11 +126,7 @@ export const caseProjects: CaseProject[] = [
     status: PLACEHOLDER_STATUS,
     overview: PROJECT_OVERVIEW,
     scope: PROJECT_SCOPE,
-    cases: placeholderCards([
-      "Design infrastructure",
-      "Product journey",
-      "Funnel repair",
-    ]),
+    subprojects: [subproject(1, ["Funnel repair", "Platform experience"])],
   },
   {
     slug: "project-04",
@@ -112,28 +135,43 @@ export const caseProjects: CaseProject[] = [
     status: PLACEHOLDER_STATUS,
     overview: PROJECT_OVERVIEW,
     scope: PROJECT_SCOPE,
-    cases: placeholderCards(["Trust system", "Platform experience"]),
+    subprojects: [subproject(1, ["Research system"])],
   },
 ];
 
-export function getCaseProject(slug: string): CaseProject | undefined {
+export function getCaseBigProject(slug: string): CaseBigProject | undefined {
   return caseProjects.find((p) => p.slug === slug);
 }
 
-export function getCaseCard(
+export function getCaseStudyRef(
   projectSlug: string,
+  subSlug: string,
   caseSlug: string,
-): { project: CaseProject; card: CaseCard } | undefined {
-  const project = getCaseProject(projectSlug);
-  const card = project?.cases.find((c) => c.slug === caseSlug);
-  if (!project || !card) return undefined;
-  return { project, card };
+):
+  | { project: CaseBigProject; sub: CaseSubproject; study: CaseStudy }
+  | undefined {
+  const project = getCaseBigProject(projectSlug);
+  const sub = project?.subprojects.find((s) => s.slug === subSlug);
+  const study = sub?.cases.find((c) => c.slug === caseSlug);
+  if (!project || !sub || !study) return undefined;
+  return { project, sub, study };
 }
 
-/** All project/case slug pairs, for generateStaticParams. */
-export function allCaseParams(): { slug: string; caseSlug: string }[] {
+/** Total case studies across a big project's subprojects. */
+export function caseCount(project: CaseBigProject): number {
+  return project.subprojects.reduce((n, s) => n + s.cases.length, 0);
+}
+
+/** All project/subproject/case slug triples, for generateStaticParams. */
+export function allCaseParams(): {
+  slug: string;
+  subSlug: string;
+  caseSlug: string;
+}[] {
   return caseProjects.flatMap((p) =>
-    p.cases.map((c) => ({ slug: p.slug, caseSlug: c.slug })),
+    p.subprojects.flatMap((s) =>
+      s.cases.map((c) => ({ slug: p.slug, subSlug: s.slug, caseSlug: c.slug })),
+    ),
   );
 }
 
@@ -167,7 +205,7 @@ export type CaseDecision = {
   result: string;
 };
 
-export type CaseStudy = {
+export type FullCaseStudy = {
   number: string;
   slug: string;
   title: string;
@@ -199,7 +237,7 @@ export type CaseStudy = {
   differently: string[];
 };
 
-export const digitalGoldCase: CaseStudy = {
+export const digitalGoldCase: FullCaseStudy = {
   number: "01",
   slug: "digital-gold-growth",
   title: "Digital Gold Growth",
@@ -320,8 +358,8 @@ export const digitalGoldCase: CaseStudy = {
   ],
 };
 
-export const caseStudies: CaseStudy[] = [digitalGoldCase];
+export const caseStudies: FullCaseStudy[] = [digitalGoldCase];
 
-export function getCaseStudy(slug: string): CaseStudy | undefined {
+export function getCaseStudy(slug: string): FullCaseStudy | undefined {
   return caseStudies.find((c) => c.slug === slug);
 }

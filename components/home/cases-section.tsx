@@ -1,32 +1,31 @@
 import Link from "next/link";
 import { SectionShell } from "@/components/section-shell";
-import { caseProjects } from "@/lib/cases";
+import { caseCount, caseProjects } from "@/lib/cases";
 
 const readLink =
   "inline-flex items-center gap-2 font-geometric-mono text-[13px] font-medium tracking-[-0.01em] text-ink transition-colors hover:text-lichen";
 const metaLabel =
   "font-geometric-mono text-[11px] font-medium uppercase tracking-[0.07em]";
 
-const countWords = ["no", "one", "two", "three", "four", "five", "six"] as const;
-const casesPlanned = (n: number) =>
-  `${countWords[n] ?? n} ${n === 1 ? "case" : "cases"} planned`;
+const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? "" : "s"}`;
 
 /*
- * Homepage Cases preview (Cases IA prototype, Decision 061): a compact,
- * high-level view of the case library — the big product systems only, never
- * the nested cases. Every card links to /cases; no placeholder detail pages
- * are linked from the homepage, and no real names or metrics appear.
+ * Homepage Cases preview (nested Cases IA prototype, Decision 062): a
+ * compact, high-level view — the big product systems only, with their
+ * subproject and case counts. Never the nested subprojects or cases
+ * themselves. Every card links to /cases; no placeholder case detail page is
+ * linked from the homepage, and no real names or metrics appear.
  */
 export function CasesSection() {
   return (
     <SectionShell
       id="cases"
-      title="Product systems and UX cases in preparation."
+      title="Product systems and UX cases being prepared."
       intro={
         <p>
-          A library of larger product systems and the individual UX and product
-          cases inside them. Real names, evidence, and outcomes are added once
-          the case material is finalized.
+          A future archive of product systems, subprojects, and UX cases
+          showing how strategy, journey diagnosis, design decisions, and
+          shipped experience moved measurable outcomes.
         </p>
       }
     >
@@ -47,7 +46,8 @@ export function CasesSection() {
               </div>
               <h3 className="mt-4 t-hed-card text-ink">{project.title}</h3>
               <p className="mt-2 t-body-sm text-olive-char">
-                {casesPlanned(project.cases.length)}
+                {plural(project.subprojects.length, "subproject")} ·{" "}
+                {plural(caseCount(project), "case")} planned
               </p>
             </Link>
           </li>
