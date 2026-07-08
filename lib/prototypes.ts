@@ -18,7 +18,7 @@ export type Prototype = {
 
 // TODO(owner): replace these two per case with the real values.
 const FIGMA = "https://www.figma.com/"; // paste the protected Figma prototype link
-const PASSWORD = "changeme"; // set a password (ideally unique per case)
+const PASSWORD = "nikhil"; // temporary shared password; Figma links to be added later
 
 export const prototypes: Record<string, Prototype> = {
   "fraud-alarm": {
