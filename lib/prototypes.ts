@@ -4,7 +4,7 @@
  * case below. Hero images go in public/case-ui/<slug>.jpg (any path works);
  * until one is added, the card shows a "Hero image" placeholder.
  *
- * NOTE: the password is a client-side gate only — also enable Figma's own link
+ * NOTE: the password is a client-side gate only - also enable Figma's own link
  * password on the prototype for real protection.
  */
 export type Prototype = {

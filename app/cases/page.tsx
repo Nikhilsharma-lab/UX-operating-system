@@ -7,7 +7,7 @@ import { caseList, caseHref } from "@/lib/case-list";
 export const metadata: Metadata = {
   title: "Cases · Nikhil Sharma",
   description:
-    "Selected product and UX cases — how strategy, journey diagnosis, and design decisions moved measurable outcomes.",
+    "Selected product and UX cases: how strategy, journey diagnosis, and design decisions moved measurable outcomes.",
 };
 
 export default function CasesIndex() {

@@ -1,5 +1,5 @@
 /**
- * Fraud Alarm — real nested case study content (Decision 063, condensed in
+ * Fraud Alarm - real nested case study content (Decision 063, condensed in
  * Decision 064 to a skimmable executive brief).
  *
  * Case path: Safe Second Account → Safety → Fraud Alarm.

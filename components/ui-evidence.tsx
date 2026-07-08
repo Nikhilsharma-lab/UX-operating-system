@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from "react";
  * a password prompt; the correct password opens the protected Figma journey in a
  * new tab.
  *
- * SECURITY NOTE: this is a client-side gate — the password and link ship in the
+ * SECURITY NOTE: this is a client-side gate - the password and link ship in the
  * page bundle, so it only deters casual access. For real protection, also turn
  * on Figma's own link password on the prototype.
  */
@@ -69,7 +69,7 @@ export function UiEvidence({
         <button
           type="button"
           onClick={() => setOpen(true)}
-          aria-label={`${cta} — password protected`}
+          aria-label={`${cta} (password protected)`}
           className="group relative block w-full"
         >
           <div className="relative aspect-[16/10] w-full overflow-hidden bg-bone">

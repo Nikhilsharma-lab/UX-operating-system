@@ -1,6 +1,6 @@
 /*
  * Flat case registry (Decision 072 IA flattening). Cards for the /cases index
- * and the homepage. Every case is served at /cases/<slug> — no nesting. The
+ * and the homepage. Every case is served at /cases/<slug> - no nesting. The
  * `program` field keeps the old grouping (e.g. "Safe Second Account") as a tag
  * only, never in the URL.
  */
@@ -23,7 +23,7 @@ export const caseList: CaseCard[] = [
     category: "Financial services · Behavioral growth",
     status: "Shipped",
     summary:
-      "Reframed investment as a low-commitment savings habit (Digital Gold SIPs) — a 28× increase in Digital Gold purchases.",
+      "Reframed investment as a low-commitment savings habit (Digital Gold SIPs): a 28× increase in Digital Gold purchases.",
     program: null,
   },
   {
@@ -66,7 +66,7 @@ export const caseList: CaseCard[] = [
   {
     slug: "airtel-payments-bank-app",
     mono: "AP",
-    title: "Airtel Payments Bank — App",
+    title: "Airtel Payments Bank: App",
     category: "Consumer payments",
     status: null,
     summary: "Consumer payments and banking app experience at national scale.",
@@ -75,7 +75,7 @@ export const caseList: CaseCard[] = [
   {
     slug: "airtel-payments-bank-for-business",
     mono: "AB",
-    title: "Airtel Payments Bank — Business",
+    title: "Airtel Payments Bank: Business",
     category: "Business banking",
     status: null,
     summary: "Merchant and business banking surface for the payments bank.",

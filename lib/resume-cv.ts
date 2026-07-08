@@ -1,9 +1,9 @@
 /**
  * Résumé / CV content (Decision 075). 100% sourced from the owner's CV PDF
- * (nikhil-sharma-cv.pdf) — wording is the CV's; only typography is normalized
+ * (nikhil-sharma-cv.pdf) - wording is the CV's; only typography is normalized
  * to the site convention (sentence-case section labels, hyphens instead of
  * en-dashes in date ranges). Rendered by app/resume in the dark kamran design
- * (the PDF's visual design is NOT copied — only its content).
+ * (the PDF's visual design is NOT copied - only its content).
  */
 
 export const cv = {

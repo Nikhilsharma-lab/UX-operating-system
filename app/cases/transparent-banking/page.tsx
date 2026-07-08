@@ -17,7 +17,7 @@ import { prototypes } from "@/lib/prototypes";
  * route; takes precedence over the dynamic placeholder route for this exact
  * path. All copy comes from lib/transparent-banking-case.ts. Presentation
  * only: rendered in the site's dark kamran language via PageShell + the shared
- * article helpers. Screenshots are compact placeholder tiles only — no images
+ * article helpers. Screenshots are compact placeholder tiles only - no images
  * are imported.
  */
 

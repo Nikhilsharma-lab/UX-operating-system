@@ -11,7 +11,7 @@ export function CommandButton({ className = "" }: { className?: string }) {
     <button
       type="button"
       aria-label="Open command menu (⌘K)"
-      title="Command menu — ⌘K"
+      title="Command menu (⌘K)"
       onClick={() => window.dispatchEvent(new Event("open-command-menu"))}
       className={`inline-grid h-8 w-8 place-items-center rounded-md text-lichen transition-colors hover:bg-bone hover:text-ink ${className}`}
     >

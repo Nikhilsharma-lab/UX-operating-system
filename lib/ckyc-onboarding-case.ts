@@ -1,5 +1,5 @@
 /**
- * CKYC Onboarding — real nested case study content (Decision 067).
+ * CKYC Onboarding - real nested case study content (Decision 067).
  *
  * Case path: Safe Second Account → Digital Onboarding → CKYC Onboarding.
  * Rendered by app/cases/ckyc-onboarding.

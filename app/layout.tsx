@@ -4,7 +4,7 @@ import "./globals.css";
 import { CommandMenu } from "@/components/command-menu";
 
 /*
- * Fonts (self-hosted, OFL) — the kamran.fyi type system:
+ * Fonts (self-hosted, OFL) - the kamran.fyi type system:
  * Geist (sans, everything), Geist Mono (small numeric bits), Newsreader
  * (serif-italic accent). Files in app/fonts/. Retired New Yorker faces remain
  * archived in the same folder but are no longer wired.

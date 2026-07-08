@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
 /*
- * Command palette (keeg.in pattern), Pages only — the site is dark-only, so
+ * Command palette (keeg.in pattern), Pages only - the site is dark-only, so
  * there is no theme control. Opened by the ⌘ button or ⌘K; mounted once in the
  * root layout and triggered via a window event.
  */

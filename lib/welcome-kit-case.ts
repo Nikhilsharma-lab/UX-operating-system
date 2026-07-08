@@ -1,5 +1,5 @@
 /**
- * Welcome Kit — real nested case study content (Decision 068).
+ * Welcome Kit - real nested case study content (Decision 068).
  *
  * Case path: Safe Second Account → Activation → Welcome Kit.
  * Rendered by app/cases/welcome-kit.

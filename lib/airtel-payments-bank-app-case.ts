@@ -1,5 +1,5 @@
 /**
- * Airtel Payments Bank App — real standalone Big Project case (Decision 069).
+ * Airtel Payments Bank App - real standalone Big Project case (Decision 069).
  *
  * Case path: Cases → Big Project → Airtel Payments Bank App.
  * Rendered by app/cases/airtel-payments-bank-app.
@@ -8,7 +8,7 @@
  * ThanksApp. This is the one case where the brand is named explicitly: the
  * owner made "Airtel Payments Bank App" the case title, route, and thesis
  * (ThanksApp = acquisition engine; the bank app = engagement engine). It must
- * NOT be framed as a ThanksApp replacement — both surfaces coexist.
+ * NOT be framed as a ThanksApp replacement - both surfaces coexist.
  *
  * Fixed, public-safe copy: no invented dates, dashboards, screenshots, or
  * metrics; no internal financial opportunity/cost numbers; the 1% rollout is

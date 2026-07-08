@@ -3,12 +3,12 @@
  *
  * Two independent structures live here:
  *
- * 1. `caseProjects` — the nested Cases IA prototype (Decision 062):
+ * 1. `caseProjects` - the nested Cases IA prototype (Decision 062):
  *    Big Project → Subproject → Case Study. Every name, category, and line
  *    of copy is a generic placeholder. No real project, subproject, or case
  *    names, no metrics, product data, or confidential context.
  *
- * 2. `digitalGoldCase` / `caseStudies` (below, typed `FullCaseStudy`) — the
+ * 2. `digitalGoldCase` / `caseStudies` (below, typed `FullCaseStudy`) - the
  *    one real drafted case, kept only for its existing
  *    `/cases/digital-gold-growth` route. It is deliberately NOT featured
  *    anywhere in the Cases IA prototype.

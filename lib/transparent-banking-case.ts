@@ -1,5 +1,5 @@
 /**
- * Transparent Banking — real nested case study content (Decision 066).
+ * Transparent Banking - real nested case study content (Decision 066).
  *
  * Case path: Safe Second Account → Trust → Transparent Banking.
  * Rendered by app/cases/transparent-banking/page.tsx.

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { CommandButton } from "@/components/command-button";
 
 /*
- * Homepage — kamran.fyi single-column system, identity block after jpdanks.com,
+ * Homepage - kamran.fyi single-column system, identity block after jpdanks.com,
  * keeg.in-style ⌘ command menu (top-right). All content is Nikhil's own.
  */
 
@@ -92,7 +92,7 @@ const ventures: { name: string; emoji: string; tag: string; copy: string; href?:
     name: "LANE",
     emoji: "🛣️",
     tag: "AI product operating system",
-    copy: "An AI-native product operating system for product and design teams — built on the belief that product work should start with clearer problems, better decisions, and stronger validation before execution.",
+    copy: "An AI-native product operating system for product and design teams, built on the belief that product work should start with clearer problems, better decisions, and stronger validation before execution.",
     href: "/cases/lane",
   },
   {
@@ -116,8 +116,8 @@ const evolution: [string, string][] = [
 const featured = [
   { shape: "circle", title: "CKYC Onboarding", href: "/cases/ckyc-onboarding", desc: "Turned account opening into a 24/7 digital scale engine with CKYC-based verification.", stats: [["10x+", "daily digital onboardings"], ["3-4 min", "account-opening TAT"]] },
   { shape: "triangle", title: "Fraud Alarm", href: "/cases/fraud-alarm", desc: "Fraud reporting turned from a helpline dependency into an in-app emergency-control workflow.", stats: [["62%", "fraud-related reduction"]] },
-  { shape: "square", title: "Airtel Payments Bank — App", href: "/cases/airtel-payments-bank-app", desc: "Consumer payments and banking app experience at national scale.", stats: [["12M+", "monthly active users"]] },
-  { shape: "diamond", title: "Airtel Payments Bank — Business", href: "/cases/airtel-payments-bank-for-business", desc: "Merchant and business banking surface for the payments bank.", stats: [["Business", "banking"]] },
+  { shape: "square", title: "Airtel Payments Bank: App", href: "/cases/airtel-payments-bank-app", desc: "Consumer payments and banking app experience at national scale.", stats: [["12M+", "monthly active users"]] },
+  { shape: "diamond", title: "Airtel Payments Bank: Business", href: "/cases/airtel-payments-bank-for-business", desc: "Merchant and business banking surface for the payments bank.", stats: [["Business", "banking"]] },
 ];
 
 const secondary = [
@@ -182,7 +182,7 @@ function Label({ children }: { children: React.ReactNode }) {
 export default function HomePage() {
   return (
     <main id="main" className="mx-auto max-w-[560px] px-6 pb-28 pt-24">
-      {/* Identity — jpdanks layout: mark + ⌘ row, then name, role, divider */}
+      {/* Identity - jpdanks layout: mark + ⌘ row, then name, role, divider */}
       <header className="hero-enter">
         <div className="flex items-center justify-between">
           <Image
@@ -202,7 +202,7 @@ export default function HomePage() {
         <div className="mt-9 border-t border-ash" />
       </header>
 
-      {/* Serif-italic tagline (Newsreader) — the editorial accent */}
+      {/* Serif-italic tagline (Newsreader) - the editorial accent */}
       <p className="hero-enter hero-enter-1 mt-9 font-editorial-serif text-[21px] italic leading-[1.35] text-ink">
         From ambiguity to shipped outcomes.
       </p>
@@ -218,7 +218,7 @@ export default function HomePage() {
         <Label>Now</Label>
         <p className="mt-4 text-[15px] leading-[1.6] text-carbon">
           Product Design Head at <span className="font-medium text-ink">Airtel Payments Bank</span>,
-          leading product design and building AI-native operating systems — turning ambiguous
+          leading product design and building AI-native operating systems, turning ambiguous
           problems into shipped outcomes across fintech and consumer products.
         </p>
         <div className="mt-3 flex flex-wrap gap-2">
@@ -282,7 +282,7 @@ export default function HomePage() {
         </p>
         <p className="mt-3 max-w-[62ch] text-[15px] leading-[1.7] text-carbon">
           Most portfolios show the visible layer: screens, flows, launches, and metrics. But products
-          are shaped much earlier — by how teams frame problems, how research changes decisions, how
+          are shaped much earlier: by how teams frame problems, how research changes decisions, how
           product and engineering collaborate, how quality is reviewed, and how leaders create the
           conditions for repeatable execution.
         </p>

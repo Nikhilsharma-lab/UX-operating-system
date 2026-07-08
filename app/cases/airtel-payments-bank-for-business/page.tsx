@@ -14,7 +14,7 @@ import { UiEvidence } from "@/components/ui-evidence";
 import { prototypes } from "@/lib/prototypes";
 
 /*
- * Airtel Payments Bank for Business — shipped business-banking case, rebuilt in
+ * Airtel Payments Bank for Business - shipped business-banking case, rebuilt in
  * the site's dark kamran language (PageShell + shared article helpers).
  * Presentation only: all copy comes from
  * lib/airtel-payments-bank-for-business-case.ts. Artifacts are placeholder
@@ -83,7 +83,7 @@ export default function AirtelPaymentsBankForBusinessCasePage() {
         meta={c.meta}
       />
 
-      {/* At a glance — metric / context strip */}
+      {/* At a glance - metric / context strip */}
       <Section label="At a glance">
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
           {c.outcome.map((s) => (

@@ -13,7 +13,7 @@ import { cv } from "@/lib/resume-cv";
  * Layout intent: the Executive snapshot is the evidence anchor (largest
  * non-heading type on the page); Experience is a hairline-separated record;
  * Signature work is a ruled ledger (title | outcome), not cards; ventures are
- * the only cards, so they read as distinct. Calm, uniform section cadence —
+ * the only cards, so they read as distinct. Calm, uniform section cadence -
  * white space as a leadership signal.
  */
 
@@ -45,7 +45,7 @@ export default function ResumePage() {
         ))}
       </Section>
 
-      {/* Executive snapshot — the evidence anchor */}
+      {/* Executive snapshot - the evidence anchor */}
       <Section label="Executive snapshot">
         <div className="space-y-7">
           {cv.snapshot.map((g) => (
@@ -68,7 +68,7 @@ export default function ResumePage() {
         </div>
       </Section>
 
-      {/* Experience — hairline-separated record */}
+      {/* Experience - hairline-separated record */}
       <Section label="Experience">
         <div>
           {cv.experience.map((job, ji) => (
@@ -95,7 +95,7 @@ export default function ResumePage() {
         </div>
       </Section>
 
-      {/* Signature work — ruled ledger: title | outcome */}
+      {/* Signature work - ruled ledger: title | outcome */}
       <Section label="Signature work">
         <div className="border-t border-ash">
           {cv.signatureWork.map((w) => (
@@ -114,7 +114,7 @@ export default function ResumePage() {
         </div>
       </Section>
 
-      {/* Entrepreneurial ventures — the only cards, so they read as distinct */}
+      {/* Entrepreneurial ventures - the only cards, so they read as distinct */}
       <Section label="Entrepreneurial ventures">
         <div className="grid gap-4 sm:grid-cols-2">
           {cv.ventures.map((v) => (
@@ -156,7 +156,7 @@ export default function ResumePage() {
         </div>
       </Section>
 
-      {/* Credentials — education + awards paired, then a light coda */}
+      {/* Credentials - education + awards paired, then a light coda */}
       <Section label="Education & awards">
         <div className="grid gap-x-8 gap-y-7 sm:grid-cols-2">
           <div>
