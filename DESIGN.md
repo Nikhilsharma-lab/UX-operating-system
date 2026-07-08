@@ -1,126 +1,140 @@
-# DESIGN.md — measured visual system
+# DESIGN.md — dark kamran visual system
 
-> **Provenance.** Every visual value in this file was measured live from
-> newyorker.com this session (headless Chrome, computed styles, 1440px and
-> 390px) and is recorded in `design-audit/nyer-observed.json` +
-> `nyer-observed.md`. Those files are the design authority; this document is
-> their human-readable contract. **This supersedes all prior visual-design
-> markdown** (the v1–v3 "Warm Editorial Zine" / "New Yorker Editorial"
-> systems and the earlier token/type specs), which described values that were
-> not empirically verified. When a value here disagrees with any older doc,
-> this file — and the JSON it derives from — wins.
+> **Authority.** The source of truth for every visual value is
+> [`app/globals.css`](app/globals.css) (the `@theme` token layer) plus the
+> shared component primitives — [`components/page-shell.tsx`](components/page-shell.tsx)
+> and [`components/article.tsx`](components/article.tsx). This document is the
+> human-readable contract derived from them; when it disagrees with the code,
+> the code wins. Keep the two in sync.
 >
-> Claude Code must read this file before any UI, layout, component,
-> typography, motion, or visual change. Values are mirrored as machine-
-> readable CSS in `app/globals.css`; keep the two in sync. If you change a
-> visual value, it must trace to a measurement in `nyer-observed.json` (re-run
-> the capture in `design-audit/` to add one) — never to memory or assumption.
+> The system is a dark, single-column, typographic layout in the spirit of
+> kamran.fyi — calm, composed, editorial. It **supersedes** the earlier
+> measured "New Yorker Editorial" system (Decision 065) and the legacy
+> "Warm Editorial Zine" kit; both are retired. There is no external
+> pixel-parity target anymore — the design is self-authored.
 
 ---
 
-## Color (measured)
+## Register & voice
 
-| Token | Value | Measured role |
+Portfolio / executive knowledge system: **design IS the product**. Three words:
+composed, evidentiary, editorial. White space is a leadership signal — calm
+pacing over density. Authority comes from type, spacing, and hierarchy, never
+from decoration. Timeless over trendy.
+
+## Theme
+
+**Dark only.** `<html data-theme="dark">` is set in `app/layout.tsx`; the light
+theme was removed by owner decision. Do not reintroduce a light palette or a
+theme toggle without a decision.
+
+## Color (dark, OKLCH)
+
+Tokens live in `@theme` in `app/globals.css`. Utilities are `bg-*` / `text-*` /
+`border-*` on the token name (e.g. `text-ink`, `border-ash`).
+
+| Token | OKLCH | Role |
 |---|---|---|
-| `--color-vellum` / `--color-paper` | `#ffffff` | page + surface (NYer canvas renders white) |
-| `--color-ink` | `#000000` | body / river / heading ink |
-| `--color-ash` | `#e5e5e5` | 1px hairline rules (dominant) |
-| `--color-on-dark` | `#f5f5f5` | nav + dek text on the black band |
-| `--color-on-dark-muted` | `#e5e5e5` | byline on dark |
-| `--color-footer-muted` | `#a2a2a2` | footer links |
-| `--color-rule-dark` | `#333333` | masthead bottom rule (article pages) |
-| `--color-accent-blue` | `#0879bf` | Subscribe button + universal outline-button hover fill |
-| `--color-olive-char` / `--color-lichen` | `#333333` | secondary reading grey / labels (NYer card-dek) |
-| `--color-sage` | `#6b6b6b` | lightest small-label grey (neutral, AA-safe) |
-| `--color-moss` | `#b3b3b3` | muted text on dark surfaces |
+| `--color-vellum` | `0.145 0.012 44` | page background |
+| `--color-paper` | `0.2 0.018 46` | card / pill surface |
+| `--color-bone` | `0.238 0.02 48` | lifted panel / hover fill |
+| `--color-ink` | `0.955 0.016 72` | bright text: names, titles, links, values |
+| `--color-carbon` | `0.87 0.02 68` | body / intro text |
+| `--color-lichen` | `0.685 0.032 60` | muted: roles, descriptions, dates |
+| `--color-sage` | `0.55 0.03 58` | faint: small labels, meta |
+| `--color-ash` | `0.275 0.022 48` | 1px hairline borders (dominant rule) |
+| `--color-rule-dark` | `0.32 0.02 48` | stronger border / card hover edge |
+| `--color-accent-blue` | `0.83 0.13 82` | **the accent is amber (~#FCD34D)** — the token name is legacy |
 
-**Greys are strictly neutral (R=G=B).** NYer's grey family is neutral
-(`#333` / `#a2a2a2` / `#e5e5e5`); do not reintroduce blue-slate or warm-tinted
-greys. Pure black `#000` for body and headings; `#333` for secondary reading
-text; `#a2a2a2` for the lightest footer greys.
+**Amber is used sparingly** and always to mean something: bullet ticks, a key
+outcome/result, `::selection`, the focus ring, small brand marks. It never
+fills large areas (no drenched surfaces, no gradient text). Greys carry the
+page; amber is the single highlight.
 
-`--color-bone #f6f4ef` (warm tint zones) and `--color-carbon #2b2e35` are
-**UNMEASURED legacy** tokens with no NYer counterpart; treat as deliberate
-portfolio divergences, not measured values.
+Surfaces are **flat** — `--shadow-1` / `--shadow-2` are `none`. Depth comes from
+the 1px `ash` hairline and the `paper` surface tint, not shadows.
 
-## Type roles (measured; desktop / mobile)
+## Type
 
-Faces are self-hosted via `next/font/local` in `app/layout.tsx`:
-IrvinHeadingPro (`--font-heading-serif`), IrvinText (`--font-headline-serif`),
-Adobe Caslon Pro (`--font-editorial-serif`), Graphik (`--font-geometric-mono`),
-Neutraface (`--font-rubric`). **Font-licensing note:** these are the actual
-proprietary New Yorker faces; owner-approved to keep for maximum parity (the
-reason measured metrics match to the pixel). Legal responsibility is the
-owner's; swapping to licensed/free equivalents remains an open option.
+Self-hosted via `next/font/local` in `app/layout.tsx` (all OFL):
 
-| Role class | Face | Size / leading | Weight | Measured source |
-|---|---|---|---|---|
-| `.t-display` / `.t-display-feature` | Irvin Heading | 36/40 · 28/32 | 400 | home lead hed |
-| `.t-hed-1` | Irvin Heading | 42/46.7 · 30/32 | 400 | article H1 |
-| `.t-hed-2` | Irvin Heading | 28/32 | 400 | section title ("Today's Mix") |
-| `.t-hed-3` | Caslon | 32/36 | 400 | in-article H2 |
-| `.t-hed-card` / `.t-mix-hed` | Caslon | 22/28 | 400 | river / card hed |
-| `.t-dek` | Caslon | 21/28 · 17/24 | 400 | dek / standfirst |
-| `.t-body-serif` | Caslon | 21/31.5 | 400 | article body (measure **624px**) |
-| `.t-mix-dek` | Caslon | 17/24, `#333` | 400 | card dek |
-| `.t-rubric` | Irvin Text | 12/16, no transform | 400 | rubric / small hed |
-| `.t-nav` | Graphik | 12/15.24, ls −0.15px | 500 | masthead nav |
-| `.t-meta` | Graphik | 12/14, ls −0.15px | 500 | timestamp / meta |
-| `.t-footer-link` | Graphik | 14/23.94, ls −0.175px, `#a2a2a2` | 500 | footer link |
+- **Geist** (`--font-geist`) — the sans; carries everything (headings, body, UI).
+- **Geist Mono** (`--font-geist-mono`) — small numeric / mono bits only.
+- **Newsreader italic** (`--font-newsreader`) — the serif-italic accent
+  (`.font-editorial-serif`), used for the occasional pull-quote / tagline.
 
-**No uppercase transform** on rubrics/nav/section labels — the Irvin/Graphik
-faces carry the look; NYer sets these with `text-transform: none`. All serif
-weights are 400 (measured; the faces ship no lighter cut that NYer uses).
-Portfolio-only sans roles `.t-body` and `.t-body-sm` (15px floor) have no NYer
-counterpart and are deliberate.
+No display serif, no second sans. Contrast comes from **weight and size within
+Geist**, plus the rare Newsreader italic.
 
-## Layout (measured)
+### Roles
 
-- Content container `--spacing-page-max: 1312px`, centered; side margins 64px
-  at 1440 (`.page-shell` padding 24px + centering), 24px at mobile.
-- Article reading measure: `.measure-article` = 624px (measured body column).
-- River grid observed as 3 columns × 304px with 32px gutters; separation is
-  whitespace + `#e5e5e5` hairlines, not bordered/rounded cards.
-- Image ratios in use: 4:3 (dominant), 3:2, 16:9, 1:1.
+- **Section label** — `.k-label`: 12px / 500 / `0.16em` tracking / uppercase /
+  `lichen`. The one repeated small-caps label; it is the site's section grammar.
+- **Detail-page primitives** (`components/article.tsx`), used inside
+  `<PageShell>` by `/cases/*`, `/transformations/*`, `/operating-manual/*`,
+  `/resume`:
+  - `ArticleHead` — eyebrow (`.k-label`) + `h1` (26 / 30px, 600, tight) + dek
+    (16px `carbon`) + optional meta row (`sage` label / `ink` value, over a
+    hairline).
+  - `Section` — `.k-label` + content, `mt-12` cadence.
+  - `P` — 15px / 1.7 `carbon`, measure capped ~64ch.
+  - `BulletList` — amber 4px dot + 15px `carbon`.
+  - `Note` — italic `lichen`, `accent-blue/50` left border (the one sanctioned
+    left-border; everywhere else use full borders).
+  - `RelatedLinks` — hairline-divided rows, title + `Arrow`.
+- **Legacy `.t-*` scale** (`.t-hed-1` … `.t-body-serif`, in `globals.css`)
+  remains for any surface not yet on the primitives; prefer the primitives and
+  explicit Tailwind sizes for new work.
 
-## Rules, links, buttons (measured)
+Body line length caps ~64–70ch (`.measure-article` = 624px). Light text on the
+dark bg reads lighter, so leading runs generous (1.6–1.7 for body).
 
-- Hairline: `1px solid #e5e5e5`. Masthead bottom rule on article pages:
-  `1px #333`.
-- Body/prose links (`main p a`): black, **always underlined** (also on
-  `:link`); hover stays black + underlined.
-- Buttons: `#0879bf` fill, white text, Graphik 12/500 ls −0.12px, padding
-  `4px 8px`, radius `1px`. Outline buttons fill `#0879bf` on hover.
+## Layout
 
-## Masthead & footer
+- **Reading column** — `PageShell` centers a **640px** column with `px-6` and a
+  slim "back to home" affordance; detail pages render inside it. The homepage
+  (`app/page.tsx`) uses a **560px** column. Index pages use the `.page-shell`
+  container (`--spacing-page-max` 1312px).
+- **Cards** — `rounded-xl border border-ash bg-paper p-4/5`, hover
+  `border-rule-dark`. Used only when content is genuinely distinct (project
+  cards, ventures). Never nested; prefer hairline-separated rows or spacing.
+- **Chips** — `rounded-full border border-ash bg-paper px-2.5 py-1 text-[12.5px]
+  text-lichen` for tag/skill lists.
+- **Dividers** — 1px `ash` hairlines (`border-t` / `divide-y`) do most of the
+  structural work.
+- Radius: `--radius-sm` 8px, `--radius-lg` 12px.
 
-- Masthead: black `#000` band. NYer's home masthead is a single ~64px row
-  (logo centered, nav right); the portfolio keeps its own **stacked** ~93px
-  bar (wordmark over centered nav) — a deliberate divergence. Nav uses
-  `.t-nav`; article-page bar carries the `1px #333` bottom rule.
-- Footer: white field, `#e5e5e5` top rule, `.t-footer-link` links in
-  `#a2a2a2`.
+## Links, focus, selection
 
-## Deliberate divergences (owner-approved, left in place)
+- In-prose links (`main p a`): `ink`, underlined, 2px offset.
+- Nav / footer / related: `lichen` -> `ink` on hover, 0.16s ease.
+- External links open in a new tab with `rel="noopener noreferrer"`.
+- `:focus-visible`: 2px amber outline, 2px offset (keyboard reachable).
+- `::selection`: amber background, `vellum` text.
 
-1. **Fonts** — proprietary NYer faces kept (see type note).
-2. **Article header** — portfolio case pages are light; NYer uses a dark
-   content-header band (white title on black).
-3. **Masthead + hero composition** — stacked masthead + centered feature-hero
-   vs NYer's single-row masthead + left-text/right-image lead.
+## Motion
 
-## UNMEASURED this session (do not invent)
+Calm entrance only. `@keyframes rise-in` (opacity + 14px translateY, 0.6s
+`cubic-bezier(0.16,1,0.3,1)`) drives `.hero-enter` (+ `-1/-2/-3` stagger delays)
+on the **homepage** header/lead. Detail pages are static. Every animation has a
+`prefers-reduced-motion: reduce` reset (no motion, content visible). Reveals
+never gate visibility — content is visible by default.
 
-Figure caption + credit styles, drop-cap treatment, nav/selection hover
-colors, and behavior above 1440px did not render headlessly and were not
-changed. Re-measure before specifying them.
+## Accessibility
 
----
+WCAG 2.1 AA intent: semantic headings, keyboard nav with the visible amber
+focus ring, a `Skip to content` link (in `app/layout.tsx`), no horizontal
+overflow at 390px or desktop, alt text on meaningful images, reduced-motion
+support. Verify contrast against `vellum`: `ink` / `carbon` / `lichen` clear AA
+for body; `sage` is for small non-essential labels only.
 
-## Non-visual governance (unchanged, still binding)
+## Guards
 
-Evidence rules, claim gating, accessibility (WCAG AA intent, semantic HTML,
-focus-visible, reduced motion, no horizontal overflow), and the
-implementation rules for Claude Code continue to apply as recorded in
-`PROGRAM_INDEX.md`, `DECISION_LOG.md`, and the `EVIDENCE/` and `QUALITY/`
-systems. This file governs the **visual** layer only.
+- `npm run lint`
+- `NEXT_DIST_DIR=.next-prod npm run build` (prod QA build; uses a separate
+  `.next-prod` dist dir so it never disturbs the running `next dev` server)
+- `npx tsc --noEmit` (types)
+
+The former `check:type` puppeteer regression guard was retired with the
+New Yorker system; the design is now self-authored, so `globals.css` is the
+regression baseline.
