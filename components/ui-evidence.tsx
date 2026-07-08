@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /*
  * Password-gated "UI evidence" card. A full-width hero image, with a centered
@@ -41,6 +41,15 @@ export function UiEvidence({
   const [value, setValue] = useState("");
   const [error, setError] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    // Catch images already cached/complete before React attached onLoad.
+    // A missing/404 image reports naturalWidth 0, so it correctly stays hidden.
+    if (imgRef.current?.complete && imgRef.current.naturalWidth > 0) {
+      setLoaded(true);
+    }
+  }, []);
 
   function unlock(e: React.FormEvent) {
     e.preventDefault();
@@ -73,6 +82,7 @@ export function UiEvidence({
             {image && (
               // eslint-disable-next-line @next/next/no-img-element
               <img
+                ref={imgRef}
                 src={image}
                 alt=""
                 onLoad={() => setLoaded(true)}
