@@ -1,59 +1,33 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { Inter } from "next/font/google";
 import "./globals.css";
+import { CommandMenu } from "@/components/command-menu";
 
-// New Yorker editorial faces, self-hosted, licensed (license to be
-// purchased before public launch). Files live in app/fonts/ (git-ignored).
-
-// Display / hero serif.
-const caslon = localFont({
-  src: [
-    { path: "./fonts/ACaslonPro-Regular.woff", weight: "400", style: "normal" },
-    { path: "./fonts/ACaslonPro-Italic.woff", weight: "400", style: "italic" },
-    { path: "./fonts/ACaslonPro-Semibold.woff", weight: "600", style: "normal" },
-    { path: "./fonts/ACaslonPro-Bold.woff", weight: "700", style: "normal" },
-  ],
-  variable: "--font-caslon",
+/*
+ * Fonts (self-hosted, OFL) — the kamran.fyi type system:
+ * Geist (sans, everything), Geist Mono (small numeric bits), Newsreader
+ * (serif-italic accent). Files in app/fonts/. Retired New Yorker faces remain
+ * archived in the same folder but are no longer wired.
+ */
+const geist = localFont({
+  src: "./fonts/geist-variable.woff2",
+  variable: "--font-geist",
+  weight: "100 900",
   display: "swap",
 });
 
-// Heading face (H2 / H3 / feature titles).
-const irvin = localFont({
-  src: "./fonts/IrvinHeadingPro.woff2",
-  variable: "--font-irvin",
+const geistMono = localFont({
+  src: "./fonts/geist-mono-variable.woff2",
+  variable: "--font-geist-mono",
+  weight: "100 900",
   display: "swap",
 });
 
-// Headline face (article / card headlines, the lighter text-weight Irvin).
-const irvinText = localFont({
-  src: "./fonts/IrvinText-Regular.woff2",
-  variable: "--font-irvintext",
-  display: "swap",
-});
-
-// Editorial rubrics / kickers / labels (the New Yorker's small uppercase voice).
-const neutraface = localFont({
-  src: "./fonts/NeutrafaceNewYorker-Book.woff",
-  variable: "--font-neutraface",
-  display: "swap",
-});
-
-// Navigation / UI labels.
-const graphik = localFont({
-  src: [
-    { path: "./fonts/Graphik-Regular.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/Graphik-Medium.woff2", weight: "500", style: "normal" },
-    { path: "./fonts/Graphik-Bold.woff2", weight: "700", style: "normal" },
-  ],
-  variable: "--font-graphik",
-  display: "swap",
-});
-
-// Body copy.
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
+const newsreader = localFont({
+  src: "./fonts/newsreader-italic.woff2",
+  variable: "--font-newsreader",
+  weight: "200 800",
+  style: "italic",
   display: "swap",
 });
 
@@ -75,6 +49,10 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  colorScheme: "dark light",
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -83,12 +61,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${caslon.variable} ${irvin.variable} ${irvinText.variable} ${neutraface.variable} ${graphik.variable} ${inter.variable}`}
+      data-theme="dark"
+      className={`${geist.variable} ${geistMono.variable} ${newsreader.variable}`}
     >
       <body>
+        <CommandMenu />
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-sm focus:bg-carbon focus:px-4 focus:py-2 focus:text-paper font-geometric-mono t-body-sm"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:border focus:border-ash focus:bg-paper focus:px-4 focus:py-2 focus:text-ink t-body-sm"
         >
           Skip to content
         </a>

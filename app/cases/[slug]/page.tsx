@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { EditorialArt } from "@/components/editorial/editorial-art";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import { PageShell } from "@/components/page-shell";
+import {
+  ArticleHead,
+  Section,
+  P,
+  BulletList,
+  Note,
+  DecisionList,
+  RelatedLinks,
+} from "@/components/article";
 import { caseStudies, getCaseStudy } from "@/lib/cases";
 
 export function generateStaticParams() {
@@ -24,58 +30,8 @@ export async function generateMetadata({
   };
 }
 
-const metaLabel =
-  "font-geometric-mono text-[11px] font-medium uppercase tracking-[0.07em]";
-const relatedLink =
-  "font-geometric-mono text-[13px] tracking-[-0.02em] text-lichen transition-colors hover:text-ink";
-
-function Prose({ paragraphs }: { paragraphs: string[] }) {
-  return (
-    <div className="space-y-4">
-      {paragraphs.map((t, i) => (
-        <p
-          key={i}
-          className="max-w-[680px] t-body-serif text-carbon"
-        >
-          {t}
-        </p>
-      ))}
-    </div>
-  );
-}
-
-function PendingBlock({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <div className="max-w-[680px] rounded-lg border border-ash bg-bone p-5">
-      <p className={`${metaLabel} mb-3 text-lichen`}>{label}</p>
-      {children}
-    </div>
-  );
-}
-
-function CaseSection({
-  n,
-  title,
-  children,
-}: {
-  n: number;
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section className="border-t border-ash pt-8">
-      <div className="mb-5 flex items-baseline gap-4">
-        <span className="w-6 shrink-0 font-geometric-mono text-[12px] tabular-nums text-sage">
-          {String(n).padStart(2, "0")}
-        </span>
-        <h2 className="t-hed-3 text-ink">
-          {title}
-        </h2>
-      </div>
-      <div className="pl-10">{children}</div>
-    </section>
-  );
-}
+const subLabel =
+  "text-[11px] font-medium uppercase tracking-wider text-sage";
 
 export default async function CasePage({
   params,
@@ -86,287 +42,160 @@ export default async function CasePage({
   const cs = getCaseStudy(slug);
   if (!cs) notFound();
 
-  const headerMeta: [string, string][] = [
-    ["Status", cs.status],
-    ["Product / area", cs.productArea],
-    ["Timeframe", cs.timeframe],
-    ["Role", cs.role],
-    ["Team", cs.team],
-    ["Metric signal", cs.metricSignal],
-  ];
-
-  let n = 0;
-  const next = () => ++n;
-
   return (
-    <>
-      <SiteHeader />
-      <main id="main">
-        <article className="py-16 md:py-20">
-          <div className="page-shell max-w-[860px]">
-            <Link
-              href="/cases"
-              className="inline-flex items-center gap-2 font-geometric-mono text-[13px] tracking-[-0.02em] text-lichen transition-colors hover:text-ink"
+    <PageShell>
+      <ArticleHead
+        eyebrow={`Case · ${cs.category}`}
+        title={cs.caseTitle}
+        meta={[
+          { label: "Role", value: cs.role },
+          { label: "Team", value: cs.team },
+          { label: "Timeframe", value: cs.timeframe },
+          { label: "Product area", value: cs.productArea },
+          { label: "Status", value: cs.status },
+          { label: "Metric signal", value: cs.metricSignal },
+        ]}
+      />
+
+      <Note>{cs.prepNote}</Note>
+
+      <Section label="Executive Summary">
+        {cs.executiveSummary.map((t, i) => (
+          <P key={i}>{t}</P>
+        ))}
+      </Section>
+
+      <Section label="Business Problem">
+        {cs.businessProblem.map((t, i) => (
+          <P key={i}>{t}</P>
+        ))}
+      </Section>
+
+      <Section label="User Problem">
+        {cs.userProblem.map((t, i) => (
+          <P key={i}>{t}</P>
+        ))}
+      </Section>
+
+      <Section label="Journey Diagnosis">
+        {cs.journeyDiagnosis.map((t, i) => (
+          <P key={i}>{t}</P>
+        ))}
+      </Section>
+
+      <Section label="Strategic Bet">
+        {cs.strategicBet.map((t, i) => (
+          <P key={i}>{t}</P>
+        ))}
+      </Section>
+
+      <Section label="Key Decisions">
+        <DecisionList items={cs.keyDecisions} />
+      </Section>
+
+      <Section label="Experience Before">
+        <Note>{cs.experienceBefore.artifactNote}</Note>
+        {cs.experienceBefore.body.map((t, i) => (
+          <P key={i}>{t}</P>
+        ))}
+      </Section>
+
+      <Section label="Experience After">
+        {cs.experienceAfter.map((t, i) => (
+          <P key={i}>{t}</P>
+        ))}
+      </Section>
+
+      <Section label="What Shipped">
+        {cs.whatShipped.map((t, i) => (
+          <P key={i}>{t}</P>
+        ))}
+      </Section>
+
+      <Section label="Tradeoffs">
+        {cs.tradeoffs.map((t, i) => (
+          <P key={i}>{t}</P>
+        ))}
+        <div className="mt-5 overflow-hidden rounded-xl border border-ash bg-paper">
+          {cs.tradeoffMatrix.map(([a, b], i) => (
+            <div
+              key={i}
+              className={`grid grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 py-2.5 text-[14px] leading-[1.4] ${
+                i > 0 ? "border-t border-ash" : ""
+              }`}
             >
-              <span aria-hidden="true">←</span> Cases
-            </Link>
-
-            <header className="mt-8 border-t border-ash pt-6">
-              <div className="mb-5 flex items-center gap-3">
-                <span className="font-geometric-mono text-[12px] font-medium tabular-nums text-ink">
-                  {cs.number}
-                </span>
-                <span className={`${metaLabel} text-lichen`}>
-                  Case · {cs.category}
-                </span>
-              </div>
-
-              <h1 className="t-hed-1 text-ink">
-                {cs.caseTitle}
-              </h1>
-
-              <dl className="mt-8 grid gap-px overflow-hidden rounded-lg border border-ash bg-ash sm:grid-cols-2 lg:grid-cols-3">
-                {headerMeta.map(([label, value]) => (
-                  <div key={label} className="bg-paper p-5">
-                    <dt className={`${metaLabel} text-sage`}>{label}</dt>
-                    <dd className="mt-2 t-body-sm text-carbon">{value}</dd>
-                  </div>
-                ))}
-              </dl>
-
-              <p className="mt-6 max-w-[680px] border-l border-khaki-olive pl-4 t-body-sm text-lichen">
-                {cs.prepNote}
-              </p>
-            </header>
-
-            <EditorialArt
-              slotId={`case.${cs.slug}.opener`}
-              variant="journey-painting"
-              aspect="wide"
-              caption="Opening plate: hesitation, threshold, and commitment as an abstract journey."
-              className="mt-10"
-            />
-
-            <div className="mt-14 space-y-12">
-              <CaseSection n={next()} title="Executive Summary">
-                <Prose paragraphs={cs.executiveSummary} />
-              </CaseSection>
-
-              <CaseSection n={next()} title="Business Problem">
-                <Prose paragraphs={cs.businessProblem} />
-              </CaseSection>
-
-              <CaseSection n={next()} title="User Problem">
-                <Prose paragraphs={cs.userProblem} />
-              </CaseSection>
-
-              <CaseSection n={next()} title="Journey Diagnosis">
-                <Prose paragraphs={cs.journeyDiagnosis} />
-                <EditorialArt
-                  slotId={`case.${cs.slug}.journey-break`}
-                  variant="spot"
-                  aspect="strip"
-                  className="mt-6 max-w-[680px]"
-                />
-              </CaseSection>
-
-              <CaseSection n={next()} title="Strategic Bet">
-                <Prose paragraphs={cs.strategicBet} />
-              </CaseSection>
-
-              <CaseSection n={next()} title="Key Decisions">
-                <div className="grid gap-4 md:grid-cols-3">
-                  {cs.keyDecisions.map((d, i) => (
-                    <div
-                      key={i}
-                      className="rounded-lg border border-ash bg-paper p-5"
-                    >
-                      <p className="t-body-serif text-ink">
-                        {d.decision}
-                      </p>
-                      <dl className="mt-3 space-y-2">
-                        {(
-                          [
-                            ["Why", d.why],
-                            ["Tradeoff", d.tradeoff],
-                            ["Result", d.result],
-                          ] as const
-                        ).map(([label, value]) => (
-                          <div key={label} className="flex gap-3">
-                            <dt
-                              className={`${metaLabel} w-16 shrink-0 pt-0.5 text-sage`}
-                            >
-                              {label}
-                            </dt>
-                            <dd className="t-body-sm text-olive-char">
-                              {value}
-                            </dd>
-                          </div>
-                        ))}
-                      </dl>
-                    </div>
-                  ))}
-                </div>
-              </CaseSection>
-
-              <CaseSection n={next()} title="Experience Before">
-                <PendingBlock label="Artifact pending">
-                  <p className="t-body-sm text-olive-char">
-                    {cs.experienceBefore.artifactNote}
-                  </p>
-                </PendingBlock>
-                <div className="mt-5">
-                  <Prose paragraphs={cs.experienceBefore.body} />
-                </div>
-              </CaseSection>
-
-              <CaseSection n={next()} title="Experience After">
-                <Prose paragraphs={cs.experienceAfter} />
-              </CaseSection>
-
-              <CaseSection n={next()} title="What Shipped">
-                <Prose paragraphs={cs.whatShipped} />
-              </CaseSection>
-
-              <CaseSection n={next()} title="Tradeoffs">
-                <Prose paragraphs={cs.tradeoffs} />
-                <EditorialArt
-                  slotId={`case.${cs.slug}.tradeoff-break`}
-                  variant="spot"
-                  aspect="strip"
-                  className="mt-6 max-w-[680px]"
-                />
-                <div className="mt-6 max-w-[680px] overflow-hidden rounded-lg border border-ash">
-                  {cs.tradeoffMatrix.map(([a, b], i) => (
-                    <div
-                      key={i}
-                      className={`grid grid-cols-[1fr_auto_1fr] items-baseline gap-3 px-5 py-3 ${
-                        i > 0 ? "border-t border-ash" : ""
-                      }`}
-                    >
-                      <span className="t-body-sm text-carbon">{a}</span>
-                      <span className={`${metaLabel} text-sage`}>vs</span>
-                      <span className="t-body-sm text-right text-olive-char">
-                        {b}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </CaseSection>
-
-              <CaseSection n={next()} title="Metric Movement">
-                <p className={`${metaLabel} mb-3 text-lichen`}>
-                  Known headline signal
-                </p>
-                <p className="max-w-[680px] t-dek text-ink">
-                  {cs.metricMovement.known}
-                </p>
-                <div className="mt-6">
-                  <PendingBlock label="To wire in before final publication">
-                    <ul className="space-y-2">
-                      {cs.metricMovement.toWire.map((item, i) => (
-                        <li
-                          key={i}
-                          className="flex gap-3 t-body-sm text-olive-char"
-                        >
-                          <span
-                            aria-hidden="true"
-                            className="mt-2.5 h-px w-3 shrink-0 bg-olive-char"
-                          />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </PendingBlock>
-                </div>
-              </CaseSection>
-
-              <CaseSection n={next()} title="My Role">
-                <Prose paragraphs={cs.myRole} />
-              </CaseSection>
-
-              <CaseSection n={next()} title="Artifacts">
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <PendingBlock label="Available artifacts to prepare">
-                    <ul className="space-y-2">
-                      {cs.artifacts.available.map((item, i) => (
-                        <li
-                          key={i}
-                          className="flex gap-3 t-body-sm text-olive-char"
-                        >
-                          <span
-                            aria-hidden="true"
-                            className="mt-2.5 h-px w-3 shrink-0 bg-olive-char"
-                          />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </PendingBlock>
-                  <PendingBlock label="To wire in">
-                    <ul className="space-y-2">
-                      {cs.artifacts.toWire.map((item, i) => (
-                        <li
-                          key={i}
-                          className="flex gap-3 t-body-sm text-olive-char"
-                        >
-                          <span
-                            aria-hidden="true"
-                            className="mt-2.5 h-px w-3 shrink-0 bg-olive-char"
-                          />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </PendingBlock>
-                </div>
-                <p className="mt-4 max-w-[680px] t-body-sm text-lichen">
-                  {cs.artifacts.note}
-                </p>
-              </CaseSection>
-
-              <CaseSection n={next()} title="What Changed Beyond the Screen">
-                <Prose paragraphs={cs.beyondTheScreen} />
-              </CaseSection>
-
-              <CaseSection n={next()} title="Lessons">
-                <Prose paragraphs={cs.lessons} />
-              </CaseSection>
-
-              <CaseSection n={next()} title="What I’d Do Differently">
-                <Prose paragraphs={cs.differently} />
-              </CaseSection>
+              <span className="text-carbon">{a}</span>
+              <span className={subLabel}>vs</span>
+              <span className="text-right text-lichen">{b}</span>
             </div>
+          ))}
+        </div>
+      </Section>
 
-            <nav
-              aria-label="Related"
-              className="mt-14 border-t border-ash pt-6"
-            >
-              <ul className="flex flex-wrap gap-x-6 gap-y-2">
-                <li>
-                  <Link href="/cases" className={relatedLink}>
-                    Back to Cases
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/transformations/digital-gold-growth"
-                    className={relatedLink}
-                  >
-                    Related transformation: Digital Gold Growth
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/" className={relatedLink}>
-                    Return Home
-                  </Link>
-                </li>
-              </ul>
-            </nav>
+      <Section label="Metric Movement">
+        <p className="text-[18px] font-medium leading-snug text-ink">
+          {cs.metricMovement.known}
+        </p>
+        <div className="mt-5 rounded-xl border border-ash bg-paper p-4">
+          <p className={subLabel}>To wire in before publication</p>
+          <BulletList items={cs.metricMovement.toWire} />
+        </div>
+      </Section>
+
+      <Section label="My Role">
+        {cs.myRole.map((t, i) => (
+          <P key={i}>{t}</P>
+        ))}
+      </Section>
+
+      <Section label="Artifacts">
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div className="rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark">
+            <p className={subLabel}>Available</p>
+            <BulletList items={cs.artifacts.available} />
           </div>
-        </article>
-      </main>
-      <SiteFooter />
-    </>
+          <div className="rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark">
+            <p className={subLabel}>To wire in</p>
+            <BulletList items={cs.artifacts.toWire} />
+          </div>
+        </div>
+        <Note>{cs.artifacts.note}</Note>
+      </Section>
+
+      <Section label="What Changed Beyond the Screen">
+        {cs.beyondTheScreen.map((t, i) => (
+          <P key={i}>{t}</P>
+        ))}
+      </Section>
+
+      <Section label="Lessons">
+        {cs.lessons.map((t, i) => (
+          <P key={i}>{t}</P>
+        ))}
+      </Section>
+
+      <Section label="What I’d Do Differently">
+        {cs.differently.map((t, i) => (
+          <P key={i}>{t}</P>
+        ))}
+      </Section>
+
+      <Section label="Related">
+        <RelatedLinks
+          items={[
+            {
+              title: "Digital Gold Growth",
+              href: "/transformations/digital-gold-growth",
+              description: "The transformation story behind this case.",
+            },
+            {
+              title: "All cases",
+              href: "/cases",
+              description: "Back to the case index.",
+            },
+          ]}
+        />
+      </Section>
+    </PageShell>
   );
 }

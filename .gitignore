@@ -19,3 +19,9 @@ build/
 .env*.local
 next-env.d.ts
 *.tsbuildinfo
+
+# Session / tool scratch (not part of the product)
+.codex/
+.impeccable/
+design-audit/
+sample-director-portfolio.html

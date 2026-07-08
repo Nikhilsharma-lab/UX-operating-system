@@ -1,9 +1,11 @@
 /**
- * Typography regression guard (Decision 052).
+ * Typography regression guard — v4 scale (Decision 065).
  *
- * Fails if the computed type on key pages drifts from the v3 token scale
- * (globals.css role classes, measured against newyorker.com). Run against a
- * served build:
+ * Expected values below are the EMPIRICAL computed styles measured live on
+ * newyorker.com this session and recorded in design-audit/nyer-observed.json
+ * (article body Caslon 21/31.5, 624px measure; article h2 Caslon 32/36; deks
+ * Caslon 21; section title Irvin 28/32). Fails if the served pages drift from
+ * that measured scale. Run against a served build:
  *
  *   NEXT_DIST_DIR=.next-prod npm run build
  *   NEXT_DIST_DIR=.next-prod PORT=3100 npm run start &
@@ -24,11 +26,11 @@ const CHECKS = [
     page: "/transformations/building-design-organization",
     width: 1440,
     probes: [
-      { name: "story body serif", sel: "article section p.t-body-serif", expect: { familyRe: /caslon/i, size: [18, 18], lh: [26, 28] } },
-      { name: "story body measure", sel: "article section p.t-body-serif", expect: { maxWidth: 700 } },
+      { name: "story body serif", sel: "article section p.t-body-serif", expect: { familyRe: /caslon/i, size: [21, 21], lh: [31, 32] } },
+      { name: "story body measure", sel: "article section p.t-body-serif", expect: { maxWidth: 640 } },
       { name: "story h1 weight/size", sel: "article h1", expect: { weight: [400, 400], size: [30, 45] } },
       { name: "story dek", sel: "article h1 + p", expect: { familyRe: /caslon/i, size: [21, 21] } },
-      { name: "section heading", sel: "article section h2", expect: { size: [27, 33] } },
+      { name: "section heading", sel: "article section h2", expect: { size: [30, 34] } },
       { name: "support text floor", sel: "article section li span.max-w-\\[660px\\]", expect: { minSize: 15 } },
     ],
   },
@@ -101,4 +103,4 @@ if (failures) {
   console.error(`\ncheck:type FAILED with ${failures} drift(s)`);
   process.exit(1);
 }
-console.log("\ncheck:type PASSED: typography matches the v3 token scale");
+console.log("\ncheck:type PASSED: typography matches the measured (v4) scale");

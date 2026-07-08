@@ -1,3 +1,8 @@
+> **SUPERSEDED (Decision 065).** This file described a design system that was
+> not empirically verified against the live site. The design authority is now
+> the measured system in `design-audit/nyer-observed.json` and the root
+> `DESIGN.md`. Retained for history only; do not apply values from below.
+
 # Design System Inspired by The New Yorker
 
 ## 1. Visual Theme & Atmosphere

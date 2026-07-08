@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { EditorialArt } from "@/components/editorial/editorial-art";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import { PageShell } from "@/components/page-shell";
+import {
+  ArticleHead,
+  Section,
+  BulletList,
+  Note,
+  RelatedLinks,
+} from "@/components/article";
 import {
   getManualEntry,
   manualEntries,
@@ -29,545 +34,358 @@ export async function generateMetadata({
   };
 }
 
-const metaLabel =
-  "font-geometric-mono text-[11px] font-medium uppercase tracking-[0.07em]";
-const relatedLink =
-  "font-geometric-mono text-[13px] tracking-[-0.02em] text-lichen transition-colors hover:text-ink";
+/* ------------------------------- primitives ------------------------------ */
 
-function HairlineList({ items }: { items: string[] }) {
+/** Muted lead-in line above a list or block. */
+function Lead({ children }: { children: React.ReactNode }) {
   return (
-    <ul className="space-y-2.5">
-      {items.map((item, i) => (
-        <li key={i} className="flex gap-3 t-body-sm text-carbon">
+    <p className="mt-4 max-w-[62ch] text-[14px] leading-[1.6] text-lichen first:mt-0">
+      {children}
+    </p>
+  );
+}
+
+/** Ordered list with mono index; `strong` brightens the text to ink. */
+function NumberedList({
+  items,
+  strong = false,
+}: {
+  items: string[];
+  strong?: boolean;
+}) {
+  return (
+    <ol className="mt-4 space-y-3">
+      {items.map((t, i) => (
+        <li key={i} className="flex gap-3">
+          <span className="mt-px w-6 shrink-0 font-mono text-[12px] tabular-nums text-sage">
+            {String(i + 1).padStart(2, "0")}
+          </span>
           <span
-            aria-hidden="true"
-            className="mt-2.5 h-px w-3 shrink-0 bg-olive-char"
-          />
-          <span className="max-w-[660px]">{item}</span>
+            className={`max-w-[60ch] text-[15px] leading-[1.6] ${
+              strong ? "text-ink" : "text-carbon"
+            }`}
+          >
+            {t}
+          </span>
         </li>
       ))}
-    </ul>
+    </ol>
   );
 }
 
-function ManualSection({
-  n,
-  title,
-  id,
-  children,
+/** Principle cards: an emphasized rule with a muted note beneath. */
+function PrincipleList({
+  items,
 }: {
-  n: string;
-  title: string;
-  id?: string;
-  children: React.ReactNode;
+  items: { rule: string; note: string }[];
 }) {
   return (
-    <section id={id} className="scroll-mt-28 border-t border-ash pt-7">
-      <div className="mb-5 flex items-baseline gap-4">
-        <span className="w-6 shrink-0 font-geometric-mono text-[12px] tabular-nums text-sage">
-          {n}
-        </span>
-        <h2 className="t-hed-3 text-ink">
-          {title}
-        </h2>
-      </div>
-      <div className="pl-10">{children}</div>
-    </section>
+    <ol className="mt-4 space-y-4">
+      {items.map((p, i) => (
+        <li key={i} className="flex gap-3">
+          <span className="mt-px w-6 shrink-0 font-mono text-[12px] tabular-nums text-sage">
+            {String(i + 1).padStart(2, "0")}
+          </span>
+          <div className="max-w-[60ch]">
+            <p className="text-[15px] font-medium leading-[1.5] text-ink">
+              {p.rule}
+            </p>
+            <p className="mt-1 text-[14px] leading-[1.6] text-lichen">
+              {p.note}
+            </p>
+          </div>
+        </li>
+      ))}
+    </ol>
   );
 }
-
-function EntryHeader({ entry }: { entry: ManualEntry }) {
-  return (
-    <header className="mt-8 border-t border-ash pt-6">
-      <div className="mb-5 flex items-center gap-3">
-        <span className="font-geometric-mono text-[12px] font-medium tabular-nums text-ink">
-          {entry.number}
-        </span>
-        <span className={`${metaLabel} text-lichen`}>
-          Manual · {entry.category}
-        </span>
-      </div>
-
-      <h1 className="t-hed-1 text-ink">
-        {entry.title}
-      </h1>
-
-      <p className="mt-6 max-w-[660px] t-dek text-carbon">
-        {entry.thesis}
-      </p>
-
-      {entry.guide && (
-        <p className="mt-4 max-w-[660px] border-l border-khaki-olive pl-4 t-body-sm text-olive-char">
-          {entry.guide.supportingLine}
-        </p>
-      )}
-
-      <dl className="mt-8 grid gap-px overflow-hidden rounded-lg border border-ash bg-ash sm:grid-cols-2">
-        <div className="bg-paper p-5">
-          <dt className={`${metaLabel} text-sage`}>Audience</dt>
-          <dd className="mt-2 t-body-sm text-carbon">{entry.audience}</dd>
-        </div>
-        <div className="bg-paper p-5">
-          <dt className={`${metaLabel} text-sage`}>Status</dt>
-          <dd className="mt-2 t-body-sm text-carbon">{entry.status}</dd>
-        </div>
-      </dl>
-    </header>
-  );
-}
-
-function RelatedTransformationsBlock({
-  entry,
-  note,
-}: {
-  entry: ManualEntry;
-  note?: string;
-}) {
-  return (
-    <>
-      {note && (
-        <p className="mb-5 max-w-[660px] t-body-sm text-olive-char">{note}</p>
-      )}
-      <ul className="space-y-3">
-        {entry.relatedTransformations.map((t) => (
-          <li key={t.slug}>
-            <Link
-              href={`/transformations/${t.slug}`}
-              className="group inline-flex items-baseline gap-3"
-            >
-              <span className="t-body-serif text-ink transition-colors group-hover:text-olive-char">
-                {t.title}
-              </span>
-              <span
-                aria-hidden="true"
-                className="font-geometric-mono text-[13px] text-sage"
-              >
-                →
-              </span>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </>
-  );
-}
-
-/* ------------------------------ Guide layout ----------------------------- */
 
 /**
- * The ordered section list for a full guide, derived from guide data,
- * the single source of truth for both the section index and section numbering.
+ * Heading + string-list cards. Shared by the operating model, ownership model,
+ * and quality gates, which all share a { heading, items } shape.
  */
-function guideSections(entry: ManualEntry, guide: ManualGuide) {
-  const sections: { id: string; title: string }[] = [
-    { id: "what-this-solves", title: "What this solves" },
-    { id: "when-to-use", title: "When to use this system" },
-    { id: "when-not-to-use", title: "When not to use this system" },
-    { id: "core-principles", title: "Core principles" },
-    { id: "inputs-required", title: "Inputs required" },
-    { id: "operating-model", title: "Operating model" },
-    { id: "ownership-model", title: "Ownership model" },
-    { id: "quality-gates", title: "Quality gates" },
-    { id: "anti-patterns", title: "Anti-patterns" },
-    { id: "metrics-to-track", title: "Metrics to track" },
-    { id: "governance-rules", title: "Governance rules" },
-    { id: "implementation-sequence", title: "Implementation sequence" },
-    { id: "leadership-questions", title: "Leadership questions" },
-    {
-      id: "related-transformations",
-      title:
-        entry.relatedTransformations.length > 1
-          ? "Related transformations"
-          : "Related transformation",
-    },
-  ];
-  if (guide.relatedGuides && guide.relatedGuides.length > 0) {
-    sections.push({
-      id: "related-operating-guides",
-      title:
-        guide.relatedGuides.length > 1
-          ? "Related operating guides"
-          : "Related operating guide",
-    });
-  }
-  sections.push({ id: "future-additions", title: "Future additions" });
-  return sections;
-}
-
-function SectionIndex({
-  sections,
+function GroupCards({
+  groups,
+  twoCol = false,
 }: {
-  sections: { id: string; title: string }[];
+  groups: { heading: string; items: string[] }[];
+  twoCol?: boolean;
 }) {
   return (
-    <nav
-      aria-label="Section index"
-      className="mt-10 rounded-lg border border-ash bg-paper p-5 sm:p-6"
-    >
-      <p className={`${metaLabel} text-lichen`}>Section index</p>
-      <p className="mt-2 t-body-sm text-lichen">
-        Use this guide as a system map. Jump to the section you need.
-      </p>
-      <ol className="mt-5 grid gap-x-8 gap-y-2.5 sm:grid-cols-2 lg:grid-cols-3">
-        {sections.map((s, i) => (
-          <li key={s.id}>
-            <a
-              href={`#${s.id}`}
-              className="group flex items-baseline gap-3"
-            >
-              <span className="shrink-0 font-geometric-mono text-[11px] tabular-nums text-sage">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span className="font-geometric-mono text-[13px] tracking-[-0.01em] text-olive-char transition-colors group-hover:text-ink">
-                {s.title}
-              </span>
-            </a>
-          </li>
-        ))}
-      </ol>
-    </nav>
-  );
-}
-
-function GuideBody({ entry, guide }: { entry: ManualEntry; guide: ManualGuide }) {
-  const sections = guideSections(entry, guide);
-  const sec = (id: string) => {
-    const i = sections.findIndex((s) => s.id === id);
-    return {
-      id,
-      n: String(i + 1).padStart(2, "0"),
-      title: sections[i].title,
-    };
-  };
-  return (
-    <>
-      <SectionIndex sections={sections} />
-      <div className="mt-14 space-y-11">
-        <ManualSection {...sec("what-this-solves")}>
-        <HairlineList items={entry.whatItSolves} />
-      </ManualSection>
-
-      <ManualSection {...sec("when-to-use")}>
-        <p className="mb-4 t-body-sm text-lichen">
-          Use this operating model when:
-        </p>
-        <HairlineList items={guide.whenToUse} />
-      </ManualSection>
-
-      <ManualSection {...sec("when-not-to-use")}>
-        <p className="mb-4 t-body-sm text-lichen">Do not use this model when:</p>
-        <HairlineList items={guide.whenNotToUse} />
-      </ManualSection>
-
-      <ManualSection {...sec("core-principles")}>
-        <ol className="space-y-5">
-          {guide.principles.map((p, i) => (
-            <li key={i} className="flex gap-4">
-              <span className="shrink-0 pt-0.5 font-geometric-mono text-[12px] tabular-nums text-sage">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div className="max-w-[640px]">
-                <p className="t-body-serif text-ink">
-                  {p.rule}
-                </p>
-                <p className="mt-1 t-body-sm text-olive-char">{p.note}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </ManualSection>
-
-      <ManualSection {...sec("inputs-required")}>
-        <p className="mb-4 t-body-sm text-lichen">
-          What must exist before the workflow starts.
-        </p>
-        <ul className="grid gap-x-8 gap-y-2.5 sm:grid-cols-2">
-          {guide.inputs.map((item, i) => (
-            <li key={i} className="flex gap-3 t-body-sm text-carbon">
-              <span
-                aria-hidden="true"
-                className="mt-2.5 h-px w-3 shrink-0 bg-olive-char"
-              />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-      </ManualSection>
-
-      <ManualSection {...sec("operating-model")}>
-        <p className="mb-5 t-body-sm text-lichen">
-          The step-by-step system. Each step has a purpose, an owner, and an
-          output.
-        </p>
-        <ol className="space-y-4">
-          {guide.steps.map((s, i) => (
-            <li key={i} className="rounded-lg border border-ash bg-paper p-5">
-              <div className="flex items-baseline gap-3">
-                <span className="shrink-0 font-geometric-mono text-[12px] tabular-nums text-sage">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="t-body-serif text-ink">
-                  {s.step}
-                </p>
-              </div>
-              <dl className="mt-3 space-y-2 pl-7">
-                {(
-                  [
-                    ["Purpose", s.purpose],
-                    ["Owner", s.owner],
-                    ["Output", s.output],
-                  ] as const
-                ).map(([label, value]) => (
-                  <div key={label} className="flex gap-3">
-                    <dt className={`${metaLabel} w-16 shrink-0 pt-0.5 text-sage`}>
-                      {label}
-                    </dt>
-                    <dd className="t-body-sm text-olive-char">{value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </li>
-          ))}
-        </ol>
-      </ManualSection>
-
-      <ManualSection {...sec("ownership-model")}>
-        <div className="grid gap-px overflow-hidden rounded-lg border border-ash bg-ash sm:grid-cols-2">
-          {guide.owners.map((o, i) => (
-            <div
-              key={o.role}
-              className={`bg-paper p-5 ${
-                guide.owners.length % 2 === 1 && i === guide.owners.length - 1
-                  ? "sm:col-span-2"
-                  : ""
-              }`}
-            >
-              <h3 className={`${metaLabel} mb-3 text-lichen`}>{o.role}</h3>
-              <ul className="space-y-1.5">
-                {o.owns.map((item, i) => (
-                  <li key={i} className="flex gap-3 t-body-sm text-olive-char">
-                    <span
-                      aria-hidden="true"
-                      className="mt-2.5 h-px w-3 shrink-0 bg-olive-char"
-                    />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </ManualSection>
-
-      <ManualSection {...sec("quality-gates")}>
-        <p className="mb-5 t-body-sm text-lichen">
-          What must be true at each stage before work moves forward.
-        </p>
-        <div className="grid gap-px overflow-hidden rounded-lg border border-ash bg-ash lg:grid-cols-3">
-          {guide.gateGroups.map((g) => (
-            <div key={g.stage} className="bg-paper p-5">
-              <h3 className={`${metaLabel} mb-3 text-lichen`}>{g.stage}</h3>
-              <ul className="space-y-2">
-                {g.checks.map((c, i) => (
-                  <li key={i} className="flex gap-3 t-body-sm text-olive-char">
-                    <span
-                      aria-hidden="true"
-                      className="mt-2.5 h-px w-3 shrink-0 bg-olive-char"
-                    />
-                    <span>{c}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </ManualSection>
-
-      <ManualSection {...sec("anti-patterns")}>
-        <p className="mb-4 t-body-sm text-lichen">What breaks this system.</p>
-        <HairlineList items={entry.antiPatterns} />
-      </ManualSection>
-
-      <ManualSection {...sec("metrics-to-track")}>
-        <p className="mb-4 max-w-[660px] t-body-sm text-lichen">
-          {guide.metricsNote}
-        </p>
-        <ul className="grid gap-x-8 gap-y-2.5 sm:grid-cols-2">
-          {guide.metricsToTrack.map((item, i) => (
-            <li key={i} className="flex gap-3 t-body-sm text-carbon">
-              <span
-                aria-hidden="true"
-                className="mt-2.5 h-px w-3 shrink-0 bg-olive-char"
-              />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-      </ManualSection>
-
-      <ManualSection {...sec("governance-rules")}>
-        <HairlineList items={guide.governance} />
-      </ManualSection>
-
-      <ManualSection {...sec("implementation-sequence")}>
-        <ol className="space-y-3">
-          {guide.phases.map((p) => (
-            <li
-              key={p.phase}
-              className="flex flex-col gap-1 rounded-lg border border-ash bg-paper p-5 sm:flex-row sm:items-baseline sm:gap-5"
-            >
-              <span className={`${metaLabel} w-20 shrink-0 text-sage`}>
-                {p.phase}
-              </span>
-              <div>
-                <p className="t-body-serif text-ink">
-                  {p.title}
-                </p>
-                <p className="mt-1 t-body-sm text-olive-char">{p.detail}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </ManualSection>
-
-      <ManualSection {...sec("leadership-questions")}>
-        <p className="mb-4 t-body-sm text-lichen">
-          The questions a leadership team should be able to answer before and
-          during adoption.
-        </p>
-        <ol className="space-y-3">
-          {guide.leadershipQuestions.map((q, i) => (
-            <li key={i} className="flex gap-4">
-              <span className="shrink-0 pt-0.5 font-geometric-mono text-[12px] tabular-nums text-sage">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span className="max-w-[640px] t-body-serif text-carbon">
-                {q}
-              </span>
-            </li>
-          ))}
-        </ol>
-      </ManualSection>
-
-      <ManualSection {...sec("related-transformations")}>
-        <RelatedTransformationsBlock entry={entry} note={guide.derivedFromNote} />
-      </ManualSection>
-
-      {guide.relatedGuides && guide.relatedGuides.length > 0 && (
-        <ManualSection {...sec("related-operating-guides")}>
-          <ul className="space-y-4">
-            {guide.relatedGuides.map((g) => (
-              <li key={g.href}>
-                <Link
-                  href={g.href}
-                  className="group block max-w-[680px] rounded-lg border border-ash bg-paper p-5 transition-colors hover:border-olive-char"
-                >
-                  <span className="inline-flex items-baseline gap-3">
-                    <span className="t-hed-card text-ink">
-                      {g.title}
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      className="font-geometric-mono text-[13px] text-sage transition-colors group-hover:text-ink"
-                    >
-                      →
-                    </span>
-                  </span>
-                  <p className="mt-2 t-body-sm text-olive-char">
-                    {g.description}
-                  </p>
-                </Link>
+    <div className={`mt-4 grid gap-3 ${twoCol ? "sm:grid-cols-2" : ""}`}>
+      {groups.map((g) => (
+        <div
+          key={g.heading}
+          className="rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark"
+        >
+          <h3 className="text-[11px] font-medium uppercase tracking-wider text-sage">
+            {g.heading}
+          </h3>
+          <ul className="mt-3 space-y-1.5">
+            {g.items.map((it, i) => (
+              <li
+                key={i}
+                className="flex gap-2.5 text-[13.5px] leading-[1.5] text-carbon"
+              >
+                <span
+                  aria-hidden="true"
+                  className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-accent-blue"
+                />
+                <span>{it}</span>
               </li>
             ))}
           </ul>
-        </ManualSection>
-      )}
-
-      <ManualSection {...sec("future-additions")}>
-        <p className="mb-4 t-body-sm text-lichen">
-          This guide will expand with:
-        </p>
-        <HairlineList items={guide.futureAdditions} />
-      </ManualSection>
-      </div>
-    </>
+        </div>
+      ))}
+    </div>
   );
 }
 
-/* ------------------------------ Shell layout ----------------------------- */
+/** Operating-model steps: numbered card with purpose / owner / output. */
+function StepList({
+  steps,
+}: {
+  steps: { step: string; purpose: string; owner: string; output: string }[];
+}) {
+  return (
+    <ol className="mt-4 space-y-3">
+      {steps.map((s, i) => (
+        <li
+          key={i}
+          className="rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark"
+        >
+          <div className="flex items-baseline gap-3">
+            <span className="shrink-0 font-mono text-[12px] tabular-nums text-sage">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <p className="text-[14px] font-medium leading-[1.4] text-ink">
+              {s.step}
+            </p>
+          </div>
+          <dl className="mt-2.5 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 pl-8 text-[13px] leading-[1.5]">
+            <dt className="text-sage">Purpose</dt>
+            <dd className="text-carbon">{s.purpose}</dd>
+            <dt className="text-sage">Owner</dt>
+            <dd className="text-carbon">{s.owner}</dd>
+            <dt className="text-sage">Output</dt>
+            <dd className="text-carbon">{s.output}</dd>
+          </dl>
+        </li>
+      ))}
+    </ol>
+  );
+}
 
-function ShellBody({ entry }: { entry: ManualEntry }) {
+/** Implementation-sequence phases: label + title + detail. */
+function PhaseList({
+  phases,
+}: {
+  phases: { phase: string; title: string; detail: string }[];
+}) {
+  return (
+    <ol className="mt-4 space-y-3">
+      {phases.map((p) => (
+        <li
+          key={p.phase}
+          className="rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark"
+        >
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-4">
+            <span className="text-[11px] font-medium uppercase tracking-wider text-sage sm:w-16 sm:shrink-0">
+              {p.phase}
+            </span>
+            <div>
+              <p className="text-[14px] font-medium text-ink">{p.title}</p>
+              <p className="mt-1 text-[13.5px] leading-[1.6] text-lichen">
+                {p.detail}
+              </p>
+            </div>
+          </div>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+/* --------------------------------- bodies -------------------------------- */
+
+function GuideBody({
+  entry,
+  guide,
+}: {
+  entry: ManualEntry;
+  guide: ManualGuide;
+}) {
+  const relatedTransformationsLabel =
+    entry.relatedTransformations.length > 1
+      ? "Related transformations"
+      : "Related transformation";
+  const relatedGuidesLabel =
+    (guide.relatedGuides?.length ?? 0) > 1
+      ? "Related operating guides"
+      : "Related operating guide";
+
   return (
     <>
-      <div className="mt-14 space-y-11">
-        <ManualSection n="01" title="What this solves">
-          <HairlineList items={entry.whatItSolves} />
-        </ManualSection>
+      <Section label="What this solves">
+        <BulletList items={entry.whatItSolves} />
+      </Section>
 
-        <ManualSection n="02" title="Core principles">
-          <ol className="space-y-4">
-            {entry.principles.map((p, i) => (
-              <li key={i} className="flex gap-4">
-                <span className="shrink-0 pt-0.5 font-geometric-mono text-[12px] tabular-nums text-sage">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="max-w-[640px] t-body-serif text-carbon">
-                  {p}
-                </span>
-              </li>
-            ))}
-          </ol>
-        </ManualSection>
+      <Section label="When to use this system">
+        <Lead>Use this operating model when:</Lead>
+        <BulletList items={guide.whenToUse} />
+      </Section>
 
-        <ManualSection n="03" title="Operating model">
-          <div className="grid gap-px overflow-hidden rounded-lg border border-ash bg-ash sm:grid-cols-2">
-            {entry.operatingModel.map((section) => (
-              <div key={section.heading} className="bg-paper p-5">
-                <h3 className={`${metaLabel} mb-3 text-lichen`}>
-                  {section.heading}
-                </h3>
-                <ul className="space-y-2">
-                  {section.items.map((item, i) => (
-                    <li
-                      key={i}
-                      className="flex gap-3 t-body-sm text-olive-char"
-                    >
-                      <span
-                        aria-hidden="true"
-                        className="mt-2.5 h-px w-3 shrink-0 bg-olive-char"
-                      />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </ManualSection>
+      <Section label="When not to use this system">
+        <Lead>Do not use this model when:</Lead>
+        <BulletList items={guide.whenNotToUse} />
+      </Section>
 
-        <ManualSection n="04" title="Quality gates">
-          <p className="mb-4 t-body-sm text-lichen">
-            What must be true for this system to work.
-          </p>
-          <HairlineList items={entry.qualityGates} />
-        </ManualSection>
+      <Section label="Core principles">
+        <PrincipleList items={guide.principles} />
+      </Section>
 
-        <ManualSection n="05" title="Anti-patterns">
-          <p className="mb-4 t-body-sm text-lichen">What breaks this system.</p>
-          <HairlineList items={entry.antiPatterns} />
-        </ManualSection>
+      <Section label="Inputs required">
+        <Lead>What must exist before the workflow starts.</Lead>
+        <BulletList items={guide.inputs} />
+      </Section>
 
-        <ManualSection n="06" title="Related transformations">
-          <RelatedTransformationsBlock entry={entry} />
-        </ManualSection>
-      </div>
+      <Section label="Operating model">
+        <Lead>
+          The step-by-step system. Each step has a purpose, an owner, and an
+          output.
+        </Lead>
+        <StepList steps={guide.steps} />
+      </Section>
 
-      <p className="mt-12 max-w-[660px] border-l border-khaki-olive pl-4 t-body-sm text-lichen">
-        {entry.futureDepthNote}
-      </p>
+      <Section label="Ownership model">
+        <GroupCards
+          groups={guide.owners.map((o) => ({
+            heading: o.role,
+            items: o.owns,
+          }))}
+          twoCol
+        />
+      </Section>
+
+      <Section label="Quality gates">
+        <Lead>What must be true at each stage before work moves forward.</Lead>
+        <GroupCards
+          groups={guide.gateGroups.map((g) => ({
+            heading: g.stage,
+            items: g.checks,
+          }))}
+        />
+      </Section>
+
+      <Section label="Anti-patterns">
+        <Lead>What breaks this system.</Lead>
+        <BulletList items={entry.antiPatterns} />
+      </Section>
+
+      <Section label="Metrics to track">
+        <Lead>{guide.metricsNote}</Lead>
+        <BulletList items={guide.metricsToTrack} />
+      </Section>
+
+      <Section label="Governance rules">
+        <BulletList items={guide.governance} />
+      </Section>
+
+      <Section label="Implementation sequence">
+        <PhaseList phases={guide.phases} />
+      </Section>
+
+      <Section label="Leadership questions">
+        <Lead>
+          The questions a leadership team should be able to answer before and
+          during adoption.
+        </Lead>
+        <NumberedList items={guide.leadershipQuestions} strong />
+      </Section>
+
+      <Section label={relatedTransformationsLabel}>
+        <Note>{guide.derivedFromNote}</Note>
+        <RelatedLinks
+          items={entry.relatedTransformations.map((t) => ({
+            title: t.title,
+            href: `/transformations/${t.slug}`,
+          }))}
+        />
+      </Section>
+
+      {guide.relatedGuides && guide.relatedGuides.length > 0 && (
+        <Section label={relatedGuidesLabel}>
+          <RelatedLinks
+            items={guide.relatedGuides.map((g) => ({
+              title: g.title,
+              href: g.href,
+              description: g.description,
+            }))}
+          />
+        </Section>
+      )}
+
+      <Section label="Future additions">
+        <Lead>This guide will expand with:</Lead>
+        <BulletList items={guide.futureAdditions} />
+      </Section>
     </>
   );
 }
+
+function ShellBody({ entry }: { entry: ManualEntry }) {
+  const relatedTransformationsLabel =
+    entry.relatedTransformations.length > 1
+      ? "Related transformations"
+      : "Related transformation";
+
+  return (
+    <>
+      <Section label="What this solves">
+        <BulletList items={entry.whatItSolves} />
+      </Section>
+
+      <Section label="Core principles">
+        <NumberedList items={entry.principles} strong />
+      </Section>
+
+      <Section label="Operating model">
+        <GroupCards
+          groups={entry.operatingModel.map((s) => ({
+            heading: s.heading,
+            items: s.items,
+          }))}
+          twoCol
+        />
+      </Section>
+
+      <Section label="Quality gates">
+        <Lead>What must be true for this system to work.</Lead>
+        <BulletList items={entry.qualityGates} />
+      </Section>
+
+      <Section label="Anti-patterns">
+        <Lead>What breaks this system.</Lead>
+        <BulletList items={entry.antiPatterns} />
+      </Section>
+
+      <Section label={relatedTransformationsLabel}>
+        <RelatedLinks
+          items={entry.relatedTransformations.map((t) => ({
+            title: t.title,
+            href: `/transformations/${t.slug}`,
+          }))}
+        />
+      </Section>
+
+      <Section label="Note">
+        <Note>{entry.futureDepthNote}</Note>
+      </Section>
+    </>
+  );
+}
+
+/* ---------------------------------- page --------------------------------- */
 
 export default async function ManualEntryPage({
   params,
@@ -579,69 +397,48 @@ export default async function ManualEntryPage({
   if (!entry) notFound();
 
   return (
-    <>
-      <SiteHeader />
-      <main id="main">
-        <article className="py-16 md:py-20">
-          <div className="page-shell max-w-[820px]">
-            <Link
-              href="/operating-manual"
-              className="inline-flex items-center gap-2 font-geometric-mono text-[13px] tracking-[-0.02em] text-lichen transition-colors hover:text-ink"
-            >
-              <span aria-hidden="true">←</span> Operating Manual
-            </Link>
+    <PageShell>
+      <ArticleHead
+        eyebrow={`Operating Manual · ${entry.category}`}
+        title={entry.title}
+        dek={entry.thesis}
+        meta={[
+          { label: "Audience", value: entry.audience },
+          { label: "Status", value: entry.status },
+        ]}
+      />
 
-            <EntryHeader entry={entry} />
+      {entry.guide && <Note>{entry.guide.supportingLine}</Note>}
 
-            {entry.guide ? (
-              <EditorialArt
-                slotId={`manual.${entry.slug}.opener`}
-                variant="diagram-painting"
-                aspect="wide"
-                caption="Diagram-painting: this operating system as a handmade schematic."
-                className="mt-10"
-              />
-            ) : (
-              <EditorialArt
-                slotId={`manual.${entry.slug}.placeholder-art`}
-                variant="spot"
-                aspect="strip"
-                className="mt-10"
-              />
-            )}
+      {entry.guide ? (
+        <GuideBody entry={entry} guide={entry.guide} />
+      ) : (
+        <ShellBody entry={entry} />
+      )}
 
-            {entry.guide ? (
-              <GuideBody entry={entry} guide={entry.guide} />
-            ) : (
-              <ShellBody entry={entry} />
-            )}
-
-            <nav
-              aria-label="Related"
-              className="mt-14 border-t border-ash pt-6"
-            >
-              <ul className="flex flex-wrap gap-x-6 gap-y-2">
-                <li>
-                  <Link href="/operating-manual" className={relatedLink}>
-                    Back to Operating Manual
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/transformations" className={relatedLink}>
-                    Transformations
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/" className={relatedLink}>
-                    Return Home
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </article>
-      </main>
-      <SiteFooter />
-    </>
+      <nav
+        aria-label="Related"
+        className="mt-14 flex flex-wrap gap-x-5 gap-y-2 border-t border-ash pt-6 text-[13px] text-lichen"
+      >
+        <Link
+          href="/operating-manual"
+          className="underline underline-offset-2 transition-colors hover:text-ink"
+        >
+          Operating Manual
+        </Link>
+        <Link
+          href="/transformations"
+          className="underline underline-offset-2 transition-colors hover:text-ink"
+        >
+          Transformations
+        </Link>
+        <Link
+          href="/"
+          className="underline underline-offset-2 transition-colors hover:text-ink"
+        >
+          Home
+        </Link>
+      </nav>
+    </PageShell>
   );
 }

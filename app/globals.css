@@ -1,63 +1,62 @@
 @import "tailwindcss";
 
 /*
- * Visual System v2 — New Yorker Editorial (Decision 032).
- * Supersedes the Warm Editorial Zine tokens. Token NAMES are preserved so
- * components reskin without edits; only VALUES changed.
- * Fonts: proprietary TNY Caslon / Irvin / Graphik substituted with
- * Libre Caslon (serif) + Inter (sans), wired via next/font in app/layout.tsx.
- * DESIGN.md is the human-readable contract; keep in sync.
+ * Visual System v3 — kamran.fyi clone (Decision 072).
+ * Values are measured from kamran.fyi (design-audit/kamran-clone-spec.md), the
+ * design authority for the rebuild. Plain @theme (never `@theme inline`) so
+ * color utilities compile to var() and re-tint at runtime. DARK is the default
+ * (@theme); LIGHT overrides live in the plain :root[data-theme="light"] rule.
+ * Fonts: Geist (sans), Geist Mono, Newsreader (serif-italic accent), all
+ * self-hosted via next/font in app/layout.tsx.
+ *
+ * Token NAMES are kept for the sub-pages that still consume them; the homepage
+ * clone uses explicit kamran-exact utilities.
  */
 
 @theme {
-  /* Colors — New Yorker editorial (verified from a live crawl of newyorker.com) */
-  --color-vellum: #ffffff; /* page background */
-  --color-paper: #ffffff; /* card surfaces */
-  --color-ink: #231f20; /* core text — NYer warm near-black (not pure #000) */
-  --color-carbon: #2b2e35; /* deep charcoal — footer, dark panels, primary buttons */
-  --color-ash: #dadada; /* dividers / hairline borders (NYer gray) */
-  --color-olive-char: #4a5568; /* slate gray — strong secondary text */
-  --color-lichen: #4a5568; /* labels / muted text */
-  --color-sage: #6b7280; /* lighter muted text (AA on white) */
-  --color-moss: #a0aec0; /* muted light text on dark surfaces */
-  --color-bone: #f6f4ef; /* warm off-white tint zones (NYer paper) */
-  --color-highlighter-yellow: #0066ff; /* accent → NYer link blue */
-  --color-khaki-olive: #cbd5e0; /* light slate border (tags) */
+  /* ---- Colors — DARK default (kamran warm oklch) ---- */
+  --color-vellum: oklch(0.145 0.012 44); /* bg */
+  --color-paper: oklch(0.2 0.018 46); /* card / pill surface */
+  --color-bone: oklch(0.238 0.02 48); /* lifted panel / hover */
 
-  /* Accent (single, locked site-wide). The newyorker.com pastel feature-card
-     tints were retired in Decision 049 — non-premium on this site's register. */
-  --color-accent-blue: #0066ff;
+  --color-ink: oklch(0.955 0.016 72); /* bright text: name, titles, links */
+  --color-carbon: oklch(0.87 0.02 68); /* body / intro */
+  --color-olive-char: oklch(0.87 0.02 68); /* body */
+  --color-lichen: oklch(0.685 0.032 60); /* muted: role, labels, desc, dates */
+  --color-on-dark: oklch(0.685 0.032 60);
+  --color-on-dark-muted: oklch(0.685 0.032 60);
+  --color-sage: oklch(0.55 0.03 58); /* faint */
+  --color-footer-muted: oklch(0.685 0.032 60);
+  --color-moss: oklch(0.55 0.03 58);
 
-  /* Typography — real New Yorker faces (self-hosted via next/font/local) */
-  --font-editorial-serif: var(--font-caslon), Georgia, "Times New Roman", Times, serif; /* Adobe Caslon Pro — display/hero */
-  --font-heading-serif: var(--font-irvin), Georgia, "Times New Roman", Times, serif; /* Irvin Heading Pro — big display section titles + masthead */
-  --font-headline-serif: var(--font-irvintext), var(--font-irvin), Georgia, "Times New Roman", Times, serif; /* Irvin Text — article/card headlines */
-  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* Inter — body */
-  /* "mono" token now resolves to Graphik — nav / UI labels */
-  --font-geometric-mono: var(--font-graphik), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  /* Neutraface New Yorker — editorial rubrics / kickers / eyebrows */
-  --font-rubric: var(--font-neutraface), var(--font-graphik), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --color-ash: oklch(0.275 0.022 48); /* border (solid) */
+  --color-rule-dark: oklch(0.32 0.02 48); /* stronger border */
+  --color-khaki-olive: oklch(0.32 0.02 48);
 
-  /* Editorial publication aliases (Decision 051). These reference fonts
-     already wired locally via next/font in app/layout.tsx; safe fallbacks
-     only. No font files are added by this system. Nikhil can repoint these
-     to other locally installed faces by editing the first name in each. */
-  --font-display: var(--font-caslon), "Libre Caslon Text", Georgia, serif;
-  --font-text: var(--font-caslon), "Source Serif 4", Georgia, serif;
-  --font-ui: var(--font-graphik), "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --color-accent-blue: oklch(0.83 0.13 82); /* amber ~#FCD34D */
+  --color-highlighter-yellow: oklch(0.83 0.13 82);
 
-  /* Border Radius */
-  --radius-sm: 6px; /* buttons, small UI */
-  --radius-lg: 16px; /* featured cards, large containers */
+  /* ---- Fonts ---- */
+  --font-sans: var(--font-geist), system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-editorial-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-heading-serif: var(--font-geist), system-ui, -apple-system, sans-serif;
+  --font-headline-serif: var(--font-geist), system-ui, -apple-system, sans-serif;
+  --font-rubric: var(--font-geist), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-geist), system-ui, -apple-system, sans-serif;
+  --font-text: var(--font-geist), system-ui, -apple-system, sans-serif;
+  --font-ui: var(--font-geist), system-ui, -apple-system, sans-serif;
+  --font-geometric-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  /* Layout (Decision 059: widened from 1200px by owner directive) */
-  --spacing-page-max: 1472px;
-
-  /* Elevation (New Yorker allows subtle shadows) */
-  --shadow-1: 0px 2px 8px rgba(0, 0, 0, 0.06);
-  --shadow-2: 0px 4px 16px rgba(0, 0, 0, 0.12);
+  /* ---- Radius / layout / elevation ---- */
+  --radius-sm: 8px;
+  --radius-lg: 12px;
+  --spacing-page-max: 1312px;
+  --shadow-1: none;
+  --shadow-2: none;
 }
+
+/* Dark-only — the light theme was removed by owner decision. */
 
 @layer base {
   html {
@@ -70,6 +69,7 @@
     background: var(--color-vellum);
     color: var(--color-ink);
     font-family: var(--font-sans);
+    font-size: 16px;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -77,7 +77,7 @@
 
   ::selection {
     background: var(--color-accent-blue);
-    color: var(--color-paper);
+    color: var(--color-vellum);
   }
 
   a {
@@ -87,6 +87,12 @@
       color 0.16s ease,
       background-color 0.16s ease,
       border-color 0.16s ease;
+  }
+
+  main p a {
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   :focus-visible {
@@ -99,159 +105,134 @@
   .font-editorial-serif {
     font-family: var(--font-editorial-serif);
   }
-
   .font-heading-serif {
     font-family: var(--font-heading-serif);
   }
-
   .font-headline-serif {
     font-family: var(--font-headline-serif);
   }
-
   .font-geometric-mono {
     font-family: var(--font-geometric-mono);
   }
-
   .font-rubric {
     font-family: var(--font-rubric);
   }
 
-  /*
-   * Type scale v3 (Decision 052) — measured against newyorker.com computed
-   * styles + declared CSS (article H1 Irvin 42/46.7 w400; deks Caslon 21/28;
-   * body Caslon 18–21/1.5; in-article h2 32/36; byline 15 w600; captions
-   * Graphik 13/16; rubric 12/16; NO weight below 400 anywhere).
-   *
-   * These role classes are THE source of truth. Components must consume them
-   * instead of arbitrary text-[Npx]/leading-[N] values. scripts/check-type.mjs
-   * fails the build check if key computed values drift.
-   */
+  /* kamran section label */
+  .k-label {
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-lichen);
+  }
 
-  /* -- Furniture (sans voices) -- */
-  .t-caption {
-    /* image captions, plate labels — NYer: Graphik 13/16 */
-    font-family: var(--font-geometric-mono);
-    font-size: 13px;
+  /*
+   * Sub-page type scale (Geist sans). The homepage clone does not use these;
+   * kept so /cases, /transformations, /operating-manual keep rendering until
+   * they are rebuilt in the same language.
+   */
+  .t-rubric {
+    font-size: 12px;
     line-height: 16px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .t-caption {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .t-meta {
+    font-family: var(--font-geometric-mono);
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    font-variant-numeric: tabular-nums;
+  }
+  .t-nav {
+    font-size: 13px;
+    line-height: 1.4;
+    font-weight: 450;
+  }
+  .t-footer-link {
+    font-size: 14px;
+    line-height: 1.7;
+    font-weight: 450;
+    color: var(--color-footer-muted);
+  }
+  .t-body-sm {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .t-body {
+    font-size: 15px;
+    line-height: 24px;
+  }
+  .t-body-serif {
+    font-size: 16px;
+    line-height: 27px;
+    font-weight: 400;
+  }
+  .measure-article {
+    max-width: 624px;
+  }
+  .t-mix-dek {
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--color-olive-char);
+  }
+  .t-dek {
+    font-size: clamp(1.0625rem, 0.98rem + 0.36vw, 1.1875rem);
+    line-height: 1.6;
+    font-weight: 450;
+  }
+  .t-mix-hed {
+    font-size: 16px;
+    line-height: 1.35;
+    font-weight: 500;
     letter-spacing: -0.01em;
   }
-
-  .t-body-sm {
-    /* structural support text: checklists, card copy, ledger labels, meta
-       values. NYer content floor is 15px — never 13. */
-    font-size: 15px;
-    line-height: 22px;
-    letter-spacing: 0;
-  }
-
-  .t-body {
-    /* functional sans body (non-reading UI prose) */
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: 0;
-  }
-
-  /* -- Reading voices (serif) -- */
-  .t-body-serif {
-    /* long-form reading text — NYer article body: Caslon 18/27 (1.5) */
-    font-family: var(--font-editorial-serif);
-    font-size: 18px;
-    line-height: 27px;
-    letter-spacing: 0;
-    font-weight: 400;
-  }
-
-  .t-mix-hed {
-    /* Card heading — measured 1:1 from newyorker.com "Today's Mix"
-       (SmartItemHed): Caslon 22/28, weight 400, near-black. Hierarchy is by
-       size + color, never weight. Color set via text-ink utility. */
-    font-family: var(--font-editorial-serif);
-    font-size: 22px;
-    line-height: 28px;
-    letter-spacing: 0;
-    font-weight: 400;
-  }
-
-  .t-mix-dek {
-    /* Card subheading — measured 1:1 from newyorker.com "Today's Mix"
-       (SmartItemDek): Caslon 17/24, weight 400, #333. */
-    font-family: var(--font-editorial-serif);
-    font-size: 17px;
-    line-height: 24px;
-    letter-spacing: 0;
-    font-weight: 400;
-    color: #333333;
-  }
-
-  .t-dek {
-    /* standfirst / dek / proves line / section intro — NYer dek: Caslon 21/28 */
-    font-family: var(--font-editorial-serif);
-    font-size: 21px;
-    line-height: 28px;
-    letter-spacing: 0;
-    font-weight: 400;
-  }
-
-  /* -- Headline scale (weights are ALWAYS 400: the faces ship no 300; the
-        old `font-light` rendered a synthesized faux-thin) -- */
   .t-hed-card {
-    /* card headlines — Irvin Text */
-    font-family: var(--font-headline-serif);
-    font-size: 24px;
-    line-height: 28px;
-    letter-spacing: 0;
-    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.3;
+    font-weight: 500;
+    letter-spacing: -0.01em;
   }
-
   .t-hed-3 {
-    /* in-article section headings — was 21–22px (flattened); NYer in-article
-       h2 runs 32/36. 28/32 keeps rhythm on 16-section pages. */
-    font-family: var(--font-heading-serif);
-    font-size: 28px;
-    line-height: 32px;
-    letter-spacing: 0;
-    font-weight: 400;
-  }
-
-  .t-hed-2 {
-    /* index/home section titles — NYer river hed: Irvin 36/40 desktop, 28/32 mobile */
-    font-family: var(--font-heading-serif);
-    font-size: clamp(1.75rem, 1.05rem + 1.95vw, 2.25rem);
-    line-height: 1.11;
-    letter-spacing: 0;
-    font-weight: 400;
-  }
-
-  .t-hed-1 {
-    /* page/article titles — NYer article H1: 42/46.7, weight 400 */
-    font-family: var(--font-editorial-serif);
-    font-size: clamp(2rem, 1.55rem + 1.55vw, 2.625rem);
-    line-height: 1.12;
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 600;
     letter-spacing: -0.015em;
-    font-weight: 400;
   }
-
-  .t-display {
-    /* hero/cover voice only. Capped at 64px — the old 86px hero dwarfed
-       every publication proportion. Weight 400, never 300. */
-    font-family: var(--font-editorial-serif);
-    font-size: clamp(2.25rem, 1.35rem + 3.1vw, 4rem);
-    line-height: 1.06;
+  .t-hed-2 {
+    font-size: clamp(1.25rem, 1.15rem + 0.4vw, 1.5rem);
+    line-height: 1.25;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+  .t-hed-1 {
+    font-size: clamp(1.5rem, 1.28rem + 0.9vw, 1.875rem);
+    line-height: 1.15;
+    font-weight: 600;
     letter-spacing: -0.02em;
-    font-weight: 400;
   }
-
+  .t-display {
+    font-size: clamp(1.5rem, 1.28rem + 0.9vw, 1.875rem);
+    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
   .t-display-feature {
-    /* feature-opener display voice (Decision 054): the hero headline set in
-       Irvin on the dark field — the New Yorker feature-story title
-       treatment. Irvin's titling forms carry the caps look without
-       text-transform. Capped at 52px (below .t-display's 64) so the full
-       opener — plate, headline, dek — stays above the fold. */
-    font-family: var(--font-heading-serif);
-    font-size: clamp(2.125rem, 1.25rem + 2.4vw, 3.25rem);
-    line-height: 1.08;
-    letter-spacing: 0;
-    font-weight: 400;
+    font-size: clamp(1.625rem, 1.35rem + 1.15vw, 2.125rem);
+    line-height: 1.15;
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
 
   .page-shell {
@@ -259,42 +240,29 @@
     margin-inline: auto;
     padding-inline: 24px;
   }
-
   .hairline {
     border: 1px solid var(--color-ash);
   }
-
   .accent-mark {
     background: var(--color-accent-blue);
   }
-
-  /* New Yorker article opener — Caslon drop cap on the first letter */
   .dropcap::first-letter {
-    float: left;
-    font-family: var(--font-editorial-serif);
-    font-weight: 400;
-    font-size: 3.4em;
-    line-height: 0.78;
-    padding-right: 0.07em;
-    margin-top: 0.02em;
-    color: var(--color-ink);
+    float: none;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    padding: 0;
+    margin: 0;
+    color: inherit;
   }
-
   .elevation-1 {
     box-shadow: var(--shadow-1);
   }
-
   .elevation-2 {
     box-shadow: var(--shadow-2);
   }
 
-  /*
-   * Motion — calm and structural only (DESIGN.md Motion rules).
-   * Two materials: a hero page-load sequence and a below-fold section
-   * entrance. Content is always visible by default; the Reveal component
-   * hides an element only after confirming it sits below the fold, so
-   * no-JS, headless, and reduced-motion readers always get finished pages.
-   */
+  /* Motion — calm entrance only. */
   @keyframes rise-in {
     from {
       opacity: 0;
@@ -305,30 +273,24 @@
       transform: none;
     }
   }
-
   .hero-enter {
-    animation: rise-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: rise-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
-
   .hero-enter-1 {
-    animation-delay: 90ms;
+    animation-delay: 60ms;
   }
-
   .hero-enter-2 {
+    animation-delay: 120ms;
+  }
+  .hero-enter-3 {
     animation-delay: 180ms;
   }
-
-  .hero-enter-3 {
-    animation-delay: 280ms;
-  }
-
   .reveal-pending {
     opacity: 0;
     transform: translateY(12px);
   }
-
   .reveal-in {
-    animation: rise-in 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: rise-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -339,10 +301,21 @@
     .reveal-in {
       animation: none;
     }
-
     .reveal-pending {
       opacity: 1;
       transform: none;
+    }
+  }
+
+  /* Theme cross-fade — only while toggling (JS adds .theming for ~320ms). */
+  @media (prefers-reduced-motion: no-preference) {
+    :root.theming,
+    :root.theming * {
+      transition:
+        background-color 0.26s ease,
+        border-color 0.26s ease,
+        color 0.26s ease,
+        text-decoration-color 0.26s ease !important;
     }
   }
 }
