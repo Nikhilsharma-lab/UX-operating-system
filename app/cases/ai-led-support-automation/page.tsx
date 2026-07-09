@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/page-shell";
 import { ArticleHead, Section, P, BulletList, Note, RelatedLinks } from "@/components/article";
 import { aiSupportAutomation } from "@/lib/ai-support-automation-case";
-import { UiEvidence } from "@/components/ui-evidence";
-import { prototypes } from "@/lib/prototypes";
 
 /*
  * AI-led Support Automation - service-experience + automation case, rebuilt in
@@ -117,7 +115,7 @@ export default function AiSupportAutomationCasePage() {
           {c.decisions.map((d, i) => (
             <li
               key={d.title}
-              className="rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark"
+              className={`rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark${c.decisions.length % 2 === 1 && i === c.decisions.length - 1 ? " sm:col-span-2" : ""}`}
             >
               <span className="font-mono text-[12px] tabular-nums text-sage">
                 {String(i + 1).padStart(2, "0")}
@@ -142,10 +140,10 @@ export default function AiSupportAutomationCasePage() {
       {/* Use-case examples */}
       <Section label="Use-case examples">
         <ul className="grid gap-3 sm:grid-cols-2">
-          {c.useCases.examples.map((e) => (
+          {c.useCases.examples.map((e, i) => (
             <li
               key={e.title}
-              className="rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark"
+              className={`rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark${c.useCases.examples.length % 2 === 1 && i === c.useCases.examples.length - 1 ? " sm:col-span-2" : ""}`}
             >
               <h3 className="text-[15px] font-medium leading-snug text-ink text-balance">
                 {e.title}
@@ -160,10 +158,6 @@ export default function AiSupportAutomationCasePage() {
             &ldquo;{c.useCases.quote}&rdquo;
           </blockquote>
         </figure>
-      </Section>
-
-      <Section label="UI evidence">
-        <UiEvidence {...prototypes["ai-led-support-automation"]} />
       </Section>
 
       {/* Metric movement */}
@@ -198,10 +192,10 @@ export default function AiSupportAutomationCasePage() {
       {/* Lessons */}
       <Section label="Lessons">
         <ul className="grid gap-3 sm:grid-cols-2">
-          {c.lessons.map((l) => (
+          {c.lessons.map((l, i) => (
             <li
               key={l.n}
-              className="rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark"
+              className={`rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark${c.lessons.length % 2 === 1 && i === c.lessons.length - 1 ? " sm:col-span-2" : ""}`}
             >
               <span className="font-mono text-[12px] tabular-nums text-sage">{l.n}</span>
               <p className="mt-2 text-[14px] leading-[1.6] text-carbon">{l.title}</p>

@@ -133,7 +133,7 @@ export default function AirtelPaymentsBankForBusinessCasePage() {
           {c.decisions.map((d, i) => (
             <li
               key={d.title}
-              className="flex flex-col rounded-xl border border-ash bg-paper p-5 transition-colors hover:border-rule-dark"
+              className={`flex flex-col rounded-xl border border-ash bg-paper p-5 transition-colors hover:border-rule-dark${c.decisions.length % 2 === 1 && i === c.decisions.length - 1 ? " sm:col-span-2" : ""}`}
             >
               <span className="font-geometric-mono text-[12px] tabular-nums text-sage">
                 {String(i + 1).padStart(2, "0")}

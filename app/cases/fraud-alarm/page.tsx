@@ -133,7 +133,7 @@ export default function FraudAlarmCasePage() {
           {c.decisions.map((d, i) => (
             <li
               key={d.title}
-              className="rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark"
+              className={`rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark${c.decisions.length % 2 === 1 && i === c.decisions.length - 1 ? " sm:col-span-2" : ""}`}
             >
               <span className="text-[12px] tabular-nums text-sage">
                 {String(i + 1).padStart(2, "0")}
@@ -192,10 +192,10 @@ export default function FraudAlarmCasePage() {
       {/* Lessons */}
       <Section label="Lessons">
         <ul className="grid gap-3 sm:grid-cols-3">
-          {c.lessons.map((l) => (
+          {c.lessons.map((l, i) => (
             <li
               key={l.n}
-              className="rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark"
+              className={`rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark${c.lessons.length % 2 === 1 && i === c.lessons.length - 1 ? " sm:col-span-2" : ""}`}
             >
               <span className="text-[12px] tabular-nums text-sage">{l.n}</span>
               <p className="mt-2 text-[14px] font-medium leading-snug text-ink">
