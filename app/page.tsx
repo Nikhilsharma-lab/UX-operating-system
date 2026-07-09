@@ -153,9 +153,9 @@ function Pill({ label, href, emoji }: { label: string; href: string; emoji: stri
   );
 }
 
-function ProjectCard({ p }: { p: (typeof featured)[number] }) {
+function ProjectCard({ p, full = false }: { p: (typeof featured)[number]; full?: boolean }) {
   return (
-    <Link href={p.href} className="group flex flex-col rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark">
+    <Link href={p.href} className={`group flex flex-col rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark${full ? " sm:col-span-2" : ""}`}>
       <div className="flex items-start gap-2">
         <Shape kind={p.shape} />
         <span className="flex-1 text-[15px] font-medium leading-tight text-ink">{p.title}</span>
@@ -299,8 +299,12 @@ export default function HomePage() {
       <section className="mt-14">
         <Label>Recent Projects</Label>
         <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
-          {featured.map((p) => (
-            <ProjectCard key={p.title} p={p} />
+          {featured.map((p, i) => (
+            <ProjectCard
+              key={p.title}
+              p={p}
+              full={featured.length % 2 === 1 && i === featured.length - 1}
+            />
           ))}
         </div>
         <div className="mt-3 border-t border-ash">
@@ -326,10 +330,13 @@ export default function HomePage() {
           into product and business creation.
         </p>
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
-          {ventures.map((v) => {
+          {ventures.map((v, i) => {
             const external = v.href?.startsWith("http");
-            const cardCls =
-              "group rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark";
+            const spanFull =
+              ventures.length % 2 === 1 && i === ventures.length - 1
+                ? " sm:col-span-2"
+                : "";
+            const cardCls = `group rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark${spanFull}`;
             const inner = (
               <>
                 <div className="flex items-center gap-2">
@@ -345,7 +352,7 @@ export default function HomePage() {
             );
             if (!v.href) {
               return (
-                <div key={v.name} className="rounded-xl border border-ash bg-paper p-4">
+                <div key={v.name} className={`rounded-xl border border-ash bg-paper p-4${spanFull}`}>
                   {inner}
                 </div>
               );
