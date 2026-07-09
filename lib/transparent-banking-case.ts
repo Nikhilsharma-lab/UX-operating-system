@@ -56,7 +56,7 @@ export const transparentBanking = {
   shift: {
     heading: "From disclosure to trust infrastructure.",
     copy: [
-      "We reframed transparency from a legal and compliance artifact into a product experience.",
+      "We stopped treating transparency as a compliance box to tick and started building it as part of the product.",
       "Transparent Banking became a visible trust surface, not just a charges or T&C page.",
     ],
     reframeFrom: "“Where do we disclose this?”",

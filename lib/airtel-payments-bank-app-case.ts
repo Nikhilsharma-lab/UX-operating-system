@@ -80,8 +80,8 @@ export const airtelPaymentsBankApp = {
   shift: {
     heading: "Controlled decoupling.",
     copy: [
-      "This was not a clean break from ThanksApp.",
-      "It was a controlled decoupling strategy.",
+      "This was never a clean break from ThanksApp.",
+      "It was a controlled decoupling.",
       "ThanksApp remained the acquisition engine. Airtel Payments Bank App became the engagement engine: a bank-owned surface for product discovery, trust, self-service, cross-sell, and deeper customer relationships.",
       "The challenge was to make both surfaces coexist without confusing users.",
     ],
