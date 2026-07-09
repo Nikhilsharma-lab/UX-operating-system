@@ -17,8 +17,8 @@ export const cv = {
   },
 
   summary: [
-    "Head of Product Design with 12+ years building product organizations, AI-powered design systems, and consumer fintech at scale. Built Airtel Payments Bank's design organization from the ground up into the multidisciplinary team behind products serving 12M+ monthly active users, and made design a strategic partner across product, engineering, and leadership.",
-    "Runs a design function that ships production code through AI-assisted design-to-code pipelines, grounds product decisions in field research across rural and urban India, and has turned customer trust into a marketed differentiator for the bank.",
+    "I have spent 12+ years turning unclear problems into products people trust, and building the teams that keep shipping them. At Airtel Payments Bank I started with no design function and grew it into the multidisciplinary team now behind products used by 12M+ people a month, with design sitting at the table with product, engineering, and leadership.",
+    "The work is as much upstream as it is on the screen. My team ships production code through AI-assisted design-to-code pipelines, grounds decisions in field research across rural and urban India, and has made customer trust something the bank can market, not just claim.",
   ],
 
   snapshot: [
