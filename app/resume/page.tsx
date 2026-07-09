@@ -38,6 +38,17 @@ export default function ResumePage() {
         ]}
       />
 
+      <a
+        href="/nikhil-sharma-resume.pdf"
+        download
+        className="mt-6 inline-flex items-center gap-2 rounded-full border border-accent-blue/40 bg-accent-blue/10 px-4 py-1.5 text-[13px] font-medium text-accent-blue transition-colors hover:bg-accent-blue/[0.16]"
+      >
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-3.5 w-3.5">
+          <path d="M8 2.5v7m0 0 3-3m-3 3-3-3M3 13h10" />
+        </svg>
+        Download résumé
+      </a>
+
       {/* Summary */}
       <Section label="Summary">
         {cv.summary.map((t, i) => (
