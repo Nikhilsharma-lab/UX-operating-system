@@ -59,7 +59,7 @@ export const aiSupportAutomation = {
     heading: "Support scale was growing faster than human support could.",
     copy: [
       "As transactions, onboarding, and customer volume grew, support demand grew with it.",
-      "Every spike in call volume created the same operating problem: longer wait times, higher call-center cost, more pressure to hire agents, and a worse customer experience.",
+      "Every spike in call volume created the same problem: longer waits, higher call-center cost, more pressure to keep hiring agents, and a worse experience for the customer.",
       "The issue was not always that a digital solution did not exist. In many cases, the solution already existed inside the app. The experience problem was discovery, routing, and timing.",
       `Users came through IVR, chatbot, or email describing symptoms like "transaction failed" or "unable to transact," while the real root cause could be something else, such as account freeze.`,
     ],

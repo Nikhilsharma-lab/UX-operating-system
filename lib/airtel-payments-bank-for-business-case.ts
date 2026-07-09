@@ -63,7 +63,7 @@ export const airtelPaymentsBankForBusiness = {
     heading: "The merchant experience was fragmented.",
     copy: [
       "Merchant payments, Current Account, settlements, QR, Soundbox, and lending opportunities were not experienced as one connected business relationship.",
-      "The old business app was also carrying product-quality debt: slow loading, poor navigation, unclear labels, weak UX, visual clutter, backend failures, and long task-completion time.",
+      "The old business app was also carrying real product debt: slow loading, confusing navigation, unclear labels, visual clutter, backend failures, and everyday tasks that took far longer than they should.",
       "For small merchants, especially in tier-3 and tier-4 markets, this meant daily business tasks took more effort than they should.",
     ],
   },

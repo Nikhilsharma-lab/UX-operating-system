@@ -72,7 +72,7 @@ const outcomes: [string, string][] = [
 
 const snapshot: { label: string; line: string }[] = [
   { label: "Leadership", line: "Head of Product Design at Airtel Payments Bank; built and scaled the design function 0→20 across consumer, merchant, and internal products." },
-  { label: "Organization", line: "Built the rituals, research practices, design reviews, hiring systems, and cross-functional operating rhythms behind a maturing design org." },
+  { label: "Organization", line: "Built the rituals, research practices, design reviews, and hiring that turn a group of designers into a real, cross-functional organization." },
   { label: "Scale", line: "Regulated financial products serving 12M+ monthly active users and 1B+ transactions since 2017." },
   { label: "Building", line: "Building LANE, an AI-native product operating system; co-founder of Svenklas, a design-led travel accessories brand." },
 ];
@@ -92,14 +92,14 @@ const ventures: { name: string; emoji: string; tag: string; copy: string; href?:
     name: "LANE",
     emoji: "🛣️",
     tag: "AI product operating system",
-    copy: "An AI-native product operating system for product and design teams, built on the belief that product work should start with clearer problems, better decisions, and stronger validation before execution.",
+    copy: "An AI-native operating system for product and design teams, built on a simple bet: good product work starts with a sharper problem and a real decision, long before anyone opens a design file.",
     href: "/cases/lane",
   },
   {
     name: "Svenklas",
     emoji: "🧳",
     tag: "Design-led consumer brand",
-    copy: "A design-led travel accessories brand that brings founder-level ownership across product, brand, manufacturing, distribution, and commercial execution.",
+    copy: "A design-led travel accessories brand where I own the whole thing: product, brand, manufacturing, distribution, and the commercial side.",
     href: "https://www.svenklas.com",
   },
 ];
@@ -209,17 +209,18 @@ export default function HomePage() {
 
       {/* Intro */}
       <p className="hero-enter hero-enter-2 mt-5 text-[17px] leading-[1.7] text-carbon">
-        I build AI-native product design organizations that turn unclear problems into trusted
-        systems, faster decisions, and measurable product impact.
+        I build AI-native product design organizations. Most of the work is upstream of the
+        screens: turning unclear, half-formed problems into products people trust, and teams that
+        can keep shipping them.
       </p>
 
       {/* Now */}
       <section className="hero-enter hero-enter-3 mt-14">
         <Label>Now</Label>
         <p className="mt-4 text-[15px] leading-[1.6] text-carbon">
-          Product Design Head at <span className="font-medium text-ink">Airtel Payments Bank</span>,
-          leading product design and building AI-native operating systems, turning ambiguous
-          problems into shipped outcomes across fintech and consumer products.
+          Product Design Head at <span className="font-medium text-ink">Airtel Payments Bank</span>. I
+          run product design and build the AI-native systems the team works in, and take messy
+          problems all the way to shipped, across fintech and consumer products.
         </p>
         <div className="mt-3 flex flex-wrap gap-2">
           {nowPills.map((p) => (
@@ -227,8 +228,8 @@ export default function HomePage() {
           ))}
         </div>
         <p className="mt-4 text-[13.5px] leading-[1.55] text-sage">
-          On the side, building small ventures and writing an operating manual for AI-native product
-          teams.
+          On the side, I build small products of my own and write an operating manual for
+          AI-native product teams.
         </p>
       </section>
 
@@ -326,8 +327,8 @@ export default function HomePage() {
       <section id="building" className="mt-14 scroll-mt-20">
         <Label>Building</Label>
         <p className="mt-4 max-w-[58ch] text-[15px] leading-[1.6] text-carbon">
-          LANE and Svenklas are builder proof that the operating philosophy extends beyond advisory
-          into product and business creation.
+          LANE and Svenklas are where I build instead of advise: a product and a business I own
+          end to end, not a slide about one.
         </p>
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
           {ventures.map((v, i) => {
@@ -410,8 +411,8 @@ export default function HomePage() {
       <section id="contact" className="mt-14 scroll-mt-20">
         <Label>Contact</Label>
         <p className="mt-4 max-w-[52ch] text-[15px] leading-[1.6] text-carbon">
-          Open to product &amp; design leadership, advisory, speaking, and AI-native product
-          conversations.
+          Open to product and design leadership roles, advisory, speaking, or a good conversation
+          about building AI-native products.
         </p>
         <p className="mt-3">
           <a href={`mailto:${EMAIL}`} className="text-[18px] font-medium text-ink underline underline-offset-2 hover:text-lichen">

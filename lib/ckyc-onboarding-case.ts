@@ -53,7 +53,7 @@ export const ckycOnboarding = {
     heading: "The onboarding was digital, but the operating model was not.",
     copy: [
       "The first digital onboarding approach depended on Video KYC. Users entered Aadhaar and PAN, completed Aadhaar OTP, waited for a live agent, went through video verification, added details, and then waited for manual auditor review.",
-      "The flow had multiple scale limits: agent availability, working-hour dependency, queue load, internet quality, document readiness, and auditor backlog.",
+      "The flow ran into limit after limit: agent availability, working hours, queue load, patchy internet, whether the user had their documents ready, and a growing auditor backlog.",
       "Outside 8 AM to 10 PM, the journey had to stop and ask users to return later. For many users, account opening took 4-5+ hours instead of feeling instant.",
     ],
   },
