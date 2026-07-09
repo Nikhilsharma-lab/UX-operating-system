@@ -51,13 +51,17 @@ export function UiEvidence({
     }
   }, []);
 
+  function close() {
+    setOpen(false);
+    setValue("");
+    setError(false);
+  }
+
   function unlock(e: React.FormEvent) {
     e.preventDefault();
     if (value.trim() === password) {
       window.open(href, "_blank", "noopener,noreferrer");
-      setOpen(false);
-      setValue("");
-      setError(false);
+      close();
     } else {
       setError(true);
     }
@@ -110,7 +114,7 @@ export function UiEvidence({
           role="dialog"
           aria-modal="true"
           aria-label="Enter password"
-          onClick={() => setOpen(false)}
+          onClick={close}
           className="fixed inset-0 z-[70] flex items-center justify-center bg-black/50 px-4 backdrop-blur-[2px]"
         >
           <form
@@ -136,12 +140,12 @@ export function UiEvidence({
               placeholder="Password"
               className="mt-3 w-full rounded-md border border-ash bg-bone px-3 py-2 text-[14px] text-ink placeholder:text-sage focus:border-rule-dark focus:outline-none"
             />
-            {error && <p className="mt-2 text-[12.5px] text-[#e08a72]">Incorrect password. Try again.</p>}
+            {error && <p role="alert" className="mt-2 text-[12.5px] text-[#e08a72]">Incorrect password. Please try again.</p>}
             <div className="mt-4 flex justify-end gap-2">
-              <button type="button" onClick={() => setOpen(false)} className="rounded-md px-3 py-1.5 text-[13px] text-lichen transition-colors hover:text-ink">
+              <button type="button" onClick={close} className="rounded-md px-3 py-1.5 text-[13px] text-lichen transition-colors hover:text-ink">
                 Cancel
               </button>
-              <button type="submit" className="rounded-md bg-accent-blue px-3.5 py-1.5 text-[13px] font-medium text-vellum transition-opacity hover:opacity-90">
+              <button type="submit" disabled={!value.trim()} className="rounded-md bg-accent-blue px-3.5 py-1.5 text-[13px] font-medium text-vellum transition-opacity hover:opacity-90 disabled:opacity-40 disabled:pointer-events-none">
                 Open Figma
               </button>
             </div>

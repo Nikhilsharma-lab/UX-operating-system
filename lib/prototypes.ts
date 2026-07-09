@@ -20,6 +20,11 @@ export type Prototype = {
 const FIGMA = "https://www.figma.com/"; // paste the protected Figma prototype link
 const PASSWORD = "nikhil"; // temporary shared password; Figma links to be added later
 
+// CKYC protected prototype wiring — owner to replace these placeholders with the
+// real Figma link and password. Only the CKYC card uses these.
+const CKYC_FIGMA_PASSWORD = "REPLACE_WITH_PASSWORD";
+const CKYC_FIGMA_URL = "REPLACE_WITH_FIGMA_URL";
+
 export const prototypes: Record<string, Prototype> = {
   "fraud-alarm": {
     heading: "The Fraud Alarm journey",
@@ -39,8 +44,8 @@ export const prototypes: Record<string, Prototype> = {
     heading: "The CKYC onboarding flow",
     subheading: "Account opening, from the first tap to a verified account.",
     image: "/case-ui/ckyc-onboarding.jpg",
-    href: FIGMA,
-    password: PASSWORD,
+    href: CKYC_FIGMA_URL,
+    password: CKYC_FIGMA_PASSWORD,
   },
   "welcome-kit": {
     heading: "The Welcome Kit experience",
