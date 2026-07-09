@@ -26,7 +26,7 @@ Central belief: **design creates systems that create products** — great produc
 
 Three words: composed, evidentiary, editorial.
 
-Emotional goals: executive clarity, calm confidence, strategic depth. The tone pairs are the contract — sharp not loud, premium not luxurious, editorial not decorative, technical not cold, human not casual, confident not self-promotional, timeless not trendy. The active visual voice is New Yorker Editorial (see `DESIGN.md`): serious magazine authority, not startup gloss.
+Emotional goals: executive clarity, calm confidence, strategic depth. The tone pairs are the contract — sharp not loud, premium not luxurious, editorial not decorative, technical not cold, human not casual, confident not self-promotional, timeless not trendy. The active visual voice is dark kamran (see `DESIGN.md`): a single-column, dark, typographic operating manual with serious digital authority, not startup gloss or magazine cosplay.
 
 Canonical source: `FOUNDATION/04_BRAND_THESIS.md`.
 

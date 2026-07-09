@@ -3,9 +3,8 @@ import Link from "next/link";
 
 /*
  * Sub-page shell in the kamran language: a centered reading column with a slim
- * "back to home" affordance at the top (kamran.fyi itself has no nav, so this
- * is the minimal chrome the multi-page routes need). The fixed theme toggle
- * lives in the root layout, so every page has it.
+ * "back to home" affordance at the top. This keeps the multi-page routes in the
+ * same quiet, dark, single-column system without adding navigation chrome.
  */
 export function PageShell({ children }: { children: ReactNode }) {
   return (

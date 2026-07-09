@@ -9,9 +9,9 @@
 >
 > The system is a dark, single-column, typographic layout in the spirit of
 > kamran.fyi — calm, composed, editorial. It **supersedes** the earlier
-> measured "New Yorker Editorial" system (Decision 065) and the legacy
-> "Warm Editorial Zine" kit; both are retired. There is no external
-> pixel-parity target anymore — the design is self-authored.
+> measured editorial experiments and legacy warm-zine kit; both are retired.
+> There is no external pixel-parity target anymore — the design is
+> self-authored.
 
 ---
 
@@ -136,5 +136,5 @@ for body; `sage` is for small non-essential labels only.
 - `npx tsc --noEmit` (types)
 
 The former `check:type` puppeteer regression guard was retired with the
-New Yorker system; the design is now self-authored, so `globals.css` is the
-regression baseline.
+measured editorial system; the design is now self-authored, so `globals.css`
+is the regression baseline.

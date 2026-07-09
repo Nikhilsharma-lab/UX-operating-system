@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 /*
- * Visual System v3 - kamran.fyi clone (Decision 072).
- * Values are measured from kamran.fyi (design-audit/kamran-clone-spec.md), the
- * design authority for the rebuild. Plain @theme (never `@theme inline`) so
- * color utilities compile to var() and re-tint at runtime. DARK is the default
- * (@theme); LIGHT overrides live in the plain :root[data-theme="light"] rule.
+ * Visual System v3 - dark kamran language (Decision 072).
+ * The values below are the source-of-truth tokens for the self-authored dark
+ * system. Plain @theme (never `@theme inline`) keeps color utilities compiling
+ * to var() so they can inherit the runtime token values. Dark is the only
+ * theme.
  * Fonts: Geist (sans), Geist Mono, Newsreader (serif-italic accent), all
  * self-hosted via next/font in app/layout.tsx.
  *
- * Token NAMES are kept for the sub-pages that still consume them; the homepage
- * clone uses explicit kamran-exact utilities.
+ * Token names are kept for sub-pages and legacy utilities that still consume
+ * them.
  */
 
 @theme {
