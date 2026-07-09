@@ -18,7 +18,7 @@ export const cv = {
 
   summary: [
     "I have spent 12+ years turning unclear problems into products people trust, and building the teams that keep shipping them. At Airtel Payments Bank I started with no design function and grew it into the multidisciplinary team now behind products used by 12M+ people a month, with design sitting at the table with product, engineering, and leadership.",
-    "The work is as much upstream as it is on the screen. My team ships production code through AI-assisted design-to-code pipelines, grounds decisions in field research across rural and urban India, and has made customer trust something the bank can market, not just claim.",
+    "Most of the work is upstream of the screen: figuring out what to build and why. My team ships production code through AI-assisted design-to-code pipelines, grounds decisions in field research across rural and urban India, and has made customer trust something the bank can market, not just claim.",
   ],
 
   snapshot: [
