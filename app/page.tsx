@@ -335,7 +335,30 @@ export default function HomePage() {
         </p>
       </section>
 
-      <div id="start" className="hero-enter hero-enter-2 mt-8 scroll-mt-20">
+      {/* Selected outcomes */}
+      <section className="hero-enter hero-enter-2 mt-10">
+        <Label>Selected outcomes</Label>
+        <p className="mt-4 max-w-[58ch] text-[15px] leading-[1.6] text-carbon">
+          Four numbers stay on the homepage because each points to a deeper proof route. The rest
+          belongs in the archive, not the first read.
+        </p>
+        <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2">
+          {outcomes.map((o) => (
+            <Link key={o.label} href={o.href} className="interactive-row group -mx-2 border-t border-ash px-2 py-4">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <div className="text-[24px] font-medium leading-none tracking-tight tabular-nums text-ink">{o.value}</div>
+                  <div className="mt-2 text-[13px] leading-snug text-lichen">{o.label}</div>
+                  <div className="mt-2 font-geometric-mono text-[11px] uppercase tracking-[0.08em] text-sage">{o.proof}</div>
+                </div>
+                <Arrow className="interactive-arrow mt-1 text-sage" />
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <div id="start" className="hero-enter hero-enter-3 mt-10 scroll-mt-20">
         <ProofConsole />
       </div>
 
@@ -390,6 +413,23 @@ export default function HomePage() {
         ))}
       </div>
 
+      {/* Cases */}
+      <section className="home-cinematic mt-14">
+        <Label>Cases</Label>
+        <p className="mt-4 max-w-[58ch] text-[15px] leading-[1.6] text-carbon">
+          If you only inspect one layer after this page, inspect the case evidence: how trust,
+          onboarding, fraud response, and scale moved from product ambiguity to shipped systems.
+        </p>
+        <div className="mt-4 border-t border-ash">
+          {featured.map((p) => (
+            <ProjectRow key={p.title} p={p} />
+          ))}
+        </div>
+        <Link href="/cases" className="pressable mt-4 inline-flex min-h-11 items-center gap-1 rounded-md px-1 text-[13px] text-lichen underline underline-offset-2 hover:text-ink">
+          All case evidence <Arrow className="interactive-arrow h-3 w-3" />
+        </Link>
+      </section>
+
       {/* Operating thesis */}
       <section id="thesis" className="home-cinematic mt-16 scroll-mt-20 border-t border-ash pt-7">
         <Label>Operating thesis</Label>
@@ -409,46 +449,6 @@ export default function HomePage() {
             </div>
           ))}
         </div>
-      </section>
-
-      {/* Selected outcomes */}
-      <section className="home-cinematic mt-14">
-        <Label>Selected outcomes</Label>
-        <p className="mt-4 max-w-[58ch] text-[15px] leading-[1.6] text-carbon">
-          Four numbers stay on the homepage because each points to a deeper proof route. The rest
-          belongs in the archive, not the first read.
-        </p>
-        <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2">
-          {outcomes.map((o) => (
-            <Link key={o.label} href={o.href} className="interactive-row group -mx-2 border-t border-ash px-2 py-4">
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <div className="text-[24px] font-medium leading-none tracking-tight tabular-nums text-ink">{o.value}</div>
-                  <div className="mt-2 text-[13px] leading-snug text-lichen">{o.label}</div>
-                  <div className="mt-2 font-geometric-mono text-[11px] uppercase tracking-[0.08em] text-sage">{o.proof}</div>
-                </div>
-                <Arrow className="interactive-arrow mt-1 text-sage" />
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* Cases */}
-      <section className="home-cinematic mt-14">
-        <Label>Cases</Label>
-        <p className="mt-4 max-w-[58ch] text-[15px] leading-[1.6] text-carbon">
-          If you only inspect one layer after this page, inspect the case evidence: how trust,
-          onboarding, fraud response, and scale moved from product ambiguity to shipped systems.
-        </p>
-        <div className="mt-4 border-t border-ash">
-          {featured.map((p) => (
-            <ProjectRow key={p.title} p={p} />
-          ))}
-        </div>
-        <Link href="/cases" className="pressable mt-4 inline-flex min-h-11 items-center gap-1 rounded-md px-1 text-[13px] text-lichen underline underline-offset-2 hover:text-ink">
-          All case evidence <Arrow className="interactive-arrow h-3 w-3" />
-        </Link>
       </section>
 
       {/* Career logic */}
