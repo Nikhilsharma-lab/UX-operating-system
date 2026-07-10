@@ -149,7 +149,7 @@ export function LedgerItem({
 
 export function Note({ children }: { children: ReactNode }) {
   return (
-    <p className="mt-4 max-w-[62ch] border-l-2 border-accent-blue/50 pl-4 text-[15px] italic leading-[1.6] text-lichen">
+    <p className="mt-5 max-w-[62ch] border-y border-ash py-4 text-pretty text-[15px] italic leading-[1.7] text-lichen">
       {children}
     </p>
   );

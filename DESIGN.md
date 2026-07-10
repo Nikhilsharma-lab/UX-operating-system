@@ -83,8 +83,8 @@ Geist**, plus the rare Newsreader italic.
     metrics.
   - `LedgerList` / `LedgerItem` — hairline-divided rows for repeated decisions,
     lessons, stories, proofs, artifacts, and archive entries.
-  - `Note` — italic `lichen`, `accent-blue/50` left border (the one sanctioned
-    left-border; everywhere else use full borders).
+  - `Note` — italic `lichen` over horizontal `ash` rules (`border-y`), never a
+    colored vertical rule.
   - `RelatedLinks` — hairline-divided rows, title + `Arrow`.
 - **Legacy `.t-*` scale** (`.t-hed-1` … `.t-body-serif`, in `globals.css`)
   remains for any surface not yet on the primitives; prefer the primitives and

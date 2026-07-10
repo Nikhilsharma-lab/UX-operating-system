@@ -3,10 +3,16 @@
 import type { KeyboardEvent as ReactKeyboardEvent } from "react";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { Arrow } from "@/components/ui";
 
 /*
  * Command palette, proof-first. The site is dark-only, so there is no theme
  * control. Opened by the Menu button or ⌘K; mounted once in the root layout.
+ *
+ * Rows follow the site's one list grammar (see RelatedLinks / the cases index):
+ * a typographic label with a trailing arrow that brightens and shifts on hover.
+ * No leading item icons - the dark kamran system carries navigation with type
+ * and the interactive-arrow micro-interaction, not decorative glyphs.
  */
 
 const GROUPS = [
@@ -30,11 +36,6 @@ const GROUPS = [
   },
 ];
 
-const PageIcon = (
-  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-4 w-4">
-    <circle cx="12" cy="12" r="7.5" />
-  </svg>
-);
 const SearchIcon = (
   <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" className="h-4 w-4 text-lichen">
     <circle cx="11" cy="11" r="6.5" />
@@ -198,10 +199,10 @@ export function CommandMenu() {
                     key={p.href}
                     type="button"
                     onClick={() => go(p.href)}
-                    className="pressable flex min-h-11 w-full items-center gap-2.5 rounded-md px-2.5 py-2.5 text-left text-[14px] text-ink hover:bg-bone"
+                    className="group pressable flex min-h-11 w-full items-center justify-between gap-3 rounded-md px-2.5 py-2.5 text-left text-[14px] text-ink hover:bg-bone"
                   >
-                    <span className="text-lichen">{PageIcon}</span>
-                    {p.label}
+                    <span>{p.label}</span>
+                    <Arrow className="interactive-arrow shrink-0 text-sage" />
                   </button>
                 ))}
               </div>
