@@ -125,12 +125,17 @@ dark bg reads lighter, so leading runs generous (1.6–1.7 for body).
 
 ## Motion
 
-Calm entrance only. `@keyframes rise-in` (opacity + 14px translateY, 0.6s
-`cubic-bezier(0.16,1,0.3,1)`) drives `.hero-enter` (+ `-1/-2/-3` stagger delays)
-on the **homepage** header/lead. Dialogs use `.surface-backdrop-in` and
-`.surface-panel-in` for a short, bounded entrance. Detail pages stay otherwise
-static. Every animation has a `prefers-reduced-motion: reduce` reset (no motion,
-content visible). Reveals never gate visibility — content is visible by default.
+Calm, evidence-led motion. `@keyframes rise-in` (opacity + 14px translateY,
+0.6s `cubic-bezier(0.16,1,0.3,1)`) drives `.hero-enter` (+ `-1/-2/-3` stagger
+delays) on the **homepage** header/lead. The homepage may also use the
+horizontal `.home-scroll-progress`, the subtle `.proof-console` sweep, and
+view-timeline `.home-cinematic` emphasis for major proof sections. These effects
+must stay flat, horizontal, and restrained — no side-stripe accents, decorative
+grids, or animation that becomes the content. Dialogs use `.surface-backdrop-in`
+and `.surface-panel-in` for a short, bounded entrance. Detail pages stay
+otherwise static. Every animation has a `prefers-reduced-motion: reduce` reset
+(no motion, content visible). Reveals never gate visibility — content is visible
+by default.
 
 ## Accessibility
 

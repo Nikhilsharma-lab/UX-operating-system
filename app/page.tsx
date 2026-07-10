@@ -60,6 +60,30 @@ const social: { label: string; href: string; external?: boolean }[] = [
   { label: "X", href: X_PROFILE, external: true },
 ];
 
+const proofConsole: { signal: string; title: string; detail: string; value: string; href: string }[] = [
+  {
+    signal: "Organize",
+    title: "Built a product design function from zero to twenty",
+    detail: "Hiring, rituals, research, critique, and AI-assisted delivery became one operating system.",
+    value: "0→20",
+    href: "/transformations/building-design-organization",
+  },
+  {
+    signal: "Scale",
+    title: "Shipped regulated finance products at national scale",
+    detail: "Consumer banking, onboarding, trust, and fraud-response work for millions of active users.",
+    value: "12M+",
+    href: "/cases/airtel-payments-bank-app",
+  },
+  {
+    signal: "Build",
+    title: "Own the loop beyond decks and case studies",
+    detail: "LANE, Svenklas, and new products keep judgment exposed to users, operations, and tradeoffs.",
+    value: "4 builds",
+    href: "/#building",
+  },
+];
+
 const outcomes: { value: string; label: string; proof: string; href: string }[] = [
   {
     value: "0→20",
@@ -212,11 +236,86 @@ function Label({ children }: { children: React.ReactNode }) {
   return <span className="k-label block">{children}</span>;
 }
 
+function ProofConsole() {
+  return (
+    <section aria-label="Executive proof console" className="proof-console relative overflow-hidden border-y border-ash bg-paper/65">
+      <div className="relative z-10 flex items-center justify-between gap-4 border-b border-ash px-4 py-3">
+        <Label>Proof console</Label>
+        <span className="font-geometric-mono text-[11px] uppercase tracking-[0.08em] text-sage">
+          Evidence map
+        </span>
+      </div>
+      <div className="relative z-10 divide-y divide-ash">
+        {proofConsole.map((item) => (
+          <Link
+            key={item.title}
+            href={item.href}
+            className="interactive-row group grid gap-2 px-4 py-4 sm:grid-cols-[72px_1fr_auto] sm:items-start sm:gap-4"
+          >
+            <span className="font-geometric-mono text-[12px] leading-5 text-accent-blue">{item.value}</span>
+            <span className="min-w-0">
+              <span className="block text-[15px] font-medium leading-snug text-ink group-hover:underline group-hover:underline-offset-2">
+                {item.title}
+              </span>
+              <span className="mt-1.5 block text-[13.5px] leading-[1.5] text-lichen">{item.detail}</span>
+            </span>
+            <span className="flex items-center gap-2 font-geometric-mono text-[11px] uppercase tracking-[0.08em] text-sage">
+              {item.signal}
+              <Arrow className="interactive-arrow h-3 w-3" />
+            </span>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function BuilderLabRow({ venture }: { venture: (typeof ventures)[number] }) {
+  const external = venture.href?.startsWith("http");
+  const status = venture.status ?? (external ? "Live business" : "Live proof");
+  const rowClass = "interactive-row group block px-4 py-4";
+  const inner = (
+    <>
+      <div className="flex flex-wrap items-start justify-between gap-2">
+        <div className="min-w-0">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-[15px] font-medium text-ink group-hover:underline group-hover:underline-offset-2">
+              {venture.name}
+            </span>
+            <span className="rounded-full border border-ash bg-vellum px-2 py-0.5 text-[11px] font-medium text-sage">
+              {status}
+            </span>
+          </div>
+          <p className="mt-2 text-[13px] font-medium text-carbon">{venture.tag}</p>
+        </div>
+        {venture.href && <Arrow className="interactive-arrow mt-1 shrink-0 text-sage" />}
+      </div>
+      <p className="mt-3 font-geometric-mono text-[11px] uppercase tracking-[0.08em] text-sage">{venture.proof}</p>
+      <p className="mt-2.5 text-[13.5px] leading-[1.55] text-lichen">{venture.copy}</p>
+    </>
+  );
+
+  if (!venture.href) {
+    return <div className="px-4 py-4">{inner}</div>;
+  }
+
+  return external ? (
+    <a href={venture.href} target="_blank" rel="noopener noreferrer" className={rowClass}>
+      {inner}
+    </a>
+  ) : (
+    <Link href={venture.href} className={rowClass}>
+      {inner}
+    </Link>
+  );
+}
+
 /* --------------------------------- page --------------------------------- */
 
 export default function HomePage() {
   return (
-    <main id="main" className="mx-auto max-w-[560px] px-6 pb-28 pt-24">
+    <main id="main" className="relative mx-auto max-w-[560px] px-6 pb-28 pt-24">
+      <div className="home-scroll-progress" aria-hidden="true" />
       {/* Identity */}
       <header className="hero-enter">
         <div className="flex items-center justify-between">
@@ -237,20 +336,28 @@ export default function HomePage() {
         <div className="mt-9 border-t border-ash" />
       </header>
 
-      {/* Serif-italic tagline (Newsreader) - the editorial accent */}
-      <p className="hero-enter hero-enter-1 mt-9 font-editorial-serif text-[21px] italic leading-[1.35] text-ink">
-        From ambiguity to shipped outcomes.
-      </p>
+      {/* Executive proof hero */}
+      <section className="hero-enter hero-enter-1 mt-9">
+        <Label>Product design leadership / AI-native operating systems</Label>
+        <h2 className="mt-4 text-balance text-[32px] font-semibold leading-[1.08] tracking-[-0.025em] text-ink sm:text-[38px]">
+          I turn ambiguous product bets into shipped systems teams can trust.
+        </h2>
+        <p className="mt-5 font-editorial-serif text-[21px] italic leading-[1.35] text-ink">
+          From ambiguity to shipped outcomes.
+        </p>
+        <p className="mt-5 text-[17px] leading-[1.7] text-carbon">
+          I build AI-native product design organizations. Most of the work is upstream of the
+          screens: turning unclear, half-formed problems into products people trust, and teams that
+          can keep shipping them.
+        </p>
+      </section>
 
-      {/* Intro */}
-      <p className="hero-enter hero-enter-2 mt-5 text-[17px] leading-[1.7] text-carbon">
-        I build AI-native product design organizations. Most of the work is upstream of the
-        screens: turning unclear, half-formed problems into products people trust, and teams that
-        can keep shipping them.
-      </p>
+      <div className="hero-enter hero-enter-2 mt-8">
+        <ProofConsole />
+      </div>
 
       {/* Reader path */}
-      <section id="start" className="hero-enter hero-enter-3 mt-8 border-y border-ash py-4 scroll-mt-20">
+      <section id="start" className="hero-enter hero-enter-3 mt-8 scroll-mt-20 border-y border-ash py-4">
         <div className="mb-3 flex items-center justify-between gap-3">
           <Label>Start here</Label>
           <span className="text-[12.5px] text-sage">3 minute scan</span>
@@ -274,7 +381,7 @@ export default function HomePage() {
       </section>
 
       {/* Now */}
-      <section className="mt-14">
+      <section className="home-cinematic mt-14">
         <Label>Now</Label>
         <p className="mt-4 text-[15px] leading-[1.6] text-carbon">
           Head of Product Design at <span className="font-medium text-ink">Airtel Payments Bank</span>. I
@@ -309,7 +416,7 @@ export default function HomePage() {
       </div>
 
       {/* Operating thesis */}
-      <section id="thesis" className="mt-16 border-t border-ash pt-7 scroll-mt-20">
+      <section id="thesis" className="home-cinematic mt-16 scroll-mt-20 border-t border-ash pt-7">
         <Label>Operating thesis</Label>
         <p className="mt-4 font-editorial-serif text-[22px] italic leading-[1.35] text-ink">
           Design creates systems that create products.
@@ -330,7 +437,7 @@ export default function HomePage() {
       </section>
 
       {/* Selected outcomes */}
-      <section className="mt-14">
+      <section className="home-cinematic mt-14">
         <Label>Selected outcomes</Label>
         <p className="mt-4 max-w-[58ch] text-[15px] leading-[1.6] text-carbon">
           Four numbers stay on the homepage because each points to a deeper proof route. The rest
@@ -353,7 +460,7 @@ export default function HomePage() {
       </section>
 
       {/* Cases */}
-      <section className="mt-14">
+      <section className="home-cinematic mt-14">
         <Label>Cases</Label>
         <p className="mt-4 max-w-[58ch] text-[15px] leading-[1.6] text-carbon">
           If you only inspect one layer after this page, inspect the case evidence: how trust,
@@ -370,7 +477,7 @@ export default function HomePage() {
       </section>
 
       {/* Career logic */}
-      <section className="mt-14">
+      <section className="home-cinematic mt-14">
         <Label>Career logic</Label>
         <div className="mt-4 border-t border-ash">
           {careerLogic.map((item) => (
@@ -383,58 +490,30 @@ export default function HomePage() {
       </section>
 
       {/* Builder proof */}
-      <section id="building" className="mt-14 scroll-mt-20">
-        <Label>Builder proof</Label>
+      <section id="building" className="home-cinematic mt-16 scroll-mt-20">
+        <div className="flex items-end justify-between gap-4">
+          <Label>Builder proof</Label>
+          <span className="font-geometric-mono text-[11px] uppercase tracking-[0.08em] text-sage">
+            Owned systems
+          </span>
+        </div>
         <p className="mt-4 max-w-[58ch] text-[15px] leading-[1.6] text-carbon">
           LANE and Svenklas are not side projects in the decorative sense. They are proof that I
           can carry product judgment into ownership: thesis, product, brand, operations, and
           commercial tradeoffs.
         </p>
-        <div className="mt-5 border-y border-ash">
-          {ventures.map((v) => {
-            const external = v.href?.startsWith("http");
-            const rowCls = "interactive-row group -mx-2 block border-b border-ash px-2 py-4 last:border-b-0";
-            const inner = (
-              <>
-                <div className="flex items-start gap-3">
-                  <span className="min-w-0 flex-1 text-[15px] font-medium text-ink">{v.name}</span>
-                  {v.status && (
-                    <span className="shrink-0 rounded-full border border-ash bg-paper px-2 py-0.5 text-[11px] font-medium text-sage">
-                      {v.status}
-                    </span>
-                  )}
-                  {v.href && (
-                    <Arrow className="interactive-arrow ml-auto text-sage" />
-                  )}
-                </div>
-                <p className="mt-1 text-[11px] font-medium uppercase tracking-wider text-sage">{v.proof}</p>
-                <p className="mt-2 text-[13px] font-medium text-carbon">{v.tag}</p>
-                <p className="mt-2.5 text-[13.5px] leading-[1.55] text-lichen">{v.copy}</p>
-              </>
-            );
-            if (!v.href) {
-              return (
-                <div key={v.name} className="-mx-2 border-b border-ash px-2 py-4 last:border-b-0">
-                  {inner}
-                </div>
-              );
-            }
-            return external ? (
-              <a
-                key={v.name}
-                href={v.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={rowCls}
-              >
-                {inner}
-              </a>
-            ) : (
-              <Link key={v.name} href={v.href} className={rowCls}>
-                {inner}
-              </Link>
-            );
-          })}
+        <div className="builder-lab mt-5 overflow-hidden border-y border-ash bg-paper/60">
+          <div className="border-b border-ash px-4 py-3">
+            <p className="text-[13.5px] leading-[1.55] text-lichen">
+              A compact lab register for products where the proof is ownership: building, pricing,
+              operating, and carrying the consequences.
+            </p>
+          </div>
+          <div className="divide-y divide-ash">
+            {ventures.map((venture) => (
+              <BuilderLabRow key={venture.name} venture={venture} />
+            ))}
+          </div>
         </div>
       </section>
 
