@@ -11,11 +11,6 @@ export const metadata: Metadata = {
 };
 
 export default function CasesIndex() {
-  const builderProof = caseList.find((c) => c.slug === "lane");
-  const orderedCases = builderProof
-    ? [builderProof, ...caseList.filter((c) => c.slug !== builderProof.slug)]
-    : caseList;
-
   return (
     <PageShell>
       <span className="k-label block">Cases</span>
@@ -27,7 +22,7 @@ export default function CasesIndex() {
       </p>
 
       <div className="mt-9 border-y border-ash">
-        {orderedCases.map((c) => (
+        {caseList.map((c) => (
           <Link
             key={c.slug}
             href={caseHref(c.slug)}

@@ -62,6 +62,16 @@ export const prototypes: Record<string, Prototype> = {
     href: "https://www.figma.com/design/1L83tiqaCC9WnOh0CeZoyN/Portfolio-2026?node-id=3-23",
     password: PASSWORD,
   },
+  // Lane: interim link points to the Portfolio-2026 file root. Replace with the
+  // exact Lane frame (?node-id=...) once provided. No hero image yet, so the
+  // card shows the neutral "Hero image" placeholder.
+  lane: {
+    heading: "Inside Lane",
+    subheading:
+      "The AI Intake Gate and the decision-first operating model, in the private-beta interface.",
+    href: "https://www.figma.com/design/1L83tiqaCC9WnOh0CeZoyN/Portfolio-2026",
+    password: PASSWORD,
+  },
 };
 
 export function getPrototype(slug: string): Prototype | undefined {

@@ -13,6 +13,8 @@ import {
   RelatedLinks,
 } from "@/components/article";
 import { lane } from "@/lib/lane-case";
+import { UiEvidence } from "@/components/ui-evidence";
+import { prototypes } from "@/lib/prototypes";
 
 /*
  * Founder-built SaaS case (Decision 072), in the dark kamran language: a
@@ -301,33 +303,9 @@ export default function LaneCasePage() {
         </LedgerList>
       </Section>
 
-      {/* Artifacts */}
-      <Section label={c.artifacts.heading}>
-        <P>{c.artifacts.copy}</P>
-        <ul className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
-          {c.artifacts.placeholders.map((p) => (
-            <li key={p.screen}>
-              <figure className="flex flex-col gap-2.5">
-                <div
-                  aria-hidden="true"
-                  className="flex aspect-[4/3] items-end rounded-lg border border-ash bg-bone p-2.5"
-                >
-                  <span className="text-[10px] uppercase tracking-wider text-sage">
-                    Artifact
-                  </span>
-                </div>
-                <figcaption>
-                  <p className="text-[11px] font-medium uppercase tracking-wider text-sage">
-                    {p.screen}
-                  </p>
-                  <p className="mt-1 text-[13px] leading-[1.5] text-lichen">
-                    {p.caption}
-                  </p>
-                </figcaption>
-              </figure>
-            </li>
-          ))}
-        </ul>
+      {/* UI evidence - single gated card, matching the other case pages */}
+      <Section label="UI evidence">
+        <UiEvidence {...prototypes.lane} />
       </Section>
 
       {/* Related */}

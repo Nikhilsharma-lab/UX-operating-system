@@ -3,6 +3,11 @@
  * and the homepage. Every case is served at /cases/<slug> - no nesting. The
  * `program` field keeps the old grouping (e.g. "Safe Second Account") as a tag
  * only, never in the URL.
+ *
+ * Order is the display order on /cases (rendered top to bottom as-is): the Safe
+ * Second Account journey leads (CKYC first), the Airtel apps and AI work sit in
+ * the middle, and the two personal proofs close it out - Digital Gold second to
+ * last, then Lane (builder proof) at the very bottom.
  */
 
 export type CaseCard = {
@@ -17,14 +22,13 @@ export type CaseCard = {
 
 export const caseList: CaseCard[] = [
   {
-    slug: "digital-gold-growth",
-    mono: "DG",
-    title: "Digital Gold Growth",
-    category: "Financial services · Behavioral growth",
-    status: "Shipped",
-    summary:
-      "Reframed investment as a low-commitment savings habit (Digital Gold SIPs): a 28× increase in Digital Gold purchases.",
-    program: null,
+    slug: "ckyc-onboarding",
+    mono: "CK",
+    title: "CKYC Onboarding",
+    category: "Onboarding",
+    status: "Field report",
+    summary: "A digital KYC onboarding flow for the second account.",
+    program: "Safe Second Account",
   },
   {
     slug: "fraud-alarm",
@@ -43,15 +47,6 @@ export const caseList: CaseCard[] = [
     category: "Trust",
     status: "Field report",
     summary: "Building customer trust through radical transparency.",
-    program: "Safe Second Account",
-  },
-  {
-    slug: "ckyc-onboarding",
-    mono: "CK",
-    title: "CKYC Onboarding",
-    category: "Onboarding",
-    status: "Field report",
-    summary: "A digital KYC onboarding flow for the second account.",
     program: "Safe Second Account",
   },
   {
@@ -88,6 +83,16 @@ export const caseList: CaseCard[] = [
     category: "AI · Support operations",
     status: null,
     summary: "Customer support run end-to-end by AI agents.",
+    program: null,
+  },
+  {
+    slug: "digital-gold-growth",
+    mono: "DG",
+    title: "Digital Gold Growth",
+    category: "Financial services · Behavioral growth",
+    status: "Shipped",
+    summary:
+      "Reframed investment as a low-commitment savings habit (Digital Gold SIPs): a 28× increase in Digital Gold purchases.",
     program: null,
   },
   {
