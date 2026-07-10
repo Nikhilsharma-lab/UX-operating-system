@@ -116,7 +116,7 @@ const careerLogic: { label: string; line: string }[] = [
   },
 ];
 
-const ventures: { name: string; tag: string; proof: string; copy: string; href?: string }[] = [
+const ventures: { name: string; tag: string; proof: string; copy: string; href?: string; status?: string }[] = [
   {
     name: "LANE",
     tag: "AI product operating system",
@@ -130,6 +130,20 @@ const ventures: { name: string; tag: string; proof: string; copy: string; href?:
     proof: "Builder proof: brand → manufacturing → distribution",
     copy: "A travel accessories business where the design problem does not end at interface polish. I own product, brand, manufacturing, distribution, and the commercial tradeoffs.",
     href: "https://www.svenklas.com",
+  },
+  {
+    name: "Unknown Gunmen Files",
+    tag: "Open-source intelligence archive",
+    proof: "Builder proof: data system → public record → geopolitical context",
+    status: "Coming soon",
+    copy: "A public-source website for tracking reported covert-conflict incidents with source trails, locations, timelines, and case context. The product challenge is turning fragmented national-security reporting into a structured, readable record.",
+  },
+  {
+    name: "BOBO",
+    tag: "Notification utility",
+    proof: "Builder proof: mobile utility → privacy-first local archive",
+    status: "Coming soon",
+    copy: "An opt-in utility app that preserves a user's own notification history on-device, so messages later deleted in apps like WhatsApp or Telegram can still be reviewed from the local archive.",
   },
 ];
 
@@ -338,6 +352,23 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Cases */}
+      <section className="mt-14">
+        <Label>Cases</Label>
+        <p className="mt-4 max-w-[58ch] text-[15px] leading-[1.6] text-carbon">
+          If you only inspect one layer after this page, inspect the case evidence: how trust,
+          onboarding, fraud response, and scale moved from product ambiguity to shipped systems.
+        </p>
+        <div className="mt-4 border-t border-ash">
+          {featured.map((p) => (
+            <ProjectRow key={p.title} p={p} />
+          ))}
+        </div>
+        <Link href="/cases" className="pressable mt-4 inline-flex min-h-11 items-center gap-1 rounded-md px-1 text-[13px] text-lichen underline underline-offset-2 hover:text-ink">
+          All case evidence <Arrow className="interactive-arrow h-3 w-3" />
+        </Link>
+      </section>
+
       {/* Career logic */}
       <section className="mt-14">
         <Label>Career logic</Label>
@@ -367,6 +398,11 @@ export default function HomePage() {
               <>
                 <div className="flex items-start gap-3">
                   <span className="min-w-0 flex-1 text-[15px] font-medium text-ink">{v.name}</span>
+                  {v.status && (
+                    <span className="shrink-0 rounded-full border border-ash bg-paper px-2 py-0.5 text-[11px] font-medium text-sage">
+                      {v.status}
+                    </span>
+                  )}
                   {v.href && (
                     <Arrow className="interactive-arrow ml-auto text-sage" />
                   )}
@@ -400,23 +436,6 @@ export default function HomePage() {
             );
           })}
         </div>
-      </section>
-
-      {/* Leadership proof */}
-      <section className="mt-14">
-        <Label>Leadership proof</Label>
-        <p className="mt-4 max-w-[58ch] text-[15px] leading-[1.6] text-carbon">
-          If you only inspect one layer after this page, inspect the case evidence: how trust,
-          onboarding, fraud response, and scale moved from product ambiguity to shipped systems.
-        </p>
-        <div className="mt-4 border-t border-ash">
-          {featured.map((p) => (
-            <ProjectRow key={p.title} p={p} />
-          ))}
-        </div>
-        <Link href="/cases" className="pressable mt-4 inline-flex min-h-11 items-center gap-1 rounded-md px-1 text-[13px] text-lichen underline underline-offset-2 hover:text-ink">
-          All case evidence <Arrow className="interactive-arrow h-3 w-3" />
-        </Link>
       </section>
 
       {/* Writing / Thinking */}
