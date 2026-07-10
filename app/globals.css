@@ -319,6 +319,35 @@
     transform-origin: left center;
   }
 
+  .desktop-motif-header {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .desktop-motif-header {
+      display: block;
+      position: fixed;
+      top: 0;
+      inset-inline: 0;
+      z-index: 0;
+      height: 168px;
+      pointer-events: none;
+      background-image:
+        linear-gradient(
+          to bottom,
+          color-mix(in oklch, var(--color-vellum) 4%, transparent),
+          var(--color-vellum) 92%
+        ),
+        url("/motif.png");
+      background-position: top center;
+      background-repeat: no-repeat;
+      background-size: min(1440px, 100vw) auto;
+      opacity: 0.92;
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 64%, transparent 100%);
+      mask-image: linear-gradient(to bottom, #000 0%, #000 64%, transparent 100%);
+    }
+  }
+
   .proof-console,
   .builder-lab {
     isolation: isolate;

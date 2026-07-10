@@ -316,8 +316,10 @@ function BuilderLabRow({ venture }: { venture: (typeof ventures)[number] }) {
 
 export default function HomePage() {
   return (
-    <main id="main" className="relative mx-auto max-w-[560px] px-6 pb-28 pt-24">
-      <div className="home-scroll-progress" aria-hidden="true" />
+    <>
+      <div className="desktop-motif-header" aria-hidden="true" />
+      <main id="main" className="relative z-10 mx-auto max-w-[560px] px-6 pb-28 pt-24">
+        <div className="home-scroll-progress" aria-hidden="true" />
       {/* Identity */}
       <header className="hero-enter">
         <div className="flex items-center justify-between">
@@ -560,6 +562,7 @@ export default function HomePage() {
       <footer className="mt-14 border-t border-ash pt-6 text-[13px] text-sage">
         © 2026 Nikhil Sharma · Head of Design, Airtel Payments Bank
       </footer>
-    </main>
+      </main>
+    </>
   );
 }
