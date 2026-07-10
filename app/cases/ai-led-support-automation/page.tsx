@@ -16,8 +16,9 @@ import { aiSupportAutomation } from "@/lib/ai-support-automation-case";
 /*
  * AI-led Support Automation - service-experience + automation case, rebuilt in
  * the site's dark kamran language. Presentation-only: all copy comes from
- * lib/ai-support-automation-case.ts. This is a SERVICE case, so artifact tiles
- * are service/flow/system placeholders, never app screenshots. No images.
+ * lib/ai-support-automation-case.ts. This is a SERVICE case: it carries no
+ * artifact/placeholder tiles and no app screenshots - the flow diagrams and
+ * ledgers carry the evidence.
  */
 
 const c = aiSupportAutomation;

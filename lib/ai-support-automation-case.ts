@@ -9,9 +9,9 @@
  * self-serve journeys using intent mapping, bot workflows, and an Issue
  * Prediction API. Fixed, public-safe copy: no invented CSAT improvement
  * numbers (the CSAT note stays qualitative); the high-confidence-case decision
- * is stated in softened language; artifacts are service/flow/system
- * placeholders, never app screenshots or fake dashboards; no internal-evidence
- * language; no em/en dashes in visible copy. Related links include Transparent
+ * is stated in softened language; no app screenshots or fake dashboards; no
+ * internal-evidence language; no em/en dashes in visible copy. This case
+ * carries no artifact/placeholder tiles. Related links include Transparent
  * Banking (charge issues routed there) and deliberately exclude Fraud Alarm.
  */
 
@@ -19,7 +19,6 @@ export type MetricStat = { value: string; label: string };
 export type MetaRow = { label: string; value: string };
 export type DecisionCard = { title: string; copy: string };
 export type UseCase = { title: string; copy: string };
-export type Placeholder = { screen: string; caption: string };
 export type Lesson = { n: string; title: string };
 export type RelatedLink = { href: string; label: string };
 
@@ -185,64 +184,6 @@ export const aiSupportAutomation = {
     ] as UseCase[],
     quote:
       "We noticed your account is frozen. We have sent you an SMS to resolve this in the app. If you are calling for something else, continue.",
-  },
-
-  artifacts: {
-    heading: "Service design artifacts",
-    copy: "This case is not about screens. Artifacts should show the service system behind resolution.",
-    placeholders: [
-      {
-        screen: "Pareto issue analysis",
-        caption:
-          "Identified the few issue types driving the largest share of support demand.",
-      },
-      {
-        screen: "Intent map",
-        caption:
-          "Mapped customer symptoms to likely root causes and resolution paths.",
-      },
-      {
-        screen: "Old support journey",
-        caption: "Showed how users moved from symptom to agent investigation.",
-      },
-      {
-        screen: "New issue-prediction journey",
-        caption:
-          "Showed how signals routed users to self-serve before human escalation.",
-      },
-      {
-        screen: "IVR routing flow",
-        caption: "Turned IVR from menu navigation into a personalized routing layer.",
-      },
-      {
-        screen: "Email bot flow",
-        caption: "Automated high-frequency written support responses.",
-      },
-      {
-        screen: "Chatbot conversation flow",
-        caption: "Handled tier-1 intents through structured resolution paths.",
-      },
-      {
-        screen: "SMS deep-link handoff",
-        caption: "Moved phone-support users into the correct app journey.",
-      },
-      {
-        screen: "App self-serve routing",
-        caption: "Connected predicted intent to digital resolution.",
-      },
-      {
-        screen: "High-confidence blocker logic",
-        caption: "Prioritized known issues like freeze before generic support menus.",
-      },
-      {
-        screen: "Escalation logic",
-        caption: "Reserved human support for unresolved or uncertain cases.",
-      },
-      {
-        screen: "Metrics panel",
-        caption: "Tracked automation, response time, resolution, and cost deflection.",
-      },
-    ] as Placeholder[],
   },
 
   metrics: {

@@ -10,9 +10,14 @@ import { Arrow } from "@/components/ui";
  * control. Opened by the Menu button or ⌘K; mounted once in the root layout.
  *
  * Rows follow the site's one list grammar (see RelatedLinks / the cases index):
- * a typographic label with a trailing arrow that brightens and shifts on hover.
- * No leading item icons - the dark kamran system carries navigation with type
- * and the interactive-arrow micro-interaction, not decorative glyphs.
+ * a typographic label with a trailing arrow that brightens and shifts on the
+ * active row. No leading item icons - the dark kamran system carries navigation
+ * with type and the interactive-arrow micro-interaction, not decorative glyphs.
+ *
+ * Keyboard model is a WAI-ARIA combobox + listbox: focus stays in the input,
+ * Up/Down (and Home/End) move a virtual selection surfaced via
+ * aria-activedescendant, Enter opens it, Escape / ⌘K close. The item buttons are
+ * tabIndex -1, so Tab stays trapped between the input and the close button.
  */
 
 const GROUPS = [
@@ -46,12 +51,15 @@ const SearchIcon = (
 export function CommandMenu() {
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState("");
+  const [active, setActive] = useState(0);
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const previouslyFocusedRef = useRef<HTMLElement | null>(null);
   const titleId = useId();
   const searchId = useId();
+  const listId = useId();
+  const optionBase = useId();
 
   const openMenu = useCallback(() => {
     previouslyFocusedRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
@@ -90,33 +98,19 @@ export function CommandMenu() {
   useEffect(() => {
     if (open) {
       setQ("");
+      setActive(0);
       const t = window.setTimeout(() => inputRef.current?.focus(), 10);
       return () => window.clearTimeout(t);
     }
   }, [open]);
 
-  function onPanelKeyDown(e: ReactKeyboardEvent<HTMLDivElement>) {
-    if (e.key !== "Tab") return;
-
-    const focusable = Array.from(
-      panelRef.current?.querySelectorAll<HTMLElement>(
-        'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])',
-      ) ?? [],
-    ).filter((el) => el.offsetParent !== null);
-
-    if (focusable.length === 0) return;
-
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-
-    if (e.shiftKey && document.activeElement === first) {
-      e.preventDefault();
-      last.focus();
-    } else if (!e.shiftKey && document.activeElement === last) {
-      e.preventDefault();
-      first.focus();
-    }
-  }
+  // Keep the active row in view as Up/Down move through a scrolled list.
+  useEffect(() => {
+    if (!open) return;
+    panelRef.current
+      ?.querySelector<HTMLElement>('[data-active="true"]')
+      ?.scrollIntoView({ block: "nearest" });
+  }, [active, open]);
 
   function go(href: string) {
     closeMenu();
@@ -139,13 +133,67 @@ export function CommandMenu() {
     router.push(href);
   }
 
-  if (!open) return null;
-
   const ql = q.trim().toLowerCase();
   const groups = GROUPS.map((group) => ({
     ...group,
     items: group.items.filter((p) => p.label.toLowerCase().includes(ql)),
   })).filter((group) => group.items.length > 0);
+  const flat = groups.flatMap((group) => group.items);
+
+  function onPanelKeyDown(e: ReactKeyboardEvent<HTMLDivElement>) {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      if (flat.length) setActive((a) => (a + 1) % flat.length);
+      return;
+    }
+    if (e.key === "ArrowUp") {
+      e.preventDefault();
+      if (flat.length) setActive((a) => (a - 1 + flat.length) % flat.length);
+      return;
+    }
+    if (e.key === "Home" && flat.length) {
+      e.preventDefault();
+      setActive(0);
+      return;
+    }
+    if (e.key === "End" && flat.length) {
+      e.preventDefault();
+      setActive(flat.length - 1);
+      return;
+    }
+    if (e.key === "Enter") {
+      const item = flat[active];
+      if (item) {
+        e.preventDefault();
+        go(item.href);
+      }
+      return;
+    }
+    if (e.key !== "Tab") return;
+
+    // Tab trap: only the input and the close button are tabbable (option rows
+    // are tabIndex -1 and driven by the virtual selection instead).
+    const focusable = Array.from(
+      panelRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      ) ?? [],
+    ).filter((el) => el.offsetParent !== null && el.tabIndex !== -1);
+
+    if (focusable.length === 0) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+
+  if (!open) return null;
 
   return (
     <div
@@ -173,8 +221,16 @@ export function CommandMenu() {
             id={searchId}
             ref={inputRef}
             value={q}
-            onChange={(e) => setQ(e.target.value)}
+            onChange={(e) => {
+              setQ(e.target.value);
+              setActive(0);
+            }}
             placeholder="Search proof, resume, contact…"
+            role="combobox"
+            aria-expanded
+            aria-controls={listId}
+            aria-autocomplete="list"
+            aria-activedescendant={flat.length ? `${optionBase}-${active}` : undefined}
             className="w-full bg-transparent py-3 text-[14px] text-ink placeholder:text-lichen focus:outline-none"
           />
           <button
@@ -189,22 +245,37 @@ export function CommandMenu() {
           </button>
         </div>
 
-        <div className="max-h-[50vh] overflow-y-auto p-1.5">
+        <div
+          id={listId}
+          role="listbox"
+          aria-label="Commands"
+          className="max-h-[50vh] overflow-y-auto p-1.5"
+        >
           {groups.length > 0 ? (
             groups.map((group) => (
-              <div key={group.label} className="pb-1">
+              <div key={group.label} role="group" aria-label={group.label} className="pb-1">
                 <div className="px-2.5 pb-1 pt-2 text-[11px] font-medium uppercase tracking-wider text-sage">{group.label}</div>
-                {group.items.map((p) => (
-                  <button
-                    key={p.href}
-                    type="button"
-                    onClick={() => go(p.href)}
-                    className="group pressable flex min-h-11 w-full items-center justify-between gap-3 rounded-md px-2.5 py-2.5 text-left text-[14px] text-ink hover:bg-bone"
-                  >
-                    <span>{p.label}</span>
-                    <Arrow className="interactive-arrow shrink-0 text-sage" />
-                  </button>
-                ))}
+                {group.items.map((p) => {
+                  const i = flat.findIndex((f) => f.href === p.href);
+                  const isActive = i === active;
+                  return (
+                    <button
+                      key={p.href}
+                      id={`${optionBase}-${i}`}
+                      type="button"
+                      role="option"
+                      aria-selected={isActive}
+                      tabIndex={-1}
+                      data-active={isActive}
+                      onClick={() => go(p.href)}
+                      onMouseMove={() => setActive(i)}
+                      className={`pressable flex min-h-11 w-full items-center justify-between gap-3 rounded-md px-2.5 py-2.5 text-left text-[14px] text-ink ${isActive ? "bg-bone" : ""}`}
+                    >
+                      <span>{p.label}</span>
+                      <Arrow className={`interactive-arrow shrink-0 ${isActive ? "text-lichen [transform:translate(2px,-2px)]" : "text-sage"}`} />
+                    </button>
+                  );
+                })}
               </div>
             ))
           ) : (
