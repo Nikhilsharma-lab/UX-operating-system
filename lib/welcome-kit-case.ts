@@ -33,7 +33,7 @@ export const welcomeKit = {
   meta: [
     { label: "Status", value: "Field report v1" },
     { label: "Timeframe", value: "One sprint to build, test, and ship" },
-    { label: "Role", value: "Product Design Head" },
+    { label: "Role", value: "Head of Product Design" },
     { label: "Team", value: "1 designer, 1 PM, 1 developer, growth team" },
   ] as MetaRow[],
 
@@ -238,7 +238,7 @@ export const welcomeKit = {
 
   myRole: {
     intro: [
-      "As Product Design Head, I conceptualized Welcome Kit and framed it as an account activation surface, not just an app onboarding screen.",
+      "As Head of Product Design, I conceptualized Welcome Kit and framed it as an account activation surface, not just an app onboarding screen.",
       "I spoke to users and internal stakeholders to understand what a new account holder needed to know after onboarding, and what belonged inside a digital welcome kit.",
     ],
     bullets: [

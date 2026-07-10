@@ -31,7 +31,7 @@ export const fraudAlarm = {
   meta: [
     { label: "Status", value: "Field report v1" },
     { label: "Timeframe", value: "1 month" },
-    { label: "Role", value: "Product Design Head" },
+    { label: "Role", value: "Head of Product Design" },
     { label: "Team", value: "1 designer, 1 PM, 4 developers, risk, CRM/support" },
   ] as MetaRow[],
 
@@ -155,7 +155,7 @@ export const fraudAlarm = {
 
   myRole: {
     intro:
-      "As Product Design Head, I identified the fraud-response gap through support-call analysis, reframed the problem as emergency control, directed the UX strategy, and aligned product, risk, CRM/support, and engineering.",
+      "As Head of Product Design, I identified the fraud-response gap through support-call analysis, reframed the problem as emergency control, directed the UX strategy, and aligned product, risk, CRM/support, and engineering.",
     bullets: [
       "Identified the delay before protective action",
       "Framed the emergency-control hypothesis",

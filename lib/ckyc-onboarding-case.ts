@@ -33,7 +33,7 @@ export const ckycOnboarding = {
       label: "Timeframe",
       value: "18 months from CKYC launch to ~10,000 daily onboardings",
     },
-    { label: "Role", value: "Product Design Head" },
+    { label: "Role", value: "Head of Product Design" },
     {
       label: "Team",
       value:
@@ -199,7 +199,7 @@ export const ckycOnboarding = {
 
   myRole: {
     intro: [
-      "As Product Design Head, I led the UX strategy for moving savings-account onboarding from a Video KYC-led flow to a scalable CKYC-based digital journey.",
+      "As Head of Product Design, I led the UX strategy for moving savings-account onboarding from a Video KYC-led flow to a scalable CKYC-based digital journey.",
     ],
     bullets: [
       "Designing a user-understandable CKYC onboarding flow",

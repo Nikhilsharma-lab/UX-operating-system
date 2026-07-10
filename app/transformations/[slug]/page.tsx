@@ -39,7 +39,7 @@ export async function generateMetadata({
   };
 }
 
-const navLink = "text-[13px] text-lichen transition-colors hover:text-ink";
+const navLink = "inline-flex min-h-11 items-center text-[13px] text-lichen transition-colors hover:text-ink";
 
 function DraftBlocks({ blocks }: { blocks: DraftBlock[] }) {
   return (

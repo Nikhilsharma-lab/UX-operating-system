@@ -26,7 +26,6 @@ export type Lesson = { n: string; title: string };
 export type RelatedLink = { href: string; label: string };
 
 export const airtelPaymentsBankForBusiness = {
-  crumbs: ["Cases", "Big Project", "Airtel Payments Bank for Business"],
   title: "Airtel Payments Bank for Business",
   subtitle:
     "Combining merchant payments, current account, settlement, and lending into one business banking experience.",
@@ -35,7 +34,7 @@ export const airtelPaymentsBankForBusiness = {
     { label: "Status", value: "Field report v1 · shipped" },
     { label: "Duration", value: "Three quarters" },
     { label: "Case type", value: "Business app + ecosystem strategy" },
-    { label: "Role", value: "Design Head" },
+    { label: "Role", value: "Head of Product Design" },
     {
       label: "Team",
       value:
@@ -248,7 +247,7 @@ export const airtelPaymentsBankForBusiness = {
 
   myRole: {
     intro: [
-      "As Design Head, I helped frame Airtel Payments Bank for Business as a combined merchant-banking experience.",
+      "As Head of Product Design, I helped frame Airtel Payments Bank for Business as a combined merchant-banking experience.",
       "The insight came from market visits: merchants were already connecting merchant payments and current-account settlement in practice, but the product experience was fragmented.",
     ],
     bullets: [

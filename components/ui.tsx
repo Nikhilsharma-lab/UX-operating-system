@@ -1,5 +1,3 @@
-import type { ReactNode } from "react";
-
 /* Shared kamran-language primitives used across the site. */
 
 export function Arrow({ className = "" }: { className?: string }) {
@@ -26,14 +24,6 @@ export function Mono({ label }: { label: string }) {
       className="grid h-6 w-6 shrink-0 place-items-center rounded-md border border-ash bg-bone text-[9px] font-semibold tracking-tight text-lichen"
     >
       {label}
-    </span>
-  );
-}
-
-export function Badge({ children }: { children: ReactNode }) {
-  return (
-    <span className="whitespace-nowrap rounded-full border border-accent-blue/25 bg-accent-blue/10 px-1.5 py-px text-[10px] font-medium uppercase tracking-wide text-accent-blue">
-      {children}
     </span>
   );
 }

@@ -1,6 +1,7 @@
 /*
  * Flat case registry (Decision 072 IA flattening). Cards for the /cases index
- * and the homepage. Every case is served at /cases/<slug> - no nesting. The
+ * (the homepage hardcodes its own case links and does not read this list). Every
+ * case is served at /cases/<slug> - no nesting. The
  * `program` field keeps the old grouping (e.g. "Safe Second Account") as a tag
  * only, never in the URL.
  *
@@ -103,7 +104,7 @@ export const caseList: CaseCard[] = [
     status: "Private beta",
     summary:
       "Turning design operations from task tracking into decision infrastructure.",
-    program: "Founder-built SaaS",
+    program: null,
   },
 ];
 

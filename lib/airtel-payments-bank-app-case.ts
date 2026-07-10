@@ -24,7 +24,6 @@ export type Lesson = { n: string; title: string };
 export type RelatedLink = { href: string; label: string };
 
 export const airtelPaymentsBankApp = {
-  crumbs: ["Cases", "Big Project", "Airtel Payments Bank App"],
   title: "Airtel Payments Bank App",
   subtitle: "Decoupling banking discovery from a telco super-app.",
 
@@ -32,7 +31,7 @@ export const airtelPaymentsBankApp = {
     { label: "Status", value: "Field report v1" },
     { label: "Duration", value: "Three quarters" },
     { label: "Case type", value: "Research + product strategy" },
-    { label: "Role", value: "Design Head" },
+    { label: "Role", value: "Head of Product Design" },
     {
       label: "Team",
       value:
@@ -307,7 +306,7 @@ export const airtelPaymentsBankApp = {
 
   myRole: {
     intro: [
-      "As Design Head, I was involved from the 'should this app exist?' stage.",
+      "As Head of Product Design, I was involved from the 'should this app exist?' stage.",
     ],
     bullets: [
       "Evaluating the pros and cons of separating from ThanksApp",

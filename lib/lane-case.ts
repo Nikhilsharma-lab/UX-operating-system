@@ -25,7 +25,6 @@ export type Placeholder = { screen: string; caption: string };
 export type RelatedLink = { href: string; label: string };
 
 export const lane = {
-  crumbs: ["Cases", "Founder-built SaaS", "Lane"],
   title: "Lane",
   subtitle:
     "Turning design operations from task tracking into decision infrastructure.",

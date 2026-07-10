@@ -49,9 +49,9 @@ export const cv = {
       label: "Entrepreneurship",
       stats: [
         { value: "₹70L", note: "Monthly revenue (Svenklas)" },
-        { value: "3 Lakh+", note: "Units sold" },
+        { value: "3 lakh+", note: "Units sold" },
         { value: "30+", note: "Retail partners" },
-        { value: "LANE", note: "Enterprise-grade design ops SaaS" },
+        { value: "LANE", note: "AI-native design ops SaaS" },
       ],
     },
   ],

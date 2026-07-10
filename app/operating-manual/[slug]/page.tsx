@@ -374,7 +374,7 @@ function ShellBody({ entry }: { entry: ManualEntry }) {
         />
       </Section>
 
-      <Section label="Note">
+      <Section label="About this entry">
         <Note>{entry.futureDepthNote}</Note>
       </Section>
     </>
@@ -418,19 +418,19 @@ export default async function ManualEntryPage({
       >
         <Link
           href="/operating-manual"
-          className="underline underline-offset-2 transition-colors hover:text-ink"
+          className="inline-flex min-h-11 items-center underline underline-offset-2 transition-colors hover:text-ink"
         >
           Operating Manual
         </Link>
         <Link
           href="/transformations"
-          className="underline underline-offset-2 transition-colors hover:text-ink"
+          className="inline-flex min-h-11 items-center underline underline-offset-2 transition-colors hover:text-ink"
         >
           Transformations
         </Link>
         <Link
           href="/"
-          className="underline underline-offset-2 transition-colors hover:text-ink"
+          className="inline-flex min-h-11 items-center underline underline-offset-2 transition-colors hover:text-ink"
         >
           Home
         </Link>

@@ -60,11 +60,6 @@ export default function OperatingManualIndex() {
           </Link>
         ))}
       </div>
-
-      <p className="mt-8 text-[13.5px] leading-[1.55] text-lichen">
-        The manual will expand as transformation stories are converted into
-        reusable operating models.
-      </p>
     </PageShell>
   );
 }

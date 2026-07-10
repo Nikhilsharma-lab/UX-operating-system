@@ -23,7 +23,6 @@ export type Lesson = { n: string; title: string };
 export type RelatedLink = { href: string; label: string };
 
 export const aiSupportAutomation = {
-  crumbs: ["Cases", "Big Project", "AI-led Support Automation"],
   title: "AI-led Support Automation",
   subtitle:
     "Automating customer issue resolution across IVR, chatbot, email, and app self-serve journeys.",
@@ -35,7 +34,7 @@ export const aiSupportAutomation = {
       value: "Two quarters to implement; ongoing expansion to more issue types",
     },
     { label: "Case type", value: "Service experience + automation" },
-    { label: "Role", value: "Design Head" },
+    { label: "Role", value: "Head of Product Design" },
     {
       label: "Team",
       value:
@@ -212,7 +211,7 @@ export const aiSupportAutomation = {
 
   myRole: {
     intro: [
-      "As Design Head, I worked directly with the Product Head from an experience strategy point of view.",
+      "As Head of Product Design, I worked directly with the Product Head from an experience strategy point of view.",
       "This was not a UI project with dedicated designers. It was a service-experience redesign across support channels.",
     ],
     bullets: [

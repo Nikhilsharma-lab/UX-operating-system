@@ -33,11 +33,6 @@ const nowPills = [
 const LINKEDIN = "https://www.linkedin.com/in/nikhilsharma09/";
 const X_PROFILE = "https://x.com/thesharmaxp";
 
-const social: { label: string; href: string; external?: boolean }[] = [
-  { label: "Email", href: `mailto:${EMAIL}` },
-  { label: "LinkedIn", href: LINKEDIN, external: true },
-  { label: "X", href: X_PROFILE, external: true },
-];
 
 const proofConsole: { signal: string; title: string; detail: string; value: string; href: string }[] = [
   {
@@ -184,7 +179,7 @@ const writing = [
 function Pill({ label, href }: { label: string; href: string }) {
   const internal = href.startsWith("/");
   const cls =
-    "pressable inline-flex min-h-10 items-center gap-1.5 rounded-full border border-ash bg-paper px-3 py-1.5 text-[13px] font-medium text-lichen hover:border-rule-dark hover:text-ink";
+    "pressable inline-flex min-h-11 items-center gap-1.5 rounded-full border border-ash bg-paper px-3 py-1.5 text-[13px] font-medium text-lichen hover:border-rule-dark hover:text-ink";
   const inner = (
     <>
       {label}
@@ -263,9 +258,11 @@ function BuilderLabRow({ venture }: { venture: (typeof ventures)[number] }) {
             <span className="text-[15px] font-medium text-ink group-hover:underline group-hover:underline-offset-2">
               {venture.name}
             </span>
-            <span className="rounded-full border border-ash bg-vellum px-2 py-0.5 text-[11px] font-medium text-sage">
-              {status}
-            </span>
+            {status && (
+              <span className="rounded-full border border-ash bg-vellum px-2 py-0.5 text-[11px] font-medium text-sage">
+                {status}
+              </span>
+            )}
           </div>
           <p className="mt-2 text-[13px] font-medium text-carbon">{venture.tag}</p>
         </div>
@@ -366,13 +363,13 @@ export default function HomePage() {
       <div className="hero-enter hero-enter-3 mt-6 flex flex-wrap items-center gap-2.5">
         <Link
           href={RESUME}
-          className="pressable inline-flex min-h-9 items-center rounded-full border border-ash bg-paper px-4 py-1.5 text-[13px] font-medium text-ink transition-colors hover:border-rule-dark hover:bg-bone"
+          className="pressable inline-flex min-h-11 items-center rounded-full border border-ash bg-paper px-4 py-1.5 text-[13px] font-medium text-ink transition-colors hover:border-rule-dark hover:bg-bone"
         >
           Résumé
         </Link>
         <Link
           href="/#contact"
-          className="pressable inline-flex min-h-9 items-center rounded-full border border-ash bg-paper px-4 py-1.5 text-[13px] font-medium text-ink transition-colors hover:border-rule-dark hover:bg-bone"
+          className="pressable inline-flex min-h-11 items-center rounded-full border border-ash bg-paper px-4 py-1.5 text-[13px] font-medium text-ink transition-colors hover:border-rule-dark hover:bg-bone"
         >
           Contact
         </Link>
@@ -396,22 +393,6 @@ export default function HomePage() {
           AI-native product teams.
         </p>
       </section>
-
-      {/* Social */}
-      <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 text-[14px] text-lichen">
-        {social.map((s, i) => (
-          <span key={s.label} className="inline-flex items-center gap-4">
-            {i > 0 && <Dot />}
-            <a
-              href={s.href}
-              {...(s.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              className="underline underline-offset-2 hover:text-ink"
-            >
-              {s.label}
-            </a>
-          </span>
-        ))}
-      </div>
 
       {/* Cases */}
       <section className="home-cinematic mt-14">
@@ -531,7 +512,7 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="mt-14 border-t border-ash pt-6 text-[13px] text-sage">
-        © 2026 Nikhil Sharma · Head of Design, Airtel Payments Bank
+        © 2026 Nikhil Sharma · Head of Product Design, Airtel Payments Bank
       </footer>
       </main>
     </>

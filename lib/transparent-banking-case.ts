@@ -30,7 +30,7 @@ export const transparentBanking = {
   meta: [
     { label: "Status", value: "Field report v1" },
     { label: "Timeframe", value: "1 month to build; 3 months to measure" },
-    { label: "Role", value: "Product Design Head" },
+    { label: "Role", value: "Head of Product Design" },
     {
       label: "Team",
       value:
@@ -172,7 +172,7 @@ export const transparentBanking = {
 
   myRole: {
     intro: [
-      "As Product Design Head, I led the discovery and framing of Transparent Banking.",
+      "As Head of Product Design, I led the discovery and framing of Transparent Banking.",
       "I listened to customer-care calls to understand where users were getting confused, especially around charges. I also ran user interviews to identify what else belonged in a transparency section beyond charges and terms.",
     ],
     bullets: [

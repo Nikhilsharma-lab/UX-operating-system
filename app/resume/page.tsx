@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PageShell } from "@/components/page-shell";
 import { ArticleHead, Section, P, BulletList } from "@/components/article";
 import { cv } from "@/lib/resume-cv";
@@ -193,17 +192,17 @@ export default function ResumePage() {
 
       {/* Contact */}
       <Section label="Contact">
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[14px] text-lichen">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-0.5 text-[14px] text-lichen">
           <a
             href={`mailto:${cv.contact.email}`}
-            className="font-medium text-ink underline underline-offset-2 hover:text-lichen"
+            className="inline-flex min-h-11 items-center font-medium text-ink underline underline-offset-2"
           >
             {cv.contact.email}
           </a>
           <span aria-hidden="true" className="text-sage">·</span>
           <a
             href={`tel:${cv.contact.phone.replace(/[^+\d]/g, "")}`}
-            className="underline underline-offset-2 hover:text-ink"
+            className="inline-flex min-h-11 items-center underline underline-offset-2 hover:text-ink"
           >
             {cv.contact.phone}
           </a>
@@ -212,16 +211,11 @@ export default function ResumePage() {
             href={cv.contact.linkedinUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline underline-offset-2 hover:text-ink"
+            className="inline-flex min-h-11 items-center underline underline-offset-2 hover:text-ink"
           >
             LinkedIn
           </a>
         </div>
-        <p className="mt-5 text-[13px] leading-[1.6] text-sage">
-          <Link href="/" className="underline underline-offset-2 hover:text-lichen">
-            Back to home
-          </Link>
-        </p>
       </Section>
     </PageShell>
   );

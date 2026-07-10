@@ -26,7 +26,7 @@ const GROUPS = [
     items: [
       { label: "Start here", href: "/#start" },
       { label: "Leadership proof", href: "/transformations/building-design-organization" },
-      { label: "Resume", href: "/resume" },
+      { label: "Résumé", href: "/resume" },
       { label: "Contact", href: "/#contact" },
     ],
   },
@@ -215,7 +215,7 @@ export function CommandMenu() {
         <div className="flex items-center gap-2.5 border-b border-ash px-2.5">
           {SearchIcon}
           <label htmlFor={searchId} className="sr-only">
-            Search proof, resume, contact
+            Search proof, résumé, contact
           </label>
           <input
             id={searchId}
@@ -225,7 +225,7 @@ export function CommandMenu() {
               setQ(e.target.value);
               setActive(0);
             }}
-            placeholder="Search proof, resume, contact…"
+            placeholder="Search proof, résumé, contact…"
             role="combobox"
             aria-expanded
             aria-controls={listId}
