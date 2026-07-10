@@ -359,14 +359,10 @@ export default function HomePage() {
           can carry product judgment into ownership: thesis, product, brand, operations, and
           commercial tradeoffs.
         </p>
-        <div className="mt-4 grid gap-3 sm:grid-cols-2">
-          {ventures.map((v, i) => {
+        <div className="mt-5 border-y border-ash">
+          {ventures.map((v) => {
             const external = v.href?.startsWith("http");
-            const spanFull =
-              ventures.length % 2 === 1 && i === ventures.length - 1
-                ? " sm:col-span-2"
-                : "";
-            const cardCls = `group rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark${spanFull}`;
+            const rowCls = "group -mx-2 block border-b border-ash px-2 py-4 transition-colors last:border-b-0 hover:bg-bone";
             const inner = (
               <>
                 <div className="flex items-start gap-3">
@@ -382,7 +378,7 @@ export default function HomePage() {
             );
             if (!v.href) {
               return (
-                <div key={v.name} className={`rounded-xl border border-ash bg-paper p-4${spanFull}`}>
+                <div key={v.name} className="-mx-2 border-b border-ash px-2 py-4 last:border-b-0">
                   {inner}
                 </div>
               );
@@ -393,12 +389,12 @@ export default function HomePage() {
                 href={v.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cardCls}
+                className={rowCls}
               >
                 {inner}
               </a>
             ) : (
-              <Link key={v.name} href={v.href} className={cardCls}>
+              <Link key={v.name} href={v.href} className={rowCls}>
                 {inner}
               </Link>
             );

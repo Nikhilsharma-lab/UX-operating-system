@@ -5,6 +5,9 @@ import {
   Section,
   P,
   BulletList,
+  MetricStrip,
+  LedgerList,
+  LedgerItem,
   RelatedLinks,
 } from "@/components/article";
 import { welcomeKit } from "@/lib/welcome-kit-case";
@@ -60,18 +63,7 @@ export default function WelcomeKitCasePage() {
 
       {/* Outcome */}
       <Section label="Outcome">
-        <div className="grid grid-cols-2 gap-x-5 gap-y-6 sm:grid-cols-3">
-          {c.outcome.map((s) => (
-            <div key={s.label}>
-              <div className="text-[18px] font-medium leading-tight tracking-tight tabular-nums text-ink">
-                {s.value}
-              </div>
-              <div className="mt-1.5 text-[12.5px] leading-snug text-lichen">
-                {s.label}
-              </div>
-            </div>
-          ))}
-        </div>
+        <MetricStrip items={c.outcome} />
       </Section>
 
       {/* The problem */}
@@ -106,24 +98,19 @@ export default function WelcomeKitCasePage() {
 
       {/* Key product decisions */}
       <Section label="Key product decisions">
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <LedgerList>
           {c.decisions.map((d, i) => (
-            <div
+            <LedgerItem
               key={d.title}
-              className={`rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark${c.decisions.length % 2 === 1 && i === c.decisions.length - 1 ? " sm:col-span-2" : ""}`}
+              marker={String(i + 1).padStart(2, "0")}
+              title={d.title}
             >
-              <span className="font-geometric-mono text-[12px] tabular-nums text-sage">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="mt-2 text-[15px] font-medium leading-snug tracking-tight text-ink">
-                {d.title}
-              </h3>
-              <p className="mt-2 text-[13.5px] leading-[1.6] text-lichen">
+              <p className="text-[13.5px] leading-[1.6] text-carbon">
                 {d.copy}
               </p>
-            </div>
+            </LedgerItem>
           ))}
-        </div>
+        </LedgerList>
       </Section>
 
       {/* Before / after journey */}
@@ -136,16 +123,15 @@ export default function WelcomeKitCasePage() {
 
       {/* Safe Second Account logic */}
       <Section label="Safe Second Account logic">
-        <div className="rounded-xl border border-ash bg-bone p-5">
-          <h2 className="text-[17px] font-medium leading-snug tracking-tight text-ink">
-            {c.ssaLogic.heading}
-          </h2>
+        <LedgerList className="mt-0">
+          <LedgerItem title={c.ssaLogic.heading}>
           {c.ssaLogic.copy.map((t, i) => (
             <p key={i} className="mt-3 text-[14px] leading-[1.6] text-carbon">
               {t}
             </p>
           ))}
-        </div>
+          </LedgerItem>
+        </LedgerList>
       </Section>
 
       {/* UI evidence */}
@@ -185,21 +171,16 @@ export default function WelcomeKitCasePage() {
 
       {/* Lessons */}
       <Section label="Lessons">
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          {c.lessons.map((l, i) => (
-            <div
+        <LedgerList>
+          {c.lessons.map((l) => (
+            <LedgerItem
               key={l.n}
-              className={`rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark${c.lessons.length % 2 === 1 && i === c.lessons.length - 1 ? " sm:col-span-2" : ""}`}
+              marker={l.n}
+              title={l.title}
             >
-              <span className="font-geometric-mono text-[12px] tabular-nums text-sage">
-                {l.n}
-              </span>
-              <p className="mt-2 text-[15px] font-medium leading-snug tracking-tight text-ink">
-                {l.title}
-              </p>
-            </div>
+            </LedgerItem>
           ))}
-        </div>
+        </LedgerList>
       </Section>
 
       {/* Related */}

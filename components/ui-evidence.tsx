@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import type { KeyboardEvent as ReactKeyboardEvent } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 
 /*
  * Password-gated "UI evidence" card. A full-width hero image, with a centered
@@ -42,6 +43,12 @@ export function UiEvidence({
   const [error, setError] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
+  const panelRef = useRef<HTMLFormElement>(null);
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null);
+  const titleId = useId();
+  const descriptionId = useId();
+  const passwordId = useId();
+  const errorId = useId();
 
   useEffect(() => {
     // Catch images already cached/complete before React attached onLoad.
@@ -51,10 +58,50 @@ export function UiEvidence({
     }
   }, []);
 
-  function close() {
+  const openGate = useCallback(() => {
+    previouslyFocusedRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    setOpen(true);
+  }, []);
+
+  const close = useCallback(() => {
     setOpen(false);
     setValue("");
     setError(false);
+    window.setTimeout(() => previouslyFocusedRef.current?.focus(), 0);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") close();
+    }
+
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [close, open]);
+
+  function onPanelKeyDown(e: ReactKeyboardEvent<HTMLFormElement>) {
+    if (e.key !== "Tab") return;
+
+    const focusable = Array.from(
+      panelRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      ) ?? [],
+    ).filter((el) => el.offsetParent !== null);
+
+    if (focusable.length === 0) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
   }
 
   function unlock(e: React.FormEvent) {
@@ -72,7 +119,7 @@ export function UiEvidence({
       <div className="overflow-hidden rounded-xl border border-ash bg-paper">
         <button
           type="button"
-          onClick={() => setOpen(true)}
+          onClick={openGate}
           aria-label={`${cta} (password protected)`}
           className="group relative block w-full"
         >
@@ -101,8 +148,8 @@ export function UiEvidence({
           <p className="mx-auto mt-1.5 max-w-[48ch] text-[13.5px] leading-[1.55] text-lichen">{subheading}</p>
           <button
             type="button"
-            onClick={() => setOpen(true)}
-            className="mt-4 inline-flex items-center gap-2 rounded-full border border-accent-blue/40 bg-accent-blue/10 px-4 py-1.5 text-[13px] font-medium text-accent-blue transition-colors hover:bg-accent-blue/[0.16]"
+            onClick={openGate}
+            className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-full border border-accent-blue/40 bg-accent-blue/10 px-4 py-2 text-[13px] font-medium text-accent-blue transition-colors hover:bg-accent-blue/[0.16]"
           >
             <Lock className="h-3.5 w-3.5" /> {cta}
           </button>
@@ -111,25 +158,32 @@ export function UiEvidence({
 
       {open && (
         <div
-          role="dialog"
-          aria-modal="true"
-          aria-label="Enter password"
           onClick={close}
-          className="fixed inset-0 z-[70] flex items-center justify-center bg-black/50 px-4 backdrop-blur-[2px]"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-vellum/90 px-4"
         >
           <form
+            ref={panelRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={titleId}
+            aria-describedby={descriptionId}
             onClick={(e) => e.stopPropagation()}
+            onKeyDown={onPanelKeyDown}
             onSubmit={unlock}
-            className="w-full max-w-[380px] rounded-xl border border-ash bg-paper p-5"
+            className="w-full max-w-[380px] rounded-xl border border-rule-dark bg-paper p-5"
           >
             <div className="flex items-center gap-2 text-ink">
               <Lock />
-              <h4 className="text-[15px] font-semibold">Protected prototype</h4>
+              <h4 id={titleId} className="text-[15px] font-semibold">Protected prototype</h4>
             </div>
-            <p className="mt-1.5 text-[13px] leading-[1.5] text-lichen">
+            <p id={descriptionId} className="mt-1.5 text-[13px] leading-[1.5] text-lichen">
               Enter the password to open the full Figma journey.
             </p>
+            <label htmlFor={passwordId} className="sr-only">
+              Prototype password
+            </label>
             <input
+              id={passwordId}
               autoFocus
               type="password"
               value={value}
@@ -138,14 +192,16 @@ export function UiEvidence({
                 setError(false);
               }}
               placeholder="Password"
-              className="mt-3 w-full rounded-md border border-ash bg-bone px-3 py-2 text-[14px] text-ink placeholder:text-sage focus:border-rule-dark focus:outline-none"
+              aria-invalid={error}
+              aria-describedby={error ? errorId : descriptionId}
+              className="mt-3 min-h-11 w-full rounded-md border border-ash bg-bone px-3 py-2 text-[14px] text-ink placeholder:text-lichen focus:border-rule-dark focus:outline-none"
             />
-            {error && <p role="alert" className="mt-2 text-[12.5px] text-[#e08a72]">Incorrect password. Please try again.</p>}
+            {error && <p id={errorId} role="alert" className="mt-2 text-[12.5px] text-accent-blue">Incorrect password. Please try again.</p>}
             <div className="mt-4 flex justify-end gap-2">
-              <button type="button" onClick={close} className="rounded-md px-3 py-1.5 text-[13px] text-lichen transition-colors hover:text-ink">
+              <button type="button" onClick={close} className="min-h-11 rounded-md px-3 text-[13px] text-lichen transition-colors hover:bg-bone hover:text-ink">
                 Cancel
               </button>
-              <button type="submit" disabled={!value.trim()} className="rounded-md bg-accent-blue px-3.5 py-1.5 text-[13px] font-medium text-vellum transition-opacity hover:opacity-90 disabled:opacity-40 disabled:pointer-events-none">
+              <button type="submit" disabled={!value.trim()} className="min-h-11 rounded-md bg-accent-blue px-3.5 text-[13px] font-medium text-vellum transition-opacity hover:opacity-90 disabled:pointer-events-none disabled:opacity-40">
                 Open Figma
               </button>
             </div>

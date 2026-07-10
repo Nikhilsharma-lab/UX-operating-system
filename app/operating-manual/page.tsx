@@ -24,37 +24,39 @@ export default function OperatingManualIndex() {
         extracted from transformation work.
       </Note>
 
-      <div className="mt-10 grid gap-3 sm:grid-cols-2">
+      <div className="mt-10 border-y border-ash">
         {manualEntries.map((entry) => (
           <Link
             key={entry.slug}
             href={`/operating-manual/${entry.slug}`}
-            className="group flex h-full flex-col rounded-xl border border-ash bg-paper p-5 transition-colors hover:border-rule-dark"
+            className="group -mx-2 block border-b border-ash px-2 py-4 transition-colors last:border-b-0 hover:bg-bone"
           >
-            <div className="flex items-center justify-between gap-3">
-              <span className="font-geometric-mono text-[12px] tabular-nums text-sage">
+            <div className="grid gap-x-5 gap-y-2 sm:grid-cols-[64px_1fr]">
+              <span className="font-geometric-mono text-[12px] tabular-nums text-sage sm:pt-0.5">
                 {entry.number}
               </span>
-              <span className="text-[11px] font-medium uppercase tracking-wider text-sage">
-                {entry.status}
-              </span>
+              <div className="min-w-0">
+                <div className="flex items-start gap-3">
+                  <h2 className="flex-1 text-[16px] font-medium leading-snug text-ink">
+                    {entry.title}
+                  </h2>
+                  <Arrow className="mt-1 shrink-0 text-sage transition-colors group-hover:text-lichen" />
+                </div>
+                <div className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1 text-[12px] text-sage">
+                  <span>{entry.category}</span>
+                  <span>{entry.status}</span>
+                </div>
+                <p className="mt-2 text-[13.5px] leading-[1.55] text-lichen">
+                  {entry.thesis}
+                </p>
+                {entry.relatedTransformations.length > 0 && (
+                  <p className="mt-3 text-[11px] font-medium uppercase tracking-wider text-sage">
+                    From:{" "}
+                    {entry.relatedTransformations.map((t) => t.title).join(" · ")}
+                  </p>
+                )}
+              </div>
             </div>
-            <div className="mt-3 flex items-start gap-2">
-              <h2 className="flex-1 text-[16px] font-medium leading-snug text-ink">
-                {entry.title}
-              </h2>
-              <Arrow className="mt-1 shrink-0 text-sage transition-colors group-hover:text-lichen" />
-            </div>
-            <p className="mt-1 text-[12.5px] text-lichen">{entry.category}</p>
-            <p className="mt-3 text-[13.5px] leading-[1.55] text-lichen">
-              {entry.thesis}
-            </p>
-            {entry.relatedTransformations.length > 0 && (
-              <p className="mt-auto pt-4 text-[11px] font-medium uppercase tracking-wider text-sage">
-                From:{" "}
-                {entry.relatedTransformations.map((t) => t.title).join(" · ")}
-              </p>
-            )}
           </Link>
         ))}
       </div>

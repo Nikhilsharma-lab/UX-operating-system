@@ -106,22 +106,20 @@ function PrincipleList({
  */
 function GroupCards({
   groups,
-  twoCol = false,
 }: {
   groups: { heading: string; items: string[] }[];
-  twoCol?: boolean;
 }) {
   return (
-    <div className={`mt-4 grid gap-3 ${twoCol ? "sm:grid-cols-2" : ""}`}>
+    <div className="mt-4 border-y border-ash">
       {groups.map((g) => (
         <div
           key={g.heading}
-          className="rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark"
+          className="grid gap-x-6 gap-y-2 border-b border-ash py-4 last:border-b-0 sm:grid-cols-[148px_1fr]"
         >
-          <h3 className="text-[11px] font-medium uppercase tracking-wider text-sage">
+          <h3 className="text-[11px] font-medium uppercase tracking-wider text-sage sm:pt-1">
             {g.heading}
           </h3>
-          <ul className="mt-3 space-y-1.5">
+          <ul className="space-y-1.5">
             {g.items.map((it, i) => (
               <li
                 key={i}
@@ -148,11 +146,11 @@ function StepList({
   steps: { step: string; purpose: string; owner: string; output: string }[];
 }) {
   return (
-    <ol className="mt-4 space-y-3">
+    <ol className="mt-4 border-y border-ash">
       {steps.map((s, i) => (
         <li
           key={i}
-          className="rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark"
+          className="border-b border-ash py-4 last:border-b-0"
         >
           <div className="flex items-baseline gap-3">
             <span className="shrink-0 font-mono text-[12px] tabular-nums text-sage">
@@ -183,11 +181,11 @@ function PhaseList({
   phases: { phase: string; title: string; detail: string }[];
 }) {
   return (
-    <ol className="mt-4 space-y-3">
+    <ol className="mt-4 border-y border-ash">
       {phases.map((p) => (
         <li
           key={p.phase}
-          className="rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark"
+          className="border-b border-ash py-4 last:border-b-0"
         >
           <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-4">
             <span className="text-[11px] font-medium uppercase tracking-wider text-sage sm:w-16 sm:shrink-0">
@@ -263,7 +261,6 @@ function GuideBody({
             heading: o.role,
             items: o.owns,
           }))}
-          twoCol
         />
       </Section>
 
@@ -355,7 +352,6 @@ function ShellBody({ entry }: { entry: ManualEntry }) {
             heading: s.heading,
             items: s.items,
           }))}
-          twoCol
         />
       </Section>
 

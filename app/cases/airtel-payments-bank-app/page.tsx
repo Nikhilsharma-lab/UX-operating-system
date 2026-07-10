@@ -6,6 +6,9 @@ import {
   Section,
   P,
   BulletList,
+  MetricStrip,
+  LedgerList,
+  LedgerItem,
   Note,
   RelatedLinks,
 } from "@/components/article";
@@ -71,18 +74,7 @@ export default function AirtelPaymentsBankAppCasePage() {
 
       {/* Outcome strip */}
       <Section label="Outcome">
-        <div className="grid grid-cols-2 gap-x-6 gap-y-7 sm:grid-cols-3">
-          {c.outcome.map((s) => (
-            <div key={s.label}>
-              <div className="text-[21px] font-medium leading-none tracking-tight tabular-nums text-ink">
-                {s.value}
-              </div>
-              <div className="mt-2 text-[12.5px] leading-snug text-lichen">
-                {s.label}
-              </div>
-            </div>
-          ))}
-        </div>
+        <MetricStrip items={c.outcome} />
       </Section>
 
       {/* The problem */}
@@ -117,18 +109,15 @@ export default function AirtelPaymentsBankAppCasePage() {
         ))}
         <div className="mt-6">
           <p className={subLabel}>{c.research.patternsLabel}</p>
-          <div className="mt-3 grid gap-3 sm:grid-cols-2">
-            {c.research.patterns.map((q) => (
-              <div
-                key={q}
-                className="rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark"
-              >
+          <LedgerList className="mt-3">
+            {c.research.patterns.map((q, i) => (
+              <LedgerItem key={q} marker={String(i + 1).padStart(2, "0")}>
                 <p className="text-[15px] italic leading-[1.5] text-carbon">
                   &ldquo;{q}&rdquo;
                 </p>
-              </div>
+              </LedgerItem>
             ))}
-          </div>
+          </LedgerList>
         </div>
       </Section>
 
@@ -158,36 +147,31 @@ export default function AirtelPaymentsBankAppCasePage() {
             ))}
           </ul>
         </div>
-        <div className="mt-5 rounded-xl border border-ash bg-paper p-5">
-          <p className={subLabel}>{c.homepage.principleLabel}</p>
-          <p className="mt-2 text-[22px] font-medium leading-tight text-ink">
-            {c.homepage.principle}
-          </p>
-          <p className="mt-3 text-[14px] leading-[1.6] text-carbon">
-            {c.homepage.meaning}
-          </p>
-        </div>
+        <LedgerList className="mt-5">
+          <LedgerItem eyebrow={c.homepage.principleLabel} title={c.homepage.principle}>
+            <p className="text-[14px] leading-[1.6] text-carbon">
+              {c.homepage.meaning}
+            </p>
+          </LedgerItem>
+        </LedgerList>
         <Note>{c.homepage.note}</Note>
       </Section>
 
       {/* Key product decisions */}
       <Section label="Key product decisions">
-        <div className="grid gap-3 sm:grid-cols-2">
+        <LedgerList>
           {c.decisions.map((d, i) => (
-            <div
+            <LedgerItem
               key={d.title}
-              className={`rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark${c.decisions.length % 2 === 1 && i === c.decisions.length - 1 ? " sm:col-span-2" : ""}`}
+              marker={String(i + 1).padStart(2, "0")}
+              title={d.title}
             >
-              <span className="font-geometric-mono text-[12px] tabular-nums text-sage">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <p className="mt-2 text-[14px] font-medium text-ink">{d.title}</p>
-              <p className="mt-1.5 text-[13.5px] leading-[1.55] text-carbon">
+              <p className="text-[13.5px] leading-[1.55] text-carbon">
                 {d.copy}
               </p>
-            </div>
+            </LedgerItem>
           ))}
-        </div>
+        </LedgerList>
       </Section>
 
       {/* Before / After */}
@@ -240,21 +224,16 @@ export default function AirtelPaymentsBankAppCasePage() {
 
       {/* Lessons */}
       <Section label="Lessons">
-        <div className="grid gap-3 sm:grid-cols-2">
-          {c.lessons.map((l, i) => (
-            <div
+        <LedgerList>
+          {c.lessons.map((l) => (
+            <LedgerItem
               key={l.n}
-              className={`rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark${c.lessons.length % 2 === 1 && i === c.lessons.length - 1 ? " sm:col-span-2" : ""}`}
+              marker={l.n}
+              title={l.title}
             >
-              <span className="font-geometric-mono text-[12px] tabular-nums text-sage">
-                {l.n}
-              </span>
-              <p className="mt-2 text-[14px] leading-[1.5] text-carbon">
-                {l.title}
-              </p>
-            </div>
+            </LedgerItem>
           ))}
-        </div>
+        </LedgerList>
       </Section>
 
       {/* Related */}

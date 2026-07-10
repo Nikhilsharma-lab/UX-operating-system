@@ -5,6 +5,9 @@ import {
   Section,
   P,
   BulletList,
+  MetricStrip,
+  LedgerList,
+  LedgerItem,
   RelatedLinks,
 } from "@/components/article";
 import { fraudAlarm } from "@/lib/fraud-alarm-case";
@@ -64,21 +67,7 @@ export default function FraudAlarmCasePage() {
 
       {/* Outcome at a glance */}
       <Section label="Outcome">
-        <dl className="grid grid-cols-2 gap-3">
-          {c.outcome.map((s) => (
-            <div
-              key={s.label}
-              className="rounded-xl border border-ash bg-paper p-4"
-            >
-              <dt className="text-[15px] font-medium leading-snug tabular-nums text-ink">
-                {s.value}
-              </dt>
-              <dd className="mt-1.5 text-[12.5px] leading-[1.45] text-lichen">
-                {s.label}
-              </dd>
-            </div>
-          ))}
-        </dl>
+        <MetricStrip items={c.outcome} className="" />
       </Section>
 
       {/* The problem */}
@@ -129,24 +118,19 @@ export default function FraudAlarmCasePage() {
 
       {/* Key product decisions */}
       <Section label="Key product decisions">
-        <ul className="grid gap-3 sm:grid-cols-2">
+        <LedgerList>
           {c.decisions.map((d, i) => (
-            <li
+            <LedgerItem
               key={d.title}
-              className={`rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark${c.decisions.length % 2 === 1 && i === c.decisions.length - 1 ? " sm:col-span-2" : ""}`}
+              marker={String(i + 1).padStart(2, "0")}
+              title={d.title}
             >
-              <span className="text-[12px] tabular-nums text-sage">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="mt-2 text-[14px] font-medium leading-snug text-ink">
-                {d.title}
-              </h3>
-              <p className="mt-1.5 text-[13px] leading-[1.55] text-carbon">
+              <p className="text-[13px] leading-[1.55] text-carbon">
                 {d.copy}
               </p>
-            </li>
+            </LedgerItem>
           ))}
-        </ul>
+        </LedgerList>
       </Section>
 
       {/* Before / after journey */}
@@ -191,19 +175,16 @@ export default function FraudAlarmCasePage() {
 
       {/* Lessons */}
       <Section label="Lessons">
-        <ul className="grid gap-3 sm:grid-cols-3">
-          {c.lessons.map((l, i) => (
-            <li
+        <LedgerList>
+          {c.lessons.map((l) => (
+            <LedgerItem
               key={l.n}
-              className={`rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark${c.lessons.length % 2 === 1 && i === c.lessons.length - 1 ? " sm:col-span-2" : ""}`}
+              marker={l.n}
+              title={l.title}
             >
-              <span className="text-[12px] tabular-nums text-sage">{l.n}</span>
-              <p className="mt-2 text-[14px] font-medium leading-snug text-ink">
-                {l.title}
-              </p>
-            </li>
+            </LedgerItem>
           ))}
-        </ul>
+        </LedgerList>
       </Section>
 
       {/* Related */}

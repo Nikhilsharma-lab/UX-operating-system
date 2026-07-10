@@ -8,6 +8,8 @@ import {
   BulletList,
   Note,
   DecisionList,
+  LedgerList,
+  LedgerItem,
   RelatedLinks,
 } from "@/components/article";
 import { caseStudies, getCaseStudy } from "@/lib/cases";
@@ -116,11 +118,11 @@ export default async function CasePage({
         {cs.tradeoffs.map((t, i) => (
           <P key={i}>{t}</P>
         ))}
-        <div className="mt-5 overflow-hidden rounded-xl border border-ash bg-paper">
+        <div className="mt-5 border-y border-ash">
           {cs.tradeoffMatrix.map(([a, b], i) => (
             <div
               key={i}
-              className={`grid grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 py-2.5 text-[14px] leading-[1.4] ${
+              className={`grid grid-cols-[1fr_auto_1fr] items-center gap-3 py-3 text-[14px] leading-[1.4] ${
                 i > 0 ? "border-t border-ash" : ""
               }`}
             >
@@ -136,10 +138,11 @@ export default async function CasePage({
         <p className="text-[18px] font-medium leading-snug text-ink">
           {cs.metricMovement.known}
         </p>
-        <div className="mt-5 rounded-xl border border-ash bg-paper p-4">
-          <p className={subLabel}>To wire in before publication</p>
+        <LedgerList>
+          <LedgerItem eyebrow="To wire in before publication">
           <BulletList items={cs.metricMovement.toWire} />
-        </div>
+          </LedgerItem>
+        </LedgerList>
       </Section>
 
       <Section label="My Role">
@@ -149,16 +152,14 @@ export default async function CasePage({
       </Section>
 
       <Section label="Artifacts">
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark">
-            <p className={subLabel}>Available</p>
+        <LedgerList>
+          <LedgerItem eyebrow="Available">
             <BulletList items={cs.artifacts.available} />
-          </div>
-          <div className="rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark">
-            <p className={subLabel}>To wire in</p>
+          </LedgerItem>
+          <LedgerItem eyebrow="To wire in">
             <BulletList items={cs.artifacts.toWire} />
-          </div>
-        </div>
+          </LedgerItem>
+        </LedgerList>
         <Note>{cs.artifacts.note}</Note>
       </Section>
 

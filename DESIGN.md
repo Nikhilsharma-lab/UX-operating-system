@@ -73,12 +73,16 @@ Geist**, plus the rare Newsreader italic.
 - **Detail-page primitives** (`components/article.tsx`), used inside
   `<PageShell>` by `/cases/*`, `/transformations/*`, `/operating-manual/*`,
   `/resume`:
-  - `ArticleHead` — eyebrow (`.k-label`) + `h1` (26 / 30px, 600, tight) + dek
-    (16px `carbon`) + optional meta row (`sage` label / `ink` value, over a
-    hairline).
-  - `Section` — `.k-label` + content, `mt-12` cadence.
+  - `ArticleHead` — eyebrow (`.k-label`) + balanced `h1` (27 / 32px, 600,
+    tight) + dek (16px `carbon`) + optional two-column meta ledger, all closed
+    by a hairline.
+  - `Section` — top hairline + `.k-label` + content, `mt-14 pt-8` cadence.
   - `P` — 15px / 1.7 `carbon`, measure capped ~64ch.
   - `BulletList` — amber 4px dot + 15px `carbon`.
+  - `MetricStrip` — borderless numeric proof strip; no card frames around
+    metrics.
+  - `LedgerList` / `LedgerItem` — hairline-divided rows for repeated decisions,
+    lessons, stories, proofs, artifacts, and archive entries.
   - `Note` — italic `lichen`, `accent-blue/50` left border (the one sanctioned
     left-border; everywhere else use full borders).
   - `RelatedLinks` — hairline-divided rows, title + `Arrow`.
@@ -92,12 +96,16 @@ dark bg reads lighter, so leading runs generous (1.6–1.7 for body).
 ## Layout
 
 - **Reading column** — `PageShell` centers a **640px** column with `px-6` and a
-  slim "back to home" affordance; detail pages render inside it. The homepage
-  (`app/page.tsx`) uses a **560px** column. Index pages use the `.page-shell`
-  container (`--spacing-page-max` 1312px).
+  touch-safe "back to home" affordance; detail pages render inside it. The
+  homepage (`app/page.tsx`) uses a **560px** column. Index pages use the
+  `.page-shell` container (`--spacing-page-max` 1312px).
+- **Ledgers over cards** — archive pages, repeated decisions, lessons, proofs,
+  artifacts, and related reading use hairline-separated rows (`border-y` /
+  `border-b`) instead of card grids.
 - **Cards** — `rounded-xl border border-ash bg-paper p-4/5`, hover
-  `border-rule-dark`. Used only when content is genuinely distinct (project
-  cards, ventures). Never nested; prefer hairline-separated rows or spacing.
+  `border-rule-dark`. Used only when content is genuinely distinct (protected UI
+  evidence, product artifacts, venture panels). Never nested; prefer
+  hairline-separated rows or spacing.
 - **Chips** — `rounded-full border border-ash bg-paper px-2.5 py-1 text-[12.5px]
   text-lichen` for tag/skill lists.
 - **Dividers** — 1px `ash` hairlines (`border-t` / `divide-y`) do most of the

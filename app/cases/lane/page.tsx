@@ -6,6 +6,9 @@ import {
   Section,
   P,
   BulletList,
+  MetricStrip,
+  LedgerList,
+  LedgerItem,
   Note,
   RelatedLinks,
 } from "@/components/article";
@@ -76,7 +79,7 @@ function Flow({ label, steps }: { label: string; steps: string[] }) {
 
 function Highlight({ children }: { children: ReactNode }) {
   return (
-    <div className="mt-5 rounded-xl border border-ash bg-paper p-5">
+    <div className="mt-5 border-y border-ash py-4">
       <p className="text-[20px] font-medium leading-snug text-ink">{children}</p>
     </div>
   );
@@ -101,18 +104,7 @@ export default function LaneCasePage() {
 
       {/* Metric strip */}
       <Section label="At a glance">
-        <div className="grid grid-cols-2 gap-x-6 gap-y-7 sm:grid-cols-3">
-          {c.outcome.map((s) => (
-            <div key={s.label}>
-              <div className="text-[21px] font-medium leading-none tracking-tight tabular-nums text-ink">
-                {s.value}
-              </div>
-              <div className="mt-2 text-[12.5px] leading-snug text-lichen">
-                {s.label}
-              </div>
-            </div>
-          ))}
-        </div>
+        <MetricStrip items={c.outcome} />
       </Section>
 
       {/* The founder problem */}
@@ -162,20 +154,19 @@ export default function LaneCasePage() {
 
       {/* The product model */}
       <Section label={c.productModel.heading}>
-        <div className="grid gap-3 sm:grid-cols-2">
+        <LedgerList>
           {c.productModel.cards.map((card) => (
-            <div
+            <LedgerItem
               key={card.title}
-              className="rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark"
+              eyebrow={card.owner}
+              title={card.title}
             >
-              <p className="text-[14px] font-medium text-ink">{card.title}</p>
-              <p className={`${subLabel} mt-1`}>{card.owner}</p>
-              <p className="mt-2.5 text-[13.5px] leading-[1.55] text-carbon">
+              <p className="text-[13.5px] leading-[1.55] text-carbon">
                 {card.copy}
               </p>
-            </div>
+            </LedgerItem>
           ))}
-        </div>
+        </LedgerList>
       </Section>
 
       {/* The AI Intake Gate */}
@@ -193,12 +184,13 @@ export default function LaneCasePage() {
         </div>
         <P>{c.intakeGate.passLine}</P>
         <P>{c.intakeGate.blockLine}</P>
-        <div className="mt-5 rounded-xl border border-ash bg-paper p-5">
-          <p className={subLabel}>Gate message</p>
-          <p className="mt-2 text-[16px] italic leading-[1.5] text-carbon">
-            &ldquo;{c.intakeGate.uiCopy}&rdquo;
-          </p>
-        </div>
+        <LedgerList>
+          <LedgerItem eyebrow="Gate message">
+            <p className="text-[16px] italic leading-[1.5] text-carbon">
+              &ldquo;{c.intakeGate.uiCopy}&rdquo;
+            </p>
+          </LedgerItem>
+        </LedgerList>
         <Note>{c.intakeGate.detail}</Note>
       </Section>
 
@@ -207,8 +199,8 @@ export default function LaneCasePage() {
         {c.antiSurveillance.copy.map((t, i) => (
           <P key={i}>{t}</P>
         ))}
-        <div className="mt-5 grid gap-3 sm:grid-cols-2">
-          <div className="rounded-xl border border-ash bg-paper p-4">
+        <div className="mt-5 border-y border-ash">
+          <div className="grid gap-5 border-b border-ash py-4 sm:grid-cols-[140px_1fr]">
             <p className={subLabel}>{c.antiSurveillance.neverLabel}</p>
             <ul className="mt-3 space-y-2">
               {c.antiSurveillance.never.map((t) => (
@@ -224,7 +216,7 @@ export default function LaneCasePage() {
               ))}
             </ul>
           </div>
-          <div className="rounded-xl border border-ash bg-paper p-4">
+          <div className="grid gap-5 py-4 sm:grid-cols-[140px_1fr]">
             <p className={subLabel}>{c.antiSurveillance.alwaysLabel}</p>
             <ul className="mt-3 space-y-2">
               {c.antiSurveillance.always.map((t) => (
@@ -294,22 +286,19 @@ export default function LaneCasePage() {
 
       {/* Founder lessons */}
       <Section label={c.founderLessons.heading}>
-        <div className="space-y-3">
+        <LedgerList>
           {c.founderLessons.cards.map((l, i) => (
-            <div
+            <LedgerItem
               key={l.title}
-              className="rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark"
+              marker={String(i + 1).padStart(2, "0")}
+              title={l.title}
             >
-              <span className="font-geometric-mono text-[12px] tabular-nums text-sage">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <p className="mt-2 text-[14px] font-medium text-ink">{l.title}</p>
-              <p className="mt-1.5 text-[13.5px] leading-[1.55] text-carbon">
+              <p className="text-[13.5px] leading-[1.55] text-carbon">
                 {l.copy}
               </p>
-            </div>
+            </LedgerItem>
           ))}
-        </div>
+        </LedgerList>
       </Section>
 
       {/* Artifacts */}

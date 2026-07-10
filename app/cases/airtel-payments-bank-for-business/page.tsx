@@ -6,6 +6,9 @@ import {
   Section,
   P,
   BulletList,
+  MetricStrip,
+  LedgerList,
+  LedgerItem,
   Note,
   RelatedLinks,
 } from "@/components/article";
@@ -85,21 +88,7 @@ export default function AirtelPaymentsBankForBusinessCasePage() {
 
       {/* At a glance - metric / context strip */}
       <Section label="At a glance">
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-          {c.outcome.map((s) => (
-            <div
-              key={s.label}
-              className="rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark"
-            >
-              <div className="text-[15px] font-medium leading-tight tracking-tight text-ink">
-                {s.value}
-              </div>
-              <div className="mt-1.5 text-[12.5px] leading-snug text-lichen">
-                {s.label}
-              </div>
-            </div>
-          ))}
-        </div>
+        <MetricStrip items={c.outcome} />
       </Section>
 
       {/* The problem */}
@@ -129,19 +118,14 @@ export default function AirtelPaymentsBankForBusinessCasePage() {
 
       {/* Key product decisions */}
       <Section label="Key product decisions">
-        <ul className="grid gap-3 sm:grid-cols-2">
+        <LedgerList>
           {c.decisions.map((d, i) => (
-            <li
+            <LedgerItem
               key={d.title}
-              className={`flex flex-col rounded-xl border border-ash bg-paper p-5 transition-colors hover:border-rule-dark${c.decisions.length % 2 === 1 && i === c.decisions.length - 1 ? " sm:col-span-2" : ""}`}
+              marker={String(i + 1).padStart(2, "0")}
+              title={d.title}
             >
-              <span className="font-geometric-mono text-[12px] tabular-nums text-sage">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="mt-2 text-[15px] font-medium leading-snug text-ink">
-                {d.title}
-              </h3>
-              <p className="mt-2 text-[13.5px] leading-[1.55] text-lichen">
+              <p className="text-[13.5px] leading-[1.55] text-carbon">
                 {d.copy}
               </p>
               {d.note && (
@@ -149,9 +133,9 @@ export default function AirtelPaymentsBankForBusinessCasePage() {
                   {d.note}
                 </p>
               )}
-            </li>
+            </LedgerItem>
           ))}
-        </ul>
+        </LedgerList>
       </Section>
 
       {/* Before / After model */}
@@ -167,12 +151,12 @@ export default function AirtelPaymentsBankForBusinessCasePage() {
         <Lead>{c.research.heading}</Lead>
         <Paras copy={c.research.copy} />
 
-        <div className="mt-6 rounded-xl border border-ash bg-paper p-5">
-          <span className="k-label block">{c.research.principleLabel}</span>
-          <p className="mt-2 text-[18px] font-medium leading-snug text-ink">
-            {c.research.principle}
-          </p>
-        </div>
+        <LedgerList className="mt-6">
+          <LedgerItem
+            eyebrow={c.research.principleLabel}
+            title={c.research.principle}
+          />
+        </LedgerList>
 
         <div className="mt-5">
           <span className="text-[11px] font-medium uppercase tracking-wider text-sage">
@@ -204,21 +188,11 @@ export default function AirtelPaymentsBankForBusinessCasePage() {
 
       {/* Lessons */}
       <Section label="Lessons">
-        <div className="border-t border-ash">
+        <LedgerList>
           {c.lessons.map((l) => (
-            <div
-              key={l.n}
-              className="flex gap-3 border-b border-ash py-3"
-            >
-              <span className="w-6 shrink-0 font-geometric-mono text-[12px] tabular-nums text-sage">
-                {l.n}
-              </span>
-              <span className="text-[14px] leading-[1.55] text-carbon">
-                {l.title}
-              </span>
-            </div>
+            <LedgerItem key={l.n} marker={l.n} title={l.title} />
           ))}
-        </div>
+        </LedgerList>
       </Section>
 
       {/* Related */}

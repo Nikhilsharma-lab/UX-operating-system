@@ -6,6 +6,8 @@ import {
   ArticleHead,
   BulletList,
   DecisionList,
+  LedgerList,
+  LedgerItem,
   Note,
   P,
   RelatedLinks,
@@ -113,12 +115,13 @@ export default async function StoryPage({
             )}
 
             {internal && bullets && (
-              <div className="mt-4 rounded-xl border border-ash bg-paper p-4">
-                <span className="k-label block">
-                  {drafted ? "Internal · evidence note" : "Evidence intake"}
-                </span>
+              <LedgerList className="mt-4">
+                <LedgerItem
+                  eyebrow={drafted ? "Internal · evidence note" : "Evidence intake"}
+                >
                 <BulletList items={bullets} />
-              </div>
+                </LedgerItem>
+              </LedgerList>
             )}
           </Section>
         );

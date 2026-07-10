@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import type { KeyboardEvent as ReactKeyboardEvent } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
 /*
@@ -30,12 +31,12 @@ const GROUPS = [
 ];
 
 const PageIcon = (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-4 w-4">
+  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-4 w-4">
     <circle cx="12" cy="12" r="7.5" />
   </svg>
 );
 const SearchIcon = (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" className="h-4 w-4 text-sage">
+  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" className="h-4 w-4 text-lichen">
     <circle cx="11" cy="11" r="6.5" />
     <path d="M20 20l-3.5-3.5" />
   </svg>
@@ -46,18 +47,36 @@ export function CommandMenu() {
   const [q, setQ] = useState("");
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null);
+  const titleId = useId();
+  const searchId = useId();
+
+  const openMenu = useCallback(() => {
+    previouslyFocusedRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    setOpen(true);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    setOpen(false);
+    window.setTimeout(() => previouslyFocusedRef.current?.focus(), 0);
+  }, []);
 
   useEffect(() => {
-    function onKey(e: KeyboardEvent) {
+    function onKey(e: globalThis.KeyboardEvent) {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
-        setOpen((o) => !o);
-      } else if (e.key === "Escape") {
-        setOpen(false);
+        if (open) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      } else if (e.key === "Escape" && open) {
+        closeMenu();
       }
     }
     function onOpen() {
-      setOpen(true);
+      openMenu();
     }
     window.addEventListener("keydown", onKey);
     window.addEventListener("open-command-menu", onOpen);
@@ -65,7 +84,7 @@ export function CommandMenu() {
       window.removeEventListener("keydown", onKey);
       window.removeEventListener("open-command-menu", onOpen);
     };
-  }, []);
+  }, [closeMenu, open, openMenu]);
 
   useEffect(() => {
     if (open) {
@@ -75,8 +94,31 @@ export function CommandMenu() {
     }
   }, [open]);
 
+  function onPanelKeyDown(e: ReactKeyboardEvent<HTMLDivElement>) {
+    if (e.key !== "Tab") return;
+
+    const focusable = Array.from(
+      panelRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      ) ?? [],
+    ).filter((el) => el.offsetParent !== null);
+
+    if (focusable.length === 0) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+
   function go(href: string) {
-    setOpen(false);
+    closeMenu();
     if (href.startsWith("http") || href.endsWith(".pdf")) {
       window.open(href, "_blank", "noopener,noreferrer");
       return;
@@ -86,7 +128,10 @@ export function CommandMenu() {
       const path = href.slice(0, hi) || "/";
       const id = href.slice(hi + 1);
       if (window.location.pathname === path) {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        document.getElementById(id)?.scrollIntoView({
+          behavior: prefersReducedMotion ? "auto" : "smooth",
+        });
         return;
       }
     }
@@ -103,32 +148,41 @@ export function CommandMenu() {
 
   return (
     <div
-      role="dialog"
-      aria-modal="true"
-      aria-label="Command menu"
-      onClick={() => setOpen(false)}
-      className="fixed inset-0 z-[60] flex items-start justify-center bg-black/40 px-4 pt-[16vh] backdrop-blur-[2px]"
+      onClick={closeMenu}
+      className="fixed inset-0 z-50 flex items-start justify-center bg-vellum/90 px-4 pt-[16vh]"
     >
       <div
+        ref={panelRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        onKeyDown={onPanelKeyDown}
         onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-[520px] overflow-hidden rounded-xl border border-ash bg-paper shadow-2xl"
+        className="w-full max-w-[520px] overflow-hidden rounded-xl border border-rule-dark bg-paper"
       >
-        <div className="flex items-center gap-2.5 border-b border-ash px-3.5">
+        <h2 id={titleId} className="sr-only">
+          Command menu
+        </h2>
+        <div className="flex items-center gap-2.5 border-b border-ash px-2.5">
           {SearchIcon}
+          <label htmlFor={searchId} className="sr-only">
+            Search proof, resume, contact
+          </label>
           <input
+            id={searchId}
             ref={inputRef}
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Search proof, resume, contact…"
-            className="w-full bg-transparent py-3 text-[14px] text-ink placeholder:text-sage focus:outline-none"
+            className="w-full bg-transparent py-3 text-[14px] text-ink placeholder:text-lichen focus:outline-none"
           />
           <button
             type="button"
             aria-label="Close"
-            onClick={() => setOpen(false)}
-            className="text-sage transition-colors hover:text-ink"
+            onClick={closeMenu}
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-md text-sage transition-colors hover:bg-bone hover:text-ink"
           >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" className="h-4 w-4">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" className="h-4 w-4">
               <path d="M6 6l12 12M18 6L6 18" />
             </svg>
           </button>
@@ -144,7 +198,7 @@ export function CommandMenu() {
                     key={p.href}
                     type="button"
                     onClick={() => go(p.href)}
-                    className="flex w-full items-center gap-2.5 rounded-md px-2.5 py-2 text-left text-[14px] text-ink transition-colors hover:bg-bone"
+                    className="flex min-h-11 w-full items-center gap-2.5 rounded-md px-2.5 py-2.5 text-left text-[14px] text-ink transition-colors hover:bg-bone"
                   >
                     <span className="text-lichen">{PageIcon}</span>
                     {p.label}

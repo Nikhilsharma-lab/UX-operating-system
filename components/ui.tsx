@@ -21,7 +21,10 @@ export function Arrow({ className = "" }: { className?: string }) {
 
 export function Mono({ label }: { label: string }) {
   return (
-    <span className="grid h-6 w-6 shrink-0 place-items-center rounded-md border border-ash bg-bone text-[9px] font-semibold tracking-tight text-lichen">
+    <span
+      aria-hidden="true"
+      className="grid h-6 w-6 shrink-0 place-items-center rounded-md border border-ash bg-bone text-[9px] font-semibold tracking-tight text-lichen"
+    >
       {label}
     </span>
   );

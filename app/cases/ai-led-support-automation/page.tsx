@@ -1,6 +1,16 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/page-shell";
-import { ArticleHead, Section, P, BulletList, Note, RelatedLinks } from "@/components/article";
+import {
+  ArticleHead,
+  Section,
+  P,
+  BulletList,
+  MetricStrip,
+  LedgerList,
+  LedgerItem,
+  Note,
+  RelatedLinks,
+} from "@/components/article";
 import { aiSupportAutomation } from "@/lib/ai-support-automation-case";
 
 /*
@@ -53,16 +63,9 @@ export default function AiSupportAutomationCasePage() {
       />
 
       {/* Outcome metric strip */}
-      <dl className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-        {c.outcome.map((s) => (
-          <div key={s.label} className="rounded-xl border border-ash bg-paper p-4">
-            <dt className="text-[17px] font-medium leading-tight tabular-nums text-ink">
-              {s.value}
-            </dt>
-            <dd className="mt-1.5 text-[12.5px] leading-[1.4] text-lichen">{s.label}</dd>
-          </div>
-        ))}
-      </dl>
+      <Section label="Outcome">
+        <MetricStrip items={c.outcome} className="sm:grid-cols-3 lg:grid-cols-5" />
+      </Section>
 
       {/* The problem */}
       <Section label="The problem">
@@ -111,22 +114,17 @@ export default function AiSupportAutomationCasePage() {
 
       {/* Key experience decisions */}
       <Section label="Key experience decisions">
-        <ul className="grid gap-3 sm:grid-cols-2">
+        <LedgerList>
           {c.decisions.map((d, i) => (
-            <li
+            <LedgerItem
               key={d.title}
-              className={`rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark${c.decisions.length % 2 === 1 && i === c.decisions.length - 1 ? " sm:col-span-2" : ""}`}
+              marker={String(i + 1).padStart(2, "0")}
+              title={d.title}
             >
-              <span className="font-mono text-[12px] tabular-nums text-sage">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="mt-2 text-[15px] font-medium leading-snug text-ink text-balance">
-                {d.title}
-              </h3>
-              <p className="mt-1.5 text-[14px] leading-[1.6] text-lichen">{d.copy}</p>
-            </li>
+              <p className="text-[14px] leading-[1.6] text-carbon">{d.copy}</p>
+            </LedgerItem>
           ))}
-        </ul>
+        </LedgerList>
       </Section>
 
       {/* Before / After service flow */}
@@ -139,25 +137,24 @@ export default function AiSupportAutomationCasePage() {
 
       {/* Use-case examples */}
       <Section label="Use-case examples">
-        <ul className="grid gap-3 sm:grid-cols-2">
+        <LedgerList>
           {c.useCases.examples.map((e, i) => (
-            <li
+            <LedgerItem
               key={e.title}
-              className={`rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark${c.useCases.examples.length % 2 === 1 && i === c.useCases.examples.length - 1 ? " sm:col-span-2" : ""}`}
+              marker={String(i + 1).padStart(2, "0")}
+              title={e.title}
             >
-              <h3 className="text-[15px] font-medium leading-snug text-ink text-balance">
-                {e.title}
-              </h3>
-              <p className="mt-1.5 text-[14px] leading-[1.6] text-lichen">{e.copy}</p>
-            </li>
+              <p className="text-[14px] leading-[1.6] text-carbon">{e.copy}</p>
+            </LedgerItem>
           ))}
-        </ul>
-        <figure className="mt-4 rounded-xl border border-ash bg-bone p-5">
-          <span className="k-label block">IVR acknowledgement</span>
-          <blockquote className="mt-2.5 text-[16px] italic leading-snug text-ink">
-            &ldquo;{c.useCases.quote}&rdquo;
-          </blockquote>
-        </figure>
+        </LedgerList>
+        <LedgerList>
+          <LedgerItem eyebrow="IVR acknowledgement">
+            <blockquote className="text-[16px] italic leading-snug text-ink">
+              &ldquo;{c.useCases.quote}&rdquo;
+            </blockquote>
+          </LedgerItem>
+        </LedgerList>
       </Section>
 
       {/* Metric movement */}
@@ -191,17 +188,16 @@ export default function AiSupportAutomationCasePage() {
 
       {/* Lessons */}
       <Section label="Lessons">
-        <ul className="grid gap-3 sm:grid-cols-2">
-          {c.lessons.map((l, i) => (
-            <li
+        <LedgerList>
+          {c.lessons.map((l) => (
+            <LedgerItem
               key={l.n}
-              className={`rounded-xl border border-ash bg-paper p-4 transition-colors hover:border-rule-dark${c.lessons.length % 2 === 1 && i === c.lessons.length - 1 ? " sm:col-span-2" : ""}`}
+              marker={l.n}
             >
-              <span className="font-mono text-[12px] tabular-nums text-sage">{l.n}</span>
-              <p className="mt-2 text-[14px] leading-[1.6] text-carbon">{l.title}</p>
-            </li>
+              <p className="text-[14px] leading-[1.6] text-carbon">{l.title}</p>
+            </LedgerItem>
           ))}
-        </ul>
+        </LedgerList>
       </Section>
 
       {/* Related */}
