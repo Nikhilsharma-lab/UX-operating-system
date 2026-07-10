@@ -145,6 +145,7 @@ const ventures: { name: string; tag: string; proof: string; copy: string; href?:
     name: "LANE",
     tag: "AI product operating system",
     proof: "Builder proof: product thesis → working system",
+    status: "Live proof",
     copy: "An AI-native operating system for product and design teams. It tests the same belief this site argues for: better products start with sharper problems, cleaner decisions, and a system teams can actually use.",
     href: "/cases/lane",
   },
@@ -152,6 +153,7 @@ const ventures: { name: string; tag: string; proof: string; copy: string; href?:
     name: "Svenklas",
     tag: "Design-led consumer brand",
     proof: "Builder proof: brand → manufacturing → distribution",
+    status: "Live business",
     copy: "A travel accessories business where the design problem does not end at interface polish. I own product, brand, manufacturing, distribution, and the commercial tradeoffs.",
     href: "https://www.svenklas.com",
   },
@@ -159,8 +161,8 @@ const ventures: { name: string; tag: string; proof: string; copy: string; href?:
     name: "Unknown Gunmen Files",
     tag: "Open-source intelligence archive",
     proof: "Builder proof: data system → public record → geopolitical context",
-    status: "Coming soon",
     copy: "A public-source website for tracking reported covert-conflict incidents with source trails, locations, timelines, and case context. The product challenge is turning fragmented national-security reporting into a structured, readable record.",
+    href: "https://unknownmanfiles.com/",
   },
   {
     name: "BOBO",
@@ -272,7 +274,7 @@ function ProofConsole() {
 
 function BuilderLabRow({ venture }: { venture: (typeof ventures)[number] }) {
   const external = venture.href?.startsWith("http");
-  const status = venture.status ?? (external ? "Live business" : "Live proof");
+  const status = venture.status;
   const rowClass = "interactive-row group block px-4 py-4";
   const inner = (
     <>
