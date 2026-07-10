@@ -30,27 +30,6 @@ const nowPills = [
   { label: "Operating manual", href: "/operating-manual" },
 ];
 
-const readerPath: { label: string; title: string; href: string; description: string }[] = [
-  {
-    label: "Start",
-    title: "Leadership proof",
-    href: "/transformations/building-design-organization",
-    description: "How I built a 0→20 product design function inside a regulated bank.",
-  },
-  {
-    label: "Thesis",
-    title: "How I think",
-    href: "/#thesis",
-    description: "The operating principle behind the work: design creates systems that create products.",
-  },
-  {
-    label: "Verify",
-    title: "Resume and contact",
-    href: RESUME,
-    description: "Role history, credentials, and the fastest way to reach me.",
-  },
-];
-
 const LINKEDIN = "https://www.linkedin.com/in/nikhilsharma09/";
 const X_PROFILE = "https://x.com/thesharmaxp";
 
@@ -356,33 +335,25 @@ export default function HomePage() {
         </p>
       </section>
 
-      <div className="hero-enter hero-enter-2 mt-8">
+      <div id="start" className="hero-enter hero-enter-2 mt-8 scroll-mt-20">
         <ProofConsole />
       </div>
 
-      {/* Reader path */}
-      <section id="start" className="hero-enter hero-enter-3 mt-8 scroll-mt-20 border-y border-ash py-4">
-        <div className="mb-3 flex items-center justify-between gap-3">
-          <Label>Start here</Label>
-          <span className="text-[12.5px] text-sage">3 minute scan</span>
-        </div>
-        <div className="divide-y divide-ash">
-          {readerPath.map((item) => (
-            <Link key={item.title} href={item.href} className="interactive-row group -mx-2 flex items-start gap-3 px-2 py-3 first:pt-3 last:pb-3">
-              <span className="mt-0.5 w-14 shrink-0 font-geometric-mono text-[11px] uppercase tracking-[0.08em] text-sage">
-                {item.label}
-              </span>
-              <span className="min-w-0 flex-1">
-                <span className="block text-[15px] font-medium text-ink group-hover:underline group-hover:underline-offset-2">
-                  {item.title}
-                </span>
-                <span className="mt-1 block text-[13.5px] leading-[1.5] text-lichen">{item.description}</span>
-              </span>
-              <Arrow className="interactive-arrow mt-1 shrink-0 text-sage" />
-            </Link>
-          ))}
-        </div>
-      </section>
+      {/* Résumé + contact shortcuts */}
+      <div className="hero-enter hero-enter-3 mt-6 flex flex-wrap items-center gap-2.5">
+        <Link
+          href={RESUME}
+          className="pressable inline-flex min-h-9 items-center rounded-full border border-ash bg-paper px-4 py-1.5 text-[13px] font-medium text-ink transition-colors hover:border-rule-dark hover:bg-bone"
+        >
+          Résumé
+        </Link>
+        <Link
+          href="/#contact"
+          className="pressable inline-flex min-h-9 items-center rounded-full border border-ash bg-paper px-4 py-1.5 text-[13px] font-medium text-ink transition-colors hover:border-rule-dark hover:bg-bone"
+        >
+          Contact
+        </Link>
+      </div>
 
       {/* Now */}
       <section className="home-cinematic mt-14">
