@@ -20,16 +20,16 @@ export function ArticleHead({
   meta?: { label: string; value: string }[];
 }) {
   return (
-    <header className="border-b border-ash pb-8">
+    <header>
       {eyebrow && <span className="k-label block">{eyebrow}</span>}
       <h1 className="mt-3 text-balance text-[1.6875rem] font-semibold leading-tight tracking-tight text-ink sm:text-[2rem]">
         {title}
       </h1>
       {dek && <div className="mt-4 max-w-[56ch] text-pretty text-[1rem] leading-[1.68] text-carbon">{dek}</div>}
       {meta && meta.length > 0 && (
-        <dl className="mt-7 grid border-t border-ash sm:grid-cols-2">
+        <dl className="mt-7 grid sm:grid-cols-2 sm:[&>*:last-child:nth-child(odd)]:col-span-2">
           {meta.map((m) => (
-            <div key={m.label} className="border-b border-ash py-3 sm:odd:pr-5 sm:even:pl-5">
+            <div key={m.label} className="border-t border-ash py-3 sm:odd:pr-5 sm:even:pl-5">
               <dt className="text-[11px] font-medium uppercase tracking-wider text-sage">{m.label}</dt>
               <dd className="mt-1 text-[14px] leading-snug text-ink">{m.value}</dd>
             </div>
