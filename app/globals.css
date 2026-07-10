@@ -54,6 +54,8 @@
   --spacing-page-max: 1312px;
   --shadow-1: none;
   --shadow-2: none;
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Dark-only - the light theme was removed by owner decision. */
@@ -63,6 +65,8 @@
     background: var(--color-vellum);
     color: var(--color-ink);
     -webkit-text-size-adjust: 100%;
+    font-kerning: normal;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -70,6 +74,7 @@
     color: var(--color-ink);
     font-family: var(--font-sans);
     font-size: 16px;
+    font-optical-sizing: auto;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -261,8 +266,57 @@
   .elevation-2 {
     box-shadow: var(--shadow-2);
   }
+  .interactive-row {
+    transition:
+      background-color 0.18s var(--ease-out-quart),
+      border-color 0.18s var(--ease-out-quart),
+      transform 0.18s var(--ease-out-quart);
+  }
+  .interactive-row:hover {
+    background: var(--color-bone);
+  }
+  .interactive-row:active {
+    transform: translateY(1px);
+  }
+  .interactive-arrow {
+    transition:
+      color 0.18s var(--ease-out-quart),
+      transform 0.18s var(--ease-out-quart);
+  }
+  .group:hover .interactive-arrow {
+    color: var(--color-lichen);
+    transform: translate(2px, -2px);
+  }
+  .pressable {
+    transition:
+      background-color 0.18s var(--ease-out-quart),
+      border-color 0.18s var(--ease-out-quart),
+      color 0.18s var(--ease-out-quart),
+      opacity 0.18s var(--ease-out-quart),
+      transform 0.18s var(--ease-out-quart);
+  }
+  .pressable:active {
+    transform: translateY(1px);
+  }
+  .subtle-media {
+    transition:
+      opacity 0.3s var(--ease-out-quart),
+      transform 0.3s var(--ease-out-quart);
+  }
+  .group:hover .subtle-media {
+    transform: scale(1.015);
+  }
 
   /* Motion - calm entrance only. */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   @keyframes rise-in {
     from {
       opacity: 0;
@@ -271,6 +325,28 @@
     to {
       opacity: 1;
       transform: none;
+    }
+  }
+  @keyframes surface-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px) scale(0.985);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes error-nudge {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    35% {
+      transform: translateX(-3px);
+    }
+    70% {
+      transform: translateX(3px);
     }
   }
   .hero-enter {
@@ -292,17 +368,44 @@
   .reveal-in {
     animation: rise-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
+  .surface-backdrop-in {
+    animation: fade-in 0.18s var(--ease-out-quart) both;
+  }
+  .surface-panel-in {
+    animation: surface-in 0.24s var(--ease-out-expo) both;
+  }
+  .error-nudge {
+    animation: error-nudge 0.18s var(--ease-out-quart) both;
+  }
 
   @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
     .hero-enter,
     .hero-enter-1,
     .hero-enter-2,
     .hero-enter-3,
-    .reveal-in {
+    .reveal-in,
+    .surface-backdrop-in,
+    .surface-panel-in,
+    .error-nudge {
       animation: none;
     }
     .reveal-pending {
       opacity: 1;
+      transform: none;
+    }
+    .interactive-row,
+    .interactive-arrow,
+    .pressable,
+    .subtle-media {
+      transition-duration: 0.01ms;
+    }
+    .group:hover .interactive-arrow,
+    .group:hover .subtle-media,
+    .interactive-row:active,
+    .pressable:active {
       transform: none;
     }
   }

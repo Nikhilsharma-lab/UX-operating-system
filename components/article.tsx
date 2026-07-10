@@ -22,10 +22,10 @@ export function ArticleHead({
   return (
     <header className="border-b border-ash pb-8">
       {eyebrow && <span className="k-label block">{eyebrow}</span>}
-      <h1 className="mt-3 text-balance text-[27px] font-semibold leading-tight tracking-tight text-ink sm:text-[32px]">
+      <h1 className="mt-3 text-balance text-[1.6875rem] font-semibold leading-tight tracking-tight text-ink sm:text-[2rem]">
         {title}
       </h1>
-      {dek && <div className="mt-4 max-w-[56ch] text-pretty text-[16px] leading-[1.65] text-carbon">{dek}</div>}
+      {dek && <div className="mt-4 max-w-[56ch] text-pretty text-[1rem] leading-[1.68] text-carbon">{dek}</div>}
       {meta && meta.length > 0 && (
         <dl className="mt-7 grid border-t border-ash sm:grid-cols-2">
           {meta.map((m) => (
@@ -51,7 +51,7 @@ export function Section({ label, children }: { label?: string; children: ReactNo
 
 export function P({ children }: { children: ReactNode }) {
   return (
-    <p className="mt-4 max-w-[64ch] text-pretty text-[15px] leading-[1.7] text-carbon first:mt-0">{children}</p>
+    <p className="mt-4 max-w-[64ch] text-pretty text-[1rem] leading-[1.72] text-carbon first:mt-0">{children}</p>
   );
 }
 
@@ -194,10 +194,10 @@ export function RelatedLinks({
               <span className="text-[14px] font-medium text-ink">{r.title}</span>
               {r.description && <p className="mt-0.5 text-[13px] leading-[1.5] text-lichen">{r.description}</p>}
             </div>
-            <Arrow className="mt-1 shrink-0 text-sage transition-colors group-hover:text-lichen" />
+            <Arrow className="interactive-arrow mt-1 shrink-0 text-sage" />
           </>
         );
-        const cls = "group flex items-start gap-3 border-b border-ash py-3";
+        const cls = "interactive-row group -mx-2 flex min-h-11 items-start gap-3 border-b border-ash px-2 py-3 last:border-b-0";
         return external ? (
           <a key={r.href} href={r.href} className={cls} target="_blank" rel="noopener noreferrer">
             {inner}

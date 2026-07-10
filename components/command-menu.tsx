@@ -149,7 +149,7 @@ export function CommandMenu() {
   return (
     <div
       onClick={closeMenu}
-      className="fixed inset-0 z-50 flex items-start justify-center bg-vellum/90 px-4 pt-[16vh]"
+      className="surface-backdrop-in fixed inset-0 z-50 flex items-start justify-center bg-vellum/90 px-4 pt-[16vh]"
     >
       <div
         ref={panelRef}
@@ -158,7 +158,7 @@ export function CommandMenu() {
         aria-labelledby={titleId}
         onKeyDown={onPanelKeyDown}
         onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-[520px] overflow-hidden rounded-xl border border-rule-dark bg-paper"
+        className="surface-panel-in w-full max-w-[520px] overflow-hidden rounded-xl border border-rule-dark bg-paper"
       >
         <h2 id={titleId} className="sr-only">
           Command menu
@@ -180,7 +180,7 @@ export function CommandMenu() {
             type="button"
             aria-label="Close"
             onClick={closeMenu}
-            className="grid h-11 w-11 shrink-0 place-items-center rounded-md text-sage transition-colors hover:bg-bone hover:text-ink"
+            className="pressable grid h-11 w-11 shrink-0 place-items-center rounded-md text-sage hover:bg-bone hover:text-ink"
           >
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" className="h-4 w-4">
               <path d="M6 6l12 12M18 6L6 18" />
@@ -198,7 +198,7 @@ export function CommandMenu() {
                     key={p.href}
                     type="button"
                     onClick={() => go(p.href)}
-                    className="flex min-h-11 w-full items-center gap-2.5 rounded-md px-2.5 py-2.5 text-left text-[14px] text-ink transition-colors hover:bg-bone"
+                    className="pressable flex min-h-11 w-full items-center gap-2.5 rounded-md px-2.5 py-2.5 text-left text-[14px] text-ink hover:bg-bone"
                   >
                     <span className="text-lichen">{PageIcon}</span>
                     {p.label}

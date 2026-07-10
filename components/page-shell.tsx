@@ -8,10 +8,10 @@ import Link from "next/link";
  */
 export function PageShell({ children }: { children: ReactNode }) {
   return (
-    <main id="main" className="mx-auto max-w-[640px] px-6 pb-24 pt-16">
+    <main id="main" className="mx-auto max-w-[560px] px-6 pb-24 pt-12 sm:pt-16">
       <Link
         href="/"
-        className="-ml-2 inline-flex min-h-11 items-center gap-1.5 rounded-md px-2 text-[13px] text-lichen transition-colors hover:bg-bone hover:text-ink"
+        className="pressable -ml-2 inline-flex min-h-11 items-center gap-1.5 rounded-md px-2 text-[13px] text-lichen hover:bg-bone hover:text-ink"
       >
         <svg
           viewBox="0 0 16 16"

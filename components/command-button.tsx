@@ -11,7 +11,7 @@ export function CommandButton({ className = "" }: { className?: string }) {
       aria-label="Open command menu (⌘K)"
       title="Command menu (⌘K)"
       onClick={() => window.dispatchEvent(new Event("open-command-menu"))}
-      className={`inline-flex h-8 items-center gap-1.5 rounded-md px-2 text-[13px] text-lichen transition-colors hover:bg-bone hover:text-ink ${className}`}
+      className={`pressable inline-flex min-h-11 items-center gap-1.5 rounded-md px-2.5 text-[13px] text-lichen hover:bg-bone hover:text-ink ${className}`}
     >
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true" className="h-[18px] w-[18px]">
         <path d="M9 6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3z" strokeLinecap="round" strokeLinejoin="round" />

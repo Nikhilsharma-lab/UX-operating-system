@@ -29,7 +29,7 @@ export default function OperatingManualIndex() {
           <Link
             key={entry.slug}
             href={`/operating-manual/${entry.slug}`}
-            className="group -mx-2 block border-b border-ash px-2 py-4 transition-colors last:border-b-0 hover:bg-bone"
+            className="interactive-row group -mx-2 block border-b border-ash px-2 py-4 last:border-b-0"
           >
             <div className="grid gap-x-5 gap-y-2 sm:grid-cols-[64px_1fr]">
               <span className="font-geometric-mono text-[12px] tabular-nums text-sage sm:pt-0.5">
@@ -40,7 +40,7 @@ export default function OperatingManualIndex() {
                   <h2 className="flex-1 text-[16px] font-medium leading-snug text-ink">
                     {entry.title}
                   </h2>
-                  <Arrow className="mt-1 shrink-0 text-sage transition-colors group-hover:text-lichen" />
+                  <Arrow className="interactive-arrow mt-1 shrink-0 text-sage" />
                 </div>
                 <div className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1 text-[12px] text-sage">
                   <span>{entry.category}</span>

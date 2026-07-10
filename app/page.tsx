@@ -165,11 +165,11 @@ const writing = [
 function Pill({ label, href }: { label: string; href: string }) {
   const internal = href.startsWith("/");
   const cls =
-    "inline-flex items-center gap-1.5 rounded-full border border-ash bg-paper px-2.5 py-1 text-[13px] font-medium text-lichen transition-colors hover:border-rule-dark hover:text-ink";
+    "pressable inline-flex min-h-10 items-center gap-1.5 rounded-full border border-ash bg-paper px-3 py-1.5 text-[13px] font-medium text-lichen hover:border-rule-dark hover:text-ink";
   const inner = (
     <>
       {label}
-      <Arrow className="h-3 w-3 text-sage" />
+      <Arrow className="interactive-arrow h-3 w-3 text-sage" />
     </>
   );
   return internal ? (
@@ -181,13 +181,13 @@ function Pill({ label, href }: { label: string; href: string }) {
 
 function ProjectRow({ p }: { p: (typeof featured)[number] }) {
   return (
-    <Link href={p.href} className="group block border-b border-ash py-4">
+    <Link href={p.href} className="interactive-row group -mx-2 block border-b border-ash px-2 py-4">
       <div className="flex items-start gap-3">
         <div className="min-w-0 flex-1">
           <span className="text-[15px] font-medium text-ink group-hover:underline group-hover:underline-offset-2">{p.title}</span>
           <p className="mt-1.5 max-w-[58ch] text-[13.5px] leading-[1.55] text-lichen">{p.desc}</p>
         </div>
-        <Arrow className="mt-1 shrink-0 text-sage transition-colors group-hover:text-lichen" />
+        <Arrow className="interactive-arrow mt-1 shrink-0 text-sage" />
       </div>
       <p className="mt-2 text-[12.5px] font-medium text-carbon">{p.outcome}</p>
     </Link>
@@ -243,7 +243,7 @@ export default function HomePage() {
         </div>
         <div className="divide-y divide-ash">
           {readerPath.map((item) => (
-            <Link key={item.title} href={item.href} className="group flex items-start gap-3 py-3 first:pt-0 last:pb-0">
+            <Link key={item.title} href={item.href} className="interactive-row group -mx-2 flex items-start gap-3 px-2 py-3 first:pt-3 last:pb-3">
               <span className="mt-0.5 w-14 shrink-0 font-geometric-mono text-[11px] uppercase tracking-[0.08em] text-sage">
                 {item.label}
               </span>
@@ -253,7 +253,7 @@ export default function HomePage() {
                 </span>
                 <span className="mt-1 block text-[13.5px] leading-[1.5] text-lichen">{item.description}</span>
               </span>
-              <Arrow className="mt-1 shrink-0 text-sage transition-colors group-hover:text-lichen" />
+              <Arrow className="interactive-arrow mt-1 shrink-0 text-sage" />
             </Link>
           ))}
         </div>
@@ -324,14 +324,14 @@ export default function HomePage() {
         </p>
         <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2">
           {outcomes.map((o) => (
-            <Link key={o.label} href={o.href} className="group border-t border-ash pt-4">
+            <Link key={o.label} href={o.href} className="interactive-row group -mx-2 border-t border-ash px-2 py-4">
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <div className="text-[24px] font-medium leading-none tracking-tight tabular-nums text-ink">{o.value}</div>
                   <div className="mt-2 text-[13px] leading-snug text-lichen">{o.label}</div>
                   <div className="mt-2 font-geometric-mono text-[11px] uppercase tracking-[0.08em] text-sage">{o.proof}</div>
                 </div>
-                <Arrow className="mt-1 text-sage transition-colors group-hover:text-lichen" />
+                <Arrow className="interactive-arrow mt-1 text-sage" />
               </div>
             </Link>
           ))}
@@ -362,13 +362,13 @@ export default function HomePage() {
         <div className="mt-5 border-y border-ash">
           {ventures.map((v) => {
             const external = v.href?.startsWith("http");
-            const rowCls = "group -mx-2 block border-b border-ash px-2 py-4 transition-colors last:border-b-0 hover:bg-bone";
+            const rowCls = "interactive-row group -mx-2 block border-b border-ash px-2 py-4 last:border-b-0";
             const inner = (
               <>
                 <div className="flex items-start gap-3">
                   <span className="min-w-0 flex-1 text-[15px] font-medium text-ink">{v.name}</span>
                   {v.href && (
-                    <Arrow className="ml-auto text-sage transition-colors group-hover:text-lichen" />
+                    <Arrow className="interactive-arrow ml-auto text-sage" />
                   )}
                 </div>
                 <p className="mt-1 text-[11px] font-medium uppercase tracking-wider text-sage">{v.proof}</p>
@@ -414,8 +414,8 @@ export default function HomePage() {
             <ProjectRow key={p.title} p={p} />
           ))}
         </div>
-        <Link href="/cases" className="mt-4 inline-flex items-center gap-1 text-[13px] text-lichen underline underline-offset-2 hover:text-ink">
-          All case evidence <Arrow className="h-3 w-3" />
+        <Link href="/cases" className="pressable mt-4 inline-flex min-h-11 items-center gap-1 rounded-md px-1 text-[13px] text-lichen underline underline-offset-2 hover:text-ink">
+          All case evidence <Arrow className="interactive-arrow h-3 w-3" />
         </Link>
       </section>
 
@@ -424,14 +424,14 @@ export default function HomePage() {
         <Label>Writing</Label>
         <div className="mt-4 border-t border-ash">
           {writing.map((w) => (
-            <Link key={w.title} href={w.href} className="group flex items-center justify-between gap-4 border-b border-ash py-3">
+            <Link key={w.title} href={w.href} className="interactive-row group -mx-2 flex min-h-11 items-center justify-between gap-4 border-b border-ash px-2 py-3">
               <span className="text-[15px] text-ink group-hover:underline group-hover:underline-offset-2">{w.title}</span>
               <span className="shrink-0 text-[13px] text-lichen">{w.meta}</span>
             </Link>
           ))}
         </div>
-        <Link href="/operating-manual" className="mt-4 inline-flex items-center gap-1 text-[13px] text-lichen underline underline-offset-2 hover:text-ink">
-          All writing <Arrow className="h-3 w-3" />
+        <Link href="/operating-manual" className="pressable mt-4 inline-flex min-h-11 items-center gap-1 rounded-md px-1 text-[13px] text-lichen underline underline-offset-2 hover:text-ink">
+          All writing <Arrow className="interactive-arrow h-3 w-3" />
         </Link>
       </section>
 

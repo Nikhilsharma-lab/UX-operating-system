@@ -137,7 +137,7 @@ export function UiEvidence({
                 src={image}
                 alt=""
                 onLoad={() => setLoaded(true)}
-                className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 group-hover:scale-[1.015] ${loaded ? "opacity-100" : "opacity-0"}`}
+                className={`subtle-media absolute inset-0 h-full w-full object-cover ${loaded ? "opacity-100" : "opacity-0"}`}
               />
             )}
           </div>
@@ -149,7 +149,7 @@ export function UiEvidence({
           <button
             type="button"
             onClick={openGate}
-            className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-full border border-accent-blue/40 bg-accent-blue/10 px-4 py-2 text-[13px] font-medium text-accent-blue transition-colors hover:bg-accent-blue/[0.16]"
+            className="pressable mt-4 inline-flex min-h-11 items-center gap-2 rounded-full border border-accent-blue/40 bg-accent-blue/10 px-4 py-2 text-[13px] font-medium text-accent-blue hover:bg-accent-blue/[0.16]"
           >
             <Lock className="h-3.5 w-3.5" /> {cta}
           </button>
@@ -159,7 +159,7 @@ export function UiEvidence({
       {open && (
         <div
           onClick={close}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-vellum/90 px-4"
+          className="surface-backdrop-in fixed inset-0 z-50 flex items-center justify-center bg-vellum/90 px-4"
         >
           <form
             ref={panelRef}
@@ -170,7 +170,7 @@ export function UiEvidence({
             onClick={(e) => e.stopPropagation()}
             onKeyDown={onPanelKeyDown}
             onSubmit={unlock}
-            className="w-full max-w-[380px] rounded-xl border border-rule-dark bg-paper p-5"
+            className={`surface-panel-in w-full max-w-[380px] rounded-xl border border-rule-dark bg-paper p-5 ${error ? "error-nudge" : ""}`}
           >
             <div className="flex items-center gap-2 text-ink">
               <Lock />
@@ -194,14 +194,14 @@ export function UiEvidence({
               placeholder="Password"
               aria-invalid={error}
               aria-describedby={error ? errorId : descriptionId}
-              className="mt-3 min-h-11 w-full rounded-md border border-ash bg-bone px-3 py-2 text-[14px] text-ink placeholder:text-lichen focus:border-rule-dark focus:outline-none"
+              className="mt-3 min-h-11 w-full rounded-md border border-ash bg-bone px-3 py-2 text-[14px] text-ink placeholder:text-lichen transition-colors focus:border-rule-dark focus:outline-none"
             />
             {error && <p id={errorId} role="alert" className="mt-2 text-[12.5px] text-accent-blue">Incorrect password. Please try again.</p>}
             <div className="mt-4 flex justify-end gap-2">
-              <button type="button" onClick={close} className="min-h-11 rounded-md px-3 text-[13px] text-lichen transition-colors hover:bg-bone hover:text-ink">
+              <button type="button" onClick={close} className="pressable min-h-11 rounded-md px-3 text-[13px] text-lichen hover:bg-bone hover:text-ink">
                 Cancel
               </button>
-              <button type="submit" disabled={!value.trim()} className="min-h-11 rounded-md bg-accent-blue px-3.5 text-[13px] font-medium text-vellum transition-opacity hover:opacity-90 disabled:pointer-events-none disabled:opacity-40">
+              <button type="submit" disabled={!value.trim()} className="pressable min-h-11 rounded-md bg-accent-blue px-3.5 text-[13px] font-medium text-vellum hover:opacity-90 disabled:pointer-events-none disabled:opacity-40">
                 Open Figma
               </button>
             </div>

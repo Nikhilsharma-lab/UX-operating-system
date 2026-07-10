@@ -32,7 +32,7 @@ export default function CasesIndex() {
             key={c.slug}
             href={caseHref(c.slug)}
             aria-label={`Read case: ${c.title}, ${c.category}${c.program ? `, ${c.program}` : ""}`}
-            className="group -mx-2 flex min-h-24 items-start gap-3 border-b border-ash px-2 py-4 transition-colors last:border-b-0 hover:bg-bone"
+            className="interactive-row group -mx-2 flex min-h-24 items-start gap-3 border-b border-ash px-2 py-4 last:border-b-0"
           >
             <Mono label={c.mono} />
             <div className="min-w-0 flex-1">
@@ -51,7 +51,7 @@ export default function CasesIndex() {
                 {c.program && <span>{c.program}</span>}
               </div>
             </div>
-            <Arrow className="mt-1 shrink-0 text-sage transition-colors group-hover:text-lichen" />
+            <Arrow className="interactive-arrow mt-1 shrink-0 text-sage" />
           </Link>
         ))}
       </div>
