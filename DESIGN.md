@@ -77,7 +77,7 @@ Geist**, plus the rare Newsreader italic.
     tight) + dek (16px `carbon`) + optional two-column meta ledger, all closed
     by a hairline.
   - `Section` — top hairline + `.k-label` + content, `mt-14 pt-8` cadence.
-  - `P` — 15px / 1.7 `carbon`, measure capped ~64ch.
+  - `P` — 16px / 1.72 `carbon`, measure capped ~64ch.
   - `BulletList` — amber 4px dot + 15px `carbon`.
   - `MetricStrip` — borderless numeric proof strip; no card frames around
     metrics.
@@ -95,10 +95,10 @@ dark bg reads lighter, so leading runs generous (1.6–1.7 for body).
 
 ## Layout
 
-- **Reading column** — `PageShell` centers a **640px** column with `px-6` and a
-  touch-safe "back to home" affordance; detail pages render inside it. The
-  homepage (`app/page.tsx`) uses a **560px** column. Index pages use the
-  `.page-shell` container (`--spacing-page-max` 1312px).
+- **Reading column** — `PageShell` and the homepage both center a **560px**
+  column with `px-6` and a touch-safe "back to home" affordance on detail pages.
+  Index pages still use that focused reading column unless a route explicitly
+  needs the wider `.page-shell` container (`--spacing-page-max` 1312px).
 - **Ledgers over cards** — archive pages, repeated decisions, lessons, proofs,
   artifacts, and related reading use hairline-separated rows (`border-y` /
   `border-b`) instead of card grids.
@@ -116,6 +116,9 @@ dark bg reads lighter, so leading runs generous (1.6–1.7 for body).
 
 - In-prose links (`main p a`): `ink`, underlined, 2px offset.
 - Nav / footer / related: `lichen` -> `ink` on hover, 0.16s ease.
+- Repeated clickable rows use the shared `interactive-row` / `interactive-arrow`
+  behavior: a quiet `bone` hover fill, a tiny press acknowledgement, and a
+  2px directional arrow shift. This is the site's main micro-interaction.
 - External links open in a new tab with `rel="noopener noreferrer"`.
 - `:focus-visible`: 2px amber outline, 2px offset (keyboard reachable).
 - `::selection`: amber background, `vellum` text.
@@ -124,9 +127,10 @@ dark bg reads lighter, so leading runs generous (1.6–1.7 for body).
 
 Calm entrance only. `@keyframes rise-in` (opacity + 14px translateY, 0.6s
 `cubic-bezier(0.16,1,0.3,1)`) drives `.hero-enter` (+ `-1/-2/-3` stagger delays)
-on the **homepage** header/lead. Detail pages are static. Every animation has a
-`prefers-reduced-motion: reduce` reset (no motion, content visible). Reveals
-never gate visibility — content is visible by default.
+on the **homepage** header/lead. Dialogs use `.surface-backdrop-in` and
+`.surface-panel-in` for a short, bounded entrance. Detail pages stay otherwise
+static. Every animation has a `prefers-reduced-motion: reduce` reset (no motion,
+content visible). Reveals never gate visibility — content is visible by default.
 
 ## Accessibility
 
